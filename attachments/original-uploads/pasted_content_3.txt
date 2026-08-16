@@ -1,0 +1,158 @@
+Please work ONLY from the current Home page. Do not redesign the page, change the approved photographs, or alter the overall Harbor House Editorial direction.
+
+Make the following specific refinements:
+
+## 1. Header Gold Rule
+
+There is currently a short antique-gold line beneath the Downsize Baltimore header/logo area.
+
+Extend this thin gold rule across the full width of the header/page rather than leaving it approximately one inch long.
+
+Keep it refined and thin.
+
+Keep the existing navigation interaction where a gold underline appears beneath the selected or hovered navigation item. That treatment is working well.
+
+---
+
+## 2. “You Don’t Have to Know the Answer Yet” Section
+
+This section currently takes up too much vertical space and feels disconnected from “Three Ways to Begin.”
+
+Reduce it substantially.
+
+Treat it as a compact transition banner rather than a full content section.
+
+Use this wording:
+
+### You don’t have to know the answer yet. Start here.
+
+Keep it on one strong line if screen size allows.
+
+Use a warm cream background with restrained typography and possibly one fine antique-gold rule or accent.
+
+Do not create a large empty section around this statement.
+
+It should transition almost immediately into the Three Ways to Begin cards.
+
+---
+
+## 3. Three Ways to Begin Cards
+
+Do NOT use navy-filled cards.
+
+Keep the cards light, but give them more visual structure and elegance.
+
+The current cards feel too flat, wide, and plain.
+
+Please refine them with:
+
+* warm cream or warm-white fill
+* complete thin navy border
+* antique-gold top rule or small corner accent
+* very subtle shadow/depth
+* generous but controlled padding
+* slightly narrower proportions if possible
+* minimal corner rounding
+* current gold number/icon treatment
+
+The goal is for these to feel like three beautifully framed choices rather than three white rectangles sitting on the page.
+
+Do not add photographs.
+
+---
+
+## 4. Three Common Questions
+
+Do not place these questions beside Mary’s photograph.
+
+Create a short editorial transition BETWEEN the Three Ways section and the Why Families Choose Mary section.
+
+Use a small introductory phrase such as:
+
+### Questions I hear every day…
+
+Then display these three questions horizontally across the page:
+
+**Should Mom stay in her home?**
+
+**Would downsizing make life easier?**
+
+**Where do we even begin?**
+
+Keep this section visually simple and elegant.
+
+The questions may use larger serif typography with small antique-gold accents or rules.
+
+Do NOT include another Start a Conversation button in this section.
+
+The purpose of this section is simply recognition: the visitor should see one of these questions and think, “That is exactly what I’m wondering.”
+
+Then transition directly into Why Families Choose Mary.
+
+---
+
+## 5. Why Families Choose Mary
+
+Keep the approved Mary photograph and current Why Families Choose Mary treatment.
+
+Do not place the three questions beside Mary’s photograph.
+
+This section should focus solely on Mary, why Downsize Baltimore exists, and how she helps families.
+
+Keep the existing Meet Mary button.
+
+---
+
+## 6. Chart the Course
+
+Keep this section essentially as it is.
+
+The navy, cream, gold, contour details, and overall visual treatment are working well.
+
+---
+
+## 7. Final “You Don’t Need a Perfect Plan” Section
+
+The current layout looks visually incomplete, as though a photograph is missing from the left side.
+
+Do NOT add another photograph.
+
+Instead, redesign this as a complete centered closing invitation.
+
+Use:
+
+* warm cream/paper background
+* centered content
+* thin antique-gold inset frame or editorial border
+* generous but controlled spacing
+* subtle existing compass detail if appropriate
+* gold primary button
+* navy-outline secondary button
+
+It should look intentionally complete without requiring another image.
+
+Preserve the approved wording and calls to action.
+
+---
+
+## 8. Footer Brand Signature
+
+At the bottom, do not combine the two phrases with a comma.
+
+Display them with clear hierarchy:
+
+**A Clear Plan for What Comes Next.**
+
+*Anchored in Baltimore.*
+
+“A Clear Plan for What Comes Next.” should remain the primary statement.
+
+“Anchored in Baltimore.” should be smaller and quieter, almost like a signature beneath it.
+
+Keep the vertical/chunkier Downsize Baltimore logo in the footer and the horizontal logo in the header.
+
+Do not add additional nautical artwork.
+
+---
+
+Overall goal: make the Home page feel more connected, layered, and intentionally designed while preserving its quiet, sophisticated Baltimore character. Avoid adding more content or photography simply to fill space.

@@ -1,0 +1,75 @@
+PASS 1: GLOBAL WEBSITE CONSISTENCY CLEANUP
+Please perform a global consistency cleanup across the entire Downsize Baltimore website.
+IMPORTANT: This is a cleanup pass only. Do not redesign the site, rewrite major sections of copy, replace photographs, change page layouts, or add new content unless specifically instructed below. Preserve the overall look, feel, warmth, and personality already established.
+1. TOP NAVIGATION
+Review the navigation/header on every page and make it identical.
+Use the same page names, order, typography, spacing, and button treatment throughout the site.
+Make sure there are no duplicate calls to action in the navigation. I have noticed that some pages may show more than one version of “Book a Consultation,” “Talk to Mary,” or similar language.
+There should be one primary CTA in the header, consistently presented across the site.
+Use:
+Talk to Mary
+Do not also place “Book a Consultation” beside it in the header.
+2. CTA LANGUAGE
+Review buttons and calls to action throughout the entire site for consistency.
+The site should feel personal and approachable, not corporate or overly sales-oriented.
+Preferred primary CTA:
+Talk to Mary
+Other contextual buttons can remain when they have a specific purpose, such as:
+Explore Downsizing
+Explore Aging in Place
+Join the Downsizers Club
+View Resources
+Download the Guide
+Do not change every button to “Talk to Mary.” The goal is to eliminate unnecessary duplication and make each CTA purposeful.
+3. HEADINGS AND TYPOGRAPHY
+Review every page for heading consistency.
+Make sure:
+Main page titles use the same H1 style.
+Major section headings use the same H2 style.
+Smaller subsection headings are consistent.
+Font sizes and weights do not randomly change from page to page.
+Capitalization style is consistent.
+Body copy has consistent font size, line spacing, and width.
+Preserve the existing fonts and overall typography. This is not a request to select new fonts.
+4. BUTTON DESIGN
+Make button styling consistent throughout the website.
+Check:
+size
+shape
+corner radius
+font
+capitalization
+padding
+hover treatment
+spacing around buttons
+Primary buttons should look like they belong to the same design system across every page.
+Secondary buttons may have a different treatment, but that treatment should also be consistent.
+5. SPACING AND ALIGNMENT
+Review the site for obvious inconsistencies in:
+section spacing
+margins
+text alignment
+image alignment
+button spacing
+excessive blank space
+Tighten areas that feel unintentionally empty, but do not compress the site so much that it loses its relaxed, editorial feel.
+6. FOOTER
+Make the footer consistent across every page.
+Use the same layout, contact information, navigation links, brokerage information, and styling everywhere.
+Do not create different footer versions for different pages.
+7. DO NOT CHANGE IN THIS PASS
+Please do not address the following yet:
+Testimonials or reviews
+Missing downloadable resources
+Meet Mary photo additions
+Pop photographs or Polaroid treatments
+Book/“3 A.M. and Unprepared” additions
+Major color changes
+Anchor versus compass icon changes
+New page sections
+Major copy rewrites
+Photography replacement
+Those will be handled separately.
+FINAL CHECK
+After making these changes, review the website once more from page to page as if you were a visitor navigating the entire site. The goal of this pass is simply to make the existing website feel like one cohesive website rather than individual pages designed at different times.
+Please preserve the existing Downsize Baltimore personality and design direction. Do not redesign anything that is already working well.

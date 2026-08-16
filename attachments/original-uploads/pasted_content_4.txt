@@ -1,0 +1,417 @@
+# BUILD A NEW DOWNSIZING SERVICES PAGE
+
+Create the **Downsizing Services** page for the existing Downsize Baltimore website.
+
+This page must look and feel like a direct continuation of the approved Home page.
+
+Do **not** create a new visual style.
+
+Use the same:
+
+* Harbor House Editorial direction
+* navy, cream, warm white, taupe, and antique-gold palette
+* serif headline typography
+* restrained gold rules and framing
+* subtle nautical references
+* editorial cards
+* generous but intentional white space
+* header and footer treatment
+* horizontal logo in the header
+* vertical/chunkier logo in the footer
+* “A Clear Plan for What Comes Next.”
+* “Anchored in Baltimore.”
+
+The page should feel sophisticated, warm, calm, Baltimore-based, personal, and premium.
+
+Avoid generic senior-services styling.
+
+Avoid heavy emotional language about leaving a lifelong home, “last moves,” “moving lives,” or anything that feels final or sad.
+
+---
+
+# 1. HERO SECTION
+
+Use the **first supplied Downsizing Services photograph** as the main hero image.
+
+Use the same sophisticated hero treatment established on the Home page, including appropriate navy overlay if needed for readability.
+
+### Headline
+
+# Downsizing Doesn’t Have to Be Overwhelming.
+
+### Supporting Copy
+
+The biggest mistake is trying to tackle everything at once.
+
+A successful move starts with understanding **where you’re going, how you want to live, and what you’ll need when you get there.** From there, we can create a clear plan for everything else.
+
+### Primary Button
+
+**Start With a Conversation**
+
+Link to Mary’s Calendly page.
+
+---
+
+# 2. IT ALL STARTS WITH A PLAN
+
+Use a warm cream editorial section.
+
+Do not make this section overly tall.
+
+### Heading
+
+# It All Starts With a Plan.
+
+### Copy
+
+A house full of belongings can make downsizing feel like an impossible place to begin.
+
+So we don’t begin with the house.
+
+We begin with **you.**
+
+Where do you want to live?
+What do you want your days to look like?
+How much space do you really need?
+What do you want to spend your time and money on?
+What needs to be easier than it is today?
+
+Once we know where you’re headed, the decisions about what comes with you become much clearer.
+
+### Visual Callout
+
+Feature this statement prominently but elegantly:
+
+**Destination first. Plan second. Stuff third.**
+
+Use an antique-gold rule, frame, or editorial treatment similar to the Home page.
+
+---
+
+# 3. WHAT ARE YOU MOVING TOWARD?
+
+Use the **second supplied Downsizing Services photograph** in this section.
+
+The photograph should support the feeling of possibility, freedom, simplicity, or a next home.
+
+### Heading
+
+# Downsizing Is About More Than a Smaller House.
+
+### Copy
+
+For many people, the goal isn’t simply less square footage.
+
+It may be making room for:
+
+* Less maintenance
+* More freedom to travel
+* Living closer to family and friends
+* More opportunities for connection and activities
+* A safer, easier home
+* Lower or more predictable expenses
+* One-level living
+* A community that fits the life you want now
+* Simply having less house to take care of
+
+Close this section with:
+
+**The goal is not simply to give something up. It is to decide what you want to make room for.**
+
+### Design Direction
+
+Do not present this as a long boring bullet list.
+
+Use elegant editorial tiles, short statements, or a visually balanced grid consistent with the Home page.
+
+Do not use navy-filled cards for every item.
+
+---
+
+# 4. ONE STEP AT A TIME
+
+### Heading
+
+# One Step at a Time.
+
+### Supporting Line
+
+You don’t have to solve everything today. We put the pieces in the right order.
+
+Create six numbered editorial steps using the visual language established by the “Three Ways to Begin” cards on the Home page.
+
+Use warm cream or warm-white cards, thin navy framing, restrained antique-gold accents, subtle depth, and generous padding.
+
+Do not make them look like tech/SaaS cards.
+
+## 1. Start With the Conversation
+
+We talk about what’s working, what isn’t, your timeline, your concerns, and what you would like life to look like next.
+
+## 2. Explore Where You’re Going
+
+Before deciding what stays or goes, we look at your options.
+
+That might mean a smaller home, condo, villa, 55+ community, senior living community, multigenerational home, or even staying where you are.
+
+We consider location, lifestyle, budget, maintenance, accessibility, proximity to family, healthcare, and the things that matter most to you.
+
+## 3. Build the Plan
+
+Once we understand the destination, we create a realistic timeline.
+
+What needs to happen first?
+What can wait?
+Who needs to be involved?
+
+Instead of one enormous project, we create manageable steps.
+
+## 4. Decide What Comes With You
+
+Now we look at the new space.
+
+What furniture fits?
+What storage is available?
+What do you use and love?
+What will actually serve you in your next home?
+
+We make decisions based on **where you are going**, not simply on what you currently own.
+
+## 5. Handle What’s Left
+
+Some things will go with family. Some may be donated, sold, recycled, digitized, or simply let go.
+
+Mary can connect clients with trusted local professionals who can help with sorting, estate sales, donations, clean-outs, moving, repairs, and other pieces of the transition.
+
+## 6. Prepare, Sell, and Get Settled
+
+If selling the current home is part of the plan, Mary manages the real estate piece from preparation and pricing through settlement.
+
+The goal is not simply to get the house sold. It is to get the client comfortably to the other side of the move.
+
+---
+
+# 5. START SMALL
+
+Create a compact editorial transition section rather than a large full-height section.
+
+### Heading
+
+# You Don’t Have to Tackle the Whole House Today.
+
+### Copy
+
+One of the best ways to reduce overwhelm is to stop thinking about “the whole house.”
+
+Start with one drawer.
+One closet.
+One room.
+
+Start with the easy decisions before tackling the emotional ones.
+
+And whenever possible, wait until you understand your next space before making major decisions about furniture and belongings.
+
+### Small Visual Line
+
+**Keep. Give. Sell. Donate. Digitize. Let Go.**
+
+Use restrained gold accents or rules.
+
+Do not make this look like a clutter-management company page.
+
+---
+
+# 6. THE RIGHT HELP, AT THE RIGHT TIME
+
+Use **one real professional photograph of Mary** in this section.
+
+Do not use another stock image here.
+
+The purpose of Mary’s photograph is to remind the visitor that Mary is personally guiding and coordinating the process.
+
+### Heading
+
+# The Right Help, at the Right Time.
+
+### Copy
+
+Downsizing often involves more than one professional.
+
+Depending on your situation, your plan may include:
+
+* Move managers
+* Professional organizers
+* Estate sale professionals
+* Donation and clean-out services
+* Movers
+* Contractors and repair professionals
+* Occupational therapists
+* Home modification specialists
+* 55+ and senior living resources
+* Elder law and estate professionals
+* Financial professionals
+* Home care and community resources
+
+Close with:
+
+**My job isn’t to hand you a giant vendor list. It is to help identify which help you need, and when you need it.**
+
+### Design Direction
+
+This should feel personal and reassuring.
+
+Use Mary’s photograph with elegant framing similar to the “Why Families Choose Mary” section on the Home page, but do not duplicate that exact layout.
+
+---
+
+# 7. NOT SURE IF IT’S TIME?
+
+Use a contrasting navy or rich warm-neutral section.
+
+### Heading
+
+# Not Sure If It’s Time Yet?
+
+### Copy
+
+You may be wondering whether moving would actually make life better.
+
+That is exactly the right time to start exploring your options.
+
+Create a clean visual group around these questions:
+
+* Is the house requiring more maintenance than you want to manage?
+* Are there rooms you rarely use?
+* Would you like to live closer to family, friends, activities, or healthcare?
+* Are stairs or other features becoming less convenient?
+* Would a different home give you more freedom or simplicity?
+* Could your current home be modified successfully instead?
+
+Close with:
+
+**You do not need to decide today. You just need enough information to make a good decision when the time is right.**
+
+### Primary Button
+
+**Schedule a Conversation**
+
+Link to Calendly.
+
+### Secondary Button
+
+**Explore Aging in Place**
+
+Link to the Aging in Place Resource Center section.
+
+---
+
+# 8. RESOURCE PREVIEW
+
+Create a polished preview of the Downsizing Resource Library.
+
+This should visually connect to the “Chart the Course” section of the Home page.
+
+### Heading
+
+# Want to Dig a Little Deeper?
+
+Feature these future resources:
+
+### Am I Ready to Downsize?
+
+A short self-assessment based on lifestyle, maintenance, space, finances, location, safety, and future needs.
+
+### Your Downsizing Plan
+
+A printable planning worksheet covering where you’re going, budget, timeframe, needs and wants, concerns, and who needs to be involved.
+
+### 10 Ways to Start Tackling the Stuff
+
+A practical guide for reducing clutter without trying to do everything at once.
+
+### Comparing Your Next-Home Options
+
+A guide to smaller homes, condos, villas, 55+ communities, senior living, multigenerational living, and aging in place.
+
+### Aging in Place: Remodel or Move?
+
+Questions to help determine whether the current home can support future needs or whether another home might work better.
+
+### Downsizing Checklist
+
+A printable step-by-step checklist.
+
+### Button
+
+**Visit the Resource Center**
+
+Do not build all of these downloads now unless specifically instructed. For this page, create the visual resource preview and appropriate placeholders/links.
+
+---
+
+# 9. FINAL CALL TO ACTION
+
+Use the same elegant framed-invitation approach established on the Home page.
+
+Do not add another photograph.
+
+### Heading
+
+# One Conversation Can Make the Whole Thing Feel More Manageable.
+
+### Copy
+
+You don’t need to know where you’re moving.
+
+You don’t need to have cleaned out the basement.
+
+And you certainly don’t need to have all the answers.
+
+We can start by talking about what you want life to look like next.
+
+### Primary Button
+
+**Schedule a Conversation**
+
+Link to Calendly.
+
+---
+
+# PHOTOGRAPHY PLAN
+
+Use only three photographs on this page:
+
+1. **Supplied Photo #1** — Hero image
+2. **Supplied Photo #2** — “What Are You Moving Toward?” section
+3. **Real Mary photograph** — “The Right Help, at the Right Time” section
+
+Do not add additional stock photography.
+
+Use typography, editorial cards, warm background shifts, framing, gold rules, and subtle contour/nautical details to create visual interest.
+
+---
+
+# IMPORTANT DESIGN GUARDRAILS
+
+Keep this page visually connected to the approved Home page.
+
+Do not introduce a new template or aesthetic.
+
+Avoid:
+
+* moving-box clichés
+* sad older couples looking at belongings
+* “last home” language
+* “moving lives” language
+* heavy emotional messaging about leaving memories behind
+* overuse of the word “senior”
+* excessive anchors, boats, rope, waves, or coastal décor
+* long uninterrupted white sections
+* generic stock-service layouts
+
+Nautical references should remain subtle and classy.
+
+The finished experience should communicate:
+
+**Clarity. Possibility. A plan. A guide who knows the way.**

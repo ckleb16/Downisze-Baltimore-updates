@@ -1,0 +1,404 @@
+# RESOURCE CENTER
+
+## Mary Lynch | Downsize Baltimore | Cummings & Co. Realtors
+
+## OVERALL PURPOSE
+
+The Resource Center should feel like a **library of answers**, not a collection of downloads and not a directory of vendors.
+
+Visitors often arrive here without knowing exactly what kind of professional or service they need. They may simply be wondering:
+
+* Can I stay in my home?
+* Should I think about downsizing?
+* How do I help my parent?
+* What do I do with a lifetime of belongings?
+* What other housing options are available?
+* I'm responsible for an estate. Where do I begin?
+
+Organize the page around those real-life questions.
+
+The overall feeling should be **helpful, calm, local, educational and easy to navigate**.
+
+This page should be designed to grow over time as additional guides, FAQs, videos, articles and local resources are added.
+
+---
+
+# SECTION 1: HERO
+
+## Resources for Whatever Comes Next
+
+### Supporting Copy
+
+You don't have to figure everything out at once.
+
+Start with the question that's on your mind, and you'll find practical guides, checklists, local resources and trusted information to help you understand your options and decide what comes next.
+
+### HERO PHOTO
+
+Use the exact photograph provided of Mary:
+
+**Blue blouse, blue patterned glasses, seated at the table with laptop, hand under chin.**
+
+This is the designated Resource Center hero image.
+
+Preserve the personality of the photograph. Do not crop it into a traditional headshot. The laptop, glasses and residential setting are intentional.
+
+---
+
+# SECTION 2: START WITH YOUR QUESTION
+
+## What Can I Help You Figure Out?
+
+Create six clean, visually consistent pathways/cards.
+
+These should not feel like corporate service boxes. Think of them as doors into different parts of the Resource Center.
+
+### 1. Can I Stay in My Home?
+
+Resources for evaluating whether your current home can continue to support the way you want to live.
+
+Topics will include:
+
+Home safety
+Aging in place
+Home modifications
+Universal design
+Technology
+Transportation and social connection
+ADUs where appropriate
+Staying versus moving
+
+**Explore Aging in Place Resources →**
+
+---
+
+### 2. I'm Thinking About Downsizing. Where Do I Start?
+
+Practical help for making a plan, dealing with belongings and taking manageable steps before a move becomes urgent.
+
+Topics will include:
+
+Downsizing planning
+Decluttering
+Sorting belongings
+Donation
+Estate sales and consignment
+Move management
+Preparing a home for sale
+Downsizers Club of Baltimore
+
+**Explore Downsizing Resources →**
+
+---
+
+### 3. I'm Helping Someone I Love
+
+Resources for adult children, caregivers and families trying to help without taking over.
+
+Topics will include:
+
+Starting the housing conversation
+Talking with parents
+Talking with adult children
+Caregiver resources
+Planning together
+Recognizing when circumstances are changing
+Local Baltimore-area support
+
+**Explore Family & Caregiver Resources →**
+
+---
+
+### 4. What Are My Housing Options?
+
+Clear explanations of the different ways and places we can live as our needs and priorities change.
+
+Topics will include:
+
+55+ communities
+One-level living and villas
+Condos
+Independent living
+Assisted living
+Life Plan Communities / CCRCs
+Multigenerational living
+Accessory dwelling units
+Accessible housing
+Staying and modifying an existing home
+
+**Explore Housing Options →**
+
+---
+
+### 5. I'm Handling an Estate or Probate. Where Do I Start?
+
+Practical educational resources for families and personal representatives who suddenly find themselves responsible for a home and its contents.
+
+Topics will include:
+
+Maryland probate basics
+Probate timeline
+Common probate questions
+Probate terminology
+Preparing an estate property for sale
+Handling a property from out of state
+Questions to ask when selling an estate property
+
+Mary Lynch holds the **Certified Probate Real Estate Specialist** designation.
+
+Keep all probate content educational. Do not imply that Mary provides legal, tax or financial advice.
+
+**Explore Probate & Estate Resources →**
+
+---
+
+### 6. I Need a Trusted Local Resource
+
+Sometimes the hardest part is simply figuring out who to call.
+
+Mary's work throughout Greater Baltimore has connected her with professionals who help older adults and families with home modifications, move management, estate planning, home care, occupational therapy, financial questions, housing options and many other needs.
+
+Visitors do not need to diagnose which professional they need before reaching out.
+
+### CTA
+
+**Ask Mary for a Trusted Resource →**
+
+This should link to the Contact Mary page.
+
+Do not create a large public vendor directory at this time.
+
+---
+
+# SECTION 3: FEATURED RESOURCES
+
+## A Good Place to Start
+
+Create a flexible card system for featured guides and tools.
+
+The site should launch with room for the following cornerstone resources as they are completed:
+
+### Should I Stay or Should I Go?
+
+**Is your home still working for the life you want to live?**
+
+A thoughtful self-evaluation covering the home itself as well as health, connection, transportation, support, finances, planning and housing options.
+
+**Get the Checklist →**
+
+This resource still needs to be created.
+
+---
+
+### The Forever Home Playbook
+
+**What makes a home work for the years ahead?**
+
+A practical look at the features that can make a home safer, easier and more comfortable over time, whether you stay, renovate or choose something new.
+
+**Get the Playbook →**
+
+Existing content is being updated before publication.
+
+---
+
+### What Do I Do With All This Stuff?
+
+**Because figuring out where to put 40 years of belongings can stop a move before it starts.**
+
+Practical options for sorting, sharing, selling, donating and letting go without trying to tackle everything at once.
+
+**Get the Guide →**
+
+Resource in development.
+
+---
+
+### How Do I Start the Conversation?
+
+For older adults and adult children who know there are things they should probably talk about, but aren't quite sure how to begin.
+
+**Get the Conversation Guide →**
+
+Resource in development.
+
+---
+
+### Maryland Probate: Where Do I Start?
+
+A practical starting point for someone who has inherited responsibility for an estate or property and isn't sure what happens next.
+
+**Explore Probate Resources →**
+
+Resource in development.
+
+---
+
+## RESOURCE ACCESS STRATEGY
+
+Not every resource should require an email address.
+
+Articles, FAQs and local public resources should generally remain openly accessible and searchable.
+
+Larger original tools and downloadable guides may use a very simple form:
+
+**First Name**
+**Email**
+
+Avoid lengthy lead-generation forms.
+
+---
+
+# SECTION 4: DOWNSIZERS CLUB OF BALTIMORE
+
+This should be a visually distinct feature rather than another download card.
+
+## Not Ready to Move? You Can Still Start Getting Ready.
+
+### Downsizers Club of Baltimore
+
+You don't have to be moving next month to start making life easier.
+
+The Downsizers Club of Baltimore is designed for people who are thinking about a move in the next few years and want to prepare a little at a time.
+
+Participants receive practical education, local resources and manageable action steps covering the things that tend to make downsizing feel overwhelming.
+
+Topics can include:
+
+Decluttering and belongings
+Important paperwork
+Home preparation
+Housing options
+Move planning
+Trusted local resources
+What to do now versus later
+
+The Club should feel educational and community-oriented, not like a real estate sales program.
+
+### CTA
+
+**Join the Downsizers Club →**
+
+Build this as an active/enrolling program.
+
+A dedicated Club landing page or signup process can be connected as it is finalized.
+
+---
+
+# SECTION 5: QUESTIONS PEOPLE REALLY ASK
+
+## Have a Question? Chances Are, Someone Else Has Asked It Too.
+
+Create an expandable FAQ/article area that can grow over time.
+
+Initial future questions may include:
+
+**How do I know if it's time to downsize or if I just need to modify my home?**
+
+**What are the real costs of staying in a house that's become too much?**
+
+**How do I talk to my parents about their house without starting a fight?**
+
+**Is it better to move while I'm healthy or wait until I have to?**
+
+**What do I do with all my furniture when I downsize?**
+
+**Nobody wants my china. Now what?**
+
+**What's the difference between an estate sale, consignment and donation?**
+
+**How do I empty an entire house when I live out of state?**
+
+The question should serve as the headline, followed immediately by a concise, useful answer. Additional Baltimore-specific information can follow where appropriate.
+
+These FAQs should be indexable individual website content wherever possible rather than hidden entirely inside PDFs.
+
+---
+
+# SECTION 6: LEARN WITH MARY
+
+## Prefer to Learn Together?
+
+Mary regularly brings education into Greater Baltimore communities through library programs, workshops, community events and the National Aging in Place Council, Greater Baltimore Chapter.
+
+Programs include topics such as:
+
+Aging in place
+Downsizing
+Housing options
+Planning ahead
+Home safety
+Caregiving
+Estate planning education
+Brain health and healthy aging
+Should I Stay or Should I Go?
+
+### CTA
+
+**See Upcoming Classes & Events →**
+
+This area should eventually connect to the site's Events/Classes information.
+
+---
+
+# SECTION 7: FINAL CTA
+
+## Still Not Sure Where to Start?
+
+That's okay. You don't need to know which resource, professional or housing option you need before reaching out.
+
+Sometimes the best first step is simply a conversation.
+
+### Primary CTA
+
+**Schedule a 30-Minute Conversation With Mary →**
+
+Link to Mary's Calendly.
+
+### Secondary CTA
+
+**Contact Mary →**
+
+Link to Contact page.
+
+---
+
+# DISCLAIMER
+
+Place discreetly near the bottom of the Resource Center and on individual resources where appropriate:
+
+**These resources are shared for education and convenience. For legal, financial or medical questions, please consult the appropriate professional. I'm happy to help connect you with trusted specialists when needed.**
+
+---
+
+# DESIGN DIRECTION
+
+The Resource Center should feel like an **inviting library**, not a downloads warehouse.
+
+Use the same warm, sophisticated Downsize Baltimore design language established throughout the website.
+
+Prioritize:
+
+* Questions over professional terminology
+* Generous white space
+* Easy scanning
+* Simple icons or subtle visual cues
+* Warm residential imagery where additional imagery is eventually needed
+* Clear hierarchy
+* Mobile usability
+* Room for the Resource Center to expand substantially over time
+
+Avoid:
+
+* Stock photos of distressed older adults
+* Fear-based imagery or copy
+* Large vendor directories
+* Walls of PDF links
+* Too many competing CTAs
+* Heavy email gating
+* Overuse of Mary's credentials
+* Making the page feel like a real estate lead funnel
+
+The page should communicate:
+
+**You don't need to know all the answers. You just need a good place to start.**

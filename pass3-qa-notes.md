@@ -1,0 +1,3 @@
+# Pass 3 QA Notes
+
+The Home page mobile hero remains intact and now carries the subtle Anchor marker in the first editorial label. The Aging in Place hero still keeps Mary visible and the hero text legible. Downsizing Services retains the approved destination-first hero and mobile CTA, while the new Downsizers Club link is placed lower in the resource area. Buying & Selling and Meet Mary preserve their original hero photographs and responsive crops. The Meet Mary hero retains the cream sofa, white blouse, blue patterned skirt, and navy folder. Full-page review is still needed for the deeper AIP Pop section, Home credentials/testimonial reserve, and closing sections.

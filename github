@@ -1,0 +1,6 @@
+git init
+git add .
+git commit -m "Initial Downsize Baltimore website export"
+git branch -M main
+git remote add origin https://github.com/ckleb16/Downsize-Baltimore.git
+git push -u origin main

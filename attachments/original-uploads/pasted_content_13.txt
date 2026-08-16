@@ -1,0 +1,70 @@
+Please perform one final must-fix consistency pass only before this website is moved into Pastel.
+Do not redesign the site, rewrite major copy, replace photographs, or add new sections.
+1. FIX CTA INCONSISTENCIES
+The site currently uses several versions of essentially the same action:
+Talk to Mary
+Schedule a Conversation
+Schedule a 30-Minute Conversation With Mary
+Contact Mary
+Let's Talk About Your Plan
+Start With a Conversation
+Keep contextual language where it supports the page, but eliminate duplicate actions that sit beside each other.
+Header CTA: use Talk to Mary consistently on every interior-page header.
+Primary booking CTA within page content: use Schedule a Conversation.
+When a page already has Schedule a Conversation, do not place Contact Mary immediately beside it unless the two buttons have clearly different functions.
+Specifically remove redundant paired CTAs such as Schedule a Conversation + Contact Mary where both are simply routes to Mary.
+2. STANDARDIZE THE FOOTER
+Use one identical footer navigation on every page:
+Home | Downsizing Services | Aging in Place | Buying & Selling | Resource Center | Meet Mary | Contact
+Some current footers are missing Buying & Selling and/or Contact. Fix this globally.
+Keep the same contact information, brokerage information, logo treatment, tagline, and Schedule a Conversation CTA in every footer.
+3. REMOVE UNFINISHED PUBLIC PLACEHOLDERS
+Do not display public-facing text such as:
+Social links coming soon
+If social links are not ready, simply omit that section until the links are available.
+Likewise, do not show fake testimonial text or unfinished download links as though they are active.
+Preserve the designed spaces, but keep incomplete items hidden or clearly inactive during development.
+4. HOMEPAGE TESTIMONIAL SPACE
+Keep the Kind Words From People I've Helped section that has been created.
+Do not invent quotes.
+We will provide actual Google/Zillow/client testimonials separately.
+5. AGING IN PLACE CTA CLEANUP
+The Aging in Place page currently uses both Talk to Mary in the header and Let's Talk About Your Plan in the page content.
+Keep Talk to Mary as the header CTA.
+Change the main page booking button to:
+Schedule a Conversation
+Keep Read Mary's Story as the link into Meet Mary.
+6. RESOURCE CENTER FINAL CTA
+Where the Resource Center currently uses both:
+Schedule a 30-Minute Conversation With Mary
+and
+Contact Mary
+simplify to one primary booking CTA:
+Schedule a Conversation
+The Contact page remains available in the site navigation for people who prefer email/phone.
+7. DOWNSIZING PAGE
+Preserve the current copy and layout.
+Keep the Learn About the Downsizers Club pathway.
+Do not create program details, dates or downloadable materials that have not yet been supplied.
+8. MEET MARY
+Preserve the current Meet Mary copy structure.
+Do not add generic stock photos.
+Keep space for the final approved personal photography, including:
+Mary hero in white blouse/blue patterned skirt
+childhood Mary + Pop boat photo with the site's only Polaroid treatment
+adult Mary + Pop photo
+book cover / 3 A.M. and Unprepared section
+selected family/Baltimore/Frenchie images
+Do not invent or replace these with placeholders.
+9. FINAL GLOBAL CHECK
+Review every page for:
+duplicate CTAs
+missing nav links
+inconsistent footer links
+inconsistent header CTA wording
+unfinished “coming soon” text
+broken or inactive buttons presented as active
+obvious spelling/capitalization inconsistencies
+stretched or distorted photographs
+This is the last Manus cleanup pass before Pastel.
+Preserve the existing website design and content. Make only the corrections above.

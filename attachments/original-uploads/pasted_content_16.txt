@@ -1,0 +1,513 @@
+# FINAL ADDENDUM TO PREVIOUS MANUS INSTRUCTIONS
+
+Please treat this as an **addendum to the comprehensive instructions already submitted**, not a replacement.
+
+Please complete the previously submitted work and incorporate the clarifications and missing items below.
+
+**Important:** Do not broadly redesign, rewrite, recolor or restructure pages that are already working. A separate detailed visual, accessibility, copy and mobile review is being completed outside Manus.
+
+The goal of this pass is to make sure the site is **structurally complete, functional and ready for developer handoff.**
+
+---
+
+# 1. GLOBAL NAVIGATION
+
+Please make sure the primary navigation is consistent across the entire website:
+
+* Home
+* Downsizing Services
+* Aging in Place
+* Buying & Selling
+* Resource Center
+* Meet Mary
+* Contact
+
+Do not omit Buying & Selling or Meet Mary from navigation on any version of the site.
+
+### Header CTA
+
+Use consistently:
+
+**Talk to Mary**
+
+### Page-level consultation CTA
+
+Use consistently where a consultation is being offered:
+
+**Schedule a Conversation**
+
+These two phrases are intentionally different.
+
+Do not change them to variations such as:
+
+* Contact Mary
+* Start a Conversation
+* Schedule a 30-Minute Conversation With Mary
+
+unless that exact language is intentionally part of existing body copy rather than the primary CTA.
+
+---
+
+# 2. FOOTER
+
+Please preserve the approved footer positioning:
+
+**A Clear Plan for What Comes Next.**
+**Anchored in Baltimore.**
+
+Include the appropriate site navigation and brokerage/contact information.
+
+The footer should remain clean and should not become another large content section.
+
+---
+
+# 3. HOMEPAGE
+
+The homepage has **Three Ways to Begin**:
+
+### I'm Thinking About Downsizing
+
+Link to the existing **Downsizing Services** page.
+
+### I'm Buying or Selling
+
+Link to the existing **Buying & Selling** page.
+
+### I'm Trying to Stay in My Home
+
+Link to the existing **Aging in Place** page.
+
+These are the three primary pathways through the website. Do not create additional pages for them.
+
+### Chart the Course
+
+The **Chart the Course** CTA at the bottom should lead to the existing **Resource Center**.
+
+The six Resource Center categories shown there should correspond with the organization of the Resource Center.
+
+No additional homepage content is needed as part of this pass.
+
+---
+
+# 4. DOWNSIZING SERVICES
+
+Preserve the existing positioning:
+
+**Downsizing Doesn't Have to Be Overwhelming**
+
+and:
+
+**Destination First. Plan Second. Stuff Third.**
+
+The **One Step at a Time** process contains eight steps:
+
+1. Start With a Conversation
+2. Explore Where You're Going
+3. Build the Plan
+4. Decide What Comes With You
+5. Handle What's Left
+6. Prepare
+7. Sell
+8. Get Settled
+
+These are informational steps, not eight additional pages.
+
+If supporting descriptions already exist, they may reveal on hover on desktop and tap/expand on mobile.
+
+Do not invent unnecessary additional copy merely to create an interaction.
+
+Relevant resource links on this page should lead into the appropriate existing Resource Center content rather than creating duplicate pages.
+
+---
+
+# 5. AGING IN PLACE
+
+Preserve the existing **Can Your Home Continue to Work for You?** section.
+
+The six areas are:
+
+* Entry & Mobility
+* Bathroom Safety
+* Main-Level Living
+* Kitchen & Daily Function
+* Maintenance
+* Technology
+
+These are informational elements, not six new pages.
+
+Where additional descriptions exist, they may reveal on hover on desktop and tap/expand on mobile.
+
+### Explore Home Safety Resources
+
+This should lead into the appropriate **Aging in Place resources within the Resource Center**.
+
+### Staying vs. Moving
+
+Preserve the existing comparison:
+
+**Stay in Your Current Home**
+
+and
+
+**Move to a Home That Better Supports You**
+
+These are informational comparison areas. They do not need to become separate page links.
+
+### Accessory Dwelling Units
+
+Any ADU resource CTA should lead to the **ADU & Multigenerational Living resources** within the Resource Center.
+
+### Should I Stay or Should I Go?
+
+Use the interactive assessment described in the previous Manus instructions.
+
+Avoid duplicating a second full explanation of the assessment elsewhere on this page. Introduce it and lead visitors into the assessment rather than repeating the tool.
+
+### See Upcoming Programs
+
+Link this directly to the **Upcoming Classes & Events** area of the Resource Center.
+
+### Trusted Local Resources / Greater Baltimore Aging in Place Resources
+
+The site should position Mary as a connector to trusted Greater Baltimore resources.
+
+Do not unnecessarily send visitors away from Downsize Baltimore when the information can be presented or accessed within the site's Resource Center.
+
+External links may be used when genuinely needed, but the primary user journey should remain within Downsize Baltimore.
+
+---
+
+# 6. BUYING & SELLING
+
+Keep Buying and Selling together on the existing page.
+
+At the top of the page:
+
+### Explore Buying
+
+Smooth-scroll/jump to:
+
+**Find the Home That Fits the Life You Want Now**
+
+### Explore Selling
+
+Smooth-scroll/jump to:
+
+**Sell the Home, Protect the Life Around You**
+
+Do not create separate Buying and Selling pages.
+
+The existing buying categories can remain informational:
+
+* Right-Sizing
+* 55+ Communities & Condominiums
+* One-Level & Accessible Living
+* Multigenerational Homes
+* ADUs
+
+Selling should provide enough information to demonstrate that selling at this stage of life can require a different plan, but it does not need to become another separate page.
+
+Consultation CTAs should use:
+
+**Schedule a Conversation**
+
+---
+
+# 7. RESOURCE CENTER
+
+This should remain one growing Resource Center rather than becoming a collection of unnecessary individual pages.
+
+## Six Doors
+
+The six primary doors are:
+
+* Can I Stay in My Home?
+* I'm Thinking About Downsizing
+* I'm Helping Someone I Love
+* What Are My Housing Options?
+* Handling Probate
+* I Need a Trusted Local Resource
+
+These should function as intuitive **filters or jump navigation** into relevant Resource Center content.
+
+Do not create six separate pages.
+
+## Practical Tools for the Road Ahead
+
+The existing resources include:
+
+* Should I Stay or Should I Go?
+* The Forever Home Playbook
+* What Do I Do With All This Stuff?
+* How Do I Start the Conversation?
+* Maryland Probate: Where Do I Start?
+* Not Ready to Move? You Can Still Start Getting Ready
+* Join the Downsizers Club
+
+### Should I Stay or Should I Go?
+
+Use the interactive assessment specified in the previous instructions.
+
+### Forever Home Playbook
+
+This is a downloadable/resource tool and will be updated separately.
+
+### What Do I Do With All This Stuff?
+
+Treat as a resource/download rather than creating a large additional website page.
+
+### How Do I Start the Conversation?
+
+Treat as a resource/download.
+
+### Maryland Probate: Where Do I Start?
+
+Treat as a Downsize Baltimore resource. Do **not** create separate "Maryland Probate Realtor" branding or a separate branded business identity.
+
+### Not Ready to Move? You Can Still Start Getting Ready
+
+Keep this as useful Resource Center content. Do not unnecessarily expand it into another major site section.
+
+### Downsizers Club
+
+The Downsizers Club is an active/enrolling offering, not a generic "coming soon" placeholder. Its CTA should lead to the appropriate information/enrollment pathway.
+
+---
+
+# 8. RESOURCE CENTER FAQ
+
+Under:
+
+**Chances Are Someone Else Asked It Too**
+
+Use an accordion/tap-to-expand treatment.
+
+Visitors should be able to open and close answers on the same page.
+
+Do not create separate pages for individual questions.
+
+---
+
+# 9. UPCOMING CLASSES & EVENTS
+
+Under:
+
+**Prefer to Learn Together?**
+
+Upcoming Classes & Events should be presented in a format that is **easy to update as programs change**.
+
+Do not make the primary event system dependent on a static PDF calendar.
+
+Any **See Upcoming Programs** CTA elsewhere on the website should jump/link directly to this area.
+
+---
+
+# 10. CONTACT PAGE
+
+Please preserve the warm, low-pressure nature of this page.
+
+The page should make it immediately clear that visitors **do not need to have everything figured out before contacting Mary.**
+
+Include the existing positioning around:
+
+**Sometimes it's just easier to pick up the phone. You're always welcome to reach out directly.**
+
+### Contact information
+
+**Mary Lynch**
+Downsize Baltimore
+Cummings & Co. Realtors
+
+**Direct:** (410) 375-1400
+
+Please preserve the appropriate current email already being used on the site.
+
+### Contact Page Bullet Points
+
+The page should make clear that someone may reach out if they are:
+
+* Thinking about downsizing but don't know where to begin
+* Trying to determine whether their current home can continue to work for them
+* Exploring a move to a home that better supports the way they want to live
+* Helping a parent or someone they love make housing decisions
+* Buying or selling and looking for a plan rather than simply a transaction
+* Looking for a trusted local resource and aren't sure who to call
+
+Keep these concise, conversational and easy to scan.
+
+Do not turn each bullet into a separate page.
+
+### Contact CTA
+
+Use:
+
+**Talk to Mary**
+
+or the existing contact form/phone action as appropriate.
+
+The page should feel like an invitation to start a conversation, not a sales funnel.
+
+---
+
+# 11. MEET MARY
+
+Preserve the existing approved Meet Mary page structure, photography, personal story and positioning.
+
+Do not rewrite or substantially restructure this page during this pass.
+
+The purpose of this page is to establish Mary's experience, her reason for doing this work and the difference between simply completing a real estate transaction and helping a family navigate a larger life decision.
+
+Preserve the existing Pop story/video treatment.
+
+Do not add another testimonial/story video or a placeholder for an additional client video.
+
+---
+
+# 12. CLIENT REVIEWS / SOCIAL PROOF
+
+Instead of another testimonial video, create a tasteful scrolling review/testimonial treatment using hand-selected excerpts from actual client reviews.
+
+The final review excerpts will be selected during the next editing stage.
+
+For now, the structure should support:
+
+★★★★★
+Short review excerpt
+First name + last initial where appropriate
+
+Requirements:
+
+* Slow, subtle movement
+* Easy to read
+* Pause on hover where appropriate
+* Mobile-friendly behavior
+* Accessible
+* No distracting rapid animation
+* Do not require visitors to leave the website to read the featured excerpts
+* Do not display an unverified total review count
+
+Do not pair Mary's years of experience with a review count.
+
+---
+
+# 13. 404 PAGE
+
+Please complete the custom 404 page specified in the previous instructions:
+
+**Well, this wasn't part of the plan.**
+
+Looks like you got a little off course. Let's get you back to familiar territory.
+
+CTA:
+
+**Take Me Home**
+
+Keep it simple and on-brand.
+
+---
+
+# 14. INTERACTIVE SHOULD I STAY OR SHOULD I GO? ASSESSMENT
+
+Please complete the 10-question interactive assessment and three-result framework exactly as described in the previous instructions.
+
+This tool should consider the **whole picture**, not merely physical home safety, including:
+
+* Accessibility
+* Home maintenance and deferred maintenance
+* Transportation
+* Health and nutrition
+* Movement and exercise
+* Social connection
+* Support systems
+* Financial sustainability
+* Future flexibility
+* Personal desire and quality of life
+
+Do not reduce this to a simple physical safety checklist.
+
+Do not require visitors to provide contact information before receiving their results.
+
+---
+
+# 15. LANGUAGE
+
+Throughout the site, use **older adults** rather than **seniors** when referring generally to people.
+
+Established category names such as **55+ communities** may remain where they accurately describe that housing category.
+
+Avoid fear-based aging language.
+
+The overall voice should remain warm, practical and empowering.
+
+---
+
+# 16. FINAL LINK AND FUNCTIONALITY AUDIT
+
+Before handoff, test the entire website.
+
+Please check:
+
+* Every navigation item
+* Every CTA
+* Every button
+* Every clickable card
+* Every download/resource button
+* Every anchor/jump link
+* Every contact action
+* Every accordion
+* Every interactive assessment function
+* Desktop hover behavior
+* Mobile/touch behavior
+* 404 functionality
+
+There should be no dead buttons, fake links, unfinished destinations or elements that appear clickable but do nothing.
+
+If a resource is not yet populated with its final downloadable content, the site should not mislead the visitor into believing a finished resource exists.
+
+---
+
+# 17. DO NOT REDESIGN DURING THIS PASS
+
+Please preserve the current:
+
+* Overall page structure
+* Approved copy
+* Photography
+* Color direction
+* CTA strategy
+* Navigation hierarchy
+* Icons
+* General layout
+
+Only make changes required to complete the functionality and clarifications above and in the immediately preceding instructions.
+
+A separate Pastel review contains detailed visual, spacing, contrast, readability, mobile and copy refinements.
+
+Those **should not be guessed at or recreated during this pass.**
+
+---
+
+# 18. FINAL DEVELOPER HANDOFF
+
+After these items and the previously submitted instructions are complete, this should be treated as the final Manus structural build.
+
+Please provide everything needed for another developer to take ownership of the website without rebuilding it, including:
+
+* Complete current source/code
+* All assets
+* Functional components
+* Page structure
+* Configuration information
+* Deployment/hosting information
+* Any environment requirements
+* Instructions necessary to maintain, edit and expand the website independently
+
+The website must remain fully editable and expandable after handoff.
+
+## Final Goal
+
+We are **not trying to add more content or more pages**.
+
+We are finishing the foundation so that the existing Downsize Baltimore website is complete, functional, easy to navigate, mobile-capable and ready for ongoing development.
+
+Please incorporate this addendum together with the comprehensive instructions immediately preceding it, without discarding work already completed.

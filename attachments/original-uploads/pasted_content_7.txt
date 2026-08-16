@@ -1,0 +1,128 @@
+# CONTACT MARY
+
+## Overall Direction
+
+This page should feel **warm, calm, personal and easy**. It should not feel like a traditional real estate lead-generation page.
+
+The primary goal is to encourage visitors to schedule a conversation with Mary through Calendly. The secondary option is a simple contact form or direct phone/email contact.
+
+Keep the page uncluttered with plenty of breathing room.
+
+---
+
+## SECTION 1: HERO
+
+### Headline
+
+# Let's Talk About What Comes Next
+
+### Copy
+
+You don't need to have all the answers before you reach out.
+
+Whether you're considering a move, helping someone you love, wondering if your current home still works for you, or simply trying to understand your options, let's start with a conversation.
+
+### Primary CTA
+
+**Schedule a 30-Minute Conversation With Mary**
+
+Link this button directly to Mary's Calendly 30-minute appointment.
+
+Under the button in smaller type:
+
+**No pressure. No obligation. Just a place to start.**
+
+### Hero Photo
+
+Use the full-body photograph of Mary seated in the black cane chair, wearing the tan sweater and white pants.
+
+Keep enough of the chair and residential setting visible to preserve the relaxed, conversational feeling of the photograph. Do not crop this into a traditional headshot.
+
+The photo and copy can sit side by side on desktop and stack naturally on mobile.
+
+---
+
+## SECTION 2: WHAT CAN WE TALK ABOUT?
+
+Keep this visually simple. Do not create large service boxes or make this another Services page.
+
+### What can we talk about?
+
+**Downsizing & Moving**
+**Buying & Selling**
+**Aging in Place**
+**Helping a Parent or Loved One**
+**Exploring Housing Options**
+**Speaking & Education**
+
+These can be displayed as a clean row, small cards, or simple text elements consistent with the rest of the website.
+
+---
+
+## SECTION 3: CONTACT FORM
+
+### Rather send me a note?
+
+That's perfectly fine, too. Tell me a little about what's on your mind and I'll be in touch.
+
+**Fields:**
+
+Name
+Email
+Phone
+
+**What brings you here?**
+
+Dropdown options:
+
+* I'm considering downsizing or moving
+* I'm buying or selling a home
+* I'm exploring aging in place
+* I'm helping a parent or loved one
+* I'm exploring housing options
+* I'm looking for a trusted resource
+* I'm interested in speaking or educational programs
+* I'm interested in NAIPC or community collaboration
+* Something else
+
+**Tell me a little about what's on your mind.**
+
+Optional open-text field.
+
+### Submit Button
+
+**Send Mary a Note**
+
+---
+
+## SECTION 4: DIRECT CONTACT
+
+### Prefer to call or email?
+
+Sometimes it's just easier to pick up the phone. You're always welcome to reach out directly.
+
+**Mary Lynch**
+Phone: [Mary's phone number]
+Email: [Mary's email address]
+
+Include social media icons discreetly below the contact information.
+
+Include required Cummings & Co. Realtors branding, brokerage information and disclosures in the appropriate footer area rather than making them the focus of this section.
+
+---
+
+## DESIGN NOTES
+
+The page should feel like Mary is **inviting someone into a conversation**, not asking them to become a real estate lead.
+
+Do not add testimonials, credentials, downloadable resources, property-search tools, lengthy service descriptions or additional calls to action.
+
+Do not add multiple photographs of Mary. The seated tan-sweater photograph should be the primary and only significant image on this page.
+
+The Calendly appointment is the primary conversion action and should appear before the contact form.
+
+Keep the existing Downsize Baltimore visual language established on the homepage: warm, sophisticated, uncluttered, approachable and consistent with the "A Clear Plan for What Comes Next" brand.
+
+The visitor should leave this page feeling:
+
+**I don't have to know exactly what I need yet. I can just talk to Mary.**

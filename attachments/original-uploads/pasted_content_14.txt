@@ -1,0 +1,292 @@
+# Final Build & Functionality Pass
+
+We are preparing to hand this website off to another developer for final visual, copy, accessibility and mobile refinements. Please complete the following structural and functionality items **without unnecessarily redesigning or rewriting the existing site.**
+
+Please preserve the current overall design, pages, copy and structure unless specifically instructed below.
+
+## 1. Custom 404 Page
+
+Please create a simple, on-brand 404 page.
+
+**Headline:**
+**Well, this wasn’t part of the plan.**
+
+**Supporting copy:**
+Looks like you got a little off course. Let’s get you back to familiar territory.
+
+**Button:**
+**Take Me Home**
+
+Keep this page clean and warm. It can incorporate the site's subtle path/navigation visual language, but it does not need a photograph or extensive content.
+
+---
+
+## 2. “Should I Stay or Should I Go?” Interactive Self-Evaluation
+
+Please turn the existing **Should I Stay or Should I Go?** resource into a short interactive self-evaluation on the website.
+
+This is **not** intended to tell someone whether they should move. It is designed to help visitors identify what is working well, what may require planning, and what deserves a closer look.
+
+### Intro
+
+**Should I Stay or Should I Go?**
+
+**A quick check-in on how well your home and your life still fit.**
+
+Your home is only one part of the picture.
+
+These questions are designed to help you look at your home, your health, your finances, your connections and your everyday life. There are no right or wrong answers, and this isn't a test that tells you whether you should move.
+
+It's simply a way to see what's working well, what may need some planning, and what deserves a closer look.
+
+### Response choices for Questions 1–9
+
+* **Yes, this works well for me**
+* **Mostly, but I should plan ahead**
+* **No, this is becoming difficult**
+
+### Questions
+
+**1. Can your home physically support you now and later?**
+I can comfortably enter and move throughout my home, use the bathroom safely, manage the stairs, and access the spaces I need. If my mobility changed, my home could reasonably be modified to support me.
+
+**2. Is taking care of your home still manageable?**
+Repairs, cleaning, yardwork, seasonal maintenance and everyday responsibilities feel manageable. I'm not ignoring significant repairs or depending heavily on others just to keep up with the house.
+
+**3. Can you get where you need and want to go?**
+I can comfortably get to groceries, medical appointments, friends, activities and the places that matter to me. I also have realistic transportation options if driving becomes difficult, especially at night.
+
+**4. Does where you live support your health?**
+I can easily access healthcare, nutritious food and the services I need. My daily environment makes it reasonably easy for me to eat well and take care of myself.
+
+**5. Does your everyday life help you stay active?**
+I have realistic opportunities to walk, exercise, maintain strength and keep moving in ways I enjoy.
+
+**6. Are you as connected as you'd like to be?**
+I regularly see or talk with people I care about and have access to friends, family, neighbors, activities or a community that keeps me engaged. My home doesn't leave me feeling isolated.
+
+**7. Do you have support if something changes?**
+If I became sick, stopped driving, needed help around the house or required some assistance with daily life, I know who I could call and what resources are available. My plan doesn't depend entirely on one person.
+
+**8. Does staying here still make financial sense for the life you want?**
+I understand what my home truly costs me, including taxes, insurance, utilities, maintenance and upcoming repairs. I'm comfortable with those costs and with the money I may need to spend to make the home work for me in the future.
+
+**9. Would your home still work after an unexpected change?**
+If my health, mobility, finances or support system changed, I believe I would have enough options and time to make thoughtful decisions rather than being forced into a crisis move.
+
+### Question 10: The Big Question
+
+Please visually distinguish this final question from the others.
+
+**If you were choosing today, would you choose this home again?**
+
+Knowing what you know today, if you were choosing a home for the next 5 to 10 years of your life, would you choose this one?
+
+Possible answers:
+
+* **Absolutely**
+* **I'm not sure**
+* **Probably not**
+
+### Results
+
+Please do **not** create a simplistic numerical “stay” or “move” score.
+
+Instead, use the responses to show the visitor where the major areas of their life fall:
+
+**Working Well**
+**Worth Planning For**
+**Needs a Closer Look**
+
+Then provide an appropriate overall result using one of these three messages:
+
+### Working Well
+
+**Your home and your life seem to be working well together.**
+
+That doesn't mean you shouldn't plan. In fact, planning while things are going well gives you the most choices. Your answers can help you identify a few things worth preparing for now so you can continue living the way you want.
+
+### Worth Planning For
+
+**Your home may still be a good fit, but a few things deserve some attention.**
+
+You may not need a different home. You may need a plan. Home modifications, transportation, maintenance help, community resources or other support could make a meaningful difference.
+
+### Time to Explore
+
+**It may be worth exploring what else is possible.**
+
+That doesn't mean you need to move. It means several parts of your current situation may be requiring more from you than you'd like. Understanding your options now can help you make decisions on your terms rather than waiting until circumstances make them for you.
+
+### Closing for Every Result
+
+**Sometimes staying means changing the house. Sometimes it means changing houses. Either way, it starts with a plan.**
+
+CTA:
+
+**Talk Through My Results**
+
+Link this CTA to Mary's existing 30-minute conversation/appointment option.
+
+Visitors should **not be required to provide contact information before receiving their results.**
+
+If technically appropriate, an optional **Email Me My Results** function may be offered *after* the results are displayed, but it should not gate the assessment.
+
+---
+
+## 3. Resource Center: Six Doors
+
+The six Resource Center “doors” should **not create six additional pages.**
+
+They are:
+
+* Can I Stay in My Home?
+* I'm Thinking About Downsizing
+* I'm Helping Someone I Love
+* What Are My Housing Options?
+* Handling Probate
+* I Need a Trusted Local Resource
+
+Please make these function as intuitive **filters or jump navigation within the Resource Center**, directing visitors toward the resources most relevant to that topic.
+
+The goal is to make the Resource Center easier to navigate without creating unnecessary pages.
+
+---
+
+## 4. Resource Center FAQs
+
+The section **“Chances Are Someone Else Asked It Too”** should use an **accordion/tap-to-expand format**.
+
+Visitors should be able to click or tap a question and reveal the answer on the same page.
+
+Do not create separate pages for individual FAQ questions.
+
+---
+
+## 5. Upcoming Programs
+
+Any CTA elsewhere on the site such as **See Upcoming Programs**, **Upcoming Classes & Events**, or similar language should lead directly to the **Upcoming Classes & Events** area of the Resource Center.
+
+A separate Events page is not necessary at this time.
+
+---
+
+## 6. Downsizing: “One Step at a Time”
+
+The eight steps on the Downsizing Services page are **informational elements, not links to eight additional pages.**
+
+If expanded explanatory copy already exists for these items, use a simple interaction that works appropriately by device:
+
+* Desktop: hover/reveal if appropriate
+* Mobile/tablet: tap/expand
+
+Do not create additional pages for these eight steps.
+
+---
+
+## 7. Aging in Place: Six Home Considerations
+
+The six areas under **Can Your Home Continue to Work for You?** are also informational rather than separate page links:
+
+* Entry & Mobility
+* Bathroom Safety
+* Main-Level Living
+* Kitchen & Daily Function
+* Maintenance
+* Technology
+
+If expanded information already exists, it can be revealed on desktop and tapped/expanded on mobile.
+
+Do not create six additional pages.
+
+The two larger comparison areas, **Stay in Your Current Home** and **Move to a Home That Better Supports You**, should remain informational rather than functioning as links to additional pages.
+
+---
+
+## 8. Buying & Selling Page
+
+Please keep Buying and Selling together on the existing page.
+
+At the top:
+
+**Explore Buying** → smooth-scroll/jump to **Find the Home That Fits the Life You Want Now**
+
+**Explore Selling** → smooth-scroll/jump to **Sell the Home, Protect the Life Around You**
+
+Do **not** create separate Buying and Selling pages.
+
+The existing buying categories such as right-sizing, 55+ communities/condominiums, one-level and accessible living, multigenerational homes and ADUs can remain informational rather than becoming additional pages.
+
+Existing consultation/appointment CTAs should continue leading to Mary's 30-minute conversation option.
+
+---
+
+## 9. Testimonials / Reviews
+
+Do **not** add another testimonial video or video placeholder. Pop's existing video is enough video storytelling for the site.
+
+Instead, create a clean **scrolling testimonial/review strip** using short, hand-selected excerpts from Mary's existing five-star client reviews.
+
+The actual review excerpts will be supplied/refined during the final website editing stage, so placeholders are acceptable for now.
+
+Design/functionality:
+
+* Five stars with each review
+* Short excerpts rather than complete long reviews
+* Reviewer first name and last initial when available
+* Slow, subtle horizontal movement on desktop
+* Pause on hover if appropriate
+* Mobile-friendly swipe or gentle rotation
+* Accessible and readable
+* Do not make the animation distracting
+* Do not link visitors away from the website to Zillow, Google or another review platform
+
+The purpose is social proof while keeping visitors on the Downsize Baltimore website.
+
+---
+
+## 10. Final Sitewide Link & Functionality Audit
+
+Please review the entire website before final handoff.
+
+Every visible button, CTA, clickable card and navigation element should have an intentional destination.
+
+Please identify and correct:
+
+* Dead links
+* Placeholder buttons
+* Buttons with no destination
+* Cards that appear clickable but have no intended behavior
+* Incorrect page destinations
+* Broken anchor/jump links
+* Any desktop interactions that do not have an appropriate mobile/touch equivalent
+
+Please do **not** create additional pages simply because an informational card appears on the site. When uncertain, favor keeping the visitor on the existing page.
+
+---
+
+## 11. Developer Handoff
+
+This is intended to be the final structural build in Manus.
+
+Please prepare the completed website so another developer can take over ongoing maintenance, visual refinements and future expansion without rebuilding the site.
+
+Please ensure the handoff includes everything reasonably necessary to continue development, including:
+
+* Complete current source/code
+* All site assets
+* Current page structure
+* Functional components
+* Any configuration/environment information required
+* Deployment/hosting information or instructions
+* Any information needed to maintain and expand the site independently
+
+The website should remain fully editable and expandable after the handoff.
+
+## Important Final Note
+
+Please **do not undertake a broad visual redesign or rewrite of the existing website during this pass.**
+
+The site is currently undergoing a separate detailed visual/copy/accessibility review in Pastel. Those refinements will be handled after this structural build is complete.
+
+This pass is specifically intended to finish the **architecture, functionality, interactions and developer-ready foundation** described above.

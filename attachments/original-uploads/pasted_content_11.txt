@@ -1,0 +1,81 @@
+PASS 2: VISUAL BRANDING & DESIGN POLISH
+Now that the global consistency cleanup is complete, please make a careful visual branding pass across the Downsize Baltimore website.
+IMPORTANT: Do not redesign the website. Do not rewrite the copy, change photographs, change page structure, or undo the consistency work completed in Pass 1. This pass is about refinement, not reinvention.
+1. ANCHOR MOTIF
+The anchor should be the primary subtle visual motif for Downsize Baltimore.
+The anchor represents stability, guidance, home, Baltimore and Maryland's connection to the water, and Mary's philosophy of helping people feel grounded while deciding what comes next.
+Review the decorative icons currently used throughout the website.
+Where a compass is being used simply as decoration, consider replacing it with a tasteful, simple anchor.
+Do NOT replace every icon with an anchor. Functional icons should still visually represent their subject.
+The anchor should feel like a recurring brand detail, not a nautical theme park.
+Use it sparingly in places such as:
+section dividers
+small decorative accents
+occasional callout areas
+footer details
+Avoid oversized anchors, ropes, ship wheels, waves, or other literal nautical imagery.
+2. COLOR BALANCE
+Refine the existing color usage without changing the established palette.
+The site should primarily feel:
+warm + sophisticated + approachable + Baltimore
+Keep the existing navy/blue family as an important grounding color.
+Use warm cream, soft neutral and restrained warm accents to keep the website welcoming.
+Please review areas where the tan/beige tones have become too dominant or muddy. Introduce more clean cream/white breathing room and navy where appropriate.
+Do not make the site overly blue, overly beige, or overly feminine.
+Avoid introducing additional colors that are not already part of the established visual direction.
+3. VISUAL RHYTHM
+Review the entire site for visual rhythm.
+We want a thoughtful mix of:
+photography
+copy
+white/cream space
+occasional colored backgrounds
+small branded details
+Avoid having too many consecutive sections with the same background color or identical layout.
+At the same time, do not create visual variety just for the sake of variety. The website should feel calm and intentional.
+4. DECORATIVE ELEMENTS
+Keep decorative graphics understated.
+Downsize Baltimore should not feel like a generic senior-services website.
+Avoid:
+excessive stock-style illustrations
+cliché aging imagery
+excessive leaves/florals
+random decorative icons
+excessive nautical imagery
+overly corporate graphic elements
+Mary's photography and the stories should remain the personality of the website.
+5. IMAGE PRESENTATION
+Do not replace any existing photographs during this pass.
+Review how existing photographs are displayed and make sure:
+faces are not awkwardly cropped
+images are not stretched or distorted
+aspect ratios are preserved
+mobile crops remain sensible
+important portions of photographs remain visible
+Some images may intentionally have different proportions. Do not force every photograph into the same shape.
+6. KEEP THE BRAND HUMAN
+The finished website should feel like someone is meeting Mary Lynch, not interacting with a large company.
+Preserve the personal, editorial quality already established.
+Professional does not need to mean corporate.
+Warm does not need to mean sentimental.
+Aging does not need to look old.
+Downsizing does not need to look sad.
+DO NOT CHANGE IN THIS PASS
+Please do not:
+rewrite website copy
+add testimonials yet
+build unfinished downloads
+change the Meet Mary content
+add missing Meet Mary photographs
+redesign the Pop story
+add the “3 A.M. and Unprepared” book content yet
+alter the Downsizers Club content
+create new pages
+change navigation structure
+replace existing photography
+FINAL CHECK
+When finished, review the website desktop and mobile.
+Ask:
+Does this feel like one distinctive Downsize Baltimore brand?
+It should feel warm, grounded, knowledgeable, local and personal, with enough polish to reflect Mary's decades of real estate experience without losing the humanity that makes Downsize Baltimore different.
+Preserve what is already working. Make restrained improvements only.

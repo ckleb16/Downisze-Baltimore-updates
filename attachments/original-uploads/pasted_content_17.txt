@@ -1,0 +1,363 @@
+# FINAL FUNCTIONAL REPAIR PASS
+
+Please treat this as a **repair and functionality pass only**.
+
+Do not broadly redesign, rewrite, recolor, resize, or restyle the website. Visual refinement, spacing, contrast, typography, mobile polishing, and copy cleanup will be handled separately after handoff.
+
+The goal here is to correct the links, destinations, interactive behavior, missing functionality, and broken items identified during a full live-site walkthrough.
+
+---
+
+# 1. HOMEPAGE: THREE WAYS TO BEGIN
+
+The three primary homepage pathway cards are currently linking incorrectly.
+
+Please correct them as follows:
+
+### I’m Thinking About Downsizing
+
+**Explore Downsizing** → open the existing **Downsizing Services** page.
+
+### I’m Buying or Selling
+
+**Explore Buying & Selling** → open the existing **Buying & Selling** page.
+
+### I’m Trying to Stay in My Home
+
+**Explore Aging in Place** → open the existing **Aging in Place** page.
+
+These should not scroll to another section on the homepage.
+
+---
+
+# 2. HOMEPAGE: CHART THE COURSE
+
+The six cards under **Chart the Course** are currently routing incorrectly.
+
+Each card should function as a direct pathway to the most relevant Resource Center content.
+
+### Aging in Place
+
+→ Resource Center → **Can I Stay in My Home?**
+
+### Downsizing & Moving
+
+→ Resource Center → **I’m Thinking About Downsizing**
+
+### 55+ / Housing Options
+
+→ Resource Center → **What Are My Housing Options?**
+
+### Buying & Selling
+
+→ Buying & Selling resources or the existing Buying & Selling page, whichever is the most logical current destination.
+
+### ADUs & Multigenerational Living
+
+→ Resource Center → relevant **ADU & Multigenerational Living** content.
+
+### Probate & Estate Resources
+
+→ Resource Center → **Handling Probate**
+
+The separate **Visit the Resource Center** button should continue to lead to the main/top Resource Center.
+
+Please create or use the necessary anchor links, filters, or section IDs so users land at the relevant destination rather than simply at the top or bottom of a page.
+
+---
+
+# 3. DOWNSIZING PAGE: RESOURCE CARDS
+
+Under **Want to Dig a Little Deeper?**, six cards currently appear to be actionable resources but are not clickable.
+
+Please review these cards.
+
+If a corresponding resource currently exists, connect the card directly to it.
+
+If a resource is not yet completed, do **not** create a fake destination, empty page, or placeholder download simply to make the card clickable.
+
+Incomplete resources may remain visually inactive or be temporarily hidden until the finished content is available.
+
+The general **Visit the Resource Center** button should lead to the main Resource Center.
+
+---
+
+# 4. AGING IN PLACE: DEEP-LINK RESOURCE BUTTONS
+
+Several Aging in Place CTAs currently lead only to the general Resource Center rather than the specific content requested.
+
+Please correct:
+
+### Explore Home Safety Resources
+
+→ appropriate Aging in Place / Home Safety Resource Center section.
+
+### Explore ADU Resources
+
+→ appropriate ADU & Multigenerational Living Resource Center section.
+
+### See Upcoming Programs
+
+→ directly to **Upcoming Classes & Events** in the Resource Center.
+
+### Take the Self-Evaluation
+
+→ directly to the interactive **Should I Stay or Should I Go?** assessment.
+
+Do not send these buttons merely to the top of the Resource Center.
+
+---
+
+# 5. AGING IN PLACE: TRUSTED LOCAL RESOURCES
+
+In the **Connected to the Right People Matters** section, replace the current CTA:
+
+**Learn About the Greater Baltimore Chapter**
+
+with:
+
+**Get Connected to Trusted Local Resources**
+
+This should link directly to the Resource Center pathway:
+
+**I Need a Trusted Local Resource**
+
+The purpose is to help visitors connect with appropriate local professionals through the Downsize Baltimore resource network rather than sending them to an unrelated location or simply to the bottom of the current page.
+
+---
+
+# 6. BUYING & SELLING: VERIFY PAGE JUMPS
+
+Please verify:
+
+### Explore Buying
+
+→ smooth-scroll/jump to the existing Buying section.
+
+### Explore Selling
+
+→ smooth-scroll/jump to the existing Selling section.
+
+No new Buying or Selling pages are needed.
+
+---
+
+# 7. BUYING & SELLING: MISSING / GRAY PLACEHOLDER
+
+There appears to be a blank or gray rectangular placeholder in the **Real Estate is the Transaction / The Plan is the Bigger Picture** section.
+
+Please determine whether this is:
+
+* a missing image,
+* a failed asset,
+* an unintended placeholder,
+* or an empty component.
+
+Either restore the intended asset or remove the placeholder cleanly.
+
+Do not leave a blank/gray box visible on the published site.
+
+---
+
+# 8. SCHEDULE A CONVERSATION / CALENDLY
+
+The **Schedule a Conversation** buttons currently lead to a Calendly page that returns an error.
+
+Please verify the actual booking URL and correct it.
+
+Then test **every Schedule a Conversation / Talk to Mary booking CTA sitewide** from the published/live website.
+
+The live site should not contain any booking CTA that leads to an error page.
+
+---
+
+# 9. RESOURCE CENTER: SHOULD I STAY OR SHOULD I GO?
+
+Under **Practical Tools for the Road Ahead**, the **Should I Stay or Should I Go?** resource currently links incorrectly.
+
+It should link directly to the interactive self-evaluation itself.
+
+It should not simply return visitors to the general Aging in Place page.
+
+---
+
+# 10. RESOURCE CENTER: SPECIFIC RESOURCE DESTINATIONS
+
+Please audit the Resource Center and the entire website for CTAs that reference a specific resource or topic.
+
+General rule:
+
+If a visitor clicks a button for a **specific resource**, they should land at that resource or its specific section.
+
+They should not be sent generically to:
+
+* the top of the Resource Center,
+* the bottom of another page,
+* an unrelated page,
+* or a generic section when a more specific destination exists.
+
+Use anchor links, filters, or section IDs where appropriate.
+
+---
+
+# 11. RESOURCE CENTER: IN-DEVELOPMENT ITEMS
+
+The Resource Center currently includes several items labeled **In Development / More to Come**.
+
+Please do not create fake pages, empty downloads, or broken links for these.
+
+If they remain visible, they should clearly appear inactive and should not mislead visitors into believing the resource is available now.
+
+No new resource content needs to be invented in this pass.
+
+---
+
+# 12. DOWNSIZERS CLUB
+
+The Downsizers Club is an active/enrolling offering.
+
+Please make sure **Ask About Enrollment** has an intentional working destination.
+
+It may lead to an appropriate inquiry/contact action, but it should not be a dead button or generic link with no clear next step.
+
+---
+
+# 13. CLASSES & EVENTS
+
+Please make sure any sitewide CTA referring to:
+
+* Upcoming Programs
+* Classes & Events
+* Upcoming Classes
+* Learn With Mary
+
+routes to the appropriate **Upcoming Classes & Events** area of the Resource Center.
+
+These should not simply open the top of the Resource Center.
+
+---
+
+# 14. FAQ FUNCTIONALITY
+
+Please verify that the **Chances Are Someone Else Asked It Too** FAQ accordion works correctly.
+
+Each question should expand/collapse reliably on the published site.
+
+Please verify this on desktop and mobile/touch.
+
+---
+
+# 15. INTERACTIVE SELF-EVALUATION
+
+Please verify the complete **Should I Stay or Should I Go?** interactive assessment from beginning to end.
+
+Test:
+
+* Questions 1 through 10
+* All response choices
+* Progression between questions
+* Result calculation/logic
+* Final result display
+* Final CTA
+* Mobile behavior
+* Desktop behavior
+
+Visitors should be able to complete the entire assessment without errors.
+
+---
+
+# 16. 404 PAGE
+
+Please verify that the custom 404 page is live and working correctly on the published site.
+
+It should use:
+
+**Well, this wasn’t part of the plan.**
+
+and provide a working **Take Me Home** button back to the homepage.
+
+---
+
+# 17. PUBLISHED HERO VERIFICATION
+
+The homepage hero previously rendered differently in the Manus workspace versus the live site.
+
+Please verify the actual published URL at common laptop and desktop sizes.
+
+The live homepage must display the full headline:
+
+**A Clear Plan for What Comes Next.**
+
+The headline should not be clipped by the navigation or hero container.
+
+This is a functionality/rendering verification only. Do not perform a broad hero redesign.
+
+---
+
+# 18. SITEWIDE CLICK AUDIT
+
+Please conduct a final click-through of the **published website**, not only the Manus workspace preview.
+
+Check every:
+
+* navigation item
+* button
+* CTA
+* card that appears clickable
+* resource link
+* jump/anchor link
+* contact action
+* booking action
+* FAQ accordion
+* assessment interaction
+* event link
+* Downsizers Club link
+
+There should be no:
+
+* dead buttons
+* buttons that scroll to unrelated sections
+* generic links where a specific destination is promised
+* broken external links
+* empty placeholder actions
+* clickable cards that do nothing
+* desktop-only interactions with no mobile/touch behavior
+
+---
+
+# 19. DO NOT REDESIGN DURING THIS PASS
+
+Please do not address the following during this repair pass unless required to fix a true functional problem:
+
+* spacing
+* contrast
+* font size
+* cream/gold color accessibility
+* hero text composition
+* duplicate CTA styling
+* bullet versus numbered presentation
+* Resource Center visual redesign
+* guide cover graphics
+* page-length reduction
+* typography refinements
+* mobile aesthetic refinements
+
+Those items will be handled separately after developer handoff.
+
+---
+
+# 20. FINAL HANDOFF
+
+After these repairs are completed, please ensure the website is ready for independent developer maintenance and expansion.
+
+Please preserve access to:
+
+* complete source/code
+* all assets
+* functional components
+* configuration
+* deployment information
+* any environment requirements
+* anything needed for another developer to continue working on the site without rebuilding it
+
+Please confirm that the **published site itself** has been tested after all repairs are complete.

@@ -1,0 +1,361 @@
+# DOWNSIZE BALTIMORE
+
+## FINAL HOME PAGE BUILD SHEET
+
+### Overall Brand Direction
+
+The Home page should feel:
+
+* Sophisticated
+* Warm
+* Calm
+* Local to Baltimore
+* Approachable
+* Experienced, but not corporate
+* Senior-informed without looking like a “senior services” website
+
+Primary brand colors are navy, cream/white, and gold.
+
+Use nautical references **sparingly**. The anchor logo already establishes the theme. “Chart the Course” is an intentional subtle nod to the brand, not the beginning of a nautical theme throughout every section.
+
+---
+
+# 1. HEADER / NAVIGATION
+
+### Logo
+
+Use the **horizontal/wide Downsize Baltimore logo** in the main website header.
+
+Make the logo noticeably larger than it appeared in the original Manus design.
+
+The logo should have enough white space around it to feel prominent and intentional.
+
+Use this same header treatment consistently throughout the website.
+
+### Navigation
+
+Recommended navigation:
+
+* Downsizing Services
+* Buying & Selling
+* Resource Center
+* Meet Mary
+* Newsletter
+* Contact
+
+### Header Call-to-Action Button
+
+**Schedule a Conversation**
+
+Link directly to Mary's Calendly scheduling page.
+
+---
+
+# 2. HERO SECTION
+
+### Hero Photograph
+
+Use the finalized blue home/front-entry photograph featuring:
+
+* Navy blue exterior
+* Warm evening light
+* Front walkway
+* Landscaping
+* Welcoming front entrance
+* Neighborhood visible in the background
+
+This image is intended to communicate home, possibility, movement forward, and “what comes next.”
+
+Do not substitute a senior-focused or moving-box image.
+
+The image should be displayed as a strong wide hero image.
+
+Apply a subtle overlay only if needed to make the text highly readable.
+
+### Hero Headline
+
+# A Clear Plan for What Comes Next.
+
+### Supporting Copy
+
+Downsizing, staying put, or figuring out what the next home might look like can feel overwhelming. You don’t have to have all the answers before you begin.
+
+I help Baltimore-area families understand their options, make a plan, and move forward with confidence.
+
+### Primary Button
+
+**Start the Conversation**
+
+Link to Mary's Calendly page.
+
+---
+
+# 3. THREE WAYS TO BEGIN
+
+This section should be visually clean and easy to scan.
+
+Use three cards or columns with simple icons.
+
+**Do not use stock photographs in this section.**
+
+### Section Heading
+
+# You Don’t Have to Know the Answer Yet.
+
+Sometimes the first step is simply understanding what your choices are.
+
+---
+
+### CARD 1
+
+## I’m Thinking About Downsizing
+
+Whether you’re ready now or just beginning to wonder what life with less house might look like, we can create a plan that works on your timeline.
+
+**Button:** Explore Downsizing
+
+Link to Downsizing Services page.
+
+---
+
+### CARD 2
+
+## I’m Buying or Selling
+
+Real estate decisions later in life often involve more than bedrooms, bathrooms, and price. I’ll help you look at the whole picture.
+
+**Button:** Buying & Selling
+
+Link to Buying & Selling page.
+
+---
+
+### CARD 3
+
+## I’m Trying to Stay in My Home
+
+Moving isn’t always the answer. Sometimes the right plan is making your current home safer, easier, and better suited to the years ahead.
+
+**Button:** Explore Aging in Place
+
+Link to the Aging in Place section of the Resource Center.
+
+---
+
+# 4. WHY FAMILIES CHOOSE MARY
+
+### Photograph
+
+Use the professional photograph of Mary:
+
+**Tan sweater, white pants, seated on the cream sofa.**
+
+This is the selected Home page Mary image.
+
+Do not substitute another Mary photograph without discussion.
+
+The image should feel natural and conversational rather than like a formal headshot.
+
+### Section Heading
+
+# Why Families Choose Mary
+
+### Copy
+
+For nearly three decades, I’ve helped Baltimore families buy and sell homes.
+
+But somewhere along the way, my work became about much more than real estate.
+
+Families began coming to me with bigger questions.
+
+*Should Mom stay in her home?*
+*Would downsizing make life easier?*
+*What type of community should we be looking at?*
+*Who can help us with everything in the house?*
+*Where do we even start?*
+
+Those conversations are why I created **Downsize Baltimore.**
+
+My role is not to convince you to move.
+
+It is to help you understand your options, connect you with the right resources, and create a clear plan for whatever comes next.
+
+### Button
+
+**Meet Mary**
+
+Link to Meet Mary page.
+
+---
+
+# 5. RESOURCE CENTER FEATURE
+
+No stock photographs are needed in this section.
+
+Use typography, simple line icons, cards, and the navy/cream/gold palette.
+
+### Section Heading
+
+# Chart the Course
+
+### Introductory Copy
+
+There isn’t one right answer when it comes to housing, aging, and what comes next.
+
+That’s why I’ve built a collection of practical resources to help you understand your options before you need them.
+
+---
+
+### RESOURCE 1
+
+## Aging in Place
+
+Ideas and resources for making home safer and more comfortable.
+
+---
+
+### RESOURCE 2
+
+## Downsizing & Moving
+
+Where to begin, what to keep, and how to make the process manageable.
+
+---
+
+### RESOURCE 3
+
+## 55+ & Senior Living
+
+Understanding communities, housing options, and what might fit your lifestyle.
+
+---
+
+### RESOURCE 4
+
+## Buying & Selling
+
+Real estate guidance for moves that often involve more than real estate.
+
+---
+
+### RESOURCE 5
+
+## ADUs & Multigenerational Living
+
+Creative housing solutions that can keep families connected while maintaining independence.
+
+---
+
+### RESOURCE 6
+
+## Probate & Estate Resources
+
+Guidance and trusted professionals when a home is part of a larger family transition.
+
+### Main Button
+
+**Visit the Resource Center**
+
+Link to Resource Center page.
+
+---
+
+# 6. FINAL CALL TO ACTION
+
+Use a strong navy background or another visually distinct treatment so this feels like the natural conclusion of the page.
+
+### Heading
+
+# You Don’t Need a Perfect Plan. You Just Need a Place to Start.
+
+### Copy
+
+Whether you’re thinking about a move next month, next year, or simply wondering what your options might be, let’s talk.
+
+No pressure. No predetermined answer.
+
+Just a conversation about what matters to you and what comes next.
+
+### Primary Button
+
+**Schedule a Conversation**
+
+Link directly to Mary's Calendly page.
+
+### Secondary Button
+
+**Contact Mary**
+
+Link to Contact page.
+
+Do **not** add another Meet Mary button here.
+
+The goal at this point is action, not additional biography.
+
+---
+
+# 7. FOOTER
+
+Use the **compact Downsize Baltimore anchor/house logo** in the footer.
+
+Include:
+
+* Downsizing Services
+* Buying & Selling
+* Resource Center
+* Meet Mary
+* Newsletter
+* Contact
+
+Also include:
+
+* Phone
+* Email
+* Schedule a Conversation button
+* Brokerage information and any legally required real estate disclosures
+* Copyright information
+
+The footer should use the navy background and feel visually connected to the rest of the brand.
+
+---
+
+# HOME PAGE PHOTOGRAPHY PLAN
+
+The Home page requires only **two major photographs**:
+
+### 1. Hero Photograph
+
+Final blue-home/front-entry image.
+
+### 2. Mary Photograph
+
+Tan sweater, white pants, seated on cream sofa.
+
+No additional stock photography is necessary unless the completed page later appears visually unbalanced.
+
+The page should rely on strong typography, generous spacing, cards, icons, and brand colors rather than filling every section with images.
+
+---
+
+# DESIGN NOTES
+
+* Avoid an overly “senior” visual identity.
+* Avoid generic stock photographs of smiling older couples, moving boxes, caregivers, or people looking through photo albums.
+* Keep generous white space.
+* Use large, readable type.
+* Buttons should be highly visible and consistent throughout.
+* Navy should create depth and authority.
+* Cream/white should keep the site warm and open.
+* Gold should be used as an accent rather than dominating the page.
+* Avoid clutter.
+* Avoid excessive credentials on the Home page.
+* Do not overuse nautical language or graphics.
+* The website should feel polished but personal.
+
+---
+
+# HOME PAGE STATUS
+
+**APPROVED FOR BUILD**
+
+The Home page structure, hero image, Mary image, primary messaging, section order, resource categories, buttons, logo usage, and call-to-action strategy are finalized.

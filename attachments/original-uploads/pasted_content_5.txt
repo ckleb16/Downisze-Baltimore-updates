@@ -1,0 +1,375 @@
+# Aging in Place Page Direction for Manus
+
+## Overall feel
+
+This page should feel warm, thoughtful, educational, and reassuring.
+
+It should **not** feel like a real estate sales page.
+
+The message is that aging in place is about planning early, understanding the whole picture, and making thoughtful decisions about whether the current home can continue to support someone well.
+
+The page should establish Mary as a trusted aging and housing resource first, and a real estate professional second.
+
+---
+
+## HERO SECTION
+
+### Headline
+
+**Age in Place by Design, Not by Default.**
+
+### Supporting copy
+
+Wanting to stay in your home and being set up to stay in your home are two very different things.
+
+Aging in place successfully means looking beyond where you live today and thinking about how your home, health, mobility, finances, support system, and community may need to work for you in the years ahead.
+
+### Hero photo
+
+Use:
+
+**Mary_Lynch©MariaOrtiz2025-86**
+
+This is the photo of Mary in the blue blouse and black pants, seated beside the round table.
+
+Use this as the primary hero image.
+
+It feels calm, credible, approachable, and advisory rather than sales focused. There is also enough open space around Mary to create a clean website composition.
+
+### CTA
+
+**Let’s Talk About Your Plan**
+
+Secondary option:
+
+**Explore Your Options**
+
+---
+
+## SECTION 2: THE GAP BETWEEN WANTING TO STAY AND BEING READY TO STAY
+
+Use two simple statistics visually rather than a long paragraph.
+
+**75%**
+of adults age 50+ say they want to remain in their current homes as they age.
+
+**Less than 4%**
+of U.S. homes have three basic accessibility features: a no-step entrance, single-floor living, and doors and hallways wide enough to accommodate a wheelchair.
+
+Source the statistics discreetly to AARP and the Harvard Joint Center for Housing Studies.
+
+Do not use a Baltimore-specific percentage unless we later locate a reliable source.
+
+Baltimore can be referenced conversationally as a community with many older, multi-level homes and rowhomes that may present additional challenges for aging in place.
+
+---
+
+## SECTION 3: WHY THIS WORK MATTERS TO MARY
+
+### Suggested headline
+
+**For Me, This Is Personal.**
+
+Mary's interest in aging in place began while helping care for her grandfather.
+
+He had lived in his home for decades, but the house itself eventually became part of the challenge. Laundry was in the basement. Bedrooms and bathrooms were upstairs. Steps were required at the entrances.
+
+That experience made Mary realize how often families begin thinking about housing only after circumstances have changed.
+
+Today Mary is the **Founder and Chair of the National Aging in Place Council, Greater Baltimore Chapter**, bringing together professionals across housing, healthcare, finance, home care, wellness, and other aging-related services.
+
+She also leads educational programs throughout Greater Baltimore, including **Should I Stay or Should I Go?**, designed to help older adults and families understand their options before a crisis makes the decision for them.
+
+Keep the grandfather story concise here. The fuller personal story and authorship can live on Meet Mary.
+
+---
+
+## SECTION 4: START WITH THE HOME
+
+### Headline
+
+**Can Your Home Continue to Work for You?**
+
+Use clean icons or short visual blocks rather than long copy.
+
+Topics:
+
+**Entry & Mobility**
+Steps, thresholds, handrails, no-step entry, wider doorways
+
+**Bathroom Safety**
+Curbless showers, properly installed grab bars, non-slip surfaces, lighting
+
+**Main-Level Living**
+Bedroom, full bath, laundry, and daily living needs accessible without stairs
+
+**Kitchen & Daily Function**
+Storage, lighting, appliances, controls, and ease of use
+
+**Maintenance**
+Yard work, exterior upkeep, repairs, and the ongoing demands of the property
+
+**Technology**
+Smart lighting, medical alerts, voice technology, remote monitoring, and other AgeTech solutions
+
+Keep this overview short. More detailed home safety information should link to the Resource Center.
+
+---
+
+## SECTION 5: PHOTO AND HUMAN STORY
+
+### Photo
+
+Use either:
+
+**TMC06604**
+
+or
+
+**TMC06630**
+
+These are the photos of Mary seated and talking naturally with the older gentleman.
+
+My first choice is **TMC06630** if the crop works well on the site.
+
+This should not be used as a hero. It should appear approximately halfway down the page.
+
+### Headline beside it
+
+**Your Home Is Only One Part of the Plan.**
+
+### Copy direction
+
+Successful aging in place also means thinking about the life around the house.
+
+Consider:
+
+* Healthcare and future care needs
+* Transportation
+* Friends, family, and social connection
+* Financial sustainability
+* Access to groceries, services, and activities
+* Technology and support
+* What happens if driving or mobility changes
+
+The point of this section is to show that aging in place is not simply a renovation project.
+
+---
+
+## SECTION 6: TWO WAYS TO AGE IN PLACE
+
+### Headline
+
+**Sometimes Staying Means Changing the House. Sometimes It Means Changing Houses.**
+
+Create two side-by-side pathways.
+
+### STAY IN YOUR CURRENT HOME
+
+Possible solutions may include:
+
+* Home safety improvements
+* Bathroom modifications
+* Main-level living changes
+* Stairlifts or elevators
+* Home care
+* Smart home technology
+* Occupational therapy home assessments
+* ADUs or multigenerational additions
+
+### MOVE TO A HOME THAT BETTER SUPPORTS YOU
+
+Possible options may include:
+
+* One-level homes
+* Ranchers
+* Villas
+* Condominiums
+* 55+ communities
+* Accessible homes
+* Multigenerational housing
+* A home closer to family, healthcare, transportation, and community
+
+Important message:
+
+**Aging in place does not always mean remaining in the same house forever.**
+
+The goal is to find the environment that best supports how someone wants to live.
+
+---
+
+## SECTION 7: ADUs AND MULTIGENERATIONAL LIVING
+
+This deserves its own small feature section because it is an important area of Mary's expertise.
+
+### Headline
+
+**Sometimes the Best Solution Is Right in the Backyard.**
+
+Briefly introduce:
+
+* Accessory Dwelling Units
+* Multigenerational living
+* Creating private but connected living arrangements
+* Housing a parent, adult child, caregiver, or family member nearby
+
+Mention that Mary teaches continuing education on Maryland ADUs and helps families understand how these options may fit into a longer-term housing plan.
+
+Link to a deeper ADU resource rather than explaining Maryland law on this page.
+
+---
+
+## SECTION 8: SHOULD I STAY OR SHOULD I GO?
+
+Give this strong visual treatment.
+
+### Headline
+
+**Should I Stay or Should I Go?**
+
+Mary created this educational program to help families examine the question from more than one angle.
+
+The program brings together professionals in areas such as:
+
+* Home care
+* Occupational therapy
+* Home modification
+* Finance
+* Reverse mortgages
+* Legal planning
+* Technology
+* Housing options
+
+### CTA buttons
+
+**See Upcoming Programs**
+
+and
+
+**Take the Self-Evaluation**
+
+---
+
+## SECTION 9: DOWNLOADABLE RESOURCE
+
+Feature the main Aging in Place lead magnet.
+
+### Title
+
+**Should I Stay or Should I Go?
+A Personal Housing & Aging Self-Evaluation**
+
+The self-evaluation should cover:
+
+1. Home Safety & Accessibility
+2. Health & Wellness
+3. Social Connection & Community
+4. Transportation & Mobility
+5. Care & Support
+6. Financial Readiness
+7. Legal & Estate Planning
+8. Housing Options
+
+Use a simple image/mockup of the guide here when it is designed.
+
+This should be the primary email capture opportunity on the page.
+
+---
+
+## SECTION 10: NATIONAL AGING IN PLACE COUNCIL
+
+Give NAIPC a visible but clean credibility section.
+
+### Headline
+
+**Connected to the Right People Matters.**
+
+Mary is the **Founder and Chair of the National Aging in Place Council, Greater Baltimore Chapter**.
+
+Through NAIPC, Mary works alongside professionals across the many areas that affect successful aging, allowing families to learn about services and connect with specialists when appropriate.
+
+This reinforces that Mary does not try to be the lawyer, contractor, healthcare professional, financial advisor, or occupational therapist.
+
+She helps families understand the bigger picture and connect with the appropriate professionals.
+
+A link to NAIPC Greater Baltimore or relevant educational programming can live here.
+
+---
+
+## FINAL SECTION
+
+### Headline
+
+**The Goal Is Not to Stay at All Costs. And It Is Not to Move Before You’re Ready.**
+
+### Copy
+
+The goal is to understand your options early enough that the decision is still yours.
+
+Whether that means making your current home safer, creating a multigenerational solution, finding a home that better fits the years ahead, or simply beginning the conversation, having a plan can make all the difference.
+
+### Final CTA
+
+**Not Sure What Comes Next? Let’s Make a Plan.**
+
+Button:
+
+**Talk With Mary**
+
+---
+
+# PHOTO PLAN
+
+Use approximately three major photographic moments on this page.
+
+### 1. Hero
+
+**Mary_Lynch©MariaOrtiz2025-86**
+Blue blouse, seated beside table
+
+### 2. Human / consultation image
+
+**TMC06630** preferred
+Backup: **TMC06604**
+
+Mary seated naturally with the older gentleman.
+
+### 3. Optional supporting image
+
+If another Mary image is needed lower on the page, use:
+
+**TMC06580**
+
+Mary seated across the table in conversation with the older couple.
+
+Use this sparingly. Two strong Mary photos may be enough if the page already has icons, statistics, a guide mockup, and other visual elements.
+
+Do not use the courthouse photos on this page.
+
+Do not use the blonde associate photos on this page.
+
+Do not use generic stock photography of frail older adults, walkers, sad couples, or institutional-looking bathrooms.
+
+If a home-related photo is needed, choose a beautiful, realistic residential image showing subtle age-friendly design, such as a no-step entrance, attractive curbless shower, open main-level living, or accessible bathroom design.
+
+---
+
+# DESIGN NOTE
+
+Please avoid turning this into a giant information page.
+
+The page should feel spacious and easy to scan.
+
+Use:
+
+* short sections
+* strong headings
+* large statistics
+* icons
+* buttons into the Resource Center
+* ample white space
+* Mary's real photography
+
+The goal is for someone to finish the page thinking:
+
+**“She understands the whole picture, and I can talk to her without being pressured to move.”**

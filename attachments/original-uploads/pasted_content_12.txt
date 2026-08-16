@@ -1,0 +1,114 @@
+PASS 3: PAGE-SPECIFIC CONTENT & PHOTO POLISH
+Passes 1 and 2 established the global consistency and visual branding. This third pass should address specific page-level items only.
+IMPORTANT: Do not redesign the site or broadly rewrite approved copy. Preserve the structure and messaging already working.
+1. HOMEPAGE: CREDENTIALS
+Review the Credentials & Specialties section.
+Make Mary's credentials visually balanced. Certified Senior Advisor should not appear significantly more prominent than all other credentials.
+Present Mary's credentials and leadership roles cleanly and quietly. They support the story but should not dominate it.
+2. HOMEPAGE: TESTIMONIAL AREA
+Create a tasteful location for a small amount of client social proof, but do not invent testimonial copy.
+Mary has 70+ five-star reviews across Google and Zillow, as well as personal client testimonials and video testimonials.
+Create space for approximately three short rotating client quotes or excerpts.
+This should feel understated and credible rather than like a large traditional REALTOR® testimonial section.
+Suggested heading:
+Kind Words From People I've Helped
+Do not add fake names, fake quotes, fake review counts or placeholder testimonial language. We will provide the actual testimonials separately.
+3. DOWNSIZING PAGE
+Preserve the existing Downsizing page structure and messaging, especially:
+Destination first. Plan second. Stuff third.
+and
+We begin with you.
+Add or confirm a clear but tasteful invitation to the Downsizers Club of Baltimore.
+The club should be presented as an educational planning resource for people who may be considering a move within the next few years and want to begin before they are under pressure.
+Do not invent dates, fees, schedules or program details that have not been supplied.
+A simple CTA such as:
+Learn About the Downsizers Club
+is sufficient for now.
+4. AGING IN PLACE: POP
+Keep the existing brief personal section explaining why aging in place matters to Mary.
+Use the more recent adult photograph of Mary and her grandfather, Pop, in this section.
+Keep this photograph in a clean contemporary presentation.
+Do not use a Polaroid treatment here.
+This should remain the shorter version of Mary's story. Do not duplicate the full Pop story from Meet Mary.
+Add a subtle text link or secondary CTA:
+Read Mary's Story
+linking to Meet Mary.
+5. MEET MARY: HERO
+Use the newly provided professional photograph of Mary seated on the cream sofa, wearing the white blouse and blue patterned skirt and holding the navy Mary Lynch folder.
+Use the original photograph exactly as supplied. Do not alter Mary's face, body, hair, clothing or features with AI.
+Cropping and responsive positioning are permitted, but preserve the relaxed residential setting and the natural negative space in the image.
+Hero:
+MEET MARY LYNCH
+Real estate is what I know.
+Helping families through change is why I do it.
+The hero should feel personal, editorial and sophisticated rather than like a traditional REALTOR® biography.
+6. MEET MARY: POP STORY
+This is the emotional center of the Meet Mary page.
+Use the childhood photograph of little Mary with Pop on the boat.
+This should be the only photograph on the website given a subtle vintage Polaroid/family-album treatment.
+Use a simple white border with a slightly deeper bottom margin, a very subtle shadow and, if appropriate, an extremely slight rotation.
+Do not heavily restore, modernize or AI-enhance the photograph. Its age is part of the story.
+Suggested caption:
+Me & Pop. Long before I knew where this would lead.
+The story should communicate that Pop was technically Mary's grandfather but functioned as her father figure, her constant and her anchor.
+He spent nearly ten years caring for Mary's grandmother while she lived with dementia. Later, after Mary's grandmother died and Mary had several wonderful years with Pop again, he was diagnosed with cancer.
+Mary eventually became his caregiver while raising teenagers. A hospital bed was placed in the living/dining area of her home because that was where it could fit.
+The experience left Mary asking:
+How did I not know this?
+She had spent decades helping other people with housing, yet neither Pop's home nor her own was prepared for what their family suddenly needed.
+Keep this loving, reflective and hopeful. Do not make it fear-based.
+7. MEET MARY: “3 A.M. AND UNPREPARED”
+Add a short section immediately following or naturally connected to the Pop story.
+Mary's caregiving experience became the basis for her published chapter:
+“3 A.M. and Unprepared: A Caregiver's Awakening”
+in Aging in Place Conversations: Caregivers Edition, published through the National Aging in Place Council.
+The chapter led to opportunities to share the story through Baltimore County libraries and became part of the path that ultimately connected Mary's work with broader aging education, including the American Library Association's Aging Together initiative.
+The purpose of this section is not to sell the book.
+It should show the ripple effect:
+Pop → caregiving → writing → libraries → education → helping more families.
+If the book cover is available, reserve a modest visual location for it. Do not make it look like a book advertisement.
+8. MEET MARY: PERSONAL PHOTO GROUPING
+Use a restrained grouping of personal photographs farther down the page to show Mary outside of work.
+Prioritize:
+family at an Orioles game
+one family/travel photograph
+Mary with her mother-in-law at sunset
+one Frenchie photograph
+Do not use every supplied personal photograph.
+This should feel like glimpses into Mary's life, not a family photo album.
+Mary's personal copy can reference Baltimore's “Smalltimore” quality, family, fellowship, friendship, good food, faith, travel, horses, Orioles and Ravens, the beach, Frenchies and Mary's growing interest in adventure and offshore fishing.
+Keep this section light and conversational.
+9. MEET MARY: PHILOSOPHY
+Preserve and emphasize this philosophy:
+Age isn't the deciding factor. The whole picture is.
+Mary is not pro-move or pro-stay. She wants to understand whether the home, accessibility, support system, transportation, social connection, maintenance and financial picture are still supporting the life someone wants.
+Sometimes the answer is staying.
+Sometimes it is modifying the home.
+Sometimes it is moving.
+Mary's role is to help people understand their choices before circumstances make the choice for them.
+10. MEET MARY: CLOSING
+End the page with:
+Empowered, not overwhelmed.
+Mary's goal is for people to understand their choices, have access to real resources and feel confident making the decision that is right for them.
+Include the idea that planning ahead is not only a gift someone gives themselves. It can also be a gift to the people they love by leaving clarity rather than unanswered questions.
+Close warmly with:
+You can do this. It just takes a place to start.
+CTA:
+Talk to Mary
+11. RESOURCE CENTER
+Keep the existing Resource Center architecture.
+The actual downloadable guides and checklists are intentionally unfinished and will be supplied later.
+Do not generate substitute PDFs or invented download content.
+Make sure the design can easily accommodate downloadable resources once supplied.
+12. TESTIMONIALS THROUGHOUT THE SITE
+In addition to the small homepage testimonial area, identify two or three natural locations on interior pages where a short client quote could eventually reinforce the content.
+Do not add quotes yet.
+Possible locations include Downsizing, Buying & Selling, and near the closing portion of Meet Mary.
+Keep testimonial locations subtle. We do not want reviews interrupting the storytelling or appearing after every section.
+FINAL REVIEW
+Review these page-specific changes on both desktop and mobile.
+Do not introduce new stock photography or AI-generated photographs.
+Do not invent testimonials, download content, dates, statistics, credentials, program details or personal information.
+Do not substantially rewrite approved copy.
+Preserve the warm, grounded, Baltimore-centered personality of Downsize Baltimore.
+This is the final content-placement and page-specific polish pass, not a redesign.
