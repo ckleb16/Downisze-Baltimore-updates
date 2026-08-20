@@ -18,8 +18,19 @@ async function startServer() {
 
   app.use(express.static(staticPath));
 
-  // Handle client-side routing - serve index.html for all routes
-  app.get("*", (_req, res) => {
+  const clientRoutes = new Set([
+    "/",
+    "/downsizing-services",
+    "/aging-in-place",
+    "/buying-selling",
+    "/resource-center",
+    "/meet-mary",
+    "/contact",
+  ]);
+
+  // Serve the client shell for every route while retaining a truthful 404 status.
+  app.get("*", (req, res) => {
+    if (!clientRoutes.has(req.path)) res.status(404);
     res.sendFile(path.join(staticPath, "index.html"));
   });
 

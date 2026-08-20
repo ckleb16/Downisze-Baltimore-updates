@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -28,6 +28,7 @@ const navItems = [
   ["Home", "/"],
   ["Downsizing Services", "/downsizing-services"],
   ["Aging in Place", "/aging-in-place"],
+  ["Buying & Selling", "/buying-selling"],
   ["Resource Center", "/resource-center"],
   ["Meet Mary", "/meet-mary"],
   ["Contact", "/contact"],
@@ -70,26 +71,27 @@ function Footer() {
         <div className="bs-footer__contact">
           <a className="bs-footer__phone" href="tel:+14103751400"><Phone size={15} /> (410) 375-1400</a>
           <a href="mailto:mary@downsizebaltimore.com">mary@downsizebaltimore.com</a>
-          <div className="bs-footer__brokerage"><strong>Cummings &amp; Co Realtors</strong><span>108 W. Timonium Road<br />Timonium, MD 21093</span><span>Office <a href="tel:+14108230033">(410) 823-0033</a></span></div>
+          <div className="bs-footer__brokerage"><strong>Cummings &amp; Co. Realtors</strong><span>108 W. Timonium Road<br />Timonium, MD 21093</span><span>Office <a href="tel:+14108230033">(410) 823-0033</a></span></div>
           <ButtonLink>Schedule a Conversation</ButtonLink>
         </div>
       </div>
-      <div className="bs-footer__bottom"><div>{footerNavItems.map(([label, href]) => <a key={label} href={href}>{label}</a>)}</div><p>© 2026 Downsize Baltimore. All rights reserved.</p><p>Real estate services provided in affiliation with a licensed brokerage.</p></div>
+      <div className="bs-footer__bottom"><div>{footerNavItems.map(([label, href]) => <a key={label} href={href} aria-current={href === "/buying-selling" ? "page" : undefined}>{label}</a>)}</div><p>© 2026 Downsize Baltimore. All rights reserved.</p><p>Real estate services provided in affiliation with a licensed brokerage.</p></div>
     </footer>
   );
 }
 
 export default function BuyingSelling() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   return (
     <div id="top" className="bs-page">
       <header className="bs-header">
-        <div className="bs-header__top"><Brand /><div className="bs-header__actions"><ButtonLink>Talk to Mary</ButtonLink><button className="bs-menu-toggle" aria-label={mobileOpen ? "Close menu" : "Open menu"} onClick={() => setMobileOpen((open) => !open)}>{mobileOpen ? <X size={22} /> : <Menu size={22} />}</button></div></div>
-        <nav className="bs-desktop-nav" aria-label="Primary navigation">{navItems.map(([label, href]) => <a key={label} href={href}>{label}</a>)}</nav>
-        {mobileOpen && <nav className="bs-mobile-nav" aria-label="Mobile navigation">{navItems.map(([label, href]) => <a key={label} href={href} onClick={() => setMobileOpen(false)}>{label}<ArrowUpRight size={16} /></a>)}<ButtonLink>Talk to Mary</ButtonLink></nav>}
+        <div className="bs-header__top"><Brand /><div className="bs-header__actions"><ButtonLink>Talk to Mary</ButtonLink><button ref={menuButtonRef} type="button" className="bs-menu-toggle" aria-label={mobileOpen ? "Close menu" : "Open menu"} aria-expanded={mobileOpen} aria-controls="buying-selling-mobile-navigation" onClick={() => setMobileOpen((open) => !open)}>{mobileOpen ? <X size={22} /> : <Menu size={22} />}</button></div></div>
+        <nav className="bs-desktop-nav" aria-label="Primary navigation">{navItems.map(([label, href]) => <a key={label} href={href} aria-current={href === "/buying-selling" ? "page" : undefined}>{label}</a>)}</nav>
+        <nav id="buying-selling-mobile-navigation" className="bs-mobile-nav" aria-label="Mobile navigation" hidden={!mobileOpen} onKeyDown={(event) => { if (event.key === "Escape") { setMobileOpen(false); menuButtonRef.current?.focus(); } }}>{navItems.map(([label, href]) => <a key={label} href={href} aria-current={href === "/buying-selling" ? "page" : undefined} onClick={() => setMobileOpen(false)}>{label}<ArrowUpRight size={16} /></a>)}<ButtonLink>Talk to Mary</ButtonLink></nav>
       </header>
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="bs-hero">
           <div className="bs-hero__copy"><p className="bs-eyebrow">Buying &amp; selling with perspective</p><h1>The Agent You Need for Your First Home Is Very Different From the Agent You Need for Your <i>Last.</i></h1><div className="bs-rule" /><p>Selling a longtime home or buying the place that comes next is very different from buying your first house.</p><p>The stakes can feel higher. The emotions can run deeper. And the decisions often affect much more than real estate.</p><ButtonLink>Let’s Talk About Your Plan</ButtonLink><p className="bs-hero__note"><span>30</span> years of helping Baltimore-area families make thoughtful real estate decisions.</p></div>
           <div className="bs-hero__photo"><img src={heroImage} alt="Mary Lynch working on the phone beside an open laptop" /><span className="bs-hero__caption">01 / The move, handled well.</span></div>
@@ -117,7 +119,7 @@ export default function BuyingSelling() {
           <div className="bs-selling__close"><p>Good preparation is not about making a home look like someone else’s. It is about making the right decisions, in the right order, for the home you have and the future you are creating.</p><ButtonLink variant="light">Create a Selling Plan</ButtonLink></div>
         </section>
 
-        <section className="bs-guidance"><div className="bs-guidance__mark"><ChevronDown size={27} strokeWidth={1.1} /><span>04</span></div><div><p className="bs-eyebrow">Experienced guidance, without pressure</p><h2>Real estate is the transaction.<br /><i>The plan is the bigger picture.</i></h2><p>Mary brings nearly 30 years of residential real estate experience to the table, along with the patience to understand what surrounds the move: family, timing, belongings, finances, and what you want daily life to feel like next.</p><ButtonLink>Schedule a Conversation</ButtonLink></div></section>
+        <section className="bs-guidance"><div className="bs-guidance__mark"><ChevronDown size={27} strokeWidth={1.1} /><span>04</span></div><div><p className="bs-eyebrow">Experienced guidance, without pressure</p><h2>Real estate is the transaction.<br /><i>The plan is the bigger picture.</i></h2><p>Mary brings 30 years of residential real estate experience to the table, along with the patience to understand what surrounds the move: family, timing, belongings, finances, and what you want daily life to feel like next.</p><ButtonLink>Schedule a Conversation</ButtonLink></div></section>
 
         <section className="bs-final" data-testimonial-reserve="buying-selling-closing" style={{ backgroundImage: `url(${paperTexture})` }}><div className="bs-final__frame"><p className="bs-eyebrow">A thoughtful next step</p><h2>You Don’t Need to<br /><i>Figure It Out Alone.</i></h2><p>Whether you are ready to buy, preparing to sell, or still making sense of the options, a conversation can help bring the whole picture into focus.</p><div><ButtonLink>Schedule a Conversation</ButtonLink></div></div></section>
       </main>

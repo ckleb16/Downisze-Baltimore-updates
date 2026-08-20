@@ -1,10 +1,11 @@
 // Harbor House Editorial: warm editorial layout, Baltimore navy, cream paper, antique gold, restrained motion.
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   ArrowUpRight,
   Baby,
   BookOpen,
-  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   Anchor,
   Home as HomeIcon,
   Menu,
@@ -27,6 +28,7 @@ const washTexture = "/manus-storage/downsize-baltimore-warm-wash_0631c386.png";
 const calendlyUrl = "https://calendly.com/mary-movewithmarylynch/30min";
 
 const navItems = [
+  ["Home", "/"],
   ["Downsizing Services", "/downsizing-services"],
   ["Aging in Place", "/aging-in-place"],
   ["Buying & Selling", "/buying-selling"],
@@ -34,7 +36,23 @@ const navItems = [
   ["Meet Mary", "/meet-mary"],
   ["Contact", "/contact"],
 ];
-const footerNavItems = [["Home", "/"], ...navItems];
+const footerNavItems = navItems;
+
+const dailyQuestions = [
+  "Should Mom stay in her home?",
+  "Would downsizing make life easier?",
+  "Where do we even begin?",
+];
+
+type ApprovedTestimonial = {
+  quote: string;
+  name: string;
+  context?: string;
+};
+
+// Keep client endorsements off the live site until the wording and attribution
+// have been explicitly approved. Adding an approved entry restores the section.
+const approvedTestimonials: ApprovedTestimonial[] = [];
 
 const ways = [
   {
@@ -64,12 +82,12 @@ const ways = [
 ];
 
 const resources = [
-  ["Aging in Place", "Ideas and resources for making home safer and more comfortable.", ShieldCheck, "/resource-center?path=stay#resource-library"],
-  ["Downsizing & Moving", "Where to begin, what to keep, and how to make the process manageable.", MoveRight, "/resource-center?path=downsizing#resource-library"],
-  ["55+ & Senior Living", "Understanding communities, housing options, and what might fit your lifestyle.", Sparkles, "/resource-center?path=housing#resource-library"],
-  ["Buying & Selling", "Real estate guidance for moves that often involve more than real estate.", HomeIcon, "/buying-selling"],
-  ["ADUs & Multigenerational Living", "Creative housing solutions that can keep families connected while maintaining independence.", Baby, "/resource-center?path=housing#resource-library"],
-  ["Probate & Estate Resources", "Guidance and trusted professionals when a home is part of a larger family transition.", BookOpen, "/resource-center?path=probate#resource-library"],
+  ["Aging in Place", "Ideas and resources for making home safer and more comfortable.", ShieldCheck, "/aging-in-place#self-evaluation", "Take the self-evaluation"],
+  ["Downsizing & Moving", "Where to begin, what to keep, and how to make the process manageable.", MoveRight, "/downsizing-services", "Explore downsizing services"],
+  ["55+ & Senior Living", "Understanding communities, housing options, and what might fit your lifestyle.", Sparkles, "/contact", "Ask Mary about options"],
+  ["Buying & Selling", "Real estate guidance for moves that often involve more than real estate.", HomeIcon, "/buying-selling", "Explore buying & selling"],
+  ["ADUs & Multigenerational Living", "Creative housing solutions that can keep families connected while maintaining independence.", Baby, "/contact", "Ask Mary about ADUs"],
+  ["Probate & Estate Resources", "Guidance and trusted professionals when a home is part of a larger family transition.", BookOpen, "/contact", "Ask Mary for guidance"],
 ];
 
 function Brand({ compact = false, footer = false }: { compact?: boolean; footer?: boolean }) {
@@ -86,6 +104,12 @@ function ButtonLink({ children, href = calendlyUrl, variant = "gold" }: { childr
 
 export default function Home() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeQuestion, setActiveQuestion] = useState(0);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const showQuestion = (index: number) => {
+    setActiveQuestion((index + dailyQuestions.length) % dailyQuestions.length);
+  };
+
   return (
     <div id="top" className="site-shell">
       <header className="site-header">
@@ -94,22 +118,22 @@ export default function Home() {
             <Brand />
             <div className="header-actions">
               <ButtonLink>Talk to Mary</ButtonLink>
-              <button className="menu-toggle" aria-label={mobileOpen ? "Close menu" : "Open menu"} onClick={() => setMobileOpen(!mobileOpen)}>
+              <button ref={menuButtonRef} type="button" className="menu-toggle" aria-label={mobileOpen ? "Close menu" : "Open menu"} aria-expanded={mobileOpen} aria-controls="home-mobile-navigation" onClick={() => setMobileOpen(!mobileOpen)}>
                 {mobileOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
             </div>
           </div>
           <nav className="desktop-nav" aria-label="Primary navigation">
-            {navItems.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
+            {navItems.map(([label, href]) => <a key={label} href={href} aria-current={href === "/" ? "page" : undefined}>{label}</a>)}
           </nav>
         </div>
-        {mobileOpen && <nav className="mobile-nav" aria-label="Mobile navigation">
-          {navItems.map(([label, href]) => <a key={label} href={href} onClick={() => setMobileOpen(false)}>{label}<ArrowUpRight size={16} /></a>)}
+        <nav id="home-mobile-navigation" className="mobile-nav" aria-label="Mobile navigation" hidden={!mobileOpen} onKeyDown={(event) => { if (event.key === "Escape") { setMobileOpen(false); menuButtonRef.current?.focus(); } }}>
+          {navItems.map(([label, href]) => <a key={label} href={href} aria-current={href === "/" ? "page" : undefined} onClick={() => setMobileOpen(false)}>{label}<ArrowUpRight size={16} /></a>)}
           <ButtonLink>Talk to Mary</ButtonLink>
-        </nav>}
+        </nav>
       </header>
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="hero">
           <img src={heroImage} alt="A welcoming navy blue home at golden hour in a Baltimore neighborhood" className="hero__image" />
           <div className="hero__veil" />
@@ -123,15 +147,8 @@ export default function Home() {
           <div className="hero__caption"><span>30 YEARS</span><span>Helping Baltimore-area families make thoughtful real estate decisions.</span></div>
         </section>
 
-        <section className="intro section-paper" style={{ backgroundImage: `url(${paperTexture})` }}>
-          <div className="intro__label"><Anchor size={15} strokeWidth={1.4} /><span className="rule" /> START WHERE YOU ARE</div>
-          <div className="intro__copy">
-            <h2>You don’t have to know the answer yet. <i>Start here.</i></h2>
-          </div>
-        </section>
-
         <section id="ways-to-begin" className="ways section-paper">
-          <div className="section-heading"><p className="eyebrow">Three ways to begin</p><p className="section-heading__aside">A thoughtful next step<br />doesn’t need to be a big one.</p></div>
+          <div className="section-heading"><h2 className="sr-only">Three ways to begin</h2><p className="eyebrow" aria-hidden="true">Three ways to begin</p></div>
           <div className="way-grid">
             {ways.map(({ icon: Icon, number, title, body, link, href }) => <article className="way-card" key={title}>
               <div className="way-card__top"><span>{number}</span><Icon size={29} strokeWidth={1.2} /></div>
@@ -142,9 +159,65 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="questions-strip section-paper">
-          <div className="questions-strip__marker"><Anchor size={23} strokeWidth={1.2} /><span>02 / QUESTIONS I HEAR EVERY DAY…</span></div>
-          <div className="questions-strip__copy"><p>Should Mom stay in her home?</p><p>Would downsizing make life easier?</p><p>Where do we even begin?</p></div>
+        <section className="questions-carousel" role="region" aria-roledescription="carousel" aria-labelledby="daily-questions-heading">
+          <div className="questions-carousel__intro">
+            <div className="questions-carousel__mark" aria-hidden="true"><Anchor size={28} strokeWidth={1.2} /><span /></div>
+            <h2 id="daily-questions-heading">Questions I hear<br /><i>every day…</i></h2>
+          </div>
+          <div className="questions-carousel__stage">
+            <div id="daily-question-slides" className="questions-carousel__viewport">
+              <div className="questions-carousel__track" style={{ transform: `translate3d(-${activeQuestion * 100}%, 0, 0)` }}>
+                {dailyQuestions.map((question, index) => (
+                  <article
+                    className="questions-carousel__slide"
+                    key={question}
+                    role="group"
+                    aria-roledescription="slide"
+                    aria-label={`Question ${index + 1} of ${dailyQuestions.length}`}
+                    aria-hidden={index !== activeQuestion}
+                  >
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <p>{question}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <p className="sr-only" aria-live="polite" aria-atomic="true">Question {activeQuestion + 1} of {dailyQuestions.length}: {dailyQuestions[activeQuestion]}</p>
+            <div
+              className="questions-carousel__controls"
+              role="group"
+              aria-label="Question controls"
+              onKeyDown={(event) => {
+                if (event.key === "ArrowLeft") {
+                  event.preventDefault();
+                  showQuestion(activeQuestion - 1);
+                }
+                if (event.key === "ArrowRight") {
+                  event.preventDefault();
+                  showQuestion(activeQuestion + 1);
+                }
+              }}
+            >
+              <span className="questions-carousel__count" aria-hidden="true">{String(activeQuestion + 1).padStart(2, "0")} / {String(dailyQuestions.length).padStart(2, "0")}</span>
+              <div className="questions-carousel__dots" role="group" aria-label="Choose a question">
+                {dailyQuestions.map((question, index) => (
+                  <button
+                    type="button"
+                    key={question}
+                    className={index === activeQuestion ? "is-active" : ""}
+                    aria-label={`Show question ${index + 1}: ${question}`}
+                    aria-current={index === activeQuestion ? "true" : undefined}
+                    aria-controls="daily-question-slides"
+                    onClick={() => showQuestion(index)}
+                  />
+                ))}
+              </div>
+              <div className="questions-carousel__arrows">
+                <button type="button" aria-label="Previous question" aria-controls="daily-question-slides" onClick={() => showQuestion(activeQuestion - 1)}><ChevronLeft size={21} /></button>
+                <button type="button" aria-label="Next question" aria-controls="daily-question-slides" onClick={() => showQuestion(activeQuestion + 1)}><ChevronRight size={21} /></button>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="meet-mary" className="mary-section">
@@ -155,31 +228,46 @@ export default function Home() {
             <p className="eyebrow">A clear-eyed, human approach</p>
             <h2>Why Families<br /><i>Choose Mary</i></h2>
             <div className="gold-rule" />
-            <p>For nearly three decades, I’ve helped Baltimore families buy and sell homes.</p>
+            <p>For 30 years, I’ve helped Baltimore families buy and sell homes.</p>
             <p>Over time, that work became about much more than real estate.</p>
             <p>Downsize Baltimore grew from seeing how overwhelming housing decisions can become when family, aging, finances, belongings, and the future all collide at once.</p>
             <p>My role isn’t to convince you to move. It’s to help you understand your options, connect you with the right resources, and create a clear plan for whatever comes next.</p>
-            <div className="credentials" aria-label="Mary's credentials and specialties"><p className="credentials__eyebrow">Credentials &amp; specialties</p><div className="credentials__grid credentials__grid--balanced"><span>Certified Senior Advisor</span><span>Chair &amp; Founder, National Aging in Place Council for Greater Baltimore</span><span>Seniors Real Estate Specialist</span><span>Senior Home Coach</span><span>Certified Probate Real Estate Specialist</span></div></div>
+            <div className="credentials"><p className="credentials__eyebrow" id="mary-credentials-heading">Credentials &amp; specialties</p><ul className="credentials__grid credentials__grid--balanced" aria-labelledby="mary-credentials-heading"><li>Certified Senior Advisor</li><li>Chair &amp; Founder, National Aging in Place Council for Greater Baltimore</li><li>Seniors Real Estate Specialist</li><li>Senior Home Coach</li><li>Certified Probate Real Estate Specialist</li></ul></div>
             <a className="text-link" href="/meet-mary">Meet Mary <ArrowUpRight size={16} /></a>
           </div>
         </section>
-        <section className="testimonial-reserve" aria-label="Kind Words From People I've Helped"><div><p className="eyebrow">A quiet place for client perspective</p><h2>Kind Words From People I’ve Helped</h2></div><div className="testimonial-reserve__slots" aria-hidden="true"><span /><span /><span /></div></section>
+        {approvedTestimonials.length > 0 && (
+          <section className="testimonial-reserve" aria-labelledby="approved-testimonials-heading">
+            <div>
+              <p className="eyebrow">A quiet place for client perspective</p>
+              <h2 id="approved-testimonials-heading">Kind Words From People I’ve Helped</h2>
+            </div>
+            <div className="testimonial-reserve__slots">
+              {approvedTestimonials.map(({ quote, name, context }) => (
+                <figure key={`${name}-${quote}`}>
+                  <blockquote>{quote}</blockquote>
+                  <figcaption>{name}{context ? `, ${context}` : ""}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
         <section id="resources" className="resources" style={{ backgroundImage: `linear-gradient(rgba(16,42,67,.97), rgba(16,42,67,.97)), url(${contourTexture})` }}>
           <div className="resources__head"><div><p className="eyebrow eyebrow--gold">Resources for the road ahead</p><h2>Chart<br /><i>the Course.</i></h2></div><div className="resources__intro">There isn’t one right answer when it comes to housing, aging, and what comes next.<br /><br />That’s why I’ve built a collection of practical resources to help you understand your options before you need them.</div></div>
-          <div className="resource-grid">            {resources.map(([title, body, Icon, href]) => <a className="resource-card" href={href as string} key={title as string}><Icon size={24} strokeWidth={1.2} /><h3>{title as string}</h3><p>{body as string}</p><ArrowUpRight className="resource-card__arrow" size={17} /></a>)}
+          <div className="resource-grid">            {resources.map(([title, body, Icon, href, action]) => <a className="resource-card" href={href as string} key={title as string}><Icon size={24} strokeWidth={1.2} /><h3>{title as string}</h3><p>{body as string}</p><span className="resource-card__action">{action as string}<ArrowUpRight size={16} /></span></a>)}
 </div>
           <div className="resources__cta"><ButtonLink variant="light" href="/resource-center">Visit the Resource Center</ButtonLink></div>
         </section>
 
         <section id="contact" className="final-cta section-paper" style={{ backgroundImage: `url(${paperTexture})` }}>
-          <div className="final-cta__mark"><Anchor size={28} strokeWidth={1.2} /><span>02</span></div>
-          <div className="final-cta__content"><p className="eyebrow">A conversation can be the beginning</p><h2>You Don’t Need a<br /><i>Perfect Plan.</i></h2><p>Whether you’re thinking about a move next month, next year, or simply wondering what your options might be, let’s talk.</p><div className="final-cta__buttons"><ButtonLink>Schedule a Conversation</ButtonLink></div></div>
+          <div className="final-cta__mark"><Anchor size={28} strokeWidth={1.2} /></div>
+          <div className="final-cta__content"><p className="eyebrow">30 years of Baltimore real estate experience</p><h2>Your Next Step Deserves<br /><i>an Experienced Guide.</i></h2><p>Whether the right answer is moving, staying put, or taking more time, I’ll help you understand the options, anticipate the details, and build a plan around what matters most to you.</p><div className="final-cta__buttons"><ButtonLink>Schedule a Conversation</ButtonLink></div></div>
         </section>
       </main>
 
       <footer id="newsletter" className="footer" style={{ backgroundImage: `linear-gradient(rgba(16,42,67,.98), rgba(16,42,67,.98)), url(${paperTexture})` }}>
-        <div className="footer__top"><Brand compact footer /><p className="footer__statement">A Clear Plan for What Comes Next.<br /><i>Anchored in Baltimore.</i></p><div className="footer__contact"><a className="footer__phone" href="tel:+14103751400"><Phone size={15} /> (410) 375-1400</a><a href="mailto:mary@downsizebaltimore.com">mary@downsizebaltimore.com</a><div className="footer__brokerage"><strong>Cummings &amp; Co Realtors</strong><span>108 W. Timonium Road<br />Timonium, MD 21093</span><span>Office <a href="tel:+14108230033">(410) 823-0033</a></span></div><ButtonLink variant="gold">Schedule a Conversation</ButtonLink></div></div>
-        <div className="footer__bottom"><div className="footer__links">{footerNavItems.map(([label, href]) => <a key={label} href={href}>{label}</a>)}</div><p>© 2026 Downsize Baltimore. All rights reserved.</p><p>Real estate services provided in affiliation with a licensed brokerage.</p></div>
+        <div className="footer__top"><Brand compact footer /><p className="footer__statement">A Clear Plan for What Comes Next.<br /><i>Anchored in Baltimore.</i></p><div className="footer__contact"><a className="footer__phone" href="tel:+14103751400"><Phone size={15} /> (410) 375-1400</a><a href="mailto:mary@downsizebaltimore.com">mary@downsizebaltimore.com</a><div className="footer__brokerage"><strong>Cummings &amp; Co. Realtors</strong><span>108 W. Timonium Road<br />Timonium, MD 21093</span><span>Office <a href="tel:+14108230033">(410) 823-0033</a></span></div><ButtonLink variant="gold">Schedule a Conversation</ButtonLink></div></div>
+        <div className="footer__bottom"><div className="footer__links">{footerNavItems.map(([label, href]) => <a key={label} href={href} aria-current={href === "/" ? "page" : undefined}>{label}</a>)}</div><p>© 2026 Downsize Baltimore. All rights reserved.</p><p>Real estate services provided in affiliation with a licensed brokerage.</p></div>
       </footer>
     </div>
   );

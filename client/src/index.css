@@ -200,3 +200,1450 @@ h1 { max-width:780px; margin-bottom:24px; font-size:clamp(58px,7.6vw,114px); lin
 
 /* Keep the live desktop hero fully visible: preserve headline scale while tightening only vertical rhythm around supporting copy. */
 @media (min-width:801px){.hero__content{margin-top:clamp(176px,18vh,205px)}.hero h1{margin-bottom:18px}.hero__copy{line-height:1.45}.hero__copy--second{margin-bottom:10px}}
+
+/* Comprehensive visual QA remediation: accessible ink colors, readable supporting type,
+   consistent navigation, restrained mobile scale, and corrected responsive media. */
+:root{
+  --gold-text:#7a5420;
+  --gold-display:#8f651f;
+  --gold-on-dark:#e5c987;
+  --body-ink:#4f5b63;
+}
+
+/* Antique gold remains decorative; text on paper uses a darker ink. */
+.eyebrow,.intro__label,.questions-strip__marker,.credentials__eyebrow,
+.ds-eyebrow,.ds-plan__label,.aip-eyebrow,.aip-section-label,
+.bs-eyebrow,.resource-eyebrow,.meet-eyebrow,.contact-eyebrow,
+.not-found-page__eyebrow,.aip-evaluation__progress,.resource-events__status{
+  color:var(--gold-text);
+  font-size:.75rem;
+  line-height:1.4;
+  letter-spacing:.14em;
+}
+.eyebrow--light,.ds-eyebrow--light,
+.hero .eyebrow,.resources .eyebrow,.ds-hero .ds-eyebrow,.ds-small .ds-eyebrow,.ds-resources .ds-eyebrow,
+.aip-personal .aip-eyebrow,.aip-adu .aip-eyebrow,.aip-resource .aip-eyebrow,
+.bs-selling .bs-eyebrow,.resource-featured .resource-eyebrow,.resource-club .resource-eyebrow,.resource-events .resource-eyebrow,
+.meet-purpose .meet-eyebrow,.contact-footer .contact-eyebrow{
+  color:var(--gold-on-dark);
+}
+.intro h2 i,.mary-section h2 i,.final-cta h2 i,
+.ds-destination h2 i,.ds-steps h2 i,.ds-help h2 i,.ds-not-sure h2 i,.ds-final h2 i,
+.aip-hero--split h1 i,.aip-assess h2 i,.aip-story h2 i,.aip-pathways h2 i,.aip-program h2 i,.aip-naipc h2 i,.aip-final h2 i,
+.bs-hero h1 i,.bs-choice h2 i,.bs-buying h2 i,.bs-guidance h2 i,.bs-final h2 i,
+.resource-hero h1 i,.resource-pathways h2 i,.resource-faq h2 i,.resource-learn h2 i,.resource-final h2 i,
+.meet-pop h2 i,.meet-chapter h2 i,.meet-final h2 i,
+.contact-hero h1 i,.contact-section-heading h2 i,.contact-form-intro h2 i,.contact-direct h2 i{
+  color:var(--gold-display);
+}
+.ds-small h2 i,.ds-resources h2 i,.aip-personal h2 i,.aip-adu h2 i,.aip-resource h2 i,
+.bs-selling h2 i,.bs-choice-card--dark h3 i,.resource-featured h2 i,.resource-club h2 i,.resource-events h2 i,.meet-purpose h2 i{
+  color:var(--gold-on-dark);
+}
+
+/* Buttons and meaningful links are comfortably sized and use the higher-contrast navy-on-gold treatment. */
+.button,.ds-button,.aip-button,.bs-button,.resource-button,.meet-button,.contact-button{
+  min-height:48px;
+  font-size:.78rem;
+}
+.button--gold,.ds-button--gold,.aip-button--gold,.bs-button--gold,.resource-button--gold,.meet-button--gold,.contact-button--gold,
+.not-found-page button{
+  color:var(--navy);
+}
+.way-card a,.text-link,.aip-text-link,.aip-light-link{
+  min-height:44px;
+  padding:.55rem 0;
+  font-size:.8rem;
+}
+.resource-pathway__action{
+  min-height:44px;
+  margin-top:1rem;
+  padding:.65rem .8rem;
+  border:1px solid rgba(122,84,32,.55);
+  color:var(--gold-text);
+  font-size:.8rem;
+  line-height:1.3;
+}
+.resource-filter-reset{
+  min-height:44px;
+  color:var(--gold-text);
+  font-size:.8rem;
+}
+
+/* Homepage trust content and starting cards. */
+.way-card p{font-size:1rem;line-height:1.65}
+.way-card__top span{font-size:.75rem}
+.credentials__eyebrow{color:var(--gold-text)!important;font-size:.75rem!important}
+.credentials__grid--balanced{
+  display:block;
+  columns:2;
+  column-gap:1.6rem;
+  color:#465660;
+}
+.credentials__grid--balanced span{
+  display:block;
+  break-inside:avoid;
+  margin:0 0 .7rem;
+  font-size:.875rem;
+  line-height:1.5;
+}
+.resource-card p,.ds-resource-grid p,.bs-topic-grid p,.bs-selling__grid p,
+.resource-pathway-grid p,.resource-featured-grid p,.resource-faq-item p,
+.aip-assess-grid p,.ds-step-card p{
+  font-size:.9375rem;
+  line-height:1.65;
+}
+.ds-step-card p,.aip-assess-grid article p{opacity:1!important}
+.ds-help__grid span,.aip-life-list span,.aip-bullet-list li,.aip-program__network span{font-size:.875rem;line-height:1.5}
+.meet-credentials{color:#4f5b63;font-size:.875rem;line-height:1.55}
+.resource-pathway-grid small,.resource-learn small,.resource-club__content small,
+.resource-disclaimer p,.contact-hero__copy small,.contact-form-note{
+  color:#5f5548;
+  font-size:.8125rem;
+  line-height:1.6;
+}
+.contact-form label{font-size:.875rem;letter-spacing:.07em}
+.contact-form>button{font-size:.8125rem}
+
+/* Keep the standalone Mary-and-Pop photograph framed consistently at every viewport. */
+.aip-personal__photo-crop{position:relative;overflow:hidden;aspect-ratio:4/3;background:#d8e0e2}
+.aip-personal__photo-frame .aip-personal__photo-source{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  aspect-ratio:auto;
+  object-fit:cover;
+  object-position:center;
+  transform:none;
+}
+
+/* Active page remains visible in every navigation. */
+.desktop-nav a[aria-current="page"],.ds-nav a[aria-current="page"],.bs-desktop-nav a[aria-current="page"],
+.resource-nav a[aria-current="page"],.meet-nav a[aria-current="page"],.contact-nav a[aria-current="page"]{
+  color:var(--gold-on-dark);
+  background:rgba(229,201,135,.1);
+  border-color:rgba(229,201,135,.72);
+}
+.desktop-nav a[aria-current="page"]::after,.bs-desktop-nav a[aria-current="page"]::after,
+.resource-nav a[aria-current="page"]::after,.meet-nav a[aria-current="page"]::after,.contact-nav a[aria-current="page"]::after{
+  transform:scaleX(1);
+}
+.mobile-nav a[aria-current="page"],.ds-nav a[aria-current="page"],.bs-mobile-nav a[aria-current="page"],
+.resource-mobile-nav a[aria-current="page"],.meet-mobile-nav a[aria-current="page"],.contact-mobile-nav a[aria-current="page"]{
+  color:var(--gold-text);
+  font-weight:700;
+}
+
+/* Remove avoidable dead space while preserving the editorial rhythm. */
+.ds-steps{padding-bottom:5.75rem}
+.resource-featured{padding-bottom:5.75rem}
+.resource-featured-grid article{min-height:15rem}
+.meet-pop{padding-top:6.5rem;padding-bottom:6.5rem}
+.meet-chapter,.meet-life{padding-top:6rem;padding-bottom:6rem}
+
+/* Utility and legal copy must be readable for the site's senior audience. */
+.footer__bottom,.ds-footer__bottom,.bs-footer__bottom,.resource-footer__bottom,.meet-footer__bottom,.contact-footer__bottom{
+  color:rgba(245,241,233,.76);
+  font-size:.8rem;
+  line-height:1.55;
+}
+.footer__links a,.ds-footer__links a,.bs-footer__bottom a,.resource-footer__bottom a,.meet-footer__bottom a,.contact-footer__bottom a{
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  font-size:.8rem;
+}
+.ds-footer__contact span,.bs-footer__brokerage span,.resource-footer__contact>div span,
+.meet-footer__contact>div span,.contact-footer__details>div span{
+  font-size:.8rem;
+}
+
+/* The Buying & Selling desktop headline receives enough measure to avoid a seven-story hero. */
+@media (min-width:1025px){
+  .bs-hero{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)}
+  .bs-hero__copy{max-width:52rem;padding-left:7vw;padding-right:4vw}
+  .bs-hero h1{font-size:clamp(3.2rem,4.5vw,5.15rem);line-height:.95}
+}
+
+/* One tablet policy for every header and split hero. */
+@media (max-width:1180px){
+  .site-header,.ds-header,.bs-header,.resource-header,.meet-header,.contact-header{padding-left:5vw;padding-right:5vw}
+  .desktop-nav,.bs-desktop-nav,.resource-nav,.meet-nav,.contact-nav{display:none}
+  .menu-toggle,.ds-menu,.bs-menu-toggle,.resource-menu,.meet-menu,.contact-menu{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    min-width:44px;
+    padding:0;
+  }
+  .header-actions>.button,.ds-header__top>.ds-button,.ds-header__top>.aip-button,
+  .bs-header__actions>.bs-button,.resource-header__top>div>.resource-button,
+  .meet-header__top>div>.meet-button,.contact-header__top>div>.contact-button{display:none}
+  .mobile-nav,.bs-mobile-nav,.resource-mobile-nav,.meet-mobile-nav,.contact-mobile-nav{
+    flex-direction:column;
+    gap:.25rem;
+    padding:1rem 0 1.25rem;
+  }
+  .mobile-nav{display:flex;margin:17px -5vw -17px;padding:12px 5vw 24px;background:var(--cream);color:var(--navy)}
+  .bs-mobile-nav,.resource-mobile-nav,.meet-mobile-nav,.contact-mobile-nav{display:flex}
+  .mobile-nav a,.bs-mobile-nav a,.resource-mobile-nav a,.meet-mobile-nav a,.contact-mobile-nav a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:48px;
+    padding:.75rem 0;
+    border-bottom:1px solid rgba(229,201,135,.24);
+    font-size:.8rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .bs-mobile-nav .bs-button,.resource-mobile-nav .resource-button,.meet-mobile-nav .meet-button,.contact-mobile-nav .contact-button{
+    display:inline-flex;
+    align-self:flex-start;
+    margin-top:.8rem;
+  }
+  .ds-header__top{margin-bottom:0}
+  .ds-nav{display:none;flex-direction:column;gap:0;margin:17px -5vw -17px;padding:10px 5vw 23px;background:var(--cream)}
+  .ds-nav.is-open{display:flex}
+  .ds-nav>a{justify-content:space-between;min-height:48px;padding:12px 0;border-width:0 0 1px;border-color:rgba(16,42,67,.16);color:var(--navy)}
+  .ds-nav-cta-mobile{display:block}
+  .ds-nav-cta-mobile .button,.ds-nav-cta-mobile .ds-button,.ds-nav-cta-mobile .aip-button{width:100%;margin-top:.8rem}
+
+  .bs-hero,.resource-hero,.meet-hero,.contact-hero{grid-template-columns:1fr;min-height:0}
+  .bs-hero__photo,.resource-hero__photo,.meet-hero__photo,.contact-hero__photo{
+    position:relative;
+    order:-1;
+    width:100%;
+    height:clamp(29rem,58vh,36rem);
+    min-height:0;
+    margin:0;
+    overflow:hidden;
+  }
+  .bs-hero__photo img,.resource-hero__photo img,.meet-hero__photo img,.contact-hero__photo img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .bs-hero__copy,.resource-hero__copy,.meet-hero__copy,.contact-hero__copy{padding:4rem 7vw;max-width:48rem}
+  .meet-pop{grid-template-columns:1fr;gap:2.5rem}
+  .meet-pop>*{min-width:0}
+  .meet-pop__copy{padding-top:0;max-width:46rem}
+  .meet-pop__video{width:100%;max-width:36rem;margin:1.5rem 0 0}
+  .meet-story__body,.meet-life__details{margin-left:0;padding-left:0}
+}
+
+@media (max-width:700px){
+  .credentials__grid--balanced{columns:1}
+  .mary__copy{padding-top:4rem;padding-bottom:4rem}
+  .way-card p{font-size:1rem}
+  .site-shell h1,.ds-page h1,.aip-page h1,.bs-page h1,.resource-page h1,.meet-page h1,.contact-page h1{font-size:3.15rem;line-height:1.02}
+  .site-shell h2,.ds-page h2,.aip-page h2,.bs-page h2,.resource-page h2,.meet-page h2,.contact-page h2{font-size:3rem;line-height:1.04}
+  .intro__copy h2{font-size:2.15rem}
+  .bs-hero__photo,.resource-hero__photo,.meet-hero__photo,.contact-hero__photo{height:clamp(22rem,54vh,29rem)}
+  .bs-hero__copy,.resource-hero__copy,.meet-hero__copy,.contact-hero__copy{padding:3.5rem 1.5rem}
+  .meet-pop{grid-template-columns:minmax(0,1fr);gap:2rem;padding:4rem 1.5rem}
+  .meet-pop h2{overflow-wrap:anywhere}
+  .meet-polaroid,.meet-pop__copy,.meet-pop__video{width:100%;max-width:100%;min-width:0}
+  .resource-pathway__action{width:100%;justify-content:space-between}
+  .resource-hero__photo span,.contact-hero__photo span{
+    padding:.45rem .6rem;
+    background:rgba(16,42,67,.72);
+    text-shadow:0 1px 3px rgba(0,0,0,.55);
+  }
+  .footer,.ds-footer,.bs-footer,.resource-footer,.meet-footer,.contact-footer{padding-top:3rem}
+  .footer__links,.ds-footer__links,.bs-footer__bottom>div,.resource-footer__bottom>div,.meet-footer__bottom>div,.contact-footer__bottom>div{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:0 .9rem;
+    width:100%;
+  }
+  .footer__links a,.ds-footer__links a,.bs-footer__bottom a,.resource-footer__bottom a,.meet-footer__bottom a,.contact-footer__bottom a{
+    min-height:44px;
+    font-size:.8125rem;
+  }
+}
+
+/* Final legibility floor for captions, sequence markers, and small but meaningful labels. */
+.mary__portrait-caption small,.final-cta__mark span,
+.ds-hero__caption,.ds-image-label,.ds-possibilities b,.ds-step-card__top span,.ds-small__line,.ds-question-grid span,.ds-resource-grid article>span,
+.aip-hero__caption-text,.aip-hero__caption-text span,.aip-story__image span,.aip-pathway__num,.aip-program__network>p,.aip-program__network b,.aip-naipc__mark small,
+.bs-hero__caption,.bs-section-number,.bs-question-band>p,.bs-topic-grid span,.bs-selling__grid span,
+.resource-hero__photo span,.resource-pathway__top span,.resource-status,
+.meet-hero__photo span,.meet-pop__video p,.contact-hero__photo span,.contact-topic-list span{
+  font-size:.75rem;
+  line-height:1.4;
+}
+.ds-possibilities b,.ds-step-card__top span,.ds-question-grid span,
+.aip-pathway__num,.aip-program__network>p,.aip-program__network b,
+.bs-question-band>p,.bs-topic-grid span,.resource-pathway__top span,.contact-topic-list span{
+  color:var(--gold-text);
+}
+.bs-selling__grid span,.resource-status{color:var(--gold-on-dark)}
+.aip-personal__visual,.aip-personal__photo-frame{width:100%}
+.desktop-nav,.resource-nav,.meet-nav,.contact-nav{grid-template-columns:repeat(7,minmax(0,1fr))}
+@media (max-width:640px){
+  .aip-personal__visual .aip-personal__seal{right:0}
+}
+
+/* Homepage question carousel: one calm question at a time, with clear manual wayfinding. */
+.ways{
+  padding-top:clamp(5rem,7vw,7rem);
+}
+.section-heading{
+  justify-content:flex-start;
+}
+.questions-carousel{
+  display:grid;
+  grid-template-columns:minmax(18rem,.42fr) minmax(0,.58fr);
+  min-height:28rem;
+  overflow:hidden;
+  border-top:1px solid rgba(229,201,135,.65);
+  border-bottom:1px solid rgba(229,201,135,.45);
+  background:var(--navy);
+}
+.questions-carousel__intro{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+  padding:clamp(4.5rem,7vw,7rem) clamp(2.5rem,5vw,6rem) clamp(4.5rem,7vw,7rem) 10vw;
+  overflow:hidden;
+  color:var(--navy);
+  background:
+    linear-gradient(135deg,rgba(180,138,74,.18),transparent 52%),
+    #e9e2d6;
+}
+.questions-carousel__intro::after{
+  content:"";
+  position:absolute;
+  right:-4.5rem;
+  bottom:-4.5rem;
+  width:12rem;
+  height:12rem;
+  border:1px solid rgba(143,101,31,.24);
+  border-radius:50%;
+  box-shadow:0 0 0 1.8rem rgba(143,101,31,.06),0 0 0 3.6rem rgba(143,101,31,.04);
+  pointer-events:none;
+}
+.questions-carousel__mark{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  margin-bottom:2rem;
+  color:var(--gold-display);
+}
+.questions-carousel__mark span{
+  width:4.5rem;
+  height:1px;
+  background:currentColor;
+}
+.questions-carousel__intro h2{
+  position:relative;
+  z-index:1;
+  max-width:8.5ch;
+  margin:0;
+  color:var(--navy);
+  font-size:clamp(3.25rem,5vw,5.6rem);
+  line-height:.88;
+}
+.questions-carousel__intro h2 i{
+  color:var(--gold-display);
+}
+.questions-carousel__stage{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+  padding:clamp(4.5rem,7vw,7rem) 10vw clamp(4.5rem,7vw,7rem) clamp(2.5rem,6vw,7rem);
+  color:var(--cream);
+  background:
+    radial-gradient(circle at 100% 0,rgba(229,201,135,.11),transparent 34%),
+    linear-gradient(135deg,rgba(255,255,255,.025),transparent 48%);
+}
+.questions-carousel__viewport{
+  width:100%;
+  overflow:hidden;
+}
+.questions-carousel__track{
+  display:flex;
+  width:100%;
+  transition:transform .48s cubic-bezier(.22,.8,.25,1);
+  will-change:transform;
+}
+.questions-carousel__slide{
+  display:flex;
+  flex:0 0 100%;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+  min-height:11.5rem;
+  padding:.4rem 0 1.5rem;
+}
+.questions-carousel__slide>span{
+  display:block;
+  margin-bottom:1.35rem;
+  color:var(--gold-on-dark);
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:.18em;
+}
+.questions-carousel__slide p{
+  max-width:18ch;
+  margin:0;
+  color:var(--cream);
+  font:500 clamp(2.75rem,4.5vw,4.8rem)/.94 "Cormorant Garamond",serif;
+  letter-spacing:-.035em;
+}
+.questions-carousel__controls{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:1rem;
+  padding-top:1.25rem;
+  border-top:1px solid rgba(245,241,233,.24);
+}
+.questions-carousel__count{
+  min-width:4.25rem;
+  color:var(--gold-on-dark);
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:.15em;
+}
+.questions-carousel__dots{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.questions-carousel__dots button{
+  position:relative;
+  width:44px;
+  height:44px;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:inherit;
+  cursor:pointer;
+}
+.questions-carousel__dots button::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:7px;
+  height:7px;
+  border:1px solid rgba(245,241,233,.7);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  transition:background .2s ease,border-color .2s ease,transform .2s ease;
+}
+.questions-carousel__dots button.is-active::after{
+  border-color:var(--gold-on-dark);
+  background:var(--gold-on-dark);
+  transform:translate(-50%,-50%) scale(1.35);
+}
+.questions-carousel__arrows{
+  display:flex;
+  gap:.55rem;
+}
+.questions-carousel__arrows button{
+  display:grid;
+  width:48px;
+  height:48px;
+  place-items:center;
+  padding:0;
+  border:1px solid rgba(245,241,233,.55);
+  background:transparent;
+  color:var(--cream);
+  cursor:pointer;
+  transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;
+}
+.questions-carousel__arrows button:hover{
+  border-color:var(--gold-on-dark);
+  background:var(--gold-on-dark);
+  color:var(--navy);
+  transform:translateY(-2px);
+}
+.questions-carousel__dots button:focus-visible,
+.questions-carousel__arrows button:focus-visible{
+  outline:3px solid var(--gold-on-dark);
+  outline-offset:3px;
+}
+
+@media (max-width:900px){
+  .questions-carousel{
+    grid-template-columns:1fr;
+    min-height:0;
+  }
+  .questions-carousel__intro{
+    padding:4.5rem 7vw 3.75rem;
+  }
+  .questions-carousel__intro h2{
+    max-width:11ch;
+  }
+  .questions-carousel__stage{
+    padding:3.75rem 7vw 4.25rem;
+  }
+  .questions-carousel__slide{
+    min-height:10rem;
+  }
+}
+
+@media (max-width:520px){
+  .ways{
+    padding-top:4.5rem;
+  }
+  .questions-carousel__intro{
+    padding:3.75rem 1.5rem 3.25rem;
+  }
+  .questions-carousel__intro h2{
+    font-size:3.15rem;
+    line-height:.93;
+  }
+  .questions-carousel__stage{
+    padding:3.25rem 1.5rem 3.5rem;
+  }
+  .questions-carousel__slide{
+    min-height:10.5rem;
+  }
+  .questions-carousel__slide p{
+    font-size:2.8rem;
+    line-height:.98;
+  }
+  .questions-carousel__controls{
+    grid-template-columns:1fr auto;
+    gap:.35rem 1rem;
+  }
+  .questions-carousel__count{
+    grid-column:1;
+    grid-row:1;
+  }
+  .questions-carousel__dots{
+    grid-column:1;
+    grid-row:2;
+    justify-content:flex-start;
+    margin-left:-.8rem;
+  }
+  .questions-carousel__arrows{
+    grid-column:2;
+    grid-row:1 / span 2;
+  }
+}
+
+/* Client-readiness overrides: accessibility, contrast, and responsive presentation. */
+:root{
+  --gold-text-strong:#684812;
+  --gold-button:#c79a4a;
+}
+
+[hidden]{display:none!important}
+
+.skip-link{
+  position:fixed;
+  top:.75rem;
+  left:.75rem;
+  z-index:1000;
+  transform:translateY(calc(-100% - 2rem));
+  padding:.85rem 1rem;
+  border:2px solid var(--navy);
+  background:#fffdf8;
+  color:var(--navy);
+  font-size:.875rem;
+  font-weight:700;
+  text-decoration:none;
+}
+.skip-link:focus-visible{transform:none}
+
+:where(a,button,input,select,textarea,video,[tabindex]):focus-visible{
+  outline:3px solid #fffdf8;
+  outline-offset:2px;
+  box-shadow:0 0 0 5px var(--navy);
+}
+main[tabindex="-1"]:focus{outline:none;box-shadow:none}
+
+.button--gold,.ds-button--gold,.aip-button--gold,.bs-button--gold,
+.resource-button--gold,.meet-button--gold,.contact-button--gold,
+.not-found-page button,.not-found-page__home{
+  border-color:var(--gold-button);
+  background:var(--gold-button);
+  color:var(--navy);
+}
+.button--gold:hover,.ds-button--gold:hover,.aip-button--gold:hover,.bs-button--gold:hover,
+.resource-button--gold:hover,.meet-button--gold:hover,.contact-button--gold:hover,
+.not-found-page button:hover,.not-found-page__home:hover{
+  border-color:#d8b66f;
+  background:#d8b66f;
+  color:var(--navy);
+}
+
+.not-found-page__home{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.55rem;
+  min-height:48px;
+  padding:.85rem 1.15rem;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.06em;
+}
+.error-boundary__home{
+  display:inline-flex;
+  min-height:44px;
+  margin-top:1rem;
+  align-items:center;
+  color:var(--navy);
+  font-size:.8125rem;
+  font-weight:700;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
+/* Context-aware active navigation and CTA colors. */
+@media (min-width:1181px){
+  .ds-nav a[aria-current="page"]{
+    color:var(--gold-on-dark);
+    background:rgba(229,201,135,.1);
+    border-color:rgba(229,201,135,.72);
+  }
+}
+@media (max-width:1180px){
+  .mobile-nav a[aria-current="page"],.ds-nav a[aria-current="page"]{
+    color:var(--gold-text-strong);
+    background:rgba(104,72,18,.08);
+  }
+  .bs-mobile-nav a[aria-current="page"],.resource-mobile-nav a[aria-current="page"],
+  .meet-mobile-nav a[aria-current="page"],.contact-mobile-nav a[aria-current="page"]{
+    color:var(--gold-on-dark);
+    background:rgba(229,201,135,.1);
+  }
+  .bs-mobile-nav .bs-button--gold,.resource-mobile-nav .resource-button--gold,
+  .meet-mobile-nav .meet-button--gold,.contact-mobile-nav .contact-button--gold{
+    color:var(--navy);
+  }
+}
+
+.footer__contact .button--gold,.ds-footer__contact .ds-button--gold,
+.ds-footer__contact .aip-button--gold,.bs-footer__contact .bs-button--gold,
+.resource-footer__contact .resource-button--gold,.meet-footer__contact .meet-button--gold,
+.contact-footer__details .contact-button--gold{color:var(--navy)}
+
+/* Dark-section and gold-on-paper contrast. */
+.ds-resources .ds-button--outline{
+  border-color:rgba(229,201,135,.9);
+  color:var(--cream);
+}
+.ds-resources .ds-button--outline:hover{
+  border-color:var(--gold-on-dark);
+  background:var(--gold-on-dark);
+  color:var(--navy);
+}
+.resource-featured .resource-filter-reset,.resource-events .resource-events__status{
+  border-color:rgba(229,201,135,.9);
+  color:var(--gold-on-dark);
+}
+.aip-hero--split .aip-hero__caption-text,.aip-hero--split .aip-hero__caption-text span,
+.aip-assess .aip-text-link,.aip-naipc .aip-text-link,.aip-program .aip-button--outline,
+.meet-life__words span,.meet-chapter__note,.contact-direct__email{
+  color:var(--gold-text-strong);
+}
+.aip-hero--split .aip-hero__caption-text span,.aip-program .aip-button--outline{
+  border-color:var(--gold-text-strong);
+}
+.aip-program .aip-button--outline:hover{
+  background:var(--gold-text-strong);
+  color:var(--cream);
+}
+.aip-personal .aip-text-link,.aip-adu .aip-light-link{color:var(--gold-on-dark)}
+.contact-form__status{color:#334d42;font-size:.875rem;line-height:1.55}
+.contact-form__status a,.contact-form-note a,.aip-source a{
+  color:var(--gold-text-strong);
+  font-weight:700;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.contact-form__requirement{
+  color:#5b6265;
+  font-size:.75rem;
+  font-weight:500;
+  letter-spacing:0;
+  text-transform:none;
+}
+
+/* Reliable text backing wherever captions sit on photography. */
+.hero__caption,.ds-hero__caption,.ds-image-label,.aip-story__image span,
+.bs-hero__caption,.resource-hero__photo span,.meet-hero__photo span,.contact-hero__photo span{
+  padding:.5rem .65rem;
+  background:rgba(16,42,67,.86);
+  color:#fff;
+  text-shadow:0 1px 3px rgba(0,0,0,.65);
+  box-shadow:0 2px 8px rgba(0,0,0,.16);
+}
+
+/* Touch targets and readable action labels for an older audience. */
+.bs-choice-card a,.resource-featured-grid a,.resource-events a{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  padding:.65rem 0;
+  font-size:.8125rem;
+  line-height:1.3;
+}
+.bs-hero__note,.meet-chapter__note,.meet-pop__video p{font-size:.8125rem!important;line-height:1.5!important}
+.aip-evaluation__reset{
+  min-height:44px;
+  padding:.65rem .25rem;
+  color:var(--gold-text-strong);
+  font-size:.8rem;
+}
+.footer__contact>a,.ds-footer__contact>a,.bs-footer__contact>a,
+.resource-footer__contact>a,.meet-footer__contact>a,.contact-footer__details>a,
+.footer__brokerage a[href^="tel:"],.ds-footer__contact span a[href^="tel:"],
+.bs-footer__brokerage a[href^="tel:"],.resource-footer__contact span a[href^="tel:"],
+.meet-footer__contact span a[href^="tel:"],.contact-footer__details span a[href^="tel:"]{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+}
+.footer__links a,.ds-footer__links a,.bs-footer__bottom a,.resource-footer__bottom a,
+.meet-footer__bottom a,.contact-footer__bottom a{min-height:44px}
+
+/* Static editorial cards should not imply hidden accordion behavior. */
+.ds-step-card,.aip-assess-grid article{cursor:default;transition:none}
+.ds-step-card:hover{
+  border-color:rgba(16,42,67,.27);
+  box-shadow:0 10px 20px rgba(16,42,67,.06);
+}
+.aip-assess-grid article:hover{
+  border-color:rgba(16,42,67,.32);
+  border-top-color:#b88b45;
+  box-shadow:0 10px 30px rgba(16,42,67,.05);
+}
+.aip-evaluation__choices button.is-selected{
+  border-color:var(--gold-text-strong);
+  background:#efe4ca;
+  color:var(--navy);
+  box-shadow:inset 0 0 0 2px var(--gold-text-strong);
+}
+
+/* Semantic list and accordion wrappers retain the established appearance. */
+.credentials__grid--balanced{margin:0;padding:0;list-style:none}
+.credentials__grid--balanced li{
+  position:relative;
+  display:block;
+  break-inside:avoid;
+  margin:0 0 .7rem;
+  padding-left:12px;
+  font-size:.875rem;
+  line-height:1.5;
+}
+.credentials__grid--balanced li::before{
+  content:"";
+  position:absolute;
+  top:.7em;
+  left:0;
+  width:5px;
+  height:1px;
+  background:var(--gold);
+}
+.resource-faq-item h3{margin:0;font:inherit;letter-spacing:normal}
+.contact-topic-list>div{grid-template-columns:3rem minmax(0,1fr)}
+
+/* Show the destination of each homepage resource card explicitly. */
+.resource-card{display:flex;flex-direction:column}
+.resource-card__action{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  min-height:44px;
+  margin-top:auto;
+  padding-top:.75rem;
+  color:var(--gold-on-dark);
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  line-height:1.35;
+  text-transform:uppercase;
+}
+.resource-pathway__action{font-size:.8125rem!important}
+.contact-direct__email{display:inline-flex;align-items:center;min-height:44px}
+.footer__brokerage a[href^="tel:"]{display:inline-flex!important;align-items:center;min-height:44px}
+.hero__caption{font-size:.75rem}
+
+@media (min-width:1181px){
+  .ds-nav>a,.bs-desktop-nav a,.resource-nav a,.meet-nav a,.contact-nav a{font-size:.75rem}
+}
+
+/* A single published resource should read as intentional, not like a missing grid. */
+.resource-featured-grid>article:only-child{
+  grid-column:1 / -1;
+  justify-self:start;
+  width:100%;
+  max-width:44rem;
+  min-height:0;
+}
+.resource-featured__head>div:last-child>p{
+  max-width:30rem;
+  color:#d6d9d7;
+  line-height:1.75;
+}
+
+/* Preserve the intended desktop photo/copy positions after improving source order. */
+@media (min-width:901px){
+  .aip-hero--split .aip-hero__photo{grid-column:1;grid-row:1}
+  .aip-hero--split .aip-hero__panel{grid-column:2;grid-row:1}
+}
+@media (min-width:1181px){
+  .meet-hero__photo{grid-column:1;grid-row:1}
+  .meet-hero__copy{grid-column:2;grid-row:1}
+}
+
+/* Copy comes first on every stacked editorial hero. */
+@media (max-width:1180px){
+  .bs-hero__copy,.resource-hero__copy,.meet-hero__copy,.contact-hero__copy{
+    order:1;
+    width:100%;
+  }
+  .bs-hero__photo,.resource-hero__photo,.meet-hero__photo,.contact-hero__photo{
+    order:2;
+    height:clamp(21rem,46vw,30rem);
+  }
+}
+@media (max-width:900px){
+  .aip-hero--split{display:flex;flex-direction:column}
+  .aip-hero__panel{order:1}
+  .aip-hero--split .aip-hero__photo{
+    order:2;
+    min-height:clamp(20rem,58vw,27rem);
+  }
+}
+
+/* Keep hero actions available on short laptop screens. */
+@media (min-width:1181px) and (max-height:800px){
+  .ds-hero{min-height:34rem;padding:3.75rem 7vw 3.5rem}
+  .ds-hero h1{margin-bottom:1.25rem;font-size:clamp(4rem,6vw,4.75rem);line-height:.9}
+  .aip-hero--split,.aip-hero--split .aip-hero__photo{min-height:34rem}
+  .aip-hero__panel{padding:3rem 4vw}
+  .aip-hero--split h1{margin-bottom:1rem;font-size:3.8rem;line-height:.92}
+  .bs-hero,.resource-hero,.meet-hero,.contact-hero{min-height:32rem}
+  .bs-hero__photo,.resource-hero__photo,.meet-hero__photo,.contact-hero__photo{
+    height:32rem;
+    min-height:0;
+  }
+  .bs-hero__photo img,.resource-hero__photo img,.meet-hero__photo img,.contact-hero__photo img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+  .bs-hero__copy,.resource-hero__copy,.meet-hero__copy,.contact-hero__copy{padding:3rem 4.5vw}
+  .resource-hero__photo,.contact-hero__photo{margin:1rem 1rem 1rem 0}
+  .bs-hero h1{font-size:clamp(2.9rem,3.7vw,3.5rem);line-height:.96}
+  .resource-hero h1,.contact-hero h1{font-size:3.7rem;line-height:.95}
+  .meet-hero h1{font-size:3.25rem;line-height:.95}
+}
+
+/* Compact mobile hierarchy and the known 320px closing-headline failure. */
+@media (max-width:700px){
+  .hero__content,.ds-hero__content,.aip-hero__content,
+  .bs-hero__copy,.resource-hero__copy,.meet-hero__copy,.contact-hero__copy{
+    display:flex;
+    flex-direction:column;
+  }
+  .hero__content>.eyebrow,.ds-hero__content>.ds-eyebrow,.aip-hero__content>.aip-eyebrow,
+  .bs-hero__copy>.bs-eyebrow,.resource-hero__copy>.resource-eyebrow,
+  .meet-hero__copy>.meet-eyebrow,.contact-hero__copy>.contact-eyebrow{order:1}
+  .hero__content>h1,.ds-hero__content>h1,.aip-hero__content>h1,
+  .bs-hero__copy>h1,.resource-hero__copy>h1,.meet-hero__copy>h1,.contact-hero__copy>h1{order:2}
+  .bs-hero__copy>.bs-rule,.resource-hero__copy>.resource-rule,
+  .meet-hero__copy>.meet-rule,.contact-hero__copy>.contact-rule{order:3}
+  .hero__content>.button,.ds-hero__content>.ds-button,.aip-hero__content>.aip-button,
+  .bs-hero__copy>.bs-button,.resource-hero__copy>.resource-button,
+  .meet-hero__copy>.meet-button,.contact-hero__copy>.contact-button{
+    order:4;
+    align-self:flex-start;
+    margin-top:.35rem;
+    margin-bottom:1.35rem;
+  }
+  .hero__content>.hero__copy,.ds-hero__content>p:not(.ds-eyebrow),
+  .aip-hero__content>p:not(.aip-eyebrow),.bs-hero__copy>p:not(.bs-eyebrow),
+  .resource-hero__copy>p:not(.resource-eyebrow),.meet-hero__copy>p:not(.meet-eyebrow),
+  .contact-hero__copy>p:not(.contact-eyebrow){order:5}
+  .aip-hero__content>.aip-hero__caption-text,.bs-hero__copy>.bs-hero__note,
+  .contact-hero__copy>small{order:6}
+  .bs-hero__copy,.resource-hero__copy,.meet-hero__copy,.contact-hero__copy{
+    padding:3rem 1.5rem 3.25rem;
+  }
+  .bs-hero h1,.meet-hero h1{
+    font-size:clamp(2.35rem,10.5vw,2.9rem);
+    line-height:.98;
+  }
+  .resource-hero h1,.contact-hero h1,.aip-hero--split h1{
+    font-size:clamp(2.75rem,12.5vw,3.15rem);
+    line-height:.98;
+  }
+  .meet-pop h2{
+    overflow-wrap:normal;
+    word-break:normal;
+    font-size:clamp(2.6rem,12vw,3rem);
+  }
+  .bs-hero__photo,.resource-hero__photo,.meet-hero__photo,.contact-hero__photo{
+    height:clamp(19rem,70vw,24rem);
+  }
+}
+@media (max-width:520px){
+  .contact-topic-list>div{grid-template-columns:2rem minmax(0,1fr);gap:.75rem}
+  .ds-final{padding-right:1rem;padding-left:1rem}
+  .ds-final__frame{padding:3rem .9rem 3.25rem}
+  .ds-final__frame h2{font-size:clamp(2.5rem,12vw,3rem);line-height:.96}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .questions-carousel__track{
+    transition:none;
+  }
+}
+
+/* Unified homepage question stage: the active question carries the visual hierarchy. */
+.questions-carousel{
+  position:relative;
+  display:block;
+  min-height:0;
+  padding:clamp(4rem,6vw,5.5rem) 10vw;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 88% 8%,rgba(229,201,135,.1),transparent 27%),
+    linear-gradient(135deg,rgba(255,255,255,.025),transparent 48%),
+    var(--navy);
+}
+.questions-carousel::before,
+.questions-carousel::after{
+  content:"";
+  position:absolute;
+  border:1px solid rgba(229,201,135,.11);
+  border-radius:50%;
+  pointer-events:none;
+}
+.questions-carousel::before{
+  right:-8rem;
+  bottom:-13rem;
+  width:30rem;
+  height:30rem;
+}
+.questions-carousel::after{
+  right:-2rem;
+  bottom:-7rem;
+  width:18rem;
+  height:18rem;
+}
+.questions-carousel__inner{
+  position:relative;
+  z-index:1;
+  width:min(100%,70rem);
+  margin:0 auto;
+}
+.questions-carousel__heading{
+  display:flex;
+  align-items:center;
+  gap:1.1rem;
+  margin-bottom:1.5rem;
+}
+.questions-carousel__heading .questions-carousel__mark{
+  flex:0 0 auto;
+  gap:.8rem;
+  margin:0;
+  color:var(--gold-on-dark);
+}
+.questions-carousel__heading .questions-carousel__mark span{
+  width:3.5rem;
+}
+.questions-carousel__heading h2{
+  margin:0;
+  color:var(--gold-on-dark);
+  font:700 .75rem/1.4 "DM Sans",sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.questions-carousel .questions-carousel__stage{
+  display:block;
+  min-width:0;
+  padding:0;
+  color:var(--cream);
+  background:none;
+}
+.questions-carousel .questions-carousel__slide{
+  display:flex;
+  min-height:11rem;
+  padding:0 0 1.5rem;
+  justify-content:center;
+}
+.questions-carousel .questions-carousel__slide p{
+  max-width:18ch;
+  margin:0;
+  color:var(--cream);
+  font:500 clamp(3.65rem,7vw,6.75rem)/.9 "Cormorant Garamond",serif;
+  letter-spacing:-.04em;
+}
+.questions-carousel .questions-carousel__controls{
+  grid-template-columns:1fr auto auto;
+  gap:1.5rem;
+  padding-top:1rem;
+  border-color:rgba(245,241,233,.25);
+}
+.questions-carousel__progress{
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+}
+.questions-carousel__progress button{
+  position:relative;
+  width:clamp(3.5rem,7vw,5.5rem);
+  height:44px;
+  padding:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+}
+.questions-carousel__progress button::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  right:0;
+  left:0;
+  height:2px;
+  background:rgba(245,241,233,.3);
+  transform:translateY(-50%);
+  transition:background .2s ease,transform .2s ease;
+}
+.questions-carousel__progress button.is-active::after{
+  background:var(--gold-on-dark);
+  transform:translateY(-50%) scaleY(2);
+}
+.questions-carousel__progress button:hover::after{
+  background:rgba(229,201,135,.72);
+}
+.questions-carousel__progress button:focus-visible,
+.questions-carousel__arrows button:focus-visible{
+  outline:3px solid var(--gold-on-dark);
+  outline-offset:3px;
+}
+.questions-carousel .questions-carousel__count{
+  min-width:auto;
+  color:var(--gold-on-dark);
+  white-space:nowrap;
+}
+
+/* The closing invitation now foregrounds Mary's experience and active guidance. */
+.final-cta__content{
+  max-width:58rem;
+}
+.final-cta__content h2{
+  max-width:56rem;
+  margin-right:auto;
+  margin-left:auto;
+  font-size:clamp(3.6rem,6.2vw,6.4rem);
+  line-height:.88;
+}
+.final-cta__content>.eyebrow{
+  max-width:42rem;
+  margin-right:auto;
+  margin-left:auto;
+}
+.final-cta__content>p:not(.eyebrow){
+  max-width:44rem;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+/* Discreet brokerage affiliation: repeated only beside the existing footer details. */
+.footer__brokerage,
+.bs-footer__brokerage,
+.resource-footer__contact>div,
+.meet-footer__contact>div,
+.contact-footer__details>div{
+  position:relative;
+  min-height:4rem;
+  padding-left:5rem;
+}
+.footer__brokerage::before,
+.bs-footer__brokerage::before,
+.resource-footer__contact>div::before,
+.meet-footer__contact>div::before,
+.contact-footer__details>div::before,
+.ds-footer__contact strong::before{
+  content:"";
+  width:4rem;
+  height:4rem;
+  background:url('/manus-storage/cummings-and-co-realtors-circle.png') center/contain no-repeat;
+  opacity:.82;
+}
+.footer__brokerage::before,
+.bs-footer__brokerage::before,
+.resource-footer__contact>div::before,
+.meet-footer__contact>div::before,
+.contact-footer__details>div::before{
+  position:absolute;
+  top:0;
+  left:0;
+}
+.ds-footer__contact strong{
+  display:flex;
+  align-items:center;
+  gap:.85rem;
+  margin-top:.35rem;
+}
+.ds-footer__contact strong::before{
+  flex:0 0 4rem;
+}
+
+@media (max-width:700px){
+  .questions-carousel{
+    padding:3.75rem 1.5rem 4rem;
+  }
+  .questions-carousel__heading{
+    align-items:flex-start;
+    gap:.85rem;
+    margin-bottom:1.25rem;
+  }
+  .questions-carousel__heading .questions-carousel__mark{
+    padding-top:.1rem;
+  }
+  .questions-carousel__heading .questions-carousel__mark span{
+    width:2rem;
+  }
+  .questions-carousel__heading h2{
+    max-width:17rem;
+    font-size:.75rem;
+  }
+  .questions-carousel .questions-carousel__slide{
+    min-height:12.5rem;
+    padding-bottom:1.25rem;
+  }
+  .questions-carousel .questions-carousel__slide p{
+    max-width:13ch;
+    font-size:3.25rem;
+    line-height:.94;
+  }
+  .questions-carousel .questions-carousel__controls{
+    grid-template-columns:1fr auto;
+    gap:.4rem 1rem;
+  }
+  .questions-carousel__progress{
+    grid-column:1 / -1;
+    grid-row:2;
+  }
+  .questions-carousel__progress button{
+    width:3.75rem;
+  }
+  .questions-carousel .questions-carousel__count{
+    grid-column:1;
+    grid-row:1;
+  }
+  .questions-carousel__arrows{
+    grid-column:2;
+    grid-row:1;
+  }
+  .final-cta__content h2{
+    font-size:3rem;
+    line-height:.98;
+  }
+  .footer__brokerage,
+  .bs-footer__brokerage,
+  .resource-footer__contact>div,
+  .meet-footer__contact>div,
+  .contact-footer__details>div{
+    min-height:3.5rem;
+    padding-left:4.25rem;
+  }
+  .footer__brokerage::before,
+  .bs-footer__brokerage::before,
+  .resource-footer__contact>div::before,
+  .meet-footer__contact>div::before,
+  .contact-footer__details>div::before,
+  .ds-footer__contact strong::before{
+    width:3.5rem;
+    height:3.5rem;
+  }
+  .ds-footer__contact strong::before{
+    flex-basis:3.5rem;
+  }
+}
+
+/* Restore the requested cream-and-navy split question carousel. */
+.questions-carousel{
+  display:grid;
+  grid-template-columns:minmax(18rem,.42fr) minmax(0,.58fr);
+  min-height:28rem;
+  padding:0;
+  overflow:hidden;
+  border-top:1px solid rgba(229,201,135,.65);
+  border-bottom:1px solid rgba(229,201,135,.45);
+  background:var(--navy);
+}
+.questions-carousel::before,
+.questions-carousel::after{
+  content:none;
+}
+.questions-carousel .questions-carousel__stage{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+  padding:clamp(4.5rem,7vw,7rem) 10vw clamp(4.5rem,7vw,7rem) clamp(2.5rem,6vw,7rem);
+  color:var(--cream);
+  background:
+    radial-gradient(circle at 100% 0,rgba(229,201,135,.11),transparent 34%),
+    linear-gradient(135deg,rgba(255,255,255,.025),transparent 48%);
+}
+.questions-carousel .questions-carousel__slide{
+  min-height:11.5rem;
+  padding:.4rem 0 1.5rem;
+}
+.questions-carousel .questions-carousel__slide p{
+  max-width:18ch;
+  color:var(--cream);
+  font:500 clamp(2.75rem,4.5vw,4.8rem)/.94 "Cormorant Garamond",serif;
+  letter-spacing:-.035em;
+}
+.questions-carousel .questions-carousel__controls{
+  grid-template-columns:auto 1fr auto;
+  gap:1rem;
+  padding-top:1.25rem;
+  border-color:rgba(245,241,233,.24);
+}
+.questions-carousel .questions-carousel__count{
+  min-width:4.25rem;
+}
+
+/* Keep every homepage hero word inside its image and strengthen text contrast at all aspect ratios. */
+.hero__veil{
+  background:
+    linear-gradient(90deg,rgba(9,24,37,.88),rgba(9,24,37,.5) 48%,rgba(9,24,37,.16) 74%),
+    linear-gradient(0deg,rgba(9,24,37,.62),transparent 48%);
+}
+.hero__copy{
+  color:#fff;
+  text-shadow:0 1px 4px rgba(0,0,0,.55);
+}
+.hero .eyebrow--light{
+  color:#f1d89b;
+  text-shadow:0 1px 3px rgba(0,0,0,.5);
+}
+
+@media (min-width:801px){
+  .hero{
+    height:auto;
+    min-height:clamp(47.5rem,84svh,56.25rem);
+    align-items:flex-start;
+    padding:clamp(7.5rem,14svh,9rem) 7vw clamp(3rem,5vw,5rem);
+  }
+  .hero__content{
+    width:min(100%,56rem);
+    max-width:none;
+    margin:0;
+    padding:0;
+  }
+  .hero h1{
+    max-width:none;
+    margin-bottom:1.125rem;
+    font-size:clamp(4rem,6.5vw,7rem);
+    line-height:.88;
+  }
+  .hero__copy{
+    line-height:1.45;
+  }
+  .hero__copy--second{
+    margin-bottom:.625rem;
+  }
+}
+
+@media (min-width:1181px){
+  .hero{
+    padding-top:clamp(10.75rem,18svh,12.75rem);
+  }
+}
+
+@media (min-width:1181px) and (max-height:760px){
+  .hero{
+    padding-bottom:3rem;
+  }
+  .hero h1{
+    font-size:clamp(4.25rem,5.5vw,5.75rem);
+  }
+  .hero .eyebrow{
+    margin-bottom:.75rem;
+  }
+}
+
+@media (max-width:900px){
+  .questions-carousel{
+    grid-template-columns:1fr;
+    min-height:0;
+  }
+  .questions-carousel__intro{
+    padding:4.5rem 7vw 3.75rem;
+  }
+  .questions-carousel__intro h2{
+    max-width:11ch;
+  }
+  .questions-carousel .questions-carousel__stage{
+    padding:3.75rem 7vw 4.25rem;
+  }
+  .questions-carousel .questions-carousel__slide{
+    min-height:10rem;
+  }
+}
+
+@media (max-width:800px){
+  .hero{
+    height:auto;
+    min-height:max(44rem,90svh);
+    align-items:flex-end;
+    padding:7rem 0 clamp(4rem,16vw,7rem);
+  }
+  .hero__content{
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding:0 7vw;
+  }
+  .hero h1{
+    max-width:none;
+    font-size:clamp(3.35rem,15vw,4rem);
+    line-height:.94;
+  }
+}
+
+@media (max-width:520px){
+  .questions-carousel__intro{
+    padding:3.75rem 1.5rem 3.25rem;
+  }
+  .questions-carousel__intro h2{
+    font-size:3.15rem;
+    line-height:.93;
+  }
+  .questions-carousel .questions-carousel__stage{
+    padding:3.25rem 1.5rem 3.5rem;
+  }
+  .questions-carousel .questions-carousel__slide{
+    min-height:10.5rem;
+  }
+  .questions-carousel .questions-carousel__slide p{
+    font-size:2.8rem;
+    line-height:.98;
+  }
+  .questions-carousel .questions-carousel__controls{
+    grid-template-columns:1fr auto;
+    gap:.35rem 1rem;
+  }
+  .questions-carousel .questions-carousel__count{
+    grid-column:1;
+    grid-row:1;
+  }
+  .questions-carousel__dots{
+    grid-column:1;
+    grid-row:2;
+    justify-content:flex-start;
+    margin-left:-.8rem;
+  }
+  .questions-carousel__arrows{
+    grid-column:2;
+    grid-row:1 / span 2;
+  }
+}
+
+/* Final cascade lock: preserve accessible contrast and target sizes after legacy page rules. */
+.aip-hero--split .aip-hero__content > p.aip-hero__caption-text,
+.aip-hero--split .aip-hero__content > p.aip-hero__caption-text span{
+  color:var(--gold-text-strong);
+}
+.aip-hero--split .aip-hero__content > p.aip-hero__caption-text span{
+  border-color:var(--gold-text-strong);
+}
+.ds-footer__contact > a.aip-button.aip-button--gold{
+  color:var(--navy);
+}
+.bs-choice-card:not(.bs-choice-card--dark) > a{
+  color:var(--gold-text-strong);
+}
+.ds-resources{
+  background-color:var(--navy);
+}
+.ds-resources .ds-button--outline{
+  border-color:var(--gold-on-dark);
+  color:var(--cream);
+}
+.contact-direct a.contact-direct__email,
+.footer__brokerage a[href^="tel:"]{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+}
+
+/* Constrain split desktop heroes so intrinsic image ratios cannot push actions below the fold. */
+@media (min-width:1181px) and (min-height:801px){
+  .bs-hero,.resource-hero,.meet-hero,.contact-hero{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    min-height:clamp(40rem,70svh,52rem);
+  }
+  .bs-hero__photo,.resource-hero__photo,.meet-hero__photo,.contact-hero__photo{
+    position:relative;
+    height:clamp(40rem,70svh,52rem);
+    min-height:0;
+  }
+  .bs-hero__photo img,.resource-hero__photo img,.meet-hero__photo img,.contact-hero__photo img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+  .bs-hero__copy,.resource-hero__copy,.meet-hero__copy,.contact-hero__copy{
+    width:100%;
+    max-width:none;
+    padding:4rem clamp(3rem,5vw,4.75rem);
+  }
+  .resource-hero__photo,.contact-hero__photo{
+    margin:1.25rem 1.25rem 1.25rem 0;
+  }
+  .bs-hero h1{
+    font-size:clamp(3.5rem,4.2vw,4.6rem);
+    line-height:.93;
+  }
+  .resource-hero h1,.contact-hero h1{
+    font-size:clamp(3.6rem,4.4vw,4.8rem);
+    line-height:.94;
+  }
+  .meet-hero h1{
+    font-size:clamp(3.25rem,4vw,4.3rem);
+    line-height:.94;
+  }
+}
+
+/* The Aging in Place split hero also needs a compact tablet/laptop treatment. */
+@media (min-width:901px) and (max-width:1180px) and (max-height:850px){
+  .aip-hero--split,.aip-hero--split .aip-hero__photo{
+    min-height:37rem;
+  }
+  .aip-hero__panel{
+    padding:2.75rem 3.5vw;
+  }
+  .aip-hero--split h1{
+    margin-bottom:1rem;
+    font-size:3.5rem;
+    line-height:.92;
+  }
+  .aip-hero--split .aip-hero__content > p:not(.aip-eyebrow):not(.aip-hero__caption-text){
+    font-size:.9rem;
+    line-height:1.55;
+  }
+  .aip-hero--split .aip-button{
+    margin-top:.75rem;
+  }
+}
