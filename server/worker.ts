@@ -99,7 +99,7 @@ function renderDocument(
       `<meta name="description" content="${escapeHtml(metadata.description)}" />`,
     )
     .replace(
-      "<!--__ROUTE_META__-->",
+      /<!--__ROUTE_META_START__-->[\s\S]*?<!--__ROUTE_META_END__-->/,
       metadataMarkup(request, env, route?.path ?? null),
     );
 }

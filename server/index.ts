@@ -100,7 +100,10 @@ function renderDocument(template: string, req: Request, routePath: string | null
       /<meta\s+name="description"\s+content="[^"]*"\s*\/>/i,
       `<meta name="description" content="${escapeHtml(metadata.description)}" />`,
     )
-    .replace("<!--__ROUTE_META__-->", metadataMarkup(req, route?.path ?? null));
+    .replace(
+      /<!--__ROUTE_META_START__-->[\s\S]*?<!--__ROUTE_META_END__-->/,
+      metadataMarkup(req, route?.path ?? null),
+    );
 }
 
 function isFingerprintAsset(filePath: string) {
