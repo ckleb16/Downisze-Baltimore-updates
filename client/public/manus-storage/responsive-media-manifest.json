@@ -1,0 +1,602 @@
+{
+  "/manus-storage/AugustwebsiteHOMEphoto_6750abaf.png": {
+    "sourceWidth": 1536,
+    "sourceHeight": 1024,
+    "variants": [
+      {
+        "src": "/manus-storage/AugustwebsiteHOMEphoto_6750abaf-480w.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 48816
+      },
+      {
+        "src": "/manus-storage/AugustwebsiteHOMEphoto_6750abaf-768w.webp",
+        "width": 768,
+        "height": 512,
+        "bytes": 112210
+      },
+      {
+        "src": "/manus-storage/AugustwebsiteHOMEphoto_6750abaf-1200w.webp",
+        "width": 1200,
+        "height": 800,
+        "bytes": 233394
+      },
+      {
+        "src": "/manus-storage/AugustwebsiteHOMEphoto_6750abaf-1536w.webp",
+        "width": 1536,
+        "height": 1024,
+        "bytes": 337328
+      }
+    ]
+  },
+  "/manus-storage/aging-in-place-consultation_1b627f71.jpg": {
+    "sourceWidth": 2048,
+    "sourceHeight": 1365,
+    "variants": [
+      {
+        "src": "/manus-storage/aging-in-place-consultation_1b627f71-480w.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 25890
+      },
+      {
+        "src": "/manus-storage/aging-in-place-consultation_1b627f71-768w.webp",
+        "width": 768,
+        "height": 512,
+        "bytes": 55316
+      },
+      {
+        "src": "/manus-storage/aging-in-place-consultation_1b627f71-1200w.webp",
+        "width": 1200,
+        "height": 800,
+        "bytes": 110260
+      },
+      {
+        "src": "/manus-storage/aging-in-place-consultation_1b627f71-1600w.webp",
+        "width": 1600,
+        "height": 1066,
+        "bytes": 169342
+      }
+    ]
+  },
+  "/manus-storage/aging-in-place-hero_627154ed.jpg": {
+    "sourceWidth": 1365,
+    "sourceHeight": 2048,
+    "variants": [
+      {
+        "src": "/manus-storage/aging-in-place-hero_627154ed-480w.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 27394
+      },
+      {
+        "src": "/manus-storage/aging-in-place-hero_627154ed-768w.webp",
+        "width": 768,
+        "height": 1152,
+        "bytes": 50712
+      },
+      {
+        "src": "/manus-storage/aging-in-place-hero_627154ed-1200w.webp",
+        "width": 1200,
+        "height": 1800,
+        "bytes": 88298
+      },
+      {
+        "src": "/manus-storage/aging-in-place-hero_627154ed-1365w.webp",
+        "width": 1365,
+        "height": 2048,
+        "bytes": 105256
+      }
+    ]
+  },
+  "/manus-storage/downsizing-hero_718d6bc8.jpeg": {
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "variants": [
+      {
+        "src": "/manus-storage/downsizing-hero_718d6bc8-480w.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 25600
+      },
+      {
+        "src": "/manus-storage/downsizing-hero_718d6bc8-768w.webp",
+        "width": 768,
+        "height": 432,
+        "bytes": 55084
+      },
+      {
+        "src": "/manus-storage/downsizing-hero_718d6bc8-1200w.webp",
+        "width": 1200,
+        "height": 675,
+        "bytes": 110658
+      },
+      {
+        "src": "/manus-storage/downsizing-hero_718d6bc8-1600w.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 158750
+      }
+    ]
+  },
+  "/manus-storage/downsizing-room_d33a128b.jpeg": {
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "variants": [
+      {
+        "src": "/manus-storage/downsizing-room_d33a128b-480w.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 24356
+      },
+      {
+        "src": "/manus-storage/downsizing-room_d33a128b-768w.webp",
+        "width": 768,
+        "height": 432,
+        "bytes": 48620
+      },
+      {
+        "src": "/manus-storage/downsizing-room_d33a128b-1200w.webp",
+        "width": 1200,
+        "height": 675,
+        "bytes": 89916
+      },
+      {
+        "src": "/manus-storage/downsizing-room_d33a128b-1600w.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 128510
+      }
+    ]
+  },
+  "/manus-storage/mary-and-pop-boat.png": {
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
+    "variants": [
+      {
+        "src": "/manus-storage/mary-and-pop-boat-480w.webp",
+        "width": 480,
+        "height": 360,
+        "bytes": 24812
+      },
+      {
+        "src": "/manus-storage/mary-and-pop-boat-768w.webp",
+        "width": 768,
+        "height": 576,
+        "bytes": 51390
+      },
+      {
+        "src": "/manus-storage/mary-and-pop-boat-1200w.webp",
+        "width": 1200,
+        "height": 900,
+        "bytes": 94950
+      },
+      {
+        "src": "/manus-storage/mary-and-pop-boat-1448w.webp",
+        "width": 1448,
+        "height": 1086,
+        "bytes": 119348
+      }
+    ]
+  },
+  "/manus-storage/mary-chesapeake-frenchies_ed69a28d.jpg": {
+    "sourceWidth": 1206,
+    "sourceHeight": 1603,
+    "variants": [
+      {
+        "src": "/manus-storage/mary-chesapeake-frenchies_ed69a28d-480w.webp",
+        "width": 480,
+        "height": 638,
+        "bytes": 47152
+      },
+      {
+        "src": "/manus-storage/mary-chesapeake-frenchies_ed69a28d-768w.webp",
+        "width": 768,
+        "height": 1021,
+        "bytes": 82864
+      },
+      {
+        "src": "/manus-storage/mary-chesapeake-frenchies_ed69a28d-1200w.webp",
+        "width": 1200,
+        "height": 1595,
+        "bytes": 135994
+      },
+      {
+        "src": "/manus-storage/mary-chesapeake-frenchies_ed69a28d-1206w.webp",
+        "width": 1206,
+        "height": 1603,
+        "bytes": 139102
+      }
+    ]
+  },
+  "/manus-storage/mary-family-travel_7af40885.jpg": {
+    "sourceWidth": 1206,
+    "sourceHeight": 1254,
+    "variants": [
+      {
+        "src": "/manus-storage/mary-family-travel_7af40885-480w.webp",
+        "width": 480,
+        "height": 499,
+        "bytes": 25598
+      },
+      {
+        "src": "/manus-storage/mary-family-travel_7af40885-768w.webp",
+        "width": 768,
+        "height": 799,
+        "bytes": 50072
+      },
+      {
+        "src": "/manus-storage/mary-family-travel_7af40885-1200w.webp",
+        "width": 1200,
+        "height": 1248,
+        "bytes": 87812
+      },
+      {
+        "src": "/manus-storage/mary-family-travel_7af40885-1206w.webp",
+        "width": 1206,
+        "height": 1254,
+        "bytes": 89534
+      }
+    ]
+  },
+  "/manus-storage/mary-lynch-buying-selling-hero_41a29217.jpg": {
+    "sourceWidth": 1365,
+    "sourceHeight": 2048,
+    "variants": [
+      {
+        "src": "/manus-storage/mary-lynch-buying-selling-hero_41a29217-480w.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 23210
+      },
+      {
+        "src": "/manus-storage/mary-lynch-buying-selling-hero_41a29217-768w.webp",
+        "width": 768,
+        "height": 1152,
+        "bytes": 40656
+      },
+      {
+        "src": "/manus-storage/mary-lynch-buying-selling-hero_41a29217-1200w.webp",
+        "width": 1200,
+        "height": 1800,
+        "bytes": 68950
+      },
+      {
+        "src": "/manus-storage/mary-lynch-buying-selling-hero_41a29217-1365w.webp",
+        "width": 1365,
+        "height": 2048,
+        "bytes": 82692
+      }
+    ]
+  },
+  "/manus-storage/mary-lynch-contact-chair_dd829984.jpg": {
+    "sourceWidth": 1365,
+    "sourceHeight": 2048,
+    "variants": [
+      {
+        "src": "/manus-storage/mary-lynch-contact-chair_dd829984-480w.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 29078
+      },
+      {
+        "src": "/manus-storage/mary-lynch-contact-chair_dd829984-768w.webp",
+        "width": 768,
+        "height": 1152,
+        "bytes": 57006
+      },
+      {
+        "src": "/manus-storage/mary-lynch-contact-chair_dd829984-1200w.webp",
+        "width": 1200,
+        "height": 1800,
+        "bytes": 106614
+      },
+      {
+        "src": "/manus-storage/mary-lynch-contact-chair_dd829984-1365w.webp",
+        "width": 1365,
+        "height": 2048,
+        "bytes": 121648
+      }
+    ]
+  },
+  "/manus-storage/mary-lynch-downsizing_b73a2d4f.jpg": {
+    "sourceWidth": 1365,
+    "sourceHeight": 2048,
+    "variants": [
+      {
+        "src": "/manus-storage/mary-lynch-downsizing_b73a2d4f-480w.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 27080
+      },
+      {
+        "src": "/manus-storage/mary-lynch-downsizing_b73a2d4f-768w.webp",
+        "width": 768,
+        "height": 1152,
+        "bytes": 51342
+      },
+      {
+        "src": "/manus-storage/mary-lynch-downsizing_b73a2d4f-1200w.webp",
+        "width": 1200,
+        "height": 1800,
+        "bytes": 88976
+      },
+      {
+        "src": "/manus-storage/mary-lynch-downsizing_b73a2d4f-1365w.webp",
+        "width": 1365,
+        "height": 2048,
+        "bytes": 105776
+      }
+    ]
+  },
+  "/manus-storage/mary-lynch-meet-mary-hero_8902efd8.jpg": {
+    "sourceWidth": 1365,
+    "sourceHeight": 2048,
+    "variants": [
+      {
+        "src": "/manus-storage/mary-lynch-meet-mary-hero_8902efd8-480w.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 28968
+      },
+      {
+        "src": "/manus-storage/mary-lynch-meet-mary-hero_8902efd8-768w.webp",
+        "width": 768,
+        "height": 1152,
+        "bytes": 58322
+      },
+      {
+        "src": "/manus-storage/mary-lynch-meet-mary-hero_8902efd8-1200w.webp",
+        "width": 1200,
+        "height": 1800,
+        "bytes": 102076
+      },
+      {
+        "src": "/manus-storage/mary-lynch-meet-mary-hero_8902efd8-1365w.webp",
+        "width": 1365,
+        "height": 2048,
+        "bytes": 123008
+      }
+    ]
+  },
+  "/manus-storage/mary-lynch-resource-center_4f151291.jpg": {
+    "sourceWidth": 1365,
+    "sourceHeight": 2048,
+    "variants": [
+      {
+        "src": "/manus-storage/mary-lynch-resource-center_4f151291-480w.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 23968
+      },
+      {
+        "src": "/manus-storage/mary-lynch-resource-center_4f151291-768w.webp",
+        "width": 768,
+        "height": 1152,
+        "bytes": 40994
+      },
+      {
+        "src": "/manus-storage/mary-lynch-resource-center_4f151291-1200w.webp",
+        "width": 1200,
+        "height": 1800,
+        "bytes": 70342
+      },
+      {
+        "src": "/manus-storage/mary-lynch-resource-center_4f151291-1365w.webp",
+        "width": 1365,
+        "height": 2048,
+        "bytes": 84628
+      }
+    ]
+  },
+  "/manus-storage/mary-orioles-family_627afe9d.jpg": {
+    "sourceWidth": 1206,
+    "sourceHeight": 1602,
+    "variants": [
+      {
+        "src": "/manus-storage/mary-orioles-family_627afe9d-480w.webp",
+        "width": 480,
+        "height": 638,
+        "bytes": 48820
+      },
+      {
+        "src": "/manus-storage/mary-orioles-family_627afe9d-768w.webp",
+        "width": 768,
+        "height": 1020,
+        "bytes": 99902
+      },
+      {
+        "src": "/manus-storage/mary-orioles-family_627afe9d-1200w.webp",
+        "width": 1200,
+        "height": 1594,
+        "bytes": 180820
+      },
+      {
+        "src": "/manus-storage/mary-orioles-family_627afe9d-1206w.webp",
+        "width": 1206,
+        "height": 1602,
+        "bytes": 185916
+      }
+    ]
+  },
+  "/manus-storage/Mary_Lynch_3d838598.jpg": {
+    "sourceWidth": 1365,
+    "sourceHeight": 2048,
+    "variants": [
+      {
+        "src": "/manus-storage/Mary_Lynch_3d838598-480w.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 27672
+      },
+      {
+        "src": "/manus-storage/Mary_Lynch_3d838598-768w.webp",
+        "width": 768,
+        "height": 1152,
+        "bytes": 50622
+      },
+      {
+        "src": "/manus-storage/Mary_Lynch_3d838598-1200w.webp",
+        "width": 1200,
+        "height": 1800,
+        "bytes": 91136
+      },
+      {
+        "src": "/manus-storage/Mary_Lynch_3d838598-1365w.webp",
+        "width": 1365,
+        "height": 2048,
+        "bytes": 105738
+      }
+    ]
+  },
+  "/manus-storage/pop-and-baby-mary-boat_ef16c849.jpg": {
+    "sourceWidth": 1152,
+    "sourceHeight": 2048,
+    "variants": [
+      {
+        "src": "/manus-storage/pop-and-baby-mary-boat_ef16c849-480w.webp",
+        "width": 480,
+        "height": 853,
+        "bytes": 19288
+      },
+      {
+        "src": "/manus-storage/pop-and-baby-mary-boat_ef16c849-768w.webp",
+        "width": 768,
+        "height": 1365,
+        "bytes": 37304
+      },
+      {
+        "src": "/manus-storage/pop-and-baby-mary-boat_ef16c849-1152w.webp",
+        "width": 1152,
+        "height": 2048,
+        "bytes": 69722
+      }
+    ]
+  },
+  "/manus-storage/pop-driving-the-boat-thumbnail_d6758521.jpg": {
+    "sourceWidth": 1280,
+    "sourceHeight": 720,
+    "variants": [
+      {
+        "src": "/manus-storage/pop-driving-the-boat-thumbnail_d6758521-480w.webp",
+        "width": 480,
+        "height": 270,
+        "bytes": 17544
+      },
+      {
+        "src": "/manus-storage/pop-driving-the-boat-thumbnail_d6758521-768w.webp",
+        "width": 768,
+        "height": 432,
+        "bytes": 31572
+      },
+      {
+        "src": "/manus-storage/pop-driving-the-boat-thumbnail_d6758521-1200w.webp",
+        "width": 1200,
+        "height": 675,
+        "bytes": 54864
+      },
+      {
+        "src": "/manus-storage/pop-driving-the-boat-thumbnail_d6758521-1280w.webp",
+        "width": 1280,
+        "height": 720,
+        "bytes": 58364
+      }
+    ]
+  },
+  "/manus-storage/downsize-baltimore-contour-lines_aaa317b7.png": {
+    "sourceWidth": 2560,
+    "sourceHeight": 1440,
+    "variants": [
+      {
+        "src": "/manus-storage/downsize-baltimore-contour-lines_aaa317b7-960w.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 23328
+      },
+      {
+        "src": "/manus-storage/downsize-baltimore-contour-lines_aaa317b7-1600w.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 53986
+      },
+      {
+        "src": "/manus-storage/downsize-baltimore-contour-lines_aaa317b7-1920w.webp",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 70614
+      }
+    ]
+  },
+  "/manus-storage/downsize-baltimore-paper-texture_268a29f4.png": {
+    "sourceWidth": 2560,
+    "sourceHeight": 1440,
+    "variants": [
+      {
+        "src": "/manus-storage/downsize-baltimore-paper-texture_268a29f4-960w.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 5572
+      },
+      {
+        "src": "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1600w.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 27666
+      },
+      {
+        "src": "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 44902
+      }
+    ]
+  },
+  "/manus-storage/downsize-baltimore-warm-wash_0631c386.png": {
+    "sourceWidth": 2176,
+    "sourceHeight": 1632,
+    "variants": [
+      {
+        "src": "/manus-storage/downsize-baltimore-warm-wash_0631c386-960w.webp",
+        "width": 960,
+        "height": 720,
+        "bytes": 6904
+      },
+      {
+        "src": "/manus-storage/downsize-baltimore-warm-wash_0631c386-1600w.webp",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 22754
+      },
+      {
+        "src": "/manus-storage/downsize-baltimore-warm-wash_0631c386-1920w.webp",
+        "width": 1920,
+        "height": 1440,
+        "bytes": 35316
+      }
+    ]
+  },
+  "/manus-storage/downsize-baltimore-mark_c3769b0a.png": {
+    "sourceWidth": 1920,
+    "sourceHeight": 1920,
+    "variants": [
+      {
+        "src": "/manus-storage/downsize-baltimore-mark_c3769b0a-320w.webp",
+        "width": 320,
+        "height": 320,
+        "bytes": 19558
+      },
+      {
+        "src": "/manus-storage/downsize-baltimore-mark_c3769b0a-640w.webp",
+        "width": 640,
+        "height": 640,
+        "bytes": 48084
+      },
+      {
+        "src": "/manus-storage/downsize-baltimore-mark_c3769b0a-960w.webp",
+        "width": 960,
+        "height": 960,
+        "bytes": 86582
+      }
+    ]
+  }
+}

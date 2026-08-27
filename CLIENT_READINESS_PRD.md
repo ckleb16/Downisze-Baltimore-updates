@@ -138,6 +138,6 @@ The client-review remediation is implemented across all seven published pages pl
 ## Public-launch dependencies
 
 - Client testimonials remain hidden until Mary supplies and approves the exact quote and attribution for each entry.
-- The Meet Mary video has an audio stream. Confirm whether it contains meaningful speech; if it does, supply and approve captions or a transcript before public launch.
+- The Meet Mary video audio has been classified and supplied with synchronized English captions plus an adjacent transcript. Public launch still requires the content owner to approve and sign [MEET_MARY_VIDEO_ACCESSIBILITY_RECORD.md](MEET_MARY_VIDEO_ACCESSIBILITY_RECORD.md).
 - The Contact form intentionally prepares an email draft in the visitor's email application. Direct in-page submission requires a separately approved form provider and credentials.
 - A canonical production URL, social-sharing image, and any analytics service should be configured only after the final hosting domain and account ownership are confirmed.

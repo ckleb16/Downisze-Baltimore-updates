@@ -1,5 +1,9 @@
-import { useRef, useState } from "react";
-import { ArrowUpRight, BookOpen, ChevronDown, Anchor, Home, Menu, Phone, Scale, ShieldCheck, Users, X } from "lucide-react";
+import { useState } from "react";
+import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader";
+import ResponsiveImage from "@/components/ResponsiveImage";
+import DeferredBackground from "@/components/DeferredBackground";
+import { ArrowUpRight, BookOpen, ChevronDown, Anchor, Home, Scale, ShieldCheck, Users } from "lucide-react";
 
 /**
  * Harbor House Editorial — Resource Center.
@@ -7,18 +11,11 @@ import { ArrowUpRight, BookOpen, ChevronDown, Anchor, Home, Menu, Phone, Scale, 
  * calm navigation, and clear development states instead of a downloads warehouse.
  */
 
-const wideLogo = "/manus-storage/DownsizeBaltimoreWide-YelWhite_e501a303.png";
-const verticalLogo = "/manus-storage/DownsizeBaltimoreB-YelWhite_850df9b1.png";
 const heroImage = "/manus-storage/mary-lynch-resource-center_4f151291.jpg";
-const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4.png";
-const contourTexture = "/manus-storage/downsize-baltimore-contour-lines_aaa317b7.png";
+const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
+const contourTexture = "/manus-storage/downsize-baltimore-contour-lines_aaa317b7-1920w.webp";
 const calendlyUrl = "https://calendly.com/mary-movewithmarylynch/30min";
-const phoneNumber = "(410) 375-1400";
-const emailAddress = "mary@downsizebaltimore.com";
-
 const currentPath = "/resource-center";
-const navItems = [["Home", "/"], ["Downsizing Services", "/downsizing-services"], ["Aging in Place", "/aging-in-place"], ["Buying & Selling", "/buying-selling"], ["Resource Center", "/resource-center"], ["Meet Mary", "/meet-mary"], ["Contact", "/contact"]];
-const footerNavItems = [["Home", "/"], ["Downsizing Services", "/downsizing-services"], ["Aging in Place", "/aging-in-place"], ["Buying & Selling", "/buying-selling"], ["Resource Center", "/resource-center"], ["Meet Mary", "/meet-mary"], ["Contact", "/contact"]];
 
 type ResourcePathwayKey = "stay" | "downsizing" | "family" | "housing" | "probate" | "local";
 
@@ -66,12 +63,8 @@ const faqs = [
 ];
 
 function ButtonLink({ children, href = calendlyUrl, variant = "gold" }: { children: React.ReactNode; href?: string; variant?: "gold" | "outline" | "light" }) { return <a className={`resource-button resource-button--${variant}`} href={href}>{children}<ArrowUpRight size={16} /></a>; }
-function Brand({ footer = false }: { footer?: boolean }) { return <a href="/" className={`resource-brand ${footer ? "resource-brand--footer" : ""}`} aria-label="Downsize Baltimore home"><img src={footer ? verticalLogo : wideLogo} alt="Downsize Baltimore" /></a>; }
-function Footer() { return <footer className="resource-footer"><div className="resource-footer__top"><div><Brand footer /><p>A Clear Plan for What Comes Next.<br /><i>Anchored in Baltimore.</i></p></div><div className="resource-footer__contact"><a className="resource-footer__phone" href="tel:+14103751400"><Phone size={15} /> {phoneNumber}</a><a href={`mailto:${emailAddress}`}>{emailAddress}</a><div><strong>Cummings &amp; Co. Realtors</strong><span>108 W. Timonium Road<br />Timonium, MD 21093</span><span>Office <a href="tel:+14108230033">(410) 823-0033</a></span></div><ButtonLink>Schedule a Conversation</ButtonLink></div></div><div className="resource-footer__bottom"><div>{footerNavItems.map(([label, href]) => <a key={label} href={href} className={href === currentPath ? "is-active" : undefined} aria-current={href === currentPath ? "page" : undefined}>{label}</a>)}</div><span>© 2026 Downsize Baltimore. All rights reserved.</span><span>Real estate services provided in affiliation with a licensed brokerage.</span></div></footer>; }
 
 export default function ResourceCenter() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [activePathway, setActivePathway] = useState<ResourcePathwayKey | null>(() => {
     const requestedPath = new URLSearchParams(window.location.search).get("path") as ResourcePathwayKey | null;
@@ -88,9 +81,9 @@ export default function ResourceCenter() {
     }, 0);
   };
   return <div className="resource-page">
-    <header className="resource-header"><div className="resource-header__top"><Brand /><div><ButtonLink>Talk to Mary</ButtonLink><button ref={menuButtonRef} type="button" className="resource-menu" aria-label={mobileOpen ? "Close menu" : "Open menu"} aria-expanded={mobileOpen} aria-controls="resource-mobile-navigation" onClick={() => setMobileOpen((open) => !open)}>{mobileOpen ? <X size={22} /> : <Menu size={22} />}</button></div></div><nav className="resource-nav" aria-label="Primary navigation">{navItems.map(([label, href]) => <a key={label} href={href} className={href === currentPath ? "is-active" : undefined} aria-current={href === currentPath ? "page" : undefined}>{label}</a>)}</nav><nav id="resource-mobile-navigation" className="resource-mobile-nav" aria-label="Mobile navigation" hidden={!mobileOpen} onKeyDown={(event) => { if (event.key === "Escape") { setMobileOpen(false); menuButtonRef.current?.focus(); } }}>{navItems.map(([label, href]) => <a key={label} href={href} className={href === currentPath ? "is-active" : undefined} aria-current={href === currentPath ? "page" : undefined} onClick={() => setMobileOpen(false)}>{label}<ArrowUpRight size={16} /></a>)}<ButtonLink>Talk to Mary</ButtonLink></nav></header>
+    <SiteHeader currentPath={currentPath} />
     <main id="main-content" tabIndex={-1}>
-      <section className="resource-hero"><div className="resource-hero__copy"><p className="resource-eyebrow">A library of answers</p><h1>Resources for<br /><i>Whatever Comes Next.</i></h1><div className="resource-rule" /><p>You don’t have to figure everything out at once.</p><p>Start with the question that’s on your mind, then explore the practical guidance available now to help you understand your options and decide what comes next.</p><ButtonLink href="#questions">Start With Your Question</ButtonLink></div><div className="resource-hero__photo"><img src={heroImage} alt="Mary Lynch seated at a table with an open laptop" /><span>01 / Start with the question.</span></div></section>
+      <section className="resource-hero"><div className="resource-hero__copy"><p className="resource-eyebrow">A library of answers</p><h1>Resources for<br /><i>Whatever Comes Next.</i></h1><div className="resource-rule" /><p>You don’t have to figure everything out at once.</p><p>Start with the question that’s on your mind, then explore the practical guidance available now to help you understand your options and decide what comes next.</p><ButtonLink href="#questions">Start With Your Question</ButtonLink></div><div className="resource-hero__photo"><ResponsiveImage src={heroImage} sizes="(max-width: 900px) 100vw, 50vw" priority alt="Mary Lynch seated at a table with an open laptop" /><span>01 / Start with the question.</span></div></section>
 
       <section id="questions" className="resource-pathways"><div className="resource-section-heading"><p className="resource-eyebrow">Start with your question</p><h2>What Can I Help You<br /><i>Figure Out?</i></h2><p>Think of these as doors into different parts of the Resource Center. Choose the one that feels closest to what is on your mind.</p></div><div className="resource-pathway-grid">{pathways.map(({ key, icon: Icon, question, body, topics, action }, index) => {
         const pathwayKey = key as ResourcePathwayKey;
@@ -98,9 +91,9 @@ export default function ResourceCenter() {
         return <article className={activePathway === pathwayKey ? "is-selected" : ""} key={question}><div className="resource-pathway__top"><span>0{index + 1}</span><Icon size={25} strokeWidth={1.15} /></div><h3>{question}</h3><p>{body}</p><small>{topics}</small>{hasAvailableResource ? <button type="button" className="resource-pathway__action" aria-label={`${action} for ${question}`} aria-controls="resource-library" aria-pressed={activePathway === pathwayKey} onClick={() => choosePathway(pathwayKey)}>{action}<ArrowUpRight size={16} /></button> : <a className="resource-pathway__action" href="/contact" aria-label={`Ask Mary about ${question}`}>Ask Mary this question<ArrowUpRight size={16} /></a>}</article>;
       })}</div></section>
 
-      <section id="resource-library" className="resource-featured" tabIndex={-1} aria-labelledby="resource-library-heading"><div className="resource-featured__head"><div><p className="resource-eyebrow resource-eyebrow--gold">A good place to start</p><h2 id="resource-library-heading">Practical Tools<br /><i>for the Road Ahead.</i></h2></div><div><p>Begin with the interactive self-evaluation available now, designed to help you understand your options and decide what comes next.</p>{activePathway && <button type="button" className="resource-filter-reset" onClick={() => setActivePathway(null)}>Show all resources</button>}</div></div><div className="resource-featured-grid">{filteredFeatured.map(({ title, body, status, href }) => <article key={title}><span className="resource-status">{status}</span><h3>{title}</h3><p>{body}</p><a href={href}>Explore this resource <ArrowUpRight size={16} /></a></article>)}</div></section>
+      <DeferredBackground id="resource-library" className="resource-featured" tabIndex={-1} aria-labelledby="resource-library-heading" backgroundImage={`url(${contourTexture})`}><div className="resource-featured__head"><div><p className="resource-eyebrow resource-eyebrow--gold">A good place to start</p><h2 id="resource-library-heading">Practical Tools<br /><i>for the Road Ahead.</i></h2></div><div><p>Begin with the interactive self-evaluation available now, designed to help you understand your options and decide what comes next.</p>{activePathway && <button type="button" className="resource-filter-reset" onClick={() => setActivePathway(null)}>Show all resources</button>}</div></div><div className="resource-featured-grid">{filteredFeatured.map(({ title, body, status, href }) => <article key={title}><span className="resource-status">{status}</span><h3>{title}</h3><p>{body}</p><a href={href}>Explore this resource <ArrowUpRight size={16} /></a></article>)}</div></DeferredBackground>
 
-      <section id="club" className="resource-club" style={{ backgroundImage: `linear-gradient(rgba(16,42,67,.96),rgba(16,42,67,.96)),url(${contourTexture})` }}><div className="resource-club__mark"><Anchor size={26} strokeWidth={1.1} /><span>03</span></div><div className="resource-club__content"><p className="resource-eyebrow resource-eyebrow--gold">Learn about the club</p><h2>Not Ready to Move?<br /><i>You Can Still Start Getting Ready.</i></h2><p>The Downsizers Club of Baltimore is designed for people who are thinking about a move in the next few years and want to prepare a little at a time.</p><p>Participants receive practical education, local resources, and manageable action steps covering the things that tend to make downsizing feel overwhelming.</p><div className="resource-club__topics"><span>Decluttering &amp; belongings</span><span>Important paperwork</span><span>Home preparation</span><span>Housing options</span><span>Move planning</span><span>What to do now versus later</span></div><ButtonLink variant="light" href="/contact">Ask About the Club</ButtonLink></div></section>
+      <DeferredBackground id="club" className="resource-club" backgroundImage={`linear-gradient(rgba(16,42,67,.96),rgba(16,42,67,.96)),url(${contourTexture})`}><div className="resource-club__mark"><Anchor size={26} strokeWidth={1.1} /><span>03</span></div><div className="resource-club__content"><p className="resource-eyebrow resource-eyebrow--gold">Learn about the club</p><h2>Not Ready to Move?<br /><i>You Can Still Start Getting Ready.</i></h2><p>The Downsizers Club of Baltimore is designed for people who are thinking about a move in the next few years and want to prepare a little at a time.</p><p>Participants receive practical education, local resources, and manageable action steps covering the things that tend to make downsizing feel overwhelming.</p><div className="resource-club__topics"><span>Decluttering &amp; belongings</span><span>Important paperwork</span><span>Home preparation</span><span>Housing options</span><span>Move planning</span><span>What to do now versus later</span></div><ButtonLink variant="light" href="/contact">Ask About the Club</ButtonLink></div></DeferredBackground>
 
       <section id="faq" className="resource-faq"><div className="resource-section-heading"><p className="resource-eyebrow">Questions people really ask</p><h2>Chances Are,<br /><i>Someone Else Asked It Too.</i></h2><p>Answers should be easy to find, useful on their own, and able to grow as the Resource Center grows.</p></div><div className="resource-faq-list">{faqs.map(([question, answer], index) => {
         const buttonId = `resource-faq-button-${index}`;
@@ -114,6 +107,6 @@ export default function ResourceCenter() {
       {upcomingEvents.length > 0 && <section id="upcoming-classes-events" className="resource-events"><div><p className="resource-eyebrow resource-eyebrow--gold">Upcoming Classes &amp; Events</p><h2>Learn with Mary,<br /><i>in good company.</i></h2></div><div>{upcomingEvents.map(({ title, date, details, href }) => <article key={`${date}-${title}`}><span className="resource-events__status">{date}</span><h3>{title}</h3><p>{details}</p>{href && <a href={href}>Registration details <ArrowUpRight size={16} /></a>}</article>)}</div></section>}
 
       <aside id="probate" className="resource-disclaimer" aria-label="Educational disclaimer"><p>These resources are shared for education and convenience. For legal, financial, or medical questions, please consult the appropriate professional. I’m happy to help connect you with trusted specialists when needed.</p></aside>
-      <section className="resource-final" style={{ backgroundImage: `url(${paperTexture})` }}><div className="resource-final__frame"><p className="resource-eyebrow">Still not sure where to start?</p><h2>You Don’t Need to Know<br /><i>Which Door to Open.</i></h2><p>Sometimes the best first step is simply a conversation.</p><div><ButtonLink>Schedule a Conversation</ButtonLink></div></div></section>
-    </main><Footer /></div>;
+      <DeferredBackground className="resource-final" backgroundImage={`url(${paperTexture})`}><div className="resource-final__frame"><p className="resource-eyebrow">Still not sure where to start?</p><h2>You Don’t Need to Know<br /><i>Which Door to Open.</i></h2><p>Sometimes the best first step is simply a conversation.</p><div><ButtonLink>Schedule a Conversation</ButtonLink></div></div></DeferredBackground>
+    </main><SiteFooter currentPath={currentPath} /></div>;
 }
