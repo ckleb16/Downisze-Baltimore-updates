@@ -1986,3 +1986,88 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
 /* Informational cards should not imply unavailable click behavior. */
 .aip-assess-grid article,.ds-step-card{cursor:default}
 .aip-assess-grid article p,.ds-step-card p{opacity:1!important}
+
+/* Confirmed client feedback: homepage hierarchy, closing strip, and direct contact emphasis. */
+.ways .section-heading>.eyebrow{
+  font-size:.875rem;
+}
+.final-cta{
+  display:block;
+  min-height:0;
+  padding:clamp(4.75rem,6vw,5.5rem) 8vw;
+  text-align:left;
+}
+.final-cta::before{inset:1.5rem 4vw}
+.final-cta::after{inset:2.2rem 4.7vw}
+.final-cta__mark{
+  display:none;
+}
+.final-cta__content{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(18rem,.85fr);
+  grid-template-areas:
+    "eyebrow copy"
+    "heading copy";
+  column-gap:clamp(2rem,5vw,6rem);
+  width:min(100%,75rem);
+  max-width:none;
+  margin:0 auto;
+  text-align:left;
+}
+.final-cta__content>.eyebrow{
+  grid-area:eyebrow;
+  max-width:none;
+  margin:0 0 1rem;
+}
+.final-cta__content>h2{
+  grid-area:heading;
+  max-width:none;
+  margin:0;
+  font-size:clamp(3rem,4.5vw,4rem);
+  line-height:.92;
+}
+.final-cta__content>p:not(.eyebrow){
+  grid-area:copy;
+  align-self:center;
+  max-width:32rem;
+  margin:0;
+  font-size:clamp(1rem,1.3vw,1.1rem);
+}
+.site-footer-v2__phone{
+  font-size:1.5rem;
+  white-space:nowrap;
+}
+.site-footer-v2__email{
+  font-size:1rem;
+  font-weight:500;
+  white-space:nowrap;
+}
+
+@media (min-width:801px){
+  .hero .eyebrow--light{
+    position:relative;
+    top:-.5rem;
+    font-size:.8125rem;
+  }
+}
+
+@media (max-width:900px){
+  .final-cta{
+    padding:clamp(4.75rem,12vw,5.5rem) 10vw;
+  }
+  .final-cta::before{inset:1.5rem 5vw}
+  .final-cta::after{inset:2.2rem 6.5vw}
+  .final-cta__content{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "eyebrow"
+      "heading"
+      "copy";
+    width:min(100%,38rem);
+  }
+  .final-cta__content>h2{
+    max-width:none;
+    margin-bottom:1.5rem;
+    font-size:clamp(2.5rem,8vw,3.75rem);
+  }
+}

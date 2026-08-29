@@ -30,7 +30,7 @@ export default function SiteFooter({ currentPath }: SiteFooterProps) {
           <a className="site-footer-v2__phone" href={SITE_CONTACT.phoneHref}>
             <Phone size={16} aria-hidden="true" /> {SITE_CONTACT.phoneDisplay}
           </a>
-          <a href={`mailto:${SITE_CONTACT.email}`}>{SITE_CONTACT.email}</a>
+          <a className="site-footer-v2__email" href={`mailto:${SITE_CONTACT.email}`}>{SITE_CONTACT.email}</a>
           <div className="site-footer-v2__brokerage">
             <strong>{SITE_CONTACT.brokerage}</strong>
             <span>
