@@ -2232,3 +2232,71 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
   .aip-story blockquote{font-size:clamp(1.375rem,6.5vw,1.5rem)}
   .aip-pathways__note{font-size:clamp(1.375rem,6.5vw,1.5rem)}
 }
+
+/* Confirmed Buying & Selling feedback: photo caption, wider path intro, and one compact pre-footer strip. */
+.bs-hero__experience-caption{
+  position:absolute;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  margin:0;
+  padding:.85rem clamp(1.25rem,2vw,1.75rem);
+  background:rgba(16,42,67,.9);
+  color:#f7f3ea;
+  font:600 .75rem/1.4 "DM Sans",sans-serif;
+  letter-spacing:.045em;
+}
+.bs-hero__experience-caption strong{
+  flex:0 0 auto;
+  color:#f0d38f;
+  font-size:.75rem;
+  letter-spacing:.13em;
+  white-space:nowrap;
+}
+.bs-hero__experience-caption span{min-width:0}
+.bs-choice{
+  padding:clamp(4.5rem,5.5vw,5.25rem) 8vw clamp(5rem,6vw,6rem);
+}
+.bs-choice::after{display:none}
+.bs-section-intro,
+.bs-choice__grid{
+  width:min(100%,72rem);
+  max-width:none;
+  margin-right:auto;
+  margin-left:auto;
+}
+.bs-section-intro{margin-bottom:2.5rem}
+.bs-section-intro h2{max-width:70rem}
+.bs-section-intro>p:last-child{max-width:38rem}
+.bs-closing .site-closing-strip__heading>h2{
+  font-size:clamp(3rem,4.15vw,4rem);
+}
+.bs-closing .site-closing-strip__heading>h2 i{
+  color:#b48a4a;
+  font-style:italic;
+}
+
+@media (min-width:901px){
+  .bs-closing.site-closing-strip{
+    display:flex;
+    align-items:center;
+    min-height:20rem;
+  }
+}
+
+@media (max-width:1000px){
+  .bs-choice{padding-right:7vw;padding-left:7vw}
+}
+
+@media (max-width:800px){
+  .bs-hero__experience-caption{display:none}
+}
+
+@media (max-width:700px){
+  .bs-choice{padding:4rem 1.5rem 4.5rem}
+  .bs-section-intro{margin-bottom:2rem}
+}

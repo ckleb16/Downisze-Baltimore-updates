@@ -6,7 +6,7 @@
 - Section: Buying & Selling (`/buying-selling`)
 - Source: Pastel export dated August 28, 2026
 - Client comments covered: 23–30
-- Status: Draft ready for implementation after the consolidated end-of-review decisions
+- Status: Implemented and verified; awaiting publication approval
 - Dependencies: Reuses the homepage hero-caption, compact closing-strip, shared-header, and shared-footer standards defined in PRD 01
 
 ## Objective
@@ -86,7 +86,8 @@ Simplify the Buying & Selling page’s hierarchy by removing the sideways hero l
 
 - “Make this the lower footer” means the experienced-guidance content becomes the final pre-footer banner; it does not replace the website’s contact, brokerage, navigation, legal, and accessibility footer.
 - Continue rendering the common site footer immediately after the new closing strip.
-- Inherit Homepage H7 through the shared footer: approved Cummings & Co. logo placement, 24px bold direct phone, 16px direct email, unchanged brokerage/address scale, and retained footer conversation action.
+- Keep the currently approved shared footer treatment: 24px bold direct phone, 16px direct email, unchanged brokerage/address scale, and the retained footer conversation action.
+- Do not add or replace a Cummings & Co. logo until the approved public asset is identified under Comment 7 in the separate [ambiguity register](./CLIENT_FEEDBACK_AMBIGUITY_REGISTER.md).
 - Continue rendering the common site header and preserve the active Buying & Selling navigation state.
 - Inherit any approved Homepage H1 navigation-scale changes without page-specific overrides.
 
@@ -114,14 +115,24 @@ Simplify the Buying & Selling page’s hierarchy by removing the sideways hero l
 - Replacing the site’s shared contact/legal footer with the experienced-guidance content.
 - Changing the hero photograph or its crop except as needed to keep the new caption clear of meaningful content.
 
-## Deferred clarification log
+## Implementation interpretation and ambiguity handling
 
-These items are recorded for the consolidated question round at the end and do not block drafting the next section:
+- Comments 23–30 contain no Section 4-specific blocker when read together with their screenshots and the established sitewide patterns.
+- Comment 24 moves the existing 30-year message to the photograph rather than duplicating it.
+- Comment 25 applies to the complete **Choose your path** introduction band, not either choice card.
+- Comment 29 creates a final pre-footer closing strip while preserving the true shared footer required across the site.
+- Comment 30 removes the visible `04` without a replacement number.
+- The inherited Comment 7 footer-logo question remains deferred in the separate [ambiguity register](./CLIENT_FEEDBACK_AMBIGUITY_REGISTER.md) and is not changed by this implementation.
 
-1. **Comment 25 “shorten this box”:** The recommended interpretation is the complete **Choose your path** introduction band, not either of the two path cards. The heading will widen while the lead-in’s vertical space shrinks.
-2. **Comment 24 move versus duplicate:** “Add this … across bottom of photo” is interpreted as moving the existing 30-year message, not rendering it in both the copy panel and photograph.
-3. **Comment 29 “lower footer”:** The recommended interpretation is a final pre-footer closing strip. The true shared footer remains because comment 22 and the earlier sitewide direction require a consistent contact/legal footer on every page.
-4. **Comment 30 replacement:** The visible `04` will be removed with no replacement number. Any retained ornament will be purely decorative and non-numbered.
+## Implementation and verification record
+
+- Implemented all confirmed requirements from comments 23–30 on `/buying-selling`.
+- Verified the completed page at 1512×799, 1212×799, 1024×768, 821×900, 820×900, 768×1024, 390×844, and 320×568, plus the exact 801/800px caption breakpoint.
+- Confirmed zero horizontal overflow; aligned path-introduction and card-grid widths; natural, unclipped headline wrapping; correct `01 / BUYING` and `02 / SELLING` markers; and no obsolete sideways label, `04` section marker, or removed final panel.
+- Confirmed the photo caption appears once, remains inside the photo, and hides at 800px and below.
+- Confirmed the new desktop closing strip remains approximately 320–359px high, contains no action, touches the shared footer with no gap, and stacks responsively on smaller screens.
+- Confirmed both in-page path links, mobile-menu open/Escape/focus restoration, all retained Calendly destinations, footer action separation, deferred texture loading, and image loading.
+- Passed the TypeScript check and production Sites build with no browser console warnings or errors.
 
 ## Definition of done
 
