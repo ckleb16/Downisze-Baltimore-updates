@@ -33,7 +33,7 @@ function ButtonLink({ children, href = calendlyUrl, variant = "gold" }: { childr
 
 export default function Downsizing() {
   return <div className="ds-page"><SiteHeader currentPath="/downsizing-services" /><main id="main-content" tabIndex={-1}>
-    <section className="ds-hero"><ResponsiveImage className="ds-hero__image" src={heroPhoto} sizes="100vw" priority alt="" aria-hidden="true" /><div className="ds-hero__content"><p className="ds-eyebrow ds-eyebrow--light"><span /> Downsizing Services</p><h1>Downsizing Doesn’t Have to Be <i>Overwhelming.</i></h1><p>The biggest mistake is trying to tackle everything at once.</p><p>A successful move starts with understanding <strong>where you’re going, how you want to live, and what you’ll need when you get there.</strong> From there, we can create a clear plan for everything else.</p><ButtonLink>Start With a Conversation</ButtonLink></div><div className="ds-hero__caption"><span>01</span><span>Destination first. Plan second. Stuff third.</span></div></section>
+    <section className="ds-hero"><ResponsiveImage className="ds-hero__image" src={heroPhoto} sizes="100vw" priority alt="" aria-hidden="true" /><div className="ds-hero__content"><p className="ds-eyebrow ds-eyebrow--light"><span /> Downsizing Services</p><h1>Downsizing Doesn’t Have to Be <i>Overwhelming.</i></h1><p>The biggest mistake is trying to tackle everything at once.</p><p>A successful move starts with understanding <strong>where you’re going, how you want to live, and what you’ll need when you get there.</strong> From there, we can create a clear plan for everything else.</p><ButtonLink>Start With a Conversation</ButtonLink></div><div className="ds-hero__caption">Destination first. Plan second. Stuff third.</div></section>
 
     <DeferredBackground className="ds-plan" backgroundImage={`url(${paperTexture})`}><div className="ds-plan__label"><Anchor size={15} /><span /> START WITH YOU</div><div className="ds-plan__body"><p className="ds-eyebrow">It all starts with a plan.</p><h2>So we don’t begin<br />with the house.</h2><div className="ds-plan__copy"><p>A house full of belongings can make downsizing feel like an impossible place to begin.</p><p>So we don’t begin with the house.<br />We begin with <i>you.</i></p><div className="ds-questions">{["Where do you want to live?", "What do you want your days to look like?", "How much space do you really need?", "What do you want to spend your time and money on?", "What needs to be easier than it is today?"] .map(q => <span key={q}>{q}</span>)}</div><p>Once we know where you’re headed, the decisions about what comes with you become much clearer.</p></div></div><div className="ds-callout"><span /> Destination first. Plan second. Stuff third. <span /></div></DeferredBackground>
 
@@ -49,6 +49,17 @@ export default function Downsizing() {
 
     <DeferredBackground id="resources" className="ds-resources" backgroundImage={`linear-gradient(rgba(16,42,67,.97),rgba(16,42,67,.97)),url(${contourTexture})`}><div className="ds-resources__head"><div><p className="ds-eyebrow ds-eyebrow--gold">A little more clarity</p><h2>Want to Dig<br /><i>a Little Deeper?</i></h2></div><p>Explore the guidance available now, or ask Mary which practical next step fits your situation. New tools will be added only after they are ready to use.</p></div><div className="ds-button-row"><ButtonLink variant="light" href="/resource-center">Visit the Resource Center</ButtonLink><ButtonLink variant="outline" href="/resource-center#club">Learn About the Downsizers Club</ButtonLink></div></DeferredBackground>
 
-    <DeferredBackground className="ds-final" data-testimonial-reserve="downsizing-closing" backgroundImage={`url(${paperTexture})`}><div className="ds-final__frame"><Anchor size={28} /><p className="ds-eyebrow">A conversation can be the beginning</p><h2>One Conversation Can Make the Whole Thing Feel <i>More Manageable.</i></h2><p>You don’t need to know where you’re moving. You don’t need to have cleaned out the basement. And you certainly don’t need to have all the answers.</p><p>We can start by talking about what you want life to look like next.</p><ButtonLink>Schedule a Conversation</ButtonLink></div></DeferredBackground>
+    <DeferredBackground className="ds-final site-closing-strip" data-testimonial-reserve="downsizing-closing" backgroundImage={`url(${paperTexture})`}>
+      <div className="site-closing-strip__content">
+        <div className="site-closing-strip__heading">
+          <p className="ds-eyebrow">A conversation can be the beginning</p>
+          <h2>One Conversation Can Make the Whole Thing Feel <i>More Manageable.</i></h2>
+        </div>
+        <div className="site-closing-strip__copy">
+          <p>You don’t need to know where you’re moving. You don’t need to have cleaned out the basement. And you certainly don’t need to have all the answers.</p>
+          <p>We can start by talking about what you want life to look like next.</p>
+        </div>
+      </div>
+    </DeferredBackground>
   </main><SiteFooter currentPath="/downsizing-services" /></div>;
 }

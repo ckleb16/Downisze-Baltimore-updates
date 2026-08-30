@@ -217,9 +217,16 @@ export default function Home() {
           <div className="resources__cta"><ButtonLink variant="light" href="/resource-center">Visit the Resource Center</ButtonLink></div>
         </DeferredBackground>
 
-        <DeferredBackground id="contact" className="final-cta section-paper" backgroundImage={`url(${paperTexture})`}>
-          <div className="final-cta__mark"><Anchor size={28} strokeWidth={1.2} /></div>
-          <div className="final-cta__content"><p className="eyebrow">30 years of Baltimore real estate experience</p><h2>Your Next Step Deserves<br /><i>an Experienced Guide.</i></h2><p>Whether the right answer is moving, staying put, or taking more time, I’ll help you understand the options, anticipate the details, and build a plan around what matters most to you.</p></div>
+        <DeferredBackground id="contact" className="final-cta site-closing-strip section-paper" backgroundImage={`url(${paperTexture})`}>
+          <div className="site-closing-strip__content">
+            <div className="site-closing-strip__heading">
+              <p className="eyebrow">30 years of Baltimore real estate experience</p>
+              <h2>Your Next Step Deserves<br /><i>an Experienced Guide.</i></h2>
+            </div>
+            <div className="site-closing-strip__copy">
+              <p>Whether the right answer is moving, staying put, or taking more time, I’ll help you understand the options, anticipate the details, and build a plan around what matters most to you.</p>
+            </div>
+          </div>
         </DeferredBackground>
       </main>
 
