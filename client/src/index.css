@@ -2099,3 +2099,136 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
 @media (max-width:800px){
   .ds-hero__caption{display:none}
 }
+
+/* Confirmed Aging in Place feedback: shared anchor labels, clearer editorial emphasis, and compact closing geometry. */
+.anchor-line-label{
+  display:grid;
+  grid-template-columns:20px 50px minmax(0,1fr);
+  align-items:center;
+  gap:.875rem;
+  min-width:0;
+  color:var(--gold-text-on-light);
+  font:700 clamp(.75rem,.8vw,.8125rem)/1.35 "DM Sans",sans-serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.anchor-line-label>svg{display:block;width:20px;height:20px}
+.anchor-line-label .anchor-line-label__rule{
+  display:block;
+  width:50px;
+  height:1px;
+  background:currentColor;
+}
+.anchor-line-label .anchor-line-label__text{
+  display:block;
+  width:auto;
+  min-width:0;
+  height:auto;
+  background:none;
+  overflow-wrap:normal;
+}
+.ds-plan__label.anchor-line-label,
+.aip-section-label.anchor-line-label{gap:.875rem;color:var(--gold-text-on-light)}
+.ds-plan__label .anchor-line-label__rule,
+.aip-section-label .anchor-line-label__rule{width:50px;height:1px;background:currentColor}
+.ds-plan__label .anchor-line-label__text,
+.aip-section-label .anchor-line-label__text{width:auto;height:auto;background:none}
+.aip-section-label{max-width:72rem;margin:0 auto}
+
+@media (min-width:821px){
+  .ds-plan{grid-template-columns:minmax(15rem,24%) minmax(0,1fr)}
+}
+
+.aip-hero__photo-caption{
+  position:absolute;
+  right:clamp(1.25rem,2.5vw,2.5rem);
+  bottom:clamp(1.25rem,2.5vw,2.5rem);
+  z-index:1;
+  max-width:19rem;
+  padding:.5rem .65rem;
+  background:rgba(16,42,67,.86);
+  color:#fff;
+  font:700 .75rem/1.4 "DM Sans",sans-serif;
+  letter-spacing:.08em;
+  text-shadow:0 1px 3px rgba(0,0,0,.65);
+  text-transform:uppercase;
+}
+.aip-stats>.aip-source{
+  width:100%;
+  max-width:72rem;
+  margin:0 auto;
+  padding:.75rem 1rem 0;
+  border-top:1px solid rgba(180,138,74,.42);
+  color:#666b6d;
+  font-size:.75rem;
+  line-height:1.55;
+}
+.aip-stats__grid{margin-bottom:1rem}
+.aip-personal{
+  grid-template-columns:minmax(0,1fr) clamp(25rem,30vw,27rem);
+  gap:clamp(3rem,6vw,6rem);
+  align-items:start;
+}
+.aip-personal__visual{
+  align-self:start;
+  justify-self:end;
+  width:100%;
+  max-width:27rem;
+  margin-top:1.5rem;
+}
+.aip-story blockquote{
+  max-width:34rem;
+  font-size:clamp(1.75rem,2.2vw,1.875rem);
+  line-height:1.15;
+  text-wrap:balance;
+}
+.aip-pathways__note{
+  max-width:48rem;
+  margin:2.5rem auto 0;
+  font-size:clamp(1.75rem,2.4vw,2rem);
+  line-height:1.18;
+  text-wrap:balance;
+}
+
+@media (min-width:901px){
+  .aip-final .site-closing-strip__heading>h2{
+    font-size:clamp(3rem,3.5vw,3.5rem);
+  }
+}
+
+@media (min-width:901px) and (max-width:1100px){
+  .aip-personal{
+    grid-template-columns:minmax(0,1fr) clamp(19rem,34vw,23.5rem);
+    gap:4vw;
+    padding-right:7vw;
+    padding-left:7vw;
+  }
+}
+
+@media (max-width:900px){
+  .aip-personal{grid-template-columns:minmax(0,1fr)}
+  .aip-personal__visual{
+    justify-self:start;
+    max-width:min(100%,26rem);
+    margin-top:2rem;
+  }
+}
+
+@media (max-width:800px){
+  .aip-hero__photo-caption{display:none}
+}
+
+@media (max-width:640px){
+  .anchor-line-label{
+    grid-template-columns:20px 42px minmax(0,1fr);
+    gap:.7rem;
+    font-size:.75rem;
+  }
+  .anchor-line-label .anchor-line-label__rule,
+  .ds-plan__label .anchor-line-label__rule,
+  .aip-section-label .anchor-line-label__rule{width:42px}
+  .aip-stats>.aip-source{padding-right:0;padding-left:0}
+  .aip-personal__visual{max-width:min(100%,23rem)}
+  .aip-story blockquote{font-size:clamp(1.375rem,6.5vw,1.5rem)}
+  .aip-pathways__note{font-size:clamp(1.375rem,6.5vw,1.5rem)}
+}

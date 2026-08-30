@@ -6,7 +6,7 @@
 - Section: Aging in Place (`/aging-in-place`)
 - Source: Pastel export dated August 28, 2026
 - Client comments covered: 12–22
-- Status: Draft ready for implementation after the consolidated end-of-review decisions
+- Status: Confirmed requirements implemented and verified; Comment 20 remains deferred in the linked ambiguity register
 - Dependencies: Reuses the homepage hero-caption, compact closing-strip, shared-header, and shared-footer standards defined in PRD 01
 - Cross-page impact: Comment 13 establishes a shared anchor-and-line section-label treatment for every route that uses that motif
 
@@ -26,9 +26,9 @@ Make the Aging in Place page feel more visually connected to the first two pages
 | 17 | “Accessible homes” in the second pathway card | Replace the item with “Retirement Community.” | Make the exact supplied copy replacement in the move pathway list. |
 | 18 | “Should I Stay or Should I Go?” educational-program block | Remove the entire section. | Delete the full tan program block, including its heading, connected-professionals list, and both actions. Do not remove the separate self-evaluation that follows it. |
 | 19 | Bottom sentence below the two pathway cards | Make the blurb larger. | Increase the centered italic note so it functions as a clear concluding statement rather than fine print. |
-| 20 | Boundary between the ADU topic and self-evaluation after comment 18 | Decide whether the colors should change or a tan line should separate the two topics. | Recommended resolution: keep both navy sections and insert a slim warm-tan divider band between them. This creates separation without introducing a new color scheme. |
+| 20 | Boundary between the ADU topic and self-evaluation after comment 18 | Decide whether the colors should change or a tan line should separate the two topics. | Deferred. The client has not selected either treatment, so neither is implemented. See the [ambiguity register](./CLIENT_FEEDBACK_AMBIGUITY_REGISTER.md#comment-20--section-boundary-treatment) and [original Pastel comment](https://usepastel.com/link/4lgrqj03/comment/12355278/). |
 | 21 | Final “The Goal Is Not to Stay at All Costs” panel | Match the earlier rectangular closing banners and remove **Schedule a Conversation**. | Reuse the compact horizontal closing-strip system established in Homepage H6, retain the Aging in Place copy, and remove its internal button. |
-| 22 | Aging in Place footer | Keep the footer consistent throughout the website. | Use the same shared footer component and all approved Homepage H7 changes; do not create a page-specific footer variation. |
+| 22 | Aging in Place footer | Keep the footer consistent throughout the website. | Use the same currently approved shared footer component; do not create a page-specific variation or resolve the separate Comment 7 logo-asset ambiguity. |
 
 ## Requirements
 
@@ -87,16 +87,15 @@ Make the Aging in Place page feel more visually connected to the first two pages
 - Increase “Aging in place does not always mean remaining in the same house forever.” from its current approximately 20px to a responsive 28–32px range on desktop and 22–24px on mobile.
 - Retain the centered, italic serif treatment and provide sufficient space above and below for it to read as the pathways conclusion.
 
-### A7 — Remove the educational-program block and add separation
+### A7 — Remove the educational-program block without resolving Comment 20
 
 - Delete the complete tan **An educational starting point / Should I Stay or Should I Go?** section.
 - Remove its connected-professionals list, **Ask About Upcoming Programs** button, and **Take the Self-Evaluation** button.
 - Remove any now-unused data, layout rules, and imports associated only with this deleted block during implementation.
 - Preserve the separate navy **A connected possibility** ADU section above it.
 - Preserve the separate navy **A practical next step** self-evaluation section below it, including its interactive evaluation.
-- Insert a non-interactive warm-tan/cream divider band between those two navy sections. Target approximately 16–24px height on desktop and 12–16px on mobile.
-- The divider may include a subtle one-pixel gold boundary, but it must not look like another content section, button, or loading state.
-- Do not recolor either adjacent navy section unless the client rejects the divider approach in the consolidated decision round.
+- Preserve the existing colors and boundary treatments on the two adjacent sections after the deletion.
+- Do not add a tan divider, recolor either navy section, or introduce another separating treatment until Comment 20 is resolved in the ambiguity register.
 
 ### A8 — Reuse the compact closing-strip system
 
@@ -113,7 +112,8 @@ Make the Aging in Place page feel more visually connected to the first two pages
 - Continue rendering the common site header and preserve the active Aging in Place navigation state.
 - Inherit any approved navigation-scale change from Homepage H1 through the shared header.
 - Render the same shared footer used on every route, with no Aging-specific spacing, typography, or content overrides.
-- Inherit Homepage H7: the approved Cummings & Co. logo beside brokerage details, Mary’s 24px bold direct phone, 16px direct email, unchanged brokerage/address scale, and retained footer conversation action.
+- Inherit the implemented Homepage H7 changes: Mary’s 24px bold direct phone, 16px direct email, unchanged brokerage/address scale, and retained footer conversation action.
+- Do not add a Cummings & Co. logo until the approved public asset is identified under Comment 7 in the ambiguity register.
 
 ## Responsive, interaction, and accessibility acceptance criteria
 
@@ -125,7 +125,7 @@ Make the Aging in Place page feel more visually connected to the first two pages
 - Both enlarged blurbs retain readable line lengths and do not collide with adjacent content.
 - The pathway list contains **Retirement Community** and no **Accessible homes** entry.
 - The deleted educational-program section, its professional list, and its two actions are absent from the rendered page and keyboard order.
-- A warm divider clearly separates the adjacent navy ADU and self-evaluation sections.
+- No new divider or recoloring appears between the adjacent navy ADU and self-evaluation sections while Comment 20 is deferred.
 - The self-evaluation remains fully usable by keyboard, retains its labels and results, and is not removed with the program block.
 - The final closing strip contains no conversation button; the footer retains its separate action.
 - No horizontal scrolling, clipped text, layout shift, broken focus order, or touch target smaller than 44×44px is introduced.
@@ -140,15 +140,22 @@ Make the Aging in Place page feel more visually connected to the first two pages
 - Replacing the Mary-and-Pop photograph.
 - Applying the anchor scale to every anchor icon regardless of context.
 
-## Deferred clarification log
+## Ambiguity handling
 
-These items are recorded for the consolidated question round at the end and do not block drafting the next section:
+- **Comment 20 only:** The section-boundary choice remains intentionally unresolved and is maintained in the [separate ambiguity register](./CLIENT_FEEDBACK_AMBIGUITY_REGISTER.md#comment-20--section-boundary-treatment).
+- Comments 13, 15, and 17 are treated as confirmed: the equivalent anchor-line label motif is standardized, the single displayed Mary-and-Pop visual is enlarged with its plaque removed, and the exact supplied wording **Retirement Community** is used.
+- The separate Comment 7 footer-logo ambiguity remains deferred and is not changed by Comment 22.
 
-1. **Comment 15 plural “photos”:** The screenshot contains one Mary-and-Pop image. The recommended interpretation is to enlarge that complete displayed visual; no additional photo is being added.
-2. **Comment 17 exact copy:** The PRD preserves the client’s singular, title-cased wording **Retirement Community**. Confirm later if the intended list item is instead the plural, sentence-cased **Retirement communities**.
-3. **Comment 20 section boundary:** The recommended answer to the client’s either/or question is a slim tan divider while retaining both navy backgrounds. Confirm later if she instead wants one of the two sections recolored tan.
-4. **Comment 13 global scope:** “Across the website” is interpreted as every instance of the same anchor-plus-horizontal-line section-label motif, not every decorative anchor icon on the site.
+## Implementation and verification record
+
+- Implemented August 31, 2026.
+- Comments 12–19 and 21–22 are implemented. Comment 20 remains intentionally untouched and linked to its original Pastel comment in the separate ambiguity register.
+- Responsive layout was verified at 1512×799, 1212×799, 1024×768, 821×900, 820×900, 768×1024, 390×844, and 320×568 with no horizontal overflow.
+- The mobile navigation was opened and closed, including Escape-key closing and focus return to the menu control.
+- The self-evaluation was completed through all ten questions, including answer selection, Back, changing a prior answer, results totals, focus movement, returning from results, and a full reset.
+- The shared anchor-and-line label was regression-checked on the Downsizing page at desktop, breakpoint, and mobile widths.
+- Browser error and warning logs were empty after the responsive and interaction passes.
 
 ## Definition of done
 
-This section is complete when comments 12–22 are implemented as approved, the page flows cleanly after removal of the program block, its key editorial blurbs and personal image have the requested prominence, shared caption/anchor/closing/footer systems are consistent across routes, the self-evaluation remains intact, and all responsive, interaction, and accessibility checks pass without regressions.
+The confirmed Section 3 work is complete when Comments 12–19 and 21–22 are implemented, the page flows cleanly after removal of the program block, its key editorial blurbs and personal image have the requested prominence, shared caption/anchor/closing/footer systems are consistent across routes, the self-evaluation remains intact, and all responsive, interaction, and accessibility checks pass without regressions. Comment 20 remains intentionally incomplete until the client selects a boundary treatment.
