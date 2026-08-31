@@ -1,5 +1,7 @@
 # Downsize Baltimore — Client Feedback PRD 06: Meet Mary
 
+> Resolution update: Comments 39 and 40 are closed as explicit no-change decisions in [PRD 08](./CLIENT_FEEDBACK_PRD_08_RESOLVED_AMBIGUITIES.md).
+
 ## Document status
 
 - Product: Downsize Baltimore marketing website

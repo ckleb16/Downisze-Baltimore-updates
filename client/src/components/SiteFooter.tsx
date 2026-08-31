@@ -26,20 +26,32 @@ export default function SiteFooter({ currentPath }: SiteFooterProps) {
           A Clear Plan for What Comes Next.<br />
           <i>Anchored in Baltimore.</i>
         </p>
-        <div className="site-footer-v2__contact">
+        <div className="site-footer-v2__contact" id="site-footer-contact">
           <a className="site-footer-v2__phone" href={SITE_CONTACT.phoneHref}>
             <Phone size={16} aria-hidden="true" /> {SITE_CONTACT.phoneDisplay}
           </a>
           <a className="site-footer-v2__email" href={`mailto:${SITE_CONTACT.email}`}>{SITE_CONTACT.email}</a>
-          <div className="site-footer-v2__brokerage">
-            <strong>{SITE_CONTACT.brokerage}</strong>
-            <span>
-              {SITE_CONTACT.brokerageAddress}<br />
-              {SITE_CONTACT.brokerageCity}
-            </span>
-            <span>
-              Office <a href={SITE_CONTACT.brokeragePhoneHref}>{SITE_CONTACT.brokeragePhoneDisplay}</a>
-            </span>
+          <div className="site-footer-v2__brokerage-lockup">
+            <img
+              className="site-footer-v2__brokerage-logo"
+              src={SITE_ASSETS.brokerageLogo}
+              alt=""
+              width="300"
+              height="300"
+              loading="lazy"
+              decoding="async"
+              aria-hidden="true"
+            />
+            <div className="site-footer-v2__brokerage">
+              <strong>{SITE_CONTACT.brokerage}</strong>
+              <span>
+                {SITE_CONTACT.brokerageAddress}<br />
+                {SITE_CONTACT.brokerageCity}
+              </span>
+              <span>
+                Office <a href={SITE_CONTACT.brokeragePhoneHref}>{SITE_CONTACT.brokeragePhoneDisplay}</a>
+              </span>
+            </div>
           </div>
           <a className="site-footer-v2__cta" href={SITE_CONTACT.calendlyUrl}>
             Schedule a Conversation <ArrowUpRight size={16} aria-hidden="true" />

@@ -1,5 +1,7 @@
 # Downsize Baltimore — Client Feedback PRD 05: Resource Center
 
+> Resolution update: Comment 36’s former action-label deferral is superseded by the label-only **Join for Free** decision in [PRD 08](./CLIENT_FEEDBACK_PRD_08_RESOLVED_AMBIGUITIES.md).
+
 ## Document status
 
 - Product: Downsize Baltimore marketing website

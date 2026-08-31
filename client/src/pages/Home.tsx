@@ -37,9 +37,20 @@ type ApprovedTestimonial = {
   context?: string;
 };
 
-// Keep client endorsements off the live site until the wording and attribution
-// have been explicitly approved. Adding an approved entry restores the section.
-const approvedTestimonials: ApprovedTestimonial[] = [];
+const approvedTestimonials: ApprovedTestimonial[] = [
+  {
+    quote: "Mary is an outstanding agent and advisor who has helped us in all aspects of downsizing in the BelAir/ Harford County market. She is extremely knowledgeable, wonderfully warm and personal, incredibly accommodating, empathetic and enthusiastic. It’s very apparent she loves what she does from the moment you meet her and a real pleasure to work with.",
+    name: "Gloria & Tom Tanton",
+  },
+  {
+    quote: "I’ve known Mary for almost 50 years. I owned my Parkville rancher for 26 years, and when I decided it was time for a change, Mary helped me through the whole process, from getting the house ready for the market through the sale.\n\nI was really impressed with the level of marketing she did for my home. She used professional photography and created a marketing video that included virtual staging to help buyers see the potential of the house. It paid off. We had multiple offers and a very strong contract, and everything went smoothly right through closing on time.\n\nMary knows the Baltimore real estate market and knows how to get a house sold. I would highly recommend her for any of your real estate needs.",
+    name: "Eddie Wiseman",
+  },
+  {
+    quote: "Mary was the most incredible, professional and helpful realtor I’ve ever worked with. She helped us sell a house that was in an estate- there were a lot of questions along the way and she handled all the issues seamlessly.\n\nCannot recommend her highly enough!",
+    name: "Carol & Gerry Lavender",
+  },
+];
 
 const ways = [
   {
@@ -196,7 +207,7 @@ export default function Home() {
         </section>
         {approvedTestimonials.length > 0 && (
           <section className="testimonial-reserve" aria-labelledby="approved-testimonials-heading">
-            <div>
+            <div className="testimonial-reserve__heading">
               <p className="eyebrow">A quiet place for client perspective</p>
               <h2 id="approved-testimonials-heading">Kind Words From People I’ve Helped</h2>
             </div>

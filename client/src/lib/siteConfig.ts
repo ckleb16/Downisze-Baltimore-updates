@@ -13,4 +13,5 @@ export const SITE_CONTACT = {
 export const SITE_ASSETS = {
   wideLogo: "/manus-storage/DownsizeBaltimoreWide-YelWhite_e501a303.png",
   verticalLogo: "/manus-storage/DownsizeBaltimoreB-YelWhite_850df9b1.png",
+  brokerageLogo: "/manus-storage/cummings-and-co-realtors-circle.png",
 } as const;

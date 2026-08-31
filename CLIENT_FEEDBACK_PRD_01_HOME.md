@@ -1,5 +1,7 @@
 # Downsize Baltimore — Client Feedback PRD 01: Homepage
 
+> Resolution update: The formerly deferred portions of Comments 1, 5, and 7 are superseded by [PRD 08](./CLIENT_FEEDBACK_PRD_08_RESOLVED_AMBIGUITIES.md).
+
 ## Document status
 
 - Product: Downsize Baltimore marketing website

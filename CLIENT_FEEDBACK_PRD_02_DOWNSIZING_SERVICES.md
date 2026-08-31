@@ -1,5 +1,7 @@
 # Downsize Baltimore — Client Feedback PRD 02: Downsizing Services
 
+> Resolution update: Comment 8’s former hero-preservation requirement is superseded by the approved complete Homepage hero match in [PRD 08](./CLIENT_FEEDBACK_PRD_08_RESOLVED_AMBIGUITIES.md).
+
 ## Document status
 
 - Product: Downsize Baltimore marketing website

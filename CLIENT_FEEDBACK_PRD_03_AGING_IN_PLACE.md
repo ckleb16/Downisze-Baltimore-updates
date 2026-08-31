@@ -1,5 +1,7 @@
 # Downsize Baltimore — Client Feedback PRD 03: Aging in Place
 
+> Resolution update: Comment 20’s former boundary deferral is superseded by the approved tan divider in [PRD 08](./CLIENT_FEEDBACK_PRD_08_RESOLVED_AMBIGUITIES.md).
+
 ## Document status
 
 - Product: Downsize Baltimore marketing website

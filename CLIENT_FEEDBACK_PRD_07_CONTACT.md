@@ -1,5 +1,7 @@
 # Downsize Baltimore — Client Feedback PRD 07: Contact
 
+> Resolution update: Comment 44 is closed as an explicit no-change decision and Comment 45’s footer handoff is approved in [PRD 08](./CLIENT_FEEDBACK_PRD_08_RESOLVED_AMBIGUITIES.md).
+
 ## Document status
 
 - Product: Downsize Baltimore marketing website
