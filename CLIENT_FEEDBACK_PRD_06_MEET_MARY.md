@@ -6,12 +6,12 @@
 - Section: Meet Mary (`/meet-mary`)
 - Source: Pastel export dated August 28, 2026
 - Client comments covered: 37–42, including the reply attached to comment 38
-- Status: Draft ready for layout implementation; final historical-photo and video changes depend on approved client assets
+- Status: Comments 37, 38, 41, 42 and the layout-only portion of Comment 40 implemented and verified; Comment 39 and Comment 40’s media/audio changes deferred
 - Dependencies: Reuses the homepage hero-caption, compact closing-strip, shared-header, and shared-footer standards defined in PRD 01
 
 ## Objective
 
-Improve the Meet Mary page’s visual storytelling by removing unnecessary sequence numbers, pairing the career story with a larger correctly cropped family photograph, correcting personal-media presentation, enlarging and centering the Pop video, and converting the final panel to the shared shallow closing strip. Preserve Mary’s exact story and the authenticity of her personal media.
+Improve the Meet Mary page’s visual storytelling by removing the targeted sequence numbers, pairing the career story with a larger uncropped family photograph, correcting the two outside-work photo presentations, enlarging and centering the existing Pop video without changing its media or accessibility support, and converting the final panel to the shared shallow closing strip. Preserve Mary’s exact story and leave all unresolved historical-photo, audio, music, caption, and transcript decisions untouched.
 
 ## Client intent, mapped comment by comment
 
@@ -19,8 +19,8 @@ Improve the Meet Mary page’s visual storytelling by removing unnecessary seque
 | --- | --- | --- | --- |
 | 37 | Hero-photo label: “01 / Meet Mary Lynch” | Remove “01.” | Remove only `01 /` and retain “Meet Mary Lynch” in the lower-photo caption treatment. |
 | 38 | Career-story section containing the `02` aside and Orioles family photo | Remove `02`, place text left and photo right, and enlarge the photo area so heads are not cut off. | Replace the mostly empty numbered-aside layout with a true two-column story: biography and credentials left, large portrait-oriented Orioles photo right. The current source contains every head; the website’s forced landscape crop causes the defect. |
-| 39 | Historical Mary-and-Pop Polaroid | Correct the visibly “wonky” photo; Mary asks whether she should fix and upload it. | Yes. Prefer a clean client-supplied scan/crop of the intended photograph. Preserve the keepsake frame and HTML caption; do not generatively reconstruct faces or missing content. |
-| 40 | Pop boat video and visible transcript | Make the video larger and centered, remove the current sound and transcript, add music, and determine whether it should be edited off-site. | Use a final off-site-edited, licensed, music-only MP4, then display it as a large centered media row. Remove the visible transcript only after the final file contains no speech; preserve an accurate accessible description/caption and native controls. |
+| 39 | Historical Mary-and-Pop Polaroid | Correct the visibly “wonky” photo; Mary asks whether she should fix and upload it. | Defer all image changes. Preserve the current source and presentation until Mary chooses a clean-asset handoff or authorizes a best-effort local correction. |
+| 40 | Pop boat video and visible transcript | Make the video larger and centered, remove the current sound and transcript, add music, and determine whether it should be edited off-site. | Implement only the clear layout portion: move the existing video to a large centered media row. Preserve the current MP4, forced-muted behavior, captions, description, and transcript until final approved media and music-use evidence are supplied. |
 | 41 | Two photos in “Mary outside of work” | Correct their sizing/cropping; Mary asks how she can help. | Give the Chesapeake/Frenchies and family-travel images separate aspect-ratio rules, enlarge and level them, preserve every face, and remove the blank band embedded in the travel source. Existing originals are adequate for most layout fixes; a clean travel original is preferred. |
 | 42 | Final “Let’s Talk About What Comes Next” panel | Make it a long skinny rectangle, keep all words, use a large headline, and remove the scheduler. | Reuse the shared compact closing-strip system, retain every existing word, keep the headline at the upper end of the shared scale, and remove only the panel’s internal scheduling action. |
 
@@ -56,33 +56,23 @@ Improve the Meet Mary page’s visual storytelling by removing unnecessary seque
 - Retain the current meaningful alternative text unless the asset changes.
 - If the anchor is retained, integrate it quietly into the shared anchor-and-line label system; do not preserve a standalone empty ornament column.
 
-### M3 — Replace or carefully correct the historical Pop photograph
+### M3 — Defer the historical Pop photograph change
 
 - Preserve the keepsake/Polaroid presentation and exact visible caption: “Me & Pop. Long before I knew where this would lead.”
-- Preferred final path: replace the current source with an approved clean scan or crop supplied by Mary.
-- If Mary does not supply a replacement, a best-effort local correction may:
-  - crop to the intended Mary-and-Pop photograph;
-  - remove the blue album backing and unrelated photograph above it;
-  - correct perspective and visible skew; and
-  - apply only mild color/exposure correction.
-- Do not generate, reconstruct, retouch, or materially alter faces or missing image content.
-- Fit the corrected image without clipping Mary or Pop.
-- Use semantic `figure` and `figcaption` markup where practical, and preserve the meaningful alternative text.
-- Keep the current original asset available as a recoverable source/reference during implementation.
+- Preserve the current image source, crop, frame, caption, and alternative text in this implementation.
+- Do not crop, replace, perspective-correct, regenerate, reconstruct, or retouch the photograph until the handoff method is approved in the separate [ambiguity register](./CLIENT_FEEDBACK_AMBIGUITY_REGISTER.md).
+- A later approved implementation may use a clean client-supplied scan or an explicitly authorized best-effort local correction, but it is not part of the confirmed scope.
 
-### M4 — Enlarge, center, and replace the Pop video media
+### M4 — Enlarge and center the existing Pop video without changing its media
 
 - Move the video out of the constrained copy column and make it a centered media row within the Pop section, after the written reflection and before the chapter section.
 - Target a desktop width of `min(100%, 56–60rem)` while retaining 16:9.
 - Center the video and its visible caption as one media figure.
 - Preserve native controls, visible keyboard focus, `playsInline`, and metadata-only preload.
 - Do not autoplay or loop.
-- Recommended content handoff: Mary or her editor supplies the final off-site-edited video as a music-only MP4, with the original speech, engine, and wind removed if “remove sound” means replacing the complete original track.
-- Once that approved file is installed, remove the forced-muted state so user-initiated playback can play the music. Keep native mute and volume controls.
-- Retain “Our guy, Pop. Still happiest at the helm.” as the visible description unless replacement copy is supplied.
-- Remove the visible transcript accordion only after confirming the replacement contains no spoken words.
-- Replace the current speech captions with an accurate music-only cue such as `[Instrumental music]` when applicable.
-- If any intelligible speech or lyrics remain, synchronized captions remain required and the transcript cannot be removed without an equivalent accessible alternative.
+- Preserve the exact current MP4 source, poster, forced-muted behavior, caption track, visible description, and transcript.
+- Retain “Our guy, Pop. Still happiest at the helm.” as the visible description.
+- Do not add music, replace or remix audio, remove the transcript, or change caption content until the final approved media and music-use evidence are supplied under Comment 40 in the separate [ambiguity register](./CLIENT_FEEDBACK_AMBIGUITY_REGISTER.md).
 
 ### M5 — Correct the outside-work photographs
 
@@ -161,10 +151,9 @@ Improve the Meet Mary page’s visual storytelling by removing unnecessary seque
 - The hero caption reads “Meet Mary Lynch”; no `01` or dangling slash remains.
 - The career-story section contains no `02`; biography is left and the enlarged Orioles photo is right on desktop.
 - All four Orioles-photo heads remain fully visible at every breakpoint.
-- The historical Pop image is straight, clean, and limited to the intended photograph; its caption and subjects remain intact.
+- The historical Pop image remains unchanged while Comment 39 is deferred; its caption and subjects remain intact.
 - The Pop video is visibly larger, horizontally centered, 16:9, and fully keyboard operable.
-- A visible transcript is removed only after the approved speech-free replacement is installed.
-- The final video contains only the approved/licensed mix, and its captions/description accurately represent the media.
+- The current MP4, muted behavior, captions, description, and visible transcript remain unchanged while Comment 40’s media decision is deferred.
 - The outside-work photographs are larger, undistorted, level, free of blank source padding, and retain every face.
 - The closing strip contains all existing copy, no scheduler, and matches the shared shallow rectangular geometry.
 - The footer retains its separate scheduling action.
@@ -180,24 +169,31 @@ Improve the Meet Mary page’s visual storytelling by removing unnecessary seque
 - Generatively reconstructing photo content or altering faces.
 - Selecting or licensing music on Mary’s behalf without explicit approval.
 - Removing captions or equivalent accessibility text while speech remains.
+- Altering the historical Pop photograph before Comment 39’s handoff method is approved.
+- Replacing the Pop video, changing its audio, or removing its transcript before Comment 40 is resolved.
 - Treating the pre-footer strip as a replacement for the true shared footer.
 - Automatically removing the visible `04` in **From experience to purpose** without approval.
 
 ## Deferred clarification log
 
-These items are recorded for the consolidated question round at the end:
+The authoritative blockers remain in the separate [ambiguity register](./CLIENT_FEEDBACK_AMBIGUITY_REGISTER.md):
 
-1. **Comment 37 scope:** The recommended interpretation removes only `01 /` and retains “Meet Mary Lynch.”
-2. **Comment 38 ornament:** Confirm whether the anchor should remain as part of the shared anchor-and-line label or disappear with `02`.
-3. **Remaining `04`:** Removing `01` and `02` leaves `04` as the page’s only visible section number. It was not targeted, so the PRD preserves it pending direction.
-4. **Comment 38 photo:** The recommended right-side image is the existing Orioles family photo currently nested at the bottom of the biography.
-5. **Comment 39 handoff:** Confirm whether Mary will provide a clean scan/corrected historical photo or wants a best-effort local crop and perspective correction.
-6. **Comment 40 placement:** The recommended interpretation is a centered media row spanning the Pop section, not merely a larger video inside the current right column.
-7. **Comment 40 audio:** Confirm that “remove sound” means remove all original speech, engine, and wind and replace them with approved instrumental music only.
-8. **Comment 40 ownership:** Confirm whether Mary will supply the final edited MP4 and music-use evidence or wants the implementation team to mix a separately approved track.
-9. **Comment 41 scope:** The recommended scope is the two outside-work photos because other personal images have their own comments.
-10. **Frame tilt:** The recommended correction levels the two outside-work frames; confirm if the scrapbook-style rotations should remain.
+1. **Comment 39:** clean client-supplied historical photo versus explicitly authorized best-effort local correction.
+2. **Comment 40:** ownership of the final edit, the approved/licensed music, and the intended treatment of all original audio.
+
+The remaining layout choices are implemented from the clear screenshot targets and shared approved systems: retain “Meet Mary Lynch,” retain the anchor without `02`, preserve the untargeted `04`, use the existing Orioles photo at its natural ratio, center the existing video as a full media row, level the two outside-work frames, and treat those two photos independently.
 
 ## Definition of done
 
-This section is complete when comments 37–42 are implemented as approved, all targeted numbers are removed without leaving empty layouts, every personal photograph uses an intentional non-destructive presentation, the approved music video is centered and accessible, the final panel becomes a large-headline button-free strip, the shared footer remains intact, and all responsive, media, keyboard, and accessibility checks pass without regressions.
+The confirmed portion of this section is complete when Comments 37, 38, 41, 42 and Comment 40’s layout-only request are implemented; Comments 39 and 40’s unresolved media aspects remain unchanged; all targeted numbers are removed without leaving empty layouts; the confirmed photographs use non-destructive presentations; the existing video is centered and accessible; the final panel becomes a large-headline button-free strip; and all responsive, media, keyboard, and accessibility checks pass without regressions.
+
+## Implementation and verification record
+
+- Implemented the confirmed scope on August 31, 2026.
+- Removed `01 /` from the hero caption and `02` from the career story while retaining the anchor-and-line ornament and the untargeted `04`.
+- Rebuilt the career story as copy-left/photo-right on desktop and a logical copy-before-photo stack on tablet and mobile.
+- Restored the Orioles and Chesapeake photographs to their natural portrait ratios and presented the travel photograph as a level 4:3 visual crop with no white source band or face loss.
+- Moved the existing Pop video into a centered 16:9 media figure while preserving its exact source, poster, forced-muted behavior, caption track, description, and transcript.
+- Replaced the tall final panel with the shared button-free closing strip while retaining every word and the shared-footer scheduling action.
+- Left the historical Pop photograph unchanged under Comment 39 and left all unresolved Comment 40 media/audio decisions unchanged.
+- Verified the established eight responsive viewports, the exact 800/801px caption breakpoint, the 1024px stacked story treatment, zero page overflow, natural media ratios, transcript disclosure behavior, mobile-menu Escape handling, complete image loading, deferred backgrounds, footer adjacency, and an error-free browser console.
