@@ -6,12 +6,12 @@
 - Section: Resource Center (`/resource-center`)
 - Source: Pastel export dated August 28, 2026
 - Client comments covered: 31–36
-- Status: Draft ready for implementation after the consolidated end-of-review decisions
+- Status: Confirmed comments 31–35 implemented and verified; Comment 36 deferred
 - Dependencies: Reuses the homepage hero-caption, compact closing-strip, shared-header, and shared-footer standards defined in PRD 01
 
 ## Objective
 
-Make the Resource Center’s major signposts shorter, simpler, and consistent with the approved cross-page patterns. The revision should horizontalize and de-number the hero caption, compress the question-pathway introduction, remove the Learn With Mary section, simplify the Downsizers Club marker and action, and convert the final panel into the shared compact closing strip without disrupting the resource filtering or FAQ interactions.
+Make the Resource Center’s major signposts shorter, simpler, and consistent with the approved cross-page patterns. The revision should horizontalize and de-number the hero caption, compress the question-pathway introduction, remove the Learn With Mary section, simplify the Downsizers Club marker, and convert the final panel into the shared compact closing strip without disrupting the resource filtering or FAQ interactions. The club-action rename remains deferred until its destination is approved.
 
 ## Client intent, mapped comment by comment
 
@@ -22,7 +22,7 @@ Make the Resource Center’s major signposts shorter, simpler, and consistent wi
 | 33 | “Learn with Mary / Prefer to Learn Together?” | Remove the entire section. | Delete the full visible Learn With Mary section, its six topic labels, paragraph, and action. Preserve the separate conditional Upcoming Classes & Events feature unless the client expands the scope. |
 | 34 | “You Don’t Need to Know Which Door to Open” panel | Make it a long rectangle and remove the schedule button. | Reuse the shared compact horizontal pre-footer strip and remove its internal **Schedule a Conversation** action. Preserve the true shared footer below it. |
 | 35 | “03” beside the Downsizers Club content | Remove number 3. | Remove only the club’s visible `03`; retain the anchor and vertical rule as a non-numbered decorative marker. |
-| 36 | Club action: “Ask About the Club” | Change the label to “Join for Free.” | Use the exact new label. Keep `/contact` as the provisional destination until a dedicated signup destination or club-specific contact flow is approved. |
+| 36 | Club action: “Ask About the Club” | Change the label to “Join for Free.” | Defer the complete enrollment-action change because its destination and enrollment behavior are unresolved in the separate ambiguity register. Keep the current label and `/contact` destination unchanged for now. |
 
 ## Requirements
 
@@ -68,14 +68,12 @@ Make the Resource Center’s major signposts shorter, simpler, and consistent wi
 - Do not remove the club section, its heading, paragraphs, or topic list.
 - Do not remove or renumber the six question-pathway cards; comment 35 applies only to the club’s `03`.
 
-### R5 — Rename and route the club action
+### R5 — Defer the club enrollment-action change
 
-- Change the source label from **Ask About the Club** to exact title case **Join for Free**.
-- The shared uppercase button style may continue to display it as **JOIN FOR FREE**.
-- Preserve the light button treatment, arrow, keyboard focus, and minimum 44×44px activation target.
-- Until a direct enrollment destination is approved, keep the current `/contact` destination rather than inventing a signup URL or representing enrollment as complete.
-- Recommended final flow: link to a club-specific contact state such as `/contact?topic=downsizers-club`, add “I want to join the Downsizers Club” to the Contact topic options, and preselect it. Implement this only if that route is approved in the consolidated decisions.
-- Do not create accounts, collect payment, or build a membership platform under this requirement.
+- Leave **Ask About the Club** and its current `/contact` destination unchanged in this implementation.
+- Do not publish **Join for Free** until the approved destination and enrollment behavior are recorded under Comment 36 in the separate [ambiguity register](./CLIENT_FEEDBACK_AMBIGUITY_REGISTER.md).
+- Do not invent a signup URL, imply completed enrollment, add a club-specific Contact state, or build a membership workflow without that decision.
+- Preserve the existing action’s light treatment, arrow, keyboard focus, and minimum 44×44px activation target.
 
 ### R6 — Reuse the compact closing-strip system
 
@@ -94,7 +92,8 @@ Make the Resource Center’s major signposts shorter, simpler, and consistent wi
 ### R7 — Preserve shared site chrome and page interactions
 
 - Continue using the common header with Resource Center marked active and inherit any approved Homepage H1 navigation change.
-- Continue using the common footer and all Homepage H7 requirements.
+- Continue using the currently approved common footer, including the approved phone/email sizing and separate footer conversation action.
+- Do not add or replace a Cummings & Co. logo until the approved public asset is identified under Comment 7 in the separate [ambiguity register](./CLIENT_FEEDBACK_AMBIGUITY_REGISTER.md).
 - Preserve pathway selection and filtering, including correct scroll/focus movement to the resource library and accurate `aria-pressed` state.
 - Preserve FAQ keyboard controls, `aria-expanded` values, controlled-panel relationships, and the current default-open behavior.
 - Removal of the Learn With Mary section must not break in-page hashes, focus movement, or the conditional events rendering path.
@@ -108,7 +107,7 @@ Make the Resource Center’s major signposts shorter, simpler, and consistent wi
 - The question-pathway introduction is visibly shallower while all six cards remain present and aligned.
 - The Learn With Mary section and its action are absent from the rendered page, keyboard order, and accessibility tree.
 - The club section contains no visible or accessible `03`; its retained anchor/line remains balanced.
-- The club action reads **Join for Free**, remains keyboard operable, and resolves to a valid destination.
+- The existing **Ask About the Club** action remains unchanged and keyboard operable while Comment 36 is deferred.
 - The final strip contains no conversation button and is materially wider and shallower than the current framed panel.
 - The footer retains its separate **Schedule a Conversation** action.
 - Pathway filtering and FAQ disclosures behave exactly as before.
@@ -124,20 +123,31 @@ Make the Resource Center’s major signposts shorter, simpler, and consistent wi
 - Removing the separately conditional Upcoming Classes & Events feature without confirmation.
 - Changing the hero image or crop.
 - Building a membership account, payment flow, registration system, or new signup page.
+- Renaming or rerouting **Ask About the Club** before Comment 36’s destination is approved.
 - Removing the header, hero, or shared-footer calls to action.
 - Replacing the true contact/legal footer with the compact closing strip.
 
-## Deferred clarification log
+## Implementation interpretation and ambiguity handling
 
-These items are recorded for the consolidated question round at the end:
-
-1. **Comment 31 “box”:** The recommended interpretation is the vertical caption plaque, not the complete photo container.
-2. **Comment 32 “header”:** The recommended interpretation is the question-pathway introduction, not the global header/navigation. The one-line requirement applies at the 1212px desktop reference; small screens must wrap.
-3. **Comment 33 scope:** The PRD removes the visible Learn With Mary section only. Confirm whether the separately conditional Upcoming Classes & Events feature should also be retired.
-4. **Comment 35 scope:** The PRD removes only `03`, retaining the decorative anchor and line. Confirm if the complete side marker should disappear instead.
-5. **Comment 36 destination:** Confirm whether **Join for Free** should use a dedicated signup URL or a new preselected Downsizers Club option on the Contact form. The generic Contact page is only the provisional destination.
-6. **Comment 36 capitalization:** The recommended source label is title case while the established button styling remains visually uppercase.
+- Comments 31–35 are implementable from their screenshots and the established cross-page patterns without a Section 5-specific blocker.
+- Comment 31 applies to the vertical caption plaque, not the photograph container.
+- Comment 32 applies to the question-pathway introduction, not the global header; its one-line requirement is desktop-only.
+- Comment 33 removes the visible **Learn With Mary** section. The separate conditional events capability remains because it is not visible in the screenshot and has no current entries.
+- Comment 35 removes only the visible `03`, while retaining the anchor and line as a non-numbered ornament.
+- Comment 36 remains deferred in the separate [ambiguity register](./CLIENT_FEEDBACK_AMBIGUITY_REGISTER.md); neither its label nor destination is changed in this implementation.
 
 ## Definition of done
 
-This section is complete when comments 31–36 are implemented as approved, the hero and closing strip use shared cross-page systems, the pathway introduction is one line at the reference desktop width and materially shorter, the Learn With Mary section is gone without a layout gap, the club marker/action reflect the requested changes, and all existing resource filtering, FAQ, responsive, and accessibility behavior passes without regression.
+This section is complete when confirmed comments 31–35 are implemented, Comment 36 remains explicitly deferred, the hero and closing strip use shared cross-page systems, the pathway introduction is one line at the reference desktop width and materially shorter, the Learn With Mary section is gone without a layout gap, the club marker no longer exposes `03`, and all existing resource filtering, FAQ, responsive, and accessibility behavior passes without regression.
+
+## Implementation and verification record
+
+- Implemented the confirmed scope for Comments 31–35 on August 31, 2026.
+- Replaced the numbered vertical hero caption with the shared compact horizontal caption and removed `01 /`.
+- Removed the forced pathway-heading line break, widened its desktop measure, and reduced the introduction spacing.
+- Removed the complete visible **Learn With Mary** section while retaining the empty-data Upcoming Classes & Events capability.
+- Removed the club marker’s `03` while retaining the anchor and rule.
+- Replaced the tall framed final panel with the shared compact closing strip and removed its internal action.
+- Preserved **Ask About the Club** with its existing `/contact` destination because Comment 36 remains deferred.
+- Verified the required eight responsive viewports plus the exact 800/801px caption breakpoint with no horizontal page overflow.
+- Verified pathway selection/reset, direct `?path=stay` entry, library focus, FAQ disclosure controls, hero anchor navigation, mobile-menu open/Escape-close focus restoration, deferred background loading, destination links, image completion, and the absence of page-level console errors or warnings.
