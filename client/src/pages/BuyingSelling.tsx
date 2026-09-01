@@ -38,7 +38,7 @@ const sellingTopics = [
 ];
 
 function ButtonLink({ children, href = calendlyUrl, variant = "gold" }: { children: React.ReactNode; href?: string; variant?: "gold" | "outline" | "light" }) {
-  return <a className={`bs-button bs-button--${variant}`} href={href}>{children}<ArrowUpRight size={16} strokeWidth={1.8} /></a>;
+  return <a className={`bs-button bs-button--${variant}`} href={href}>{children}<ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>;
 }
 
 export default function BuyingSelling() {
@@ -55,15 +55,15 @@ export default function BuyingSelling() {
         <section id="choose" className="bs-choice">
           <div className="bs-section-intro"><p className="bs-eyebrow">Choose your path</p><h2>When the decision is clear, <i>the next step can be too.</i></h2><p>Whether you are preparing to sell, beginning to look, or considering both at once, Mary brings the transaction experience and the perspective to help you move with intention.</p></div>
           <div className="bs-choice__grid">
-            <article className="bs-choice-card"><div className="bs-choice-card__top"><span>01</span><Home size={28} strokeWidth={1.1} /></div><h3>I’m <i>Buying</i></h3><p>Know your <strong>why</strong> before you start looking. When you are clear about the life you want to live, finding the right home becomes much easier.</p><a href="#buying">Explore Buying <ArrowDownRight size={17} /></a></article>
-            <article className="bs-choice-card bs-choice-card--dark"><div className="bs-choice-card__top"><span>02</span><Scale size={28} strokeWidth={1.1} /></div><h3>I’m <i>Selling</i></h3><p>Your home does not have to be perfect to sell. It needs the right strategy, honest positioning, and a plan that makes sense for the property and for you.</p><a href="#selling">Explore Selling <ArrowDownRight size={17} /></a></article>
+            <article className="bs-choice-card"><div className="bs-choice-card__top"><span>01</span><Home size={28} strokeWidth={1.1} aria-hidden="true" /></div><h3>I’m <i>Buying</i></h3><p>Know your <strong>why</strong> before you start looking. When you are clear about the life you want to live, finding the right home becomes much easier.</p><a href="#buying">Explore Buying <ArrowDownRight size={17} aria-hidden="true" /></a></article>
+            <article className="bs-choice-card bs-choice-card--dark"><div className="bs-choice-card__top"><span>02</span><Scale size={28} strokeWidth={1.1} aria-hidden="true" /></div><h3>I’m <i>Selling</i></h3><p>Your home does not have to be perfect to sell. It needs the right strategy, honest positioning, and a plan that makes sense for the property and for you.</p><a href="#selling">Explore Selling <ArrowDownRight size={17} aria-hidden="true" /></a></article>
           </div>
         </section>
 
         <section id="buying" className="bs-buying">
           <div className="bs-section-number">01 <span>/</span> BUYING</div>
           <div className="bs-split-heading"><div><p className="bs-eyebrow">The home is part of the plan</p><h2>Find the Home<br />That Fits the Life<br /><i>You Want Now.</i></h2></div><div className="bs-split-heading__copy"><p>Buying is not simply about bedrooms, bathrooms, and square footage. Mary helps clients think about both the real estate decision and the life surrounding it.</p><p>That may mean one-level living, less maintenance, proximity to family or healthcare, a more social community, or a home that can adapt if needs change.</p><ButtonLink href={calendlyUrl} variant="outline">Talk Through the Possibilities</ButtonLink></div></div>
-          <div className="bs-question-band"><p>Questions worth asking</p><div>{["Do I want one-level living?", "How much maintenance do I want?", "Would I like to be closer to family?", "What happens if I drive less someday?", "Is healthcare nearby?", "Could this home adapt if my needs change?"] .map((q) => <span key={q}><Check size={15} />{q}</span>)}</div></div>
+          <div className="bs-question-band"><p>Questions worth asking</p><ul role="list">{["Do I want one-level living?", "How much maintenance do I want?", "Would I like to be closer to family?", "What happens if I drive less someday?", "Is healthcare nearby?", "Could this home adapt if my needs change?"] .map((q) => <li key={q}><span><Check size={15} aria-hidden="true" />{q}</span></li>)}</ul></div>
           <div className="bs-topic-grid">{buyingTopics.map(([title, body], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{body}</p></article>)}</div>
         </section>
 

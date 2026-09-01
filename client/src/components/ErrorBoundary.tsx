@@ -46,7 +46,7 @@ class ErrorBoundary extends Component<Props, State> {
                 "hover:opacity-90 cursor-pointer"
               )}
             >
-              <RotateCcw size={16} />
+              <RotateCcw size={16} aria-hidden="true" />
               Reload Page
             </button>
             <a className="error-boundary__home" href="/">Return Home</a>

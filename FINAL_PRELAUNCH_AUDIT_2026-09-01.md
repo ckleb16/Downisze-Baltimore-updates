@@ -1,9 +1,19 @@
 # Downsize Baltimore — Final Pre-Launch Audit
 
 **Audit date:** September 1, 2026  
-**Candidate:** Version 11  
+**Candidate:** Version 12
 **Current public version:** Version 10  
-**Audit outcome:** The requested Aging in Place label is removed and the candidate is functionally stable, but the current public hostname should not be treated as launch-ready until the search-indexing blocker and the accepted UI/content findings below are resolved or explicitly accepted.
+**Audit outcome:** All 18 confirmed launch, UI, accessibility, and copy findings are resolved in the Version 12 candidate. The candidate passed the complete route, viewport, interaction, and build verification described below. Version 10 remains public until Version 12 is explicitly published.
+
+## Remediation status
+
+- **LB-01 resolved:** Sites production environment revision 1 now sets `SITE_URL` to the current public `chatgpt.site` origin and enables indexing. These values take effect when the Version 12 candidate is deployed.
+- **UI-01 through UI-07 resolved:** Mobile hero reading order now matches the document order; navigation uses 13 px single-line labels through the 901 px desktop boundary; short-desktop split images fill their rows; contact fields have a high-contrast two-tone focus ring; orphan numbers are removed; footer copy is 13 px; and the 404 view uses the shared header and footer.
+- **A11Y-01 through A11Y-04 resolved:** Visual collections now use list semantics, statistic regions and the Meet Mary video have accessible names, and decorative icons are consistently hidden from assistive technology.
+- **COPY-01 through COPY-06 resolved:** Grammar, process sequencing, venue naming, credentials, client-facing resource wording, repeated copy, and the approved testimonial corrections are implemented consistently.
+- **Additional final-pass hardening:** Preserved list announcements in Safari/VoiceOver, removed a default list margin, restored the intended Contact topic breakpoint, prevented the mobile Contact note icon from collapsing, and hid the decorative error-boundary reload icon.
+
+The findings below are retained as the historical audit baseline. The remediation status above supersedes their original recommendations.
 
 ## Requested change completed
 
@@ -11,7 +21,7 @@
 - Kept the image, image crop, section spacing, adjacent content, and responsive behavior unchanged.
 - Verified the removal at desktop and mobile sizes with no resulting layout shift.
 
-## Launch blocker
+## Original launch blocker
 
 ### LB-01 — The current public hostname is excluded from search engines
 
@@ -20,7 +30,7 @@
 **Cause:** `server/worker.ts` treats only the configured `SITE_URL` hostname as indexable and otherwise falls back to `https://downsizebaltimore.com`.  
 **Recommendation:** If the `chatgpt.site` address is the final public address, set `SITE_URL` to that origin and enable indexing before publishing. If the final launch address will be `downsizebaltimore.com`, keep the preview blocked, connect the custom domain, and recheck both the page metadata and `robots.txt` on that domain before announcing launch.
 
-## Medium-priority issues
+## Original medium-priority issues
 
 ### UI-01 — Mobile hero CTA order conflicts with the reading order
 
@@ -76,7 +86,7 @@
 **Source:** `Downsizing.tsx:41`; `MeetMary.tsx:54`.  
 **Recommendation:** Remove both orphaned numbers or introduce a deliberate, complete numbering system.
 
-## Low-priority issues
+## Original low-priority issues
 
 ### UI-06 — Footer copy is undersized
 
@@ -124,7 +134,7 @@ The approved quotes contain `BelAir/ Harford`, a sentence with mismatched parall
 ## Approved limitations that are not bugs
 
 - “Join for Free” continues to open the general Contact page without a dedicated club-signup workflow. This matches the previously approved label-only change.
-- Client-supplied testimonial wording remains verbatim pending approval.
+- The client-approved testimonial corrections are now applied; no additional editorial changes were made.
 - The removed Aging in Place line left only harmless unused CSS selector fragments; there is no visible or functional residue.
 
 ## Test coverage
@@ -136,13 +146,15 @@ All seven standard routes plus the explicit 404 and an unknown URL were tested a
 - 1512 × 799
 - 1212 × 799
 - 1024 × 768
+- 901 × 900
+- 900 × 900
 - 821 × 900
 - 820 × 900
 - 768 × 1024
 - 390 × 844
 - 320 × 568
 
-This produced 72 route/view combinations, supplemented by focused screenshots at relevant breakpoints.
+This produced 90 route/view combinations, supplemented by focused screenshots and boundary checks at 1180/1181 px and 800/801 px.
 
 ### Interactive flows
 

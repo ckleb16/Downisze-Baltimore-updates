@@ -39,7 +39,7 @@ type ApprovedTestimonial = {
 
 const approvedTestimonials: ApprovedTestimonial[] = [
   {
-    quote: "Mary is an outstanding agent and advisor who has helped us in all aspects of downsizing in the BelAir/ Harford County market. She is extremely knowledgeable, wonderfully warm and personal, incredibly accommodating, empathetic and enthusiastic. It’s very apparent she loves what she does from the moment you meet her and a real pleasure to work with.",
+    quote: "Mary is an outstanding agent and advisor who has helped us with every aspect of downsizing in the Bel Air/Harford County market. She is extremely knowledgeable, wonderfully warm and personal, incredibly accommodating, empathetic, and enthusiastic. From the moment you meet her, it’s very apparent that she loves what she does, and she is a real pleasure to work with.",
     name: "Gloria & Tom Tanton",
   },
   {
@@ -47,7 +47,7 @@ const approvedTestimonials: ApprovedTestimonial[] = [
     name: "Eddie Wiseman",
   },
   {
-    quote: "Mary was the most incredible, professional and helpful realtor I’ve ever worked with. She helped us sell a house that was in an estate- there were a lot of questions along the way and she handled all the issues seamlessly.\n\nCannot recommend her highly enough!",
+    quote: "Mary was the most incredible, professional, and helpful realtor I’ve ever worked with. She helped us sell a house that was part of an estate. There were a lot of questions along the way, and she handled all the issues seamlessly.\n\nI cannot recommend her highly enough!",
     name: "Carol & Gerry Lavender",
   },
 ];
@@ -89,7 +89,7 @@ const resources = [
 ];
 
 function ButtonLink({ children, href = calendlyUrl, variant = "gold" }: { children: React.ReactNode; href?: string; variant?: "gold" | "light" | "outline" }) {
-  return <a className={`button button--${variant}`} href={href}>{children}<ArrowUpRight size={16} strokeWidth={1.8} /></a>;
+  return <a className={`button button--${variant}`} href={href}>{children}<ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>;
 }
 
 export default function Home() {
@@ -120,10 +120,10 @@ export default function Home() {
           <div className="section-heading"><h2 className="sr-only">Three ways to begin</h2><p className="eyebrow" aria-hidden="true">Three ways to begin</p></div>
           <div className="way-grid">
             {ways.map(({ icon: Icon, number, title, body, link, href }) => <article className="way-card" key={title}>
-              <div className="way-card__top"><span>{number}</span><Icon size={29} strokeWidth={1.2} /></div>
+              <div className="way-card__top"><span>{number}</span><Icon size={29} strokeWidth={1.2} aria-hidden="true" /></div>
               <h3>{title}</h3>
               <p>{body}</p>
-              <a href={href}>{link}<MoveRight size={17} /></a>
+      <a href={href}>{link}<MoveRight size={17} aria-hidden="true" /></a>
             </article>)}
           </div>
         </section>
@@ -182,8 +182,8 @@ export default function Home() {
                 ))}
               </div>
               <div className="questions-carousel__arrows">
-                <button type="button" aria-label="Previous question" aria-controls="daily-question-slides" onClick={() => showQuestion(activeQuestion - 1)}><ChevronLeft size={21} /></button>
-                <button type="button" aria-label="Next question" aria-controls="daily-question-slides" onClick={() => showQuestion(activeQuestion + 1)}><ChevronRight size={21} /></button>
+                <button type="button" aria-label="Previous question" aria-controls="daily-question-slides" onClick={() => showQuestion(activeQuestion - 1)}><ChevronLeft size={21} aria-hidden="true" /></button>
+                <button type="button" aria-label="Next question" aria-controls="daily-question-slides" onClick={() => showQuestion(activeQuestion + 1)}><ChevronRight size={21} aria-hidden="true" /></button>
               </div>
             </div>
           </div>
@@ -201,8 +201,8 @@ export default function Home() {
             <p>Over time, that work became about much more than real estate.</p>
             <p>Downsize Baltimore grew from seeing how overwhelming housing decisions can become when family, aging, finances, belongings, and the future all collide at once.</p>
             <p>My role isn’t to convince you to move. It’s to help you understand your options, connect you with the right resources, and create a clear plan for whatever comes next.</p>
-            <div className="credentials"><p className="credentials__eyebrow" id="mary-credentials-heading">Credentials &amp; specialties</p><ul className="credentials__grid credentials__grid--balanced" aria-labelledby="mary-credentials-heading"><li>Certified Senior Advisor</li><li>Chair &amp; Founder, National Aging in Place Council for Greater Baltimore</li><li>Seniors Real Estate Specialist</li><li>Senior Home Coach</li><li>Certified Probate Real Estate Specialist</li></ul></div>
-            <a className="text-link" href="/meet-mary">Meet Mary <ArrowUpRight size={16} /></a>
+            <div className="credentials"><p className="credentials__eyebrow" id="mary-credentials-heading">Credentials &amp; specialties</p><ul className="credentials__grid credentials__grid--balanced" role="list" aria-labelledby="mary-credentials-heading"><li>Certified Senior Advisor</li><li>Founder and Chair, National Aging in Place Council, Greater Baltimore Chapter</li><li>Seniors Real Estate Specialist</li><li>Senior Home Coach</li><li>Certified Probate Real Estate Specialist</li></ul></div>
+            <a className="text-link" href="/meet-mary">Meet Mary <ArrowUpRight size={16} aria-hidden="true" /></a>
           </div>
         </section>
         {approvedTestimonials.length > 0 && (
@@ -223,7 +223,7 @@ export default function Home() {
         )}
         <DeferredBackground id="resources" className="resources" backgroundImage={`linear-gradient(rgba(16,42,67,.97), rgba(16,42,67,.97)), url(${contourTexture})`}>
           <div className="resources__head"><div><p className="eyebrow eyebrow--gold">Resources for the road ahead</p><h2>Chart<br /><i>the Course.</i></h2></div><div className="resources__intro">There isn’t one right answer when it comes to housing, aging, and what comes next.<br /><br />That’s why I’ve built a collection of practical resources to help you understand your options before you need them.</div></div>
-          <div className="resource-grid">            {resources.map(([title, body, Icon, href, action]) => <a className="resource-card" href={href as string} key={title as string}><Icon size={24} strokeWidth={1.2} /><h3>{title as string}</h3><p>{body as string}</p><span className="resource-card__action">{action as string}<ArrowUpRight size={16} /></span></a>)}
+          <div className="resource-grid">            {resources.map(([title, body, Icon, href, action]) => <a className="resource-card" href={href as string} key={title as string}><Icon size={24} strokeWidth={1.2} aria-hidden="true" /><h3>{title as string}</h3><p>{body as string}</p><span className="resource-card__action">{action as string}<ArrowUpRight size={16} aria-hidden="true" /></span></a>)}
 </div>
           <div className="resources__cta"><ButtonLink variant="light" href="/resource-center">Visit the Resource Center</ButtonLink></div>
         </DeferredBackground>

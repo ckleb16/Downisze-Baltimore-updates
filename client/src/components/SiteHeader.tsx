@@ -34,9 +34,9 @@ export default function SiteHeader({ currentPath }: SiteHeaderProps) {
   }, [open]);
 
   useEffect(() => {
-    const desktop = window.matchMedia("(min-width: 821px)");
+    const desktop = window.matchMedia("(min-width: 901px)");
     const closeOnDesktop = () => {
-      if (desktop.matches || window.innerWidth >= 821) setOpen(false);
+      if (desktop.matches || window.innerWidth >= 901) setOpen(false);
     };
     desktop.addEventListener("change", closeOnDesktop);
     window.addEventListener("resize", closeOnDesktop);
