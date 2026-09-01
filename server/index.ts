@@ -6,9 +6,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 import {
   NOT_FOUND_METADATA,
-  SITE_ROUTES,
+  PAGE_ROUTES,
+  articleSlugFromPath,
   canonicalizeRecognizedPath,
-  findSiteRoute,
+  findPageRoute,
 } from "../client/src/lib/siteRoutes";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -54,11 +55,18 @@ function isIndexableRequest(req: Request) {
 }
 
 function metadataMarkup(req: Request, routePath: string | null) {
-  const route = routePath ? findSiteRoute(routePath) : undefined;
-  const metadata = route ?? NOT_FOUND_METADATA;
-  const indexable = Boolean(route) && isIndexableRequest(req);
+  const route = routePath ? findPageRoute(routePath) : undefined;
+  const isArticle = Boolean(routePath && articleSlugFromPath(routePath));
+  const metadata = route ??
+    (isArticle
+      ? {
+          title: "Insights & Advice | Downsize Baltimore",
+          description: "Practical guidance from Mary Lynch and Downsize Baltimore.",
+        }
+      : NOT_FOUND_METADATA);
+  const indexable = Boolean((route && route.indexable !== false) || isArticle) && isIndexableRequest(req);
   const origin = indexable ? configuredSiteOrigin() : requestOrigin(req);
-  const canonicalUrl = route ? new URL(route.path, `${origin}/`).href : null;
+  const canonicalUrl = routePath ? new URL(routePath, `${origin}/`).href : null;
   const socialImageUrl = new URL(SOCIAL_IMAGE_PATH, `${origin}/`).href;
   const robots = indexable ? "index,follow" : "noindex,nofollow";
 
@@ -67,7 +75,7 @@ function metadataMarkup(req: Request, routePath: string | null) {
     canonicalUrl
       ? `<link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`
       : "",
-    '<meta property="og:type" content="website" />',
+    `<meta property="og:type" content="${isArticle ? "article" : "website"}" />`,
     '<meta property="og:site_name" content="Downsize Baltimore" />',
     `<meta property="og:title" content="${escapeHtml(metadata.title)}" />`,
     `<meta property="og:description" content="${escapeHtml(metadata.description)}" />`,
@@ -89,8 +97,14 @@ function metadataMarkup(req: Request, routePath: string | null) {
 }
 
 function renderDocument(template: string, req: Request, routePath: string | null) {
-  const route = routePath ? findSiteRoute(routePath) : undefined;
-  const metadata = route ?? NOT_FOUND_METADATA;
+  const route = routePath ? findPageRoute(routePath) : undefined;
+  const metadata = route ??
+    (routePath && articleSlugFromPath(routePath)
+      ? {
+          title: "Insights & Advice | Downsize Baltimore",
+          description: "Practical guidance from Mary Lynch and Downsize Baltimore.",
+        }
+      : NOT_FOUND_METADATA);
   return template
     .replace(
       /<title>[\s\S]*?<\/title>/i,
@@ -102,7 +116,7 @@ function renderDocument(template: string, req: Request, routePath: string | null
     )
     .replace(
       /<!--__ROUTE_META_START__-->[\s\S]*?<!--__ROUTE_META_END__-->/,
-      metadataMarkup(req, route?.path ?? null),
+      metadataMarkup(req, routePath),
     );
 }
 
@@ -152,7 +166,7 @@ async function startServer() {
     }
 
     return res.send(
-      `User-agent: *\nAllow: /\nSitemap: ${configuredSiteOrigin()}/sitemap.xml\n`,
+      `User-agent: *\nAllow: /\nDisallow: /publisher\nDisallow: /api/\nSitemap: ${configuredSiteOrigin()}/sitemap.xml\n`,
     );
   });
 
@@ -160,7 +174,9 @@ async function startServer() {
     res.set("Cache-Control", "public, max-age=3600");
     res.type("application/xml");
     const origin = configuredSiteOrigin();
-    const urls = SITE_ROUTES.map(
+    const urls = PAGE_ROUTES.filter(
+      (route) => !("indexable" in route) || route.indexable !== false,
+    ).map(
       (route) =>
         `  <url><loc>${escapeHtml(new URL(route.path, `${origin}/`).href)}</loc></url>`,
     ).join("\n");
@@ -188,10 +204,12 @@ async function startServer() {
   );
 
   app.get("*", (req, res) => {
-    const route = findSiteRoute(req.path);
+    const route = findPageRoute(req.path);
+    const articlePath = articleSlugFromPath(req.path) ? req.path : null;
+    const recognizedPath = route?.path ?? articlePath;
     res.set("Cache-Control", "no-cache, must-revalidate");
-    if (!route) res.status(404);
-    res.type("html").send(renderDocument(indexTemplate, req, route?.path ?? null));
+    if (!recognizedPath) res.status(404);
+    res.type("html").send(renderDocument(indexTemplate, req, recognizedPath));
   });
 
   const port = Number(process.env.PORT || 3000);

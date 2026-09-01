@@ -3,6 +3,7 @@ export type SiteRoute = {
   label: string;
   title: string;
   description: string;
+  indexable?: boolean;
 };
 
 export const SITE_ROUTES = [
@@ -57,6 +58,28 @@ export const SITE_ROUTES = [
   },
 ] as const satisfies readonly SiteRoute[];
 
+export const INSIGHTS_ROUTE = {
+  path: "/insights-advice",
+  label: "Insights & Advice",
+  title: "Insights & Advice | Downsize Baltimore",
+  description:
+    "Practical Baltimore-area guidance from Mary Lynch about downsizing, aging in place, estate property, and planning what comes next.",
+} as const satisfies SiteRoute;
+
+export const PUBLISHER_ROUTE = {
+  path: "/publisher",
+  label: "Publishing Dashboard",
+  title: "Publishing Dashboard | Downsize Baltimore",
+  description: "Private publishing dashboard for Downsize Baltimore.",
+  indexable: false,
+} as const satisfies SiteRoute;
+
+export const PAGE_ROUTES = [
+  ...SITE_ROUTES,
+  INSIGHTS_ROUTE,
+  PUBLISHER_ROUTE,
+] as const satisfies readonly SiteRoute[];
+
 export const CANONICAL_ROUTE_PATHS = SITE_ROUTES.map((route) => route.path);
 
 export const NOT_FOUND_METADATA = {
@@ -76,14 +99,25 @@ function comparablePath(pathname: string) {
 
 export function canonicalizeRecognizedPath(pathname: string): string | null {
   const candidate = comparablePath(pathname).toLocaleLowerCase("en-US");
-  return (
-    SITE_ROUTES.find(
+  const staticRoute = PAGE_ROUTES.find(
       (route) => route.path.toLocaleLowerCase("en-US") === candidate,
-    )?.path ?? null
-  );
+    )?.path;
+  if (staticRoute) return staticRoute;
+  return articleSlugFromPath(candidate) ? candidate : null;
 }
 
 export function findSiteRoute(pathname: string): SiteRoute | undefined {
   const canonical = canonicalizeRecognizedPath(pathname);
   return SITE_ROUTES.find((route) => route.path === canonical);
+}
+
+export function findPageRoute(pathname: string): SiteRoute | undefined {
+  const canonical = canonicalizeRecognizedPath(pathname);
+  return PAGE_ROUTES.find((route) => route.path === canonical);
+}
+
+export function articleSlugFromPath(pathname: string): string | null {
+  const candidate = comparablePath(pathname).toLocaleLowerCase("en-US");
+  const match = candidate.match(/^\/insights-advice\/([a-z0-9]+(?:-[a-z0-9]+)*)$/);
+  return match?.[1] ?? null;
 }

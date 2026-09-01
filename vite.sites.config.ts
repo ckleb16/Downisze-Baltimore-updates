@@ -4,8 +4,11 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { defineConfig, type Plugin } from "vite";
+import hostingConfig from "./.openai/hosting.json";
 
 const PROJECT_ROOT = import.meta.dirname;
+const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
+  "00000000-0000-4000-8000-000000000000";
 
 function sitesHtmlEntry(): Plugin {
   return {
@@ -50,6 +53,22 @@ export default defineConfig({
         main: path.resolve(PROJECT_ROOT, "server", "worker.ts"),
         compatibility_date: "2026-05-22",
         compatibility_flags: ["nodejs_compat"],
+        d1_databases: hostingConfig.d1
+          ? [
+              {
+                binding: hostingConfig.d1,
+                database_name: "downsize-baltimore-content",
+                database_id: SITE_CREATOR_PLACEHOLDER_DATABASE_ID,
+              },
+            ]
+          : [],
+        vars:
+          process.env.NODE_ENV === "production"
+            ? {}
+            : {
+                DEV_BLOG_ADMIN: "true",
+                BLOG_ADMIN_EMAILS: "local.publisher@downsizebaltimore.test",
+              },
         assets: {
           binding: "ASSETS",
           not_found_handling: "single-page-application",

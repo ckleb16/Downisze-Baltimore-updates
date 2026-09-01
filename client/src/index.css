@@ -229,6 +229,169 @@ h1 { max-width:780px; margin-bottom:24px; font-size:clamp(58px,7.6vw,114px); lin
 /* Keep the live desktop hero fully visible: preserve headline scale while tightening only vertical rhythm around supporting copy. */
 @media (min-width:801px){.hero__content{margin-top:clamp(176px,18vh,205px)}.hero h1{margin-bottom:18px}.hero__copy{line-height:1.45}.hero__copy--second{margin-bottom:10px}}
 
+/* Insights & Advice: editorial public archive, article pages, and protected publisher. */
+.resource-insights__all,
+.resource-insights__state a,
+.resource-insights__state button,
+.resource-insights__list a,
+.insights-hero a,
+.insights-state a,
+.insights-state button,
+.insights-archive__list a,
+.insight-article footer a{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  color:#e5c987;
+  font:700 .7rem/1.3 "DM Sans",sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.resource-insights__all{margin-top:1.2rem}
+.resource-insights__state{margin:0;padding:2rem;border:1px solid rgba(245,241,233,.25);color:rgba(245,241,233,.82)}
+.resource-insights__state p{margin:0 0 1rem}
+.resource-insights__state button,.insights-state button{border:0;background:transparent;padding:.35rem 0;cursor:pointer}
+.resource-insights__list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;padding:0;border-top:1px solid rgba(245,241,233,.3);border-left:1px solid rgba(245,241,233,.16);list-style:none}
+.resource-insights__list li{min-width:0;border-right:1px solid rgba(245,241,233,.16);border-bottom:1px solid rgba(245,241,233,.16)}
+.resource-insights__list article{display:flex;min-height:17rem;flex-direction:column;padding:2rem 1.6rem;transition:background .2s ease}
+.resource-insights__list article:hover{background:rgba(245,241,233,.07)}
+.resource-insights__list time,.insights-archive__list time,.insight-article__meta{color:#e5c987;font:700 .66rem/1.4 "DM Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.resource-insights__list h3{margin:2.2rem 0 2rem;color:#f7f2e8;font:400 clamp(1.85rem,2.5vw,2.55rem)/.98 "Cormorant Garamond",serif}
+.resource-insights__list a{margin-top:auto}
+
+.insights-page{min-height:100vh;background:#f7f3ea;color:#102a43}
+.insights-hero{padding:7rem 10vw 7.5rem;background:#102a43;color:#f7f2e8;background-image:linear-gradient(115deg,rgba(180,138,74,.12),transparent 55%)}
+.insights-hero>div{width:min(100%,70rem);margin:auto}
+.insights-hero h1{margin:0 0 2rem;max-width:58rem;font:400 clamp(3.8rem,7.5vw,7.7rem)/.84 "Cormorant Garamond",serif;letter-spacing:-.045em}
+.insights-hero h1 i{color:#e5c987;font-weight:400}
+.insights-hero>div>p:not(.resource-eyebrow){max-width:42rem;margin-bottom:2rem;color:#d6d9d7;font-size:1.05rem;line-height:1.75}
+.insights-archive{width:min(100%,76rem);margin:auto;padding:6.5rem 2rem 8rem}
+.insights-archive__heading{display:grid;grid-template-columns:12rem 1fr;gap:3rem;align-items:end;margin-bottom:3.5rem;padding-bottom:1.6rem;border-bottom:1px solid rgba(16,42,67,.2)}
+.insights-archive__heading h2{margin:0;color:#102a43;font:400 clamp(3.2rem,6vw,5.8rem)/.88 "Cormorant Garamond",serif}
+.insights-archive__list{margin:0;padding:0;list-style:none;counter-reset:insight-item}
+.insights-archive__list li{counter-increment:insight-item;border-bottom:1px solid rgba(16,42,67,.18)}
+.insights-archive__list article{position:relative;display:grid;grid-template-columns:10rem 1fr auto;gap:2.2rem;align-items:start;padding:3rem 0 3.2rem}
+.insights-archive__list article:before{content:counter(insight-item,decimal-leading-zero);position:absolute;top:3rem;left:0;color:#9b7339;font:500 .65rem/1 "DM Sans",sans-serif;letter-spacing:.12em}
+.insights-archive__list time{grid-column:1;padding-left:2.2rem;color:#7a5420}
+.insights-archive__list h2{grid-column:2;margin:0 0 .85rem;color:#102a43;font:400 clamp(2rem,3.4vw,3.1rem)/.98 "Cormorant Garamond",serif}
+.insights-archive__list p{grid-column:2;margin:0;max-width:42rem;color:#4f5b63;line-height:1.75}
+.insights-archive__list a{grid-column:3;grid-row:1 / span 2;align-self:center;color:#7a5420;white-space:nowrap}
+.insights-state{width:min(100%,42rem);margin:4rem auto;padding:3rem;border:1px solid rgba(180,138,74,.65);background:#fffdf8;text-align:center}
+.insights-state h1,.insights-state h2{margin:0 0 1rem;color:#102a43;font:400 clamp(2.5rem,5vw,4rem)/.95 "Cormorant Garamond",serif}
+.insights-state p{color:#4f5b63}
+.insights-state a,.insights-state button{justify-content:center;color:#7a5420}
+.insights-load-more{display:flex;justify-content:center;padding-top:3rem}
+.insights-load-more button{min-height:46px;padding:.8rem 1.1rem;border:1px solid #7a5420;background:transparent;color:#7a5420;font:700 .72rem/1.2 "DM Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.insights-load-more button:disabled{cursor:wait;opacity:.65}
+.insights-load-more__error{margin:2rem 0 0;color:#8c2f2f;text-align:center;font-weight:600}
+
+.insight-article-shell{min-height:65vh;padding:6rem 1.5rem 8rem;background:#f7f3ea}
+.insight-article{width:min(100%,47rem);margin:auto}
+.insight-article>header{margin-bottom:3.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(180,138,74,.6)}
+.insight-article h1{margin:0 0 1.5rem;color:#102a43;font:400 clamp(3.4rem,7vw,6rem)/.88 "Cormorant Garamond",serif;letter-spacing:-.04em}
+.insight-article__excerpt{margin:0 0 1.5rem;color:#4f5b63;font:400 clamp(1.3rem,2.3vw,1.65rem)/1.45 "Cormorant Garamond",serif}
+.insight-article__meta{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;color:#7a5420}
+.insight-article__body{color:#293a48;font-size:1.05rem;line-height:1.8;overflow-wrap:anywhere}
+.insight-article__body h2,.insight-article__body h3{margin:2.7rem 0 1rem;color:#102a43;line-height:1.1}
+.insight-article__body h2{font-size:2.25rem}.insight-article__body h3{font-size:1.75rem}
+.insight-article__body p,.insight-article__body ul,.insight-article__body ol,.insight-article__body blockquote{margin:0 0 1.45rem}
+.insight-article__body ul,.insight-article__body ol{padding-left:1.5rem}
+.insight-article__body li+li{margin-top:.45rem}
+.insight-article__body blockquote{padding:1.2rem 1.4rem;border-left:3px solid #b48a4a;background:#efe7d9;color:#3f4f5a;font:400 1.25rem/1.55 "Cormorant Garamond",serif}
+.insight-article__body a{color:#684812;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.insight-article__body table{display:block;width:100%;overflow-x:auto;border-collapse:collapse}
+.insight-article__body th,.insight-article__body td{padding:.7rem;border:1px solid rgba(16,42,67,.2);text-align:left}
+.insight-article>footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid rgba(16,42,67,.18)}
+.insight-article>footer a{color:#7a5420}
+
+.publisher-page{min-height:100vh;background:#efe9dd;color:#102a43}
+.publisher-header{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:1.15rem 3vw;background:#102a43;color:#f7f2e8;border-bottom:3px solid #b48a4a}
+.publisher-header>div>span{font:500 1.45rem/1 "Cormorant Garamond",serif}
+.publisher-eyebrow{margin:0 0 .45rem;color:#9b7339;font:700 .64rem/1.2 "DM Sans",sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.publisher-header .publisher-eyebrow{color:#e5c987}
+.publisher-header nav{display:flex;align-items:center;gap:1rem;font-size:.76rem}
+.publisher-header nav>a{display:inline-flex;flex:none;align-items:center;gap:.4rem;padding:.6rem .75rem;border:1px solid rgba(247,242,232,.35);white-space:nowrap}
+.publisher-main{display:grid;grid-template-columns:minmax(0,1fr) minmax(17rem,23rem);gap:1.5rem;width:min(100%,94rem);margin:auto;padding:2rem}
+.publisher-editor,.publisher-library{min-width:0;border:1px solid rgba(16,42,67,.16);background:#fffdf8;box-shadow:0 10px 25px rgba(16,42,67,.05)}
+.publisher-editor{padding:2rem}
+.publisher-editor__heading,.publisher-library__heading{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(16,42,67,.14)}
+.publisher-editor__heading h1,.publisher-library__heading h2{margin:0;color:#102a43;font:400 clamp(2.4rem,4vw,3.7rem)/.9 "Cormorant Garamond",serif}
+.publisher-editor form{display:grid;gap:1.35rem;margin-top:1.8rem}
+.publisher-field{display:grid;gap:.55rem}
+.publisher-field>label{color:#102a43;font-weight:700}
+.publisher-field input,.publisher-field textarea{border-color:rgba(16,42,67,.28);background:#fff}
+.publisher-body-input{min-height:25rem;resize:vertical;font:400 .96rem/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}
+.publisher-field__help,.publisher-field__error{margin:0;font-size:.74rem;line-height:1.45}
+.publisher-field__help{color:#68727a}.publisher-field__error{color:#9c2f2f;font-weight:600}
+.publisher-slug-field{display:flex;align-items:center;border:1px solid rgba(16,42,67,.28);border-radius:.375rem;background:#f5f1e9;overflow:hidden}
+.publisher-slug-field>span{padding:0 .15rem 0 .75rem;color:#68727a;font-size:.78rem;white-space:nowrap}
+.publisher-slug-field input{border:0;box-shadow:none!important;padding-left:.15rem}
+.publisher-field--date{max-width:18rem}
+.publisher-actions{display:flex;flex-wrap:wrap;gap:.75rem;padding-top:.5rem}
+.publisher-notice{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:1.4rem 0 0;padding:.9rem 1rem;border-left:4px solid #47805c;background:#eef6ef;color:#234c31;font-size:.82rem}
+.publisher-notice.is-error{border-color:#a33a3a;background:#faeeee;color:#722323}
+.publisher-notice a{display:inline-flex;align-items:center;gap:.35rem;text-decoration:underline}
+.publisher-preview{margin-top:3rem;padding:2.5rem;border:1px solid rgba(180,138,74,.45);background:#f7f3ea}
+.publisher-preview>h2{margin:0 0 1rem;color:#102a43;font:400 clamp(2.4rem,4vw,4rem)/.94 "Cormorant Garamond",serif}
+.publisher-preview__excerpt{color:#56636c;font:400 1.25rem/1.45 "Cormorant Garamond",serif}
+.publisher-preview__empty{margin:2rem 0 0;color:#68727a;font-style:italic}
+.publisher-library{align-self:start;position:sticky;top:1rem;max-height:calc(100vh - 2rem);overflow:auto;padding:1.4rem}
+.publisher-library__heading h2{font-size:2.4rem}
+.publisher-library__heading>span{display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:#102a43;color:#fff;font-weight:700}
+.publisher-library ul{display:grid;gap:.55rem;margin:1.2rem 0 0;padding:0;list-style:none}
+.publisher-library li button{display:grid;width:100%;gap:.45rem;padding:1rem;border:1px solid rgba(16,42,67,.16);background:#fff;color:#102a43;text-align:left;cursor:pointer}
+.publisher-library li.is-active button,.publisher-library li button:hover,.publisher-library li button:focus-visible{border-color:#b48a4a;background:#f6f0e5}
+.publisher-library li strong{font:500 1.2rem/1.15 "Cormorant Garamond",serif}
+.publisher-library li small{color:#68727a;font-size:.7rem}
+.publisher-status{width:max-content;padding:.22rem .4rem;color:#5e6871;background:#e9e6df;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.publisher-status--published{color:#245234;background:#e1f0e5}
+.publisher-library__empty{padding:2rem 0;color:#68727a;text-align:center}
+.publisher-library__empty button{border:0;background:transparent;color:#7a5420;text-decoration:underline;cursor:pointer}
+.publisher-gate{display:grid;place-items:center;align-content:center;min-height:100vh;padding:2rem;background:#102a43;color:#f7f2e8;text-align:center}
+.publisher-gate>*{max-width:40rem}.publisher-gate h1{margin:.5rem 0 1rem;font:400 clamp(3rem,7vw,5.7rem)/.88 "Cormorant Garamond",serif}
+.publisher-gate>p:not(.publisher-eyebrow){color:#d6d9d7}
+.publisher-primary-link,.publisher-back-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem}
+.publisher-primary-link{padding:.9rem 1.1rem;background:#b48a4a;color:#fff;font-weight:700}
+.publisher-back-link{color:#e5c987;font-size:.75rem}
+
+.resource-insights__all:focus-visible,.resource-insights__state a:focus-visible,.resource-insights__state button:focus-visible,.resource-insights__list a:focus-visible,.insights-page a:focus-visible,.insights-page button:focus-visible,.publisher-page a:focus-visible,.publisher-page button:focus-visible{outline:3px solid #e5c987;outline-offset:4px}
+
+@media (max-width:900px){
+  .resource-insights__list{grid-template-columns:1fr}
+  .resource-insights__list article{min-height:0}
+  .insights-archive__heading{grid-template-columns:1fr;gap:.5rem}
+  .insights-archive__list article{grid-template-columns:8rem 1fr;gap:1.4rem}
+  .insights-archive__list a{grid-column:2;grid-row:auto;margin-top:.7rem}
+  .publisher-main{grid-template-columns:1fr}
+  .publisher-library{position:static;max-height:none;grid-row:1}
+}
+@media (max-width:700px){
+  .insights-hero{padding:4.5rem 1.5rem 5rem}
+  .insights-hero h1{font-size:4rem}
+  .insights-archive{padding:4.5rem 1.5rem 5.5rem}
+  .insights-archive__list article{display:block;padding:2.5rem 0}
+  .insights-archive__list article:before{top:2.5rem}
+  .insights-archive__list time{display:block;padding-left:2.2rem;margin-bottom:1.2rem}
+  .insights-archive__list h2,.insights-archive__list p,.insights-archive__list a{display:flex;margin-left:0}
+  .insight-article-shell{padding:4.5rem 1.4rem 5.5rem}
+  .insight-article h1{font-size:3.5rem}
+  .publisher-header{align-items:flex-start;padding:1rem 1.2rem}
+  .publisher-header nav>span{display:none}
+  .publisher-main{padding:1rem}
+  .publisher-editor{padding:1.2rem}
+  .publisher-editor__heading{display:grid}
+  .publisher-preview{padding:1.4rem}
+  .publisher-slug-field{align-items:stretch;flex-direction:column;padding-top:.55rem}
+  .publisher-slug-field>span{padding-left:.75rem}
+  .publisher-slug-field input{padding-left:.75rem}
+  .publisher-actions{display:grid;grid-template-columns:1fr}
+  .publisher-actions button{min-height:44px;width:100%}
+}
+@media (forced-colors:active){
+  .resource-insights__list article,.insights-archive__list article,.publisher-editor,.publisher-library,.publisher-library li button{border:1px solid CanvasText}
+  .publisher-status{border:1px solid CanvasText}
+}
+
 /* Comprehensive visual QA remediation: accessible ink colors, readable supporting type,
    consistent navigation, restrained mobile scale, and corrected responsive media. */
 :root{

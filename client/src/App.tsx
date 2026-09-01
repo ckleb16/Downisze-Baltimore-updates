@@ -3,7 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import {
   NOT_FOUND_METADATA,
   canonicalizeRecognizedPath,
-  findSiteRoute,
+  findPageRoute,
 } from "@/lib/siteRoutes";
 import { lazy, Suspense, useEffect } from "react";
 import { Route, Switch, useLocation } from "wouter";
@@ -17,6 +17,9 @@ const ResourceCenter = lazy(() => import("./pages/ResourceCenter"));
 const MeetMary = lazy(() => import("./pages/MeetMary"));
 const Downsizing = lazy(() => import("./pages/Downsizing"));
 const AgingInPlace = lazy(() => import("./pages/AgingInPlace"));
+const InsightsArchive = lazy(() => import("./pages/InsightsArchive"));
+const InsightArticle = lazy(() => import("./pages/InsightArticle"));
+const InsightsPublisher = lazy(() => import("./pages/InsightsPublisher"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function RouteMetadata() {
@@ -25,7 +28,13 @@ function RouteMetadata() {
   useEffect(() => {
     const pathname = location.split(/[?#]/)[0] || "/";
     const canonicalPath = canonicalizeRecognizedPath(pathname);
-    const metadata = findSiteRoute(pathname) ?? NOT_FOUND_METADATA;
+    const metadata = findPageRoute(pathname) ??
+      (pathname.startsWith("/insights-advice/")
+        ? {
+            title: "Insights & Advice | Downsize Baltimore",
+            description: "Practical guidance from Mary Lynch and Downsize Baltimore.",
+          }
+        : NOT_FOUND_METADATA);
 
     if (canonicalPath && canonicalPath !== pathname && typeof window !== "undefined") {
       const suffix = `${window.location.search}${window.location.hash}`;
@@ -46,6 +55,14 @@ function RouteMetadata() {
   return null;
 }
 
+function GlobalSkipLink() {
+  return (
+    <a className="skip-link" href="#main-content">
+      Skip to main content
+    </a>
+  );
+}
+
 
 function Router() {
   return (
@@ -64,6 +81,9 @@ function Router() {
         <Route path="/meet-mary" component={MeetMary} />
         <Route path="/downsizing-services" component={Downsizing} />
         <Route path="/aging-in-place" component={AgingInPlace} />
+        <Route path="/insights-advice" component={InsightsArchive} />
+        <Route path="/insights-advice/:slug" component={InsightArticle} />
+        <Route path="/publisher" component={InsightsPublisher} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>
@@ -85,7 +105,7 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
-          <a className="skip-link" href="#main-content">Skip to main content</a>
+          <GlobalSkipLink />
           <RouteMetadata />
           <Router />
         </TooltipProvider>
