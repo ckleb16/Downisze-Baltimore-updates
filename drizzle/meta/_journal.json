@@ -8,6 +8,13 @@
       "when": 1788290159439,
       "tag": "0000_premium_post",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1788342764862,
+      "tag": "0001_seed_sample_insight",
+      "breakpoints": true
     }
   ]
 }
