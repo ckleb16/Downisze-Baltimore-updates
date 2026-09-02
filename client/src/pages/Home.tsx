@@ -31,26 +31,46 @@ const dailyQuestions = [
   "Where do we even begin?",
 ];
 
-type ApprovedTestimonial = {
+type GoogleReview = {
   quote: string;
   name: string;
-  context?: string;
+  sourceUrl: string;
 };
 
-const approvedTestimonials: ApprovedTestimonial[] = [
+// Verified against Google Maps' Newest sort on September 2, 2026.
+const googleReviews: GoogleReview[] = [
   {
-    quote: "Mary is an outstanding agent and advisor who has helped us with every aspect of downsizing in the Bel Air/Harford County market. She is extremely knowledgeable, wonderfully warm and personal, incredibly accommodating, empathetic, and enthusiastic. From the moment you meet her, it’s very apparent that she loves what she does, and she is a real pleasure to work with.",
-    name: "Gloria & Tom Tanton",
+    quote: "Mary is an outstanding agent and advisor who has helped us in all aspects of downsizing in the BelAir/ Harford County market. She is extremely knowledgeable, wonderfully warm and personal, incredibly accommodating, empathetic and enthusiastic. It’s very apparent she loves what she does from the moment you meet her and a real pleasure to work with.\nGloria&Tom Tanton",
+    name: "Gloria Tanton",
+    sourceUrl: "https://maps.app.goo.gl/mVBYYC3t38mhxJeUA",
   },
   {
     quote: "I’ve known Mary for almost 50 years. I owned my Parkville rancher for 26 years, and when I decided it was time for a change, Mary helped me through the whole process, from getting the house ready for the market through the sale.\n\nI was really impressed with the level of marketing she did for my home. She used professional photography and created a marketing video that included virtual staging to help buyers see the potential of the house. It paid off. We had multiple offers and a very strong contract, and everything went smoothly right through closing on time.\n\nMary knows the Baltimore real estate market and knows how to get a house sold. I would highly recommend her for any of your real estate needs.",
-    name: "Eddie Wiseman",
+    name: "eddie wiseman",
+    sourceUrl: "https://maps.app.goo.gl/ewtd9eKATLa1wiuT9",
   },
   {
-    quote: "Mary was the most incredible, professional, and helpful realtor I’ve ever worked with. She helped us sell a house that was part of an estate. There were a lot of questions along the way, and she handled all the issues seamlessly.\n\nI cannot recommend her highly enough!",
-    name: "Carol & Gerry Lavender",
+    quote: "Mary was such a pleasure to work with! My husband and I were buying our first home and really didn’t know where to begin. We got connected with Mary through a friend’s recommendation and she guided us through the entire process with kindness and patience. She went to so many open houses with us and made sure we ended up with the perfect home. She also has great connections with local businesses and helped us navigate inspections and repairs. Truly a 10 / 10 experience. Will definitely go to her for any future home buying needs!",
+    name: "Danielle Wagner",
+    sourceUrl: "https://maps.app.goo.gl/6jyVMB6qxJT8GqYz5",
+  },
+  {
+    quote: "Mary is an outstanding real estate agent, and I can’t recommend her enough. She is always professional, patient, and incredibly accommodating. In 2019, Mary helped me sell my elderly father’s home, and her steady guidance made what could have been a very stressful process so much easier.\n\nThere were many important decisions to make along the way—listing price, prioritizing necessary repairs, and even choosing paint colors. Mary walked us through every step with care and expertise. Most importantly, she always made sure my 87-year-old father fully understood not just what decisions were being made, but why they were the best choices to help him get the highest possible price for his home.\n\nThanks to Mary’s knowledge and strategy, the house sold for $40,000 over the target price. My father was absolutely ecstatic with the outcome and with Mary’s performance.\n\nI have personally used Mary for all of my real estate needs (selling two homes), and she never disappoints. I would—and do—recommend her to anyone buying or selling a home in Maryland. She’s a rock star!",
+    name: "Jeff Rouch",
+    sourceUrl: "https://maps.app.goo.gl/H3LyiLFN4YC9zTx69",
+  },
+  {
+    quote: "I’ve known Mary for a while now and she is my go-to person for all things in the greater Baltimore area! She has got all the housing connections I need. And, she’s such a nice person to top it off. 😃 Thanks Mary!",
+    name: "Colleen Feuling",
+    sourceUrl: "https://maps.app.goo.gl/5rnrdWN8w9EZH8fr5",
   },
 ];
+
+const testimonialPreviewCharacters = 50;
+
+function takeCharacters(value: string, count: number) {
+  return Array.from(value).slice(0, count).join("");
+}
 
 const ways = [
   {
@@ -94,9 +114,22 @@ function ButtonLink({ children, href = calendlyUrl, variant = "gold" }: { childr
 
 export default function Home() {
   const [activeQuestion, setActiveQuestion] = useState(0);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [testimonialExpanded, setTestimonialExpanded] = useState(false);
   const showQuestion = (index: number) => {
     setActiveQuestion((index + dailyQuestions.length) % dailyQuestions.length);
   };
+  const showTestimonial = (index: number) => {
+    const nextIndex = (index + googleReviews.length) % googleReviews.length;
+    if (nextIndex === activeTestimonial) return;
+    setActiveTestimonial(nextIndex);
+    setTestimonialExpanded(false);
+  };
+  const currentTestimonial = googleReviews[activeTestimonial];
+  const testimonialNeedsDisclosure = Array.from(currentTestimonial.quote).length > testimonialPreviewCharacters;
+  const visibleTestimonial = testimonialExpanded || !testimonialNeedsDisclosure
+    ? currentTestimonial.quote
+    : takeCharacters(currentTestimonial.quote, testimonialPreviewCharacters);
 
   return (
     <div id="top" className="site-shell">
@@ -205,19 +238,76 @@ export default function Home() {
             <a className="text-link" href="/meet-mary">Meet Mary <ArrowUpRight size={16} aria-hidden="true" /></a>
           </div>
         </section>
-        {approvedTestimonials.length > 0 && (
-          <section className="testimonial-reserve" aria-labelledby="approved-testimonials-heading">
+        {googleReviews.length > 0 && (
+          <section className="testimonial-reserve" aria-labelledby="google-reviews-heading">
             <div className="testimonial-reserve__heading">
               <p className="eyebrow">A quiet place for client perspective</p>
-              <h2 id="approved-testimonials-heading">Kind Words From People I’ve Helped</h2>
+              <h2 id="google-reviews-heading">Kind Words From People I’ve Helped</h2>
             </div>
-            <div className="testimonial-reserve__slots">
-              {approvedTestimonials.map(({ quote, name, context }) => (
-                <figure key={`${name}-${quote}`}>
-                  <blockquote>{quote}</blockquote>
-                  <figcaption>{name}{context ? `, ${context}` : ""}</figcaption>
-                </figure>
-              ))}
+            <div className="testimonial-reserve__stage" role="region" aria-roledescription="carousel" aria-label="Google reviews">
+              <figure className="testimonial-reserve__card" aria-label={`Review ${activeTestimonial + 1} of ${googleReviews.length}`}>
+                <div className="testimonial-reserve__stars" role="img" aria-label="5 out of 5 stars">
+                  {Array.from({ length: 5 }, (_, index) => <span key={index} aria-hidden="true">★</span>)}
+                </div>
+                <blockquote>
+                  <p id="active-testimonial-quote">{visibleTestimonial}{!testimonialExpanded && testimonialNeedsDisclosure && <span aria-hidden="true">…</span>}</p>
+                </blockquote>
+                {testimonialNeedsDisclosure && (
+                  <button
+                    type="button"
+                    className="testimonial-reserve__disclosure"
+                    aria-controls="active-testimonial-quote"
+                    aria-expanded={testimonialExpanded}
+                    aria-label={`${testimonialExpanded ? "Show less" : "See more"} of the review by ${currentTestimonial.name}`}
+                    onClick={() => setTestimonialExpanded((expanded) => !expanded)}
+                  >
+                    {testimonialExpanded ? "Show less" : "See more"}
+                  </button>
+                )}
+                <figcaption>
+                  <strong>{currentTestimonial.name}</strong>
+                  <a href={currentTestimonial.sourceUrl} target="_blank" rel="noreferrer">Google review <ArrowUpRight size={14} aria-hidden="true" /></a>
+                </figcaption>
+              </figure>
+              <p className="sr-only" aria-live="polite" aria-atomic="true">Review {activeTestimonial + 1} of {googleReviews.length}, by {currentTestimonial.name}</p>
+              <div
+                className="testimonial-reserve__controls"
+                role="group"
+                aria-label="Testimonial controls"
+                onKeyDown={(event) => {
+                  if (event.key === "ArrowLeft") {
+                    event.preventDefault();
+                    showTestimonial(activeTestimonial - 1);
+                  } else if (event.key === "ArrowRight") {
+                    event.preventDefault();
+                    showTestimonial(activeTestimonial + 1);
+                  } else if (event.key === "Home") {
+                    event.preventDefault();
+                    showTestimonial(0);
+                  } else if (event.key === "End") {
+                    event.preventDefault();
+                    showTestimonial(googleReviews.length - 1);
+                  }
+                }}
+              >
+                <span className="testimonial-reserve__count" aria-hidden="true">{String(activeTestimonial + 1).padStart(2, "0")} / {String(googleReviews.length).padStart(2, "0")}</span>
+                <div className="testimonial-reserve__dots" role="group" aria-label="Choose a testimonial">
+                  {googleReviews.map(({ name }, index) => (
+                    <button
+                      type="button"
+                      key={`${name}-${index}`}
+                      className={index === activeTestimonial ? "is-active" : ""}
+                      aria-label={`Show review ${index + 1} of ${googleReviews.length} by ${name}`}
+                      aria-current={index === activeTestimonial ? "true" : undefined}
+                      onClick={() => showTestimonial(index)}
+                    />
+                  ))}
+                </div>
+                <div className="testimonial-reserve__arrows">
+                  <button type="button" aria-label="Previous testimonial" onClick={() => showTestimonial(activeTestimonial - 1)}><ChevronLeft size={21} aria-hidden="true" /></button>
+                  <button type="button" aria-label="Next testimonial" onClick={() => showTestimonial(activeTestimonial + 1)}><ChevronRight size={21} aria-hidden="true" /></button>
+                </div>
+              </div>
             </div>
           </section>
         )}

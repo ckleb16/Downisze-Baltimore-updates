@@ -163,7 +163,7 @@ h1 { max-width:780px; margin-bottom:24px; font-size:clamp(58px,7.6vw,114px); lin
 /* Pass 2 palette balance: cleaner cream breathing room while retaining the established navy, cream, taupe, and antique-gold system. */
 .ds-not-sure{background:#f1ece1}.ds-final{background-color:#f7f3ea}.meet-pop{background:#f5f1e9}.meet-life{background:#f7f3ea}
 
-/* Pass 3 page polish: quiet credentials hierarchy and a reserved future client-voice location with no invented content. */
+/* Pass 3 page polish: quiet credentials hierarchy and a single-review Google testimonial carousel. */
 .credentials__grid--balanced{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem 1.5rem;margin-top:.8rem}.credentials__grid--balanced span{font-size:.7rem;line-height:1.45}
 .testimonial-reserve{
   display:block;
@@ -173,27 +173,59 @@ h1 { max-width:780px; margin-bottom:24px; font-size:clamp(58px,7.6vw,114px); lin
   border-bottom:1px solid rgba(180,138,74,.35);
 }
 .testimonial-reserve__heading,
-.testimonial-reserve__slots{width:min(100%,75rem);margin-right:auto;margin-left:auto}
+.testimonial-reserve__stage{width:min(100%,75rem);margin-right:auto;margin-left:auto}
 .testimonial-reserve__heading{max-width:75rem}
 .testimonial-reserve__heading>.eyebrow{margin-bottom:1rem}
 .testimonial-reserve h2{margin:0;max-width:38rem;color:#102a43;font:400 clamp(2.75rem,4.5vw,4.5rem)/.92 "Cormorant Garamond",serif}
-.testimonial-reserve__slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin-top:3rem}
-.testimonial-reserve__slots figure{
+.testimonial-reserve__stage{margin-top:3rem}
+.testimonial-reserve__card{
+  position:relative;
   display:flex;
+  width:min(100%,61rem);
   min-width:0;
-  min-height:100%;
+  min-height:22rem;
   flex-direction:column;
-  margin:0;
-  padding:2rem 1.75rem;
+  margin:0 auto;
+  padding:clamp(2rem,4vw,3.75rem);
+  overflow:hidden;
   border:1px solid rgba(16,42,67,.16);
   border-top:4px solid #b48a4a;
   background:#fffdf8;
-  box-shadow:0 12px 28px rgba(16,42,67,.06);
+  box-shadow:0 18px 44px rgba(16,42,67,.08);
 }
-.testimonial-reserve__slots blockquote{margin:0;color:#46545d;font:400 1rem/1.7 "DM Sans",sans-serif;white-space:pre-line}
-.testimonial-reserve__slots figcaption{margin-top:auto;padding-top:1.75rem;color:#684812;font:700 .72rem/1.45 "DM Sans",sans-serif;letter-spacing:.09em;text-transform:uppercase}
-@media (max-width:900px){.testimonial-reserve{padding:4.5rem 7vw}.testimonial-reserve__slots{grid-template-columns:1fr;gap:1rem}.testimonial-reserve__slots figure{min-height:0}}
-@media (max-width:700px){.credentials__grid--balanced{grid-template-columns:1fr}.testimonial-reserve{padding:3.75rem 1.5rem}.testimonial-reserve__slots{margin-top:2.25rem}.testimonial-reserve__slots figure{padding:1.75rem 1.4rem}.testimonial-reserve__slots blockquote{font-size:.95rem}}
+.testimonial-reserve__card:after{content:"“";position:absolute;top:-1.35rem;right:2rem;color:rgba(180,138,74,.11);font:400 9rem/1 "Cormorant Garamond",serif;pointer-events:none}
+.testimonial-reserve__stars{position:relative;z-index:1;display:flex;gap:.28rem;color:#9a671e;font-size:1rem;letter-spacing:.08em}
+.testimonial-reserve__card blockquote{position:relative;z-index:1;margin:1.35rem 0 0;color:#253e51}
+.testimonial-reserve__card blockquote p{max-width:66ch;margin:0;font:400 clamp(1.5rem,2.25vw,2rem)/1.42 "Cormorant Garamond",serif;white-space:pre-line}
+.testimonial-reserve__disclosure{align-self:flex-start;min-height:44px;margin-top:.8rem;padding:.5rem 0;border:0;border-bottom:1px solid rgba(104,72,18,.55);background:transparent;color:#684812;font:700 .7rem/1.3 "DM Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.testimonial-reserve__disclosure:hover{color:#102a43;border-color:#102a43}
+.testimonial-reserve__card figcaption{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-top:auto;padding-top:2rem;color:#684812;font-family:"DM Sans",sans-serif}
+.testimonial-reserve__card figcaption strong{font-size:.76rem;line-height:1.45;letter-spacing:.09em;text-transform:uppercase}
+.testimonial-reserve__card figcaption a{display:inline-flex;min-height:44px;align-items:center;gap:.35rem;color:#5b6870;font-size:.7rem;line-height:1.4;letter-spacing:.06em;text-decoration:none;text-transform:uppercase}
+.testimonial-reserve__card figcaption a:hover{color:#684812;text-decoration:underline;text-underline-offset:.3rem}
+.testimonial-reserve__controls{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:1rem;width:min(100%,61rem);margin:1.35rem auto 0}
+.testimonial-reserve__count{color:#684812;font:700 .7rem/1 "DM Sans",sans-serif;letter-spacing:.12em}
+.testimonial-reserve__dots{display:flex;align-items:center;justify-content:center;gap:.1rem}
+.testimonial-reserve__dots button{position:relative;width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+.testimonial-reserve__dots button:before{content:"";position:absolute;top:50%;left:50%;width:6px;height:6px;border:1px solid #8f7959;border-radius:50%;background:transparent;transform:translate(-50%,-50%)}
+.testimonial-reserve__dots button.is-active:before{width:24px;border-radius:999px;border-color:#9a671e;background:#9a671e}
+.testimonial-reserve__arrows{display:flex;gap:.55rem}
+.testimonial-reserve__arrows button{display:grid;width:44px;height:44px;place-items:center;padding:0;border:1px solid rgba(16,42,67,.25);border-radius:50%;background:#fffdf8;color:#102a43;cursor:pointer}
+.testimonial-reserve__arrows button:hover{border-color:#9a671e;background:#f3ead9;color:#684812}
+.testimonial-reserve__disclosure:focus-visible,.testimonial-reserve__dots button:focus-visible,.testimonial-reserve__arrows button:focus-visible,.testimonial-reserve__card figcaption a:focus-visible{outline:2px solid #102a43;outline-offset:3px}
+@media (max-width:900px){.testimonial-reserve{padding:4.5rem 7vw}.testimonial-reserve__card{min-height:20rem}}
+@media (max-width:700px){
+  .credentials__grid--balanced{grid-template-columns:1fr}
+  .testimonial-reserve{padding:3.75rem 1.5rem}
+  .testimonial-reserve__stage{margin-top:2.25rem}
+  .testimonial-reserve__card{min-height:19rem;padding:1.8rem 1.45rem}
+  .testimonial-reserve__card:after{top:-.75rem;right:1rem;font-size:6.5rem}
+  .testimonial-reserve__card blockquote p{font-size:1.42rem;line-height:1.45}
+  .testimonial-reserve__card figcaption{align-items:flex-start;flex-direction:column;gap:.35rem;padding-top:1.5rem}
+  .testimonial-reserve__controls{grid-template-columns:minmax(0,1fr) auto;gap:.35rem .75rem}
+  .testimonial-reserve__dots{grid-column:1/-1;grid-row:2}
+  .testimonial-reserve__arrows{grid-column:2;grid-row:1}
+}
 
 /* Focused Meet Mary addition: intimate Pop video, rounded like the existing page language, never a hero element. */
 .meet-pop__video{width:min(100%,32rem);margin:2rem 0 0 auto}.meet-pop__video video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:1rem;background:#102a43;box-shadow:0 12px 30px rgba(16,42,67,.12)}.meet-pop__video p{margin:.75rem 0 0;color:#7b6a53;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}.meet-pop__video video:focus-visible{outline:2px solid #b48a4a;outline-offset:4px}@media (max-width:900px){.meet-pop__video{margin:1.5rem 0 0;max-width:34rem}}@media (max-width:700px){.meet-pop__video{width:100%;margin-top:1.75rem}.meet-pop__video p{font-size:.68rem;line-height:1.45}}
