@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite --host",
     "dev:sites": "vite --config vite.sites.config.ts --host",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "build": "node -e \"import('node:fs').then(({rmSync})=>rmSync('dist',{recursive:true,force:true}))\" && vite build --config vite.sites.config.ts",
     "build:sites": "node -e \"import('node:fs').then(({rmSync})=>rmSync('dist',{recursive:true,force:true}))\" && vite build --config vite.sites.config.ts",
+    "build:legacy": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "db:generate": "drizzle-kit generate",
     "start": "node -e \"process.env.NODE_ENV='production'; import('./dist/index.js')\"",
     "preview": "vite preview --host",
