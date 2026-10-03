@@ -52,14 +52,14 @@ export default function LatestInsights() {
   }
 
   return (
-    <ul className="resource-insights__list" role="list">
+    <ul className={`resource-insights__list resource-insights__list--${Math.min(posts.length, 3)}`} role="list">
       {posts.map((post) => (
         <li key={post.id}>
           <article>
             <time dateTime={post.publishedAt ?? undefined}>
               {formatInsightDate(post.publishedAt)}
             </time>
-            <h3>{post.title}</h3>
+            <h3><a href={`/insights-advice/${post.slug}`}>{post.title}</a></h3>
             <a href={`/insights-advice/${post.slug}`}>
               Read article <ArrowUpRight size={16} aria-hidden="true" />
             </a>

@@ -284,12 +284,28 @@ h1 { max-width:780px; margin-bottom:24px; font-size:clamp(58px,7.6vw,114px); lin
 .resource-insights__state p{margin:0 0 1rem}
 .resource-insights__state button,.insights-state button{border:0;background:transparent;padding:.35rem 0;cursor:pointer}
 .resource-insights__list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;padding:0;border-top:1px solid rgba(245,241,233,.3);border-left:1px solid rgba(245,241,233,.16);list-style:none}
+.resource-insights__list--1{grid-template-columns:minmax(0,1fr)}
+.resource-insights__list--2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .resource-insights__list li{min-width:0;border-right:1px solid rgba(245,241,233,.16);border-bottom:1px solid rgba(245,241,233,.16)}
 .resource-insights__list article{display:flex;min-height:17rem;flex-direction:column;padding:2rem 1.6rem;transition:background .2s ease}
 .resource-insights__list article:hover{background:rgba(245,241,233,.07)}
 .resource-insights__list time,.insights-archive__list time,.insight-article__meta{color:#e5c987;font:700 .66rem/1.4 "DM Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase}
 .resource-insights__list h3{margin:2.2rem 0 2rem;color:#f7f2e8;font:400 clamp(1.85rem,2.5vw,2.55rem)/.98 "Cormorant Garamond",serif}
 .resource-insights__list a{margin-top:auto}
+.resource-insights__list h3 a{
+  display:inline;
+  margin:0;
+  color:inherit;
+  font:inherit;
+  letter-spacing:inherit;
+  text-transform:none;
+  text-decoration:none;
+}
+.resource-insights__list h3 a:hover{text-decoration:underline;text-underline-offset:.15em}
+@media (max-width:700px){
+  .resource-pathway-grid article{min-width:0}
+  .resource-pathway-grid .resource-pathway__action{width:100%;max-width:100%}
+}
 
 .insights-page{min-height:100vh;background:#f7f3ea;color:#102a43}
 .insights-hero{padding:7rem 10vw 7.5rem;background:#102a43;color:#f7f2e8;background-image:linear-gradient(115deg,rgba(180,138,74,.12),transparent 55%)}
