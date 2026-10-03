@@ -3101,6 +3101,35 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
 .ds-not-sure .ds-button--outline:hover{background:rgba(245,241,233,.1)}
 .ds-not-sure .ds-button:focus-visible{outline:3px solid var(--cream);outline-offset:4px}
 
+/* October Contact feedback: retain the whole portrait, even on short screens. */
+.contact-page .contact-hero{min-height:0}
+.contact-page .contact-hero__photo{
+  align-self:center;
+  height:auto;
+  min-height:0;
+  max-height:none;
+}
+.contact-page .contact-hero__photo img{
+  position:static;
+  inset:auto;
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+}
+
+/* Keep the navy treatment scoped to the six discussion topics. */
+.contact-page .contact-topics{background:var(--navy);color:var(--cream)}
+.contact-topics .contact-section-heading h2,
+.contact-topics .contact-section-heading>p:last-child,
+.contact-topics .contact-topic-list p{color:var(--cream)}
+.contact-topics .contact-eyebrow,
+.contact-topics .contact-section-heading h2 i,
+.contact-topics .contact-topic-list span{color:var(--gold-on-dark)}
+.contact-topics .contact-topic-list{border-top-color:var(--gold-on-dark)}
+.contact-topics .contact-topic-list>li{border-bottom-color:rgba(247,243,234,.3)}
+
 @media (max-width:820px){
   .ds-questions{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ds-questions>li,.ds-questions>li:nth-child(4){grid-column:auto}
