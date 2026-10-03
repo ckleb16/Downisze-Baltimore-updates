@@ -1,3 +1,5 @@
+import { RESOURCE_GUIDES, guidePath } from "./resourceGuides";
+
 export type SiteRoute = {
   path: string;
   label: string;
@@ -77,6 +79,12 @@ export const PUBLISHER_ROUTE = {
 export const PAGE_ROUTES = [
   ...SITE_ROUTES,
   INSIGHTS_ROUTE,
+  ...RESOURCE_GUIDES.map((guide) => ({
+    path: guidePath(guide),
+    label: guide.title,
+    title: `${guide.title} | Downsize Baltimore`,
+    description: guide.description,
+  })),
   PUBLISHER_ROUTE,
 ] as const satisfies readonly SiteRoute[];
 

@@ -3140,5 +3140,61 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
   .ds-questions>li{padding:1.25rem}
   .ds-questions>li:nth-child(5){grid-column:auto}
   .ds-callout{gap:.625rem;padding:1.25rem 0}
-  .ds-callout span{flex-basis:.75rem}
+.ds-callout span{flex-basis:.75rem}
+}
+
+/* Original PDF guides: a small public library and directly shareable pages. */
+.resource-guides,.guide-page{background:var(--cream);color:var(--navy)}
+.resource-guides{padding:5rem 8vw;scroll-margin-top:2rem}
+.resource-guides__heading{max-width:46rem;margin-bottom:2.5rem}
+.resource-guides__heading h2{margin:0;font:400 clamp(2.5rem,4.8vw,4.5rem)/1.05 "Cormorant Garamond",serif}
+.resource-guides__heading h2 i{color:#684812}
+.resource-guides__heading>p:last-child{margin:1rem 0 0;font-size:1rem;line-height:1.7;color:#4f5b63}
+.resource-guides__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+.guide-card{min-width:0;display:flex;flex-direction:column;border:1px solid rgba(16,42,67,.22);background:#fffdf8}
+.guide-card__cover{display:flex;justify-content:center;padding:1.5rem;background:#ebe3d6}
+.guide-card__cover img{display:block;width:auto;height:15rem;max-width:100%;object-fit:contain;box-shadow:0 5px 15px rgba(16,42,67,.15)}
+.guide-card__body{display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:1.75rem}
+.guide-file-details{margin:0 0 1rem;color:#4f5b63;font:500 .875rem/1.5 "DM Sans",sans-serif}
+.guide-card h3{margin:0 0 1rem;font:400 1.875rem/1.12 "Cormorant Garamond",serif}
+.guide-card__body>p:not(.guide-file-details){margin:0 0 1.5rem;font-size:1rem;line-height:1.65;color:#4f5b63}
+.guide-link,.guide-back{display:inline-flex;align-items:center;gap:.6rem;min-height:44px;color:var(--navy);font:600 .9375rem/1.5 "DM Sans",sans-serif;text-decoration:underline;text-underline-offset:.25em}
+.guide-card .guide-link{margin-top:auto}
+.guide-link:hover,.guide-back:hover{color:#684812}
+.guide-link:focus-visible,.guide-back:focus-visible,.guide-button:focus-visible{outline:3px solid var(--navy);outline-offset:5px}
+.guide-landing{max-width:85rem;margin:auto;padding:2.5rem 6vw 4.5rem;font-family:"DM Sans",sans-serif}
+.guide-back{margin-bottom:2rem}
+.guide-landing__grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:5vw;align-items:start}
+.guide-landing__copy{min-width:0}
+.guide-landing h1{margin:0 0 1.5rem;max-width:15ch;font:400 clamp(2.5rem,4.8vw,4.5rem)/1.05 "Cormorant Garamond",serif;letter-spacing:-.025em}
+.guide-landing__description{max-width:40rem;margin:0 0 1.25rem;font-size:1.125rem;line-height:1.65;color:#4f5b63}
+.guide-landing__byline{margin:0 0 .65rem;font-size:.9375rem;line-height:1.6}
+.guide-landing__actions{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.5rem;margin:1.75rem 0 2rem}
+.guide-button{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;min-height:48px;max-width:100%;padding:.85rem 1.25rem;background:#e5c987;border:1px solid #b48a4a;color:var(--navy);font:700 1rem/1.4 "DM Sans",sans-serif;text-decoration:none}
+.guide-button:hover{background:#d6b66d}
+.guide-landing__actions .guide-link{flex-wrap:wrap;gap:.4rem}
+.guide-new-tab{font-weight:400;font-size:.875rem}
+.guide-landing__contents{border-top:1px solid rgba(16,42,67,.25);padding-top:1.5rem}
+.guide-landing__contents h2{margin:0 0 1rem;font:400 2rem/1.15 "Cormorant Garamond",serif}
+.guide-landing__contents ul{padding-left:1.3rem;margin:0;font-size:1rem;line-height:1.7;list-style:disc}
+.guide-landing__contents li+li{margin-top:.6rem}
+.guide-landing__cover{margin:0;padding:1.75rem;background:#ebe3d6;max-width:28rem;width:100%;justify-self:end}
+.guide-landing__cover img{display:block;width:100%;height:auto;box-shadow:0 6px 18px rgba(16,42,67,.16)}
+.guide-landing__cover figcaption{margin-top:1rem;font-size:.875rem;line-height:1.5;text-align:center;color:#4f5b63}
+.guide-landing__disclaimer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(16,42,67,.25);font-size:.875rem;line-height:1.7;color:#4f5b63}
+@media (max-width:1050px){
+  .resource-guides__grid{grid-template-columns:1fr}
+  .guide-card{display:grid;grid-template-columns:minmax(0,.65fr) minmax(0,1.35fr)}
+  .guide-card__cover{align-items:center}
+}
+@media (max-width:800px){
+  .guide-landing__grid{grid-template-columns:minmax(0,1fr);gap:2.5rem}
+  .guide-landing__cover{justify-self:center}
+}
+@media (max-width:600px){
+  .resource-guides{padding:3.5rem 1.5rem}
+  .guide-card{display:flex}
+  .guide-card__body{padding:1.5rem}
+  .guide-landing{padding:1.5rem 1.5rem 3rem}
+  .guide-landing__cover{padding:1.25rem}
 }

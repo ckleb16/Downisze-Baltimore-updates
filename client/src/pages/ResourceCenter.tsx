@@ -4,6 +4,7 @@ import SiteHeader from "@/components/SiteHeader";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import DeferredBackground from "@/components/DeferredBackground";
 import LatestInsights from "@/components/LatestInsights";
+import ResourceGuides from "@/components/ResourceGuides";
 import { ArrowUpRight, BookOpen, ChevronDown, Anchor, Home, Scale, ShieldCheck, Users } from "lucide-react";
 
 /**
@@ -47,6 +48,8 @@ export default function ResourceCenter() {
       <section id="questions" className="resource-pathways"><div className="resource-section-heading"><p className="resource-eyebrow">Start with your question</p><h2>What Can I Help You <i>Figure Out?</i></h2><p>Think of these as doors into different parts of the Resource Center. Choose the one that feels closest to what is on your mind.</p></div><div className="resource-pathway-grid">{pathways.map(({ icon: Icon, question, body, topics, action, href }, index) => {
         return <article key={question}><div className="resource-pathway__top"><span>0{index + 1}</span><Icon size={25} strokeWidth={1.15} aria-hidden="true" /></div><h3>{question}</h3><p>{body}</p><small>{topics}</small><a className="resource-pathway__action" href={href}>{action}<ArrowUpRight size={16} aria-hidden="true" /></a></article>;
       })}</div></section>
+
+      <ResourceGuides />
 
       <DeferredBackground id="resource-library" className="resource-featured resource-insights" aria-labelledby="resource-library-heading" backgroundImage={`url(${contourTexture})`}><div className="resource-featured__head"><div><p className="resource-eyebrow resource-eyebrow--gold">Insights &amp; Advice</p><h2 id="resource-library-heading">A Little Clarity<br /><i>for the Road Ahead.</i></h2></div><div><p>Read Mary’s latest thoughts on downsizing, aging in place, family conversations, and the choices that shape what comes next.</p><a className="resource-insights__all" href="/insights-advice">Read More Insights &amp; Advice <ArrowUpRight size={16} aria-hidden="true" /></a></div></div><LatestInsights /></DeferredBackground>
 

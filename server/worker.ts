@@ -5,6 +5,7 @@ import {
   canonicalizeRecognizedPath,
   findPageRoute,
 } from "../client/src/lib/siteRoutes";
+import { RESOURCE_GUIDES, guidePdfPath } from "../client/src/lib/resourceGuides";
 import {
   PostConflictError,
   PostNotFoundError,
@@ -604,6 +605,17 @@ export default {
 
     const metadata = staticMetadata(pathname);
     if (metadata) return renderRoute(request, env, metadata);
+
+    if (pathname.startsWith("/guides/") && pathname.toLowerCase().endsWith(".pdf")) {
+      if (!RESOURCE_GUIDES.some((guide) => guidePdfPath(guide) === pathname)) {
+        return textResponse("Guide not found.", "text/plain; charset=utf-8", request.method, 404, "no-store");
+      }
+      const pdf = await env.ASSETS.fetch(request);
+      if (!pdf.ok || !pdf.headers.get("Content-Type")?.toLowerCase().startsWith("application/pdf")) {
+        return textResponse("This guide is unavailable.", "text/plain; charset=utf-8", request.method, 404, "no-store");
+      }
+      return withCacheControl(pdf, pathname, request.method);
+    }
 
     const looksLikeAsset =
       pathname.startsWith("/assets/") ||

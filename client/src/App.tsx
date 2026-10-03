@@ -1,4 +1,5 @@
 import { Toaster } from "@/components/ui/sonner";
+import { RESOURCE_GUIDES, guidePath } from "@/lib/resourceGuides";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import {
   NOT_FOUND_METADATA,
@@ -14,6 +15,7 @@ const Home = lazy(() => import("./pages/Home"));
 const BuyingSelling = lazy(() => import("./pages/BuyingSelling"));
 const Contact = lazy(() => import("./pages/Contact"));
 const ResourceCenter = lazy(() => import("./pages/ResourceCenter"));
+const ResourceGuide = lazy(() => import("./pages/ResourceGuide"));
 const MeetMary = lazy(() => import("./pages/MeetMary"));
 const Downsizing = lazy(() => import("./pages/Downsizing"));
 const AgingInPlace = lazy(() => import("./pages/AgingInPlace"));
@@ -78,6 +80,11 @@ function Router() {
         <Route path="/buying-selling" component={BuyingSelling} />
         <Route path="/contact" component={Contact} />
         <Route path="/resource-center" component={ResourceCenter} />
+        {RESOURCE_GUIDES.map((guide) => (
+          <Route key={guide.slug} path={guidePath(guide)}>
+            <ResourceGuide guide={guide} />
+          </Route>
+        ))}
         <Route path="/meet-mary" component={MeetMary} />
         <Route path="/downsizing-services" component={Downsizing} />
         <Route path="/aging-in-place" component={AgingInPlace} />
