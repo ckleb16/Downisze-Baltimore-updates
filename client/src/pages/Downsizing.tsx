@@ -11,7 +11,6 @@ const heroPhoto = "/manus-storage/downsizing-hero_718d6bc8.jpeg";
 const roomPhoto = "/manus-storage/downsizing-room_d33a128b.jpeg";
 const maryPhoto = "/manus-storage/mary-lynch-downsizing_b73a2d4f.jpg";
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
-const contourTexture = "/manus-storage/downsize-baltimore-contour-lines_aaa317b7-1920w.webp";
 const calendlyUrl = "https://calendly.com/mary-movewithmarylynch/30min";
 
 const steps = [
@@ -47,8 +46,6 @@ export default function Downsizing() {
     <section className="ds-help"><div className="ds-help__placeholder"><div className="ds-portrait-frame"><ResponsiveImage src={maryPhoto} sizes="(max-width: 900px) 76vw, 400px" alt="Mary Lynch smiling in a warm, light-filled room" /></div></div><div className="ds-help__copy"><p className="ds-eyebrow">A coordinated network of support</p><h2>The Right Help,<br /><i>at the Right Time.</i></h2><p>Downsizing often involves more than one professional.</p><p>Depending on your situation, your plan may include:</p><ul className="ds-help__grid" role="list">{["Move managers", "Professional organizers", "Estate sale professionals", "Donation and clean-out services", "Movers", "Contractors and repair professionals", "Occupational therapists", "Home modification specialists", "55+ and senior living resources", "Elder law and estate professionals", "Financial professionals", "Home care and community resources"].map(item => <li key={item}><span><Check size={13} aria-hidden="true" />{item}</span></li>)}</ul><blockquote>My job isn’t to hand you a giant vendor list. It is to help identify which help you need, and when you need it.</blockquote></div></section>
 
     <section className="ds-not-sure"><div className="ds-not-sure__head"><p className="ds-eyebrow ds-eyebrow--gold">You can start before you decide</p><h2>Not Sure If It’s <i>Time Yet?</i></h2><p>You may be wondering whether moving would actually make life better. That is exactly the right time to start exploring your options.</p></div><ol className="ds-question-grid" role="list">{questions.map((q, i) => <li key={q}><span aria-hidden="true">0{i + 1}</span><p>{q}</p></li>)}</ol><p className="ds-not-sure__close">You do not need to decide today. You just need enough information to make a good decision when the time is right.</p><div className="ds-button-row"><ButtonLink>Schedule a Conversation</ButtonLink><ButtonLink variant="outline" href="/aging-in-place">Explore Aging in Place</ButtonLink></div></section>
-
-    <DeferredBackground id="resources" className="ds-resources" backgroundImage={`linear-gradient(rgba(16,42,67,.97),rgba(16,42,67,.97)),url(${contourTexture})`}><div className="ds-resources__head"><div><p className="ds-eyebrow ds-eyebrow--gold">A little more clarity</p><h2>Want to Dig<br /><i>a Little Deeper?</i></h2></div><p>Explore the practical guidance available now, or ask Mary which next step best fits your situation.</p></div><div className="ds-button-row"><ButtonLink variant="light" href="/resource-center">Visit the Resource Center</ButtonLink><ButtonLink variant="outline" href="/resource-center#club">Learn About the Downsizers Club</ButtonLink></div></DeferredBackground>
 
     <DeferredBackground className="ds-final site-closing-strip" backgroundImage={`url(${paperTexture})`}>
       <div className="site-closing-strip__content">

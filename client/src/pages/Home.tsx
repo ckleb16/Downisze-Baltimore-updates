@@ -227,7 +227,7 @@ export default function Home() {
             <div className="mary__portrait-frame"><ResponsiveImage src={maryPortrait} sizes="(max-width: 800px) 72vw, 410px" alt="Mary Lynch seated on a cream sofa" className="mary__portrait" /><div className="mary__portrait-caption"><span>Mary Lynch</span><small>Founder, Downsize Baltimore</small></div></div>
           </DeferredBackground>
           <div className="mary__copy">
-            <p className="eyebrow">A clear-eyed, human approach</p>
+            <p className="eyebrow">A PLAN, NOT A PUSH</p>
             <h2>Why Families<br /><i>Choose Mary</i></h2>
             <div className="gold-rule" />
             <p>For 30 years, I’ve helped Baltimore families buy and sell homes.</p>
@@ -235,6 +235,15 @@ export default function Home() {
             <p>Downsize Baltimore grew from seeing how overwhelming housing decisions can become when family, aging, finances, belongings, and the future all collide at once.</p>
             <p>My role isn’t to convince you to move. It’s to help you understand your options, connect you with the right resources, and create a clear plan for whatever comes next.</p>
             <div className="credentials"><p className="credentials__eyebrow" id="mary-credentials-heading">Credentials &amp; specialties</p><ul className="credentials__grid credentials__grid--balanced" role="list" aria-labelledby="mary-credentials-heading"><li>Certified Senior Advisor</li><li>Founder and Chair, National Aging in Place Council, Greater Baltimore Chapter</li><li>Seniors Real Estate Specialist</li><li>Senior Home Coach</li><li>Certified Probate Real Estate Specialist</li></ul></div>
+            <section className="mary-media" aria-labelledby="home-media-heading">
+              <h3 id="home-media-heading">AS SEEN AND HEARD ON</h3>
+              <ul role="list">
+                <li>ABC's Midday Maryland</li>
+                <li>PBS</li>
+                <li>WCBM Radio</li>
+                <li>Baltimore Style</li>
+              </ul>
+            </section>
             <a className="text-link" href="/meet-mary">Meet Mary <ArrowUpRight size={16} aria-hidden="true" /></a>
           </div>
         </section>
