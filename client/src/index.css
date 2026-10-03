@@ -2489,6 +2489,49 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
   white-space:nowrap;
 }
 .bs-hero__experience-caption span{min-width:0}
+
+/* October feedback: give the unchanged caption room, and read topics as shared editorial rows. */
+@media (min-width:1181px){
+  .bs-hero{grid-template-columns:minmax(0,.46fr) minmax(0,.54fr)}
+}
+.bs-topic-grid,.bs-selling__grid{
+  grid-template-columns:minmax(0,1fr);
+  gap:0;
+  border-bottom:1px solid #102a43;
+}
+.bs-selling__grid{border-bottom-color:rgba(229,201,135,.55)}
+.bs-topic-grid article,.bs-selling__grid article{
+  display:grid;
+  grid-template-columns:2rem minmax(0,1fr) minmax(0,1.5fr);
+  align-items:start;
+  gap:clamp(1.25rem,2.5vw,2.5rem);
+  padding:1.75rem 0;
+}
+.bs-topic-grid span,.bs-selling__grid span{
+  padding-top:.35rem;
+  font-size:.875rem;
+}
+.bs-topic-grid h3,.bs-selling__grid h3{
+  min-width:0;
+  margin:0;
+  font-size:2rem;
+  line-height:1.1;
+}
+.bs-topic-grid p,.bs-selling__grid p{
+  min-width:0;
+  margin:0;
+  font-size:1rem;
+  line-height:1.65;
+}
+@media (max-width:700px){
+  .bs-topic-grid article,.bs-selling__grid article{
+    grid-template-columns:1.75rem minmax(0,1fr);
+    gap:.75rem 1rem;
+    padding:1.5rem 0;
+  }
+  .bs-topic-grid h3,.bs-selling__grid h3,
+  .bs-topic-grid p,.bs-selling__grid p{grid-column:2}
+}
 .bs-choice{
   padding:clamp(4.5rem,5.5vw,5.25rem) 8vw clamp(5rem,6vw,6rem);
 }
