@@ -3256,12 +3256,15 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
 .meet-media__feature h3{margin:0;font:400 1.875rem/1.1 "Cormorant Garamond",serif;overflow-wrap:anywhere}
 .meet-media__feature p{margin:.6rem 0 1rem;color:#4f5b63;font-size:1rem;line-height:1.65}
 .meet-media__videos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-.meet-media__video{display:flex;flex-direction:column;min-width:0;min-height:15rem;padding:1.5rem;border:1px solid rgba(16,42,67,.42);border-top:4px solid #b48a4a;background:#fffdf8;color:inherit;text-decoration:none}
-.meet-media__preview{position:relative;display:grid;place-items:center;flex:0 0 auto;aspect-ratio:16 / 9;overflow:hidden;margin-bottom:1.25rem;background:#102a43;color:#e5c987}
-.meet-media__preview>svg{position:relative;z-index:1;pointer-events:none}
-.meet-media__preview>img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .2s ease;pointer-events:none}
-.meet-media__video:hover .meet-media__preview>img,.meet-media__video:focus-visible .meet-media__preview>img{opacity:1}
-.meet-media__video:hover .meet-media__preview>svg,.meet-media__video:focus-visible .meet-media__preview>svg{opacity:0}
+.meet-media__video{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;min-width:0;min-height:15rem;padding:1.5rem;border:1px solid rgba(16,42,67,.42);border-top:4px solid #b48a4a;background:#fffdf8;color:inherit;text-decoration:none}
+.meet-media__background{position:absolute;inset:0;z-index:0;display:block;overflow:hidden;background:#102a43;opacity:0;pointer-events:none}
+.meet-media__background>img{display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .2s ease}
+.meet-media__background::after{position:absolute;inset:0;content:"";background:linear-gradient(180deg,rgba(16,42,67,.84),rgba(16,42,67,.94))}
+.meet-media__video>:not(.meet-media__background){position:relative;z-index:1}
+.meet-media__video:hover,.meet-media__video:focus-visible{color:#f7f3ea}
+.meet-media__video:hover .meet-media__background,.meet-media__video:focus-visible .meet-media__background{opacity:1}
+.meet-media__video:hover .meet-media__background>img,.meet-media__video:focus-visible .meet-media__background>img{opacity:1}
+.meet-media__video:hover .meet-media__video-top,.meet-media__video:focus-visible .meet-media__video-top,.meet-media__video:hover .meet-media__action,.meet-media__video:focus-visible .meet-media__action{color:#e5c987}
 .meet-media__video-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;color:#8a5310}
 .meet-media__video-top span{font-size:.875rem;line-height:1.5}
 .meet-media__video-top svg{flex:0 0 auto}
@@ -3276,19 +3279,19 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
   .meet-media__feature{grid-template-columns:4.5rem minmax(0,1fr);padding:1.25rem;gap:1rem}
   .meet-media__feature img{width:4.5rem;height:4.5rem}
   .meet-media__feature h3{font-size:1.75rem}
-  .meet-media__video{min-height:0;padding:1.25rem}
+  .meet-media__video{min-height:16rem;padding:1.25rem;color:#f7f3ea}
   .meet-media__video h3{font-size:1.75rem}
-  .meet-media__preview>img{opacity:1;transition:none}
-  .meet-media__preview>svg{opacity:0}
-  .meet-media__preview:not(:has(>img))>svg{opacity:1}
+  .meet-media__background{opacity:1}
+  .meet-media__background>img{opacity:1;transition:none}
+  .meet-media__video .meet-media__video-top,.meet-media__video .meet-media__action{color:#e5c987}
 }
 @media (hover:none),(pointer:coarse){
-  .meet-media__preview>img{opacity:1;transition:none}
-  .meet-media__preview>svg{opacity:0}
-  .meet-media__preview:not(:has(>img))>svg{opacity:1}
+  .meet-media__video{color:#f7f3ea}
+  .meet-media__background{opacity:1}
+  .meet-media__background>img{opacity:1;transition:none}
+  .meet-media__video .meet-media__video-top,.meet-media__video .meet-media__action{color:#e5c987}
 }
-@media (prefers-reduced-motion:reduce){.meet-media__preview>img{transition:none}}
-.meet-media__video:hover .meet-media__preview:not(:has(>img))>svg,.meet-media__video:focus-visible .meet-media__preview:not(:has(>img))>svg{opacity:1}
+@media (prefers-reduced-motion:reduce){.meet-media__background>img{transition:none}}
 @media (max-width:400px){
   .meet-media__feature{grid-template-columns:minmax(0,1fr)}
   .meet-media__brand-name{text-align:left}

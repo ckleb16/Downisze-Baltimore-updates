@@ -40,12 +40,11 @@ const youtubeAppearances = [
   },
 ];
 
-function VideoPreview({ thumbnail }: { thumbnail: string }) {
+function VideoBackground({ thumbnail }: { thumbnail: string }) {
   const [imageFailed, setImageFailed] = useState(false);
 
   return (
-    <span className="meet-media__preview" aria-hidden="true">
-      <PlayCircle size={48} strokeWidth={1.25} />
+    <span className="meet-media__background" aria-hidden="true">
       {!imageFailed && (
         <img
           src={thumbnail}
@@ -100,8 +99,8 @@ export default function MaryMedia() {
       <div className="meet-media__videos">
         {youtubeAppearances.map(({ outlet, title, href, thumbnail }) => (
           <a className="meet-media__video" key={href} href={href} target="_blank" rel="noopener noreferrer">
-            <VideoPreview thumbnail={thumbnail} />
-            <div className="meet-media__video-top"><span>{outlet}</span></div>
+            <VideoBackground thumbnail={thumbnail} />
+            <div className="meet-media__video-top"><span>{outlet}</span><PlayCircle size={25} strokeWidth={1.25} aria-hidden="true" /></div>
             <h3>{title}</h3>
             <span className="meet-media__action">Watch on YouTube<span className="sr-only"> (opens in a new tab)</span></span>
           </a>
