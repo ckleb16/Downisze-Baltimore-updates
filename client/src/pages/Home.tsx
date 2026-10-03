@@ -66,7 +66,7 @@ const googleReviews: GoogleReview[] = [
   },
 ];
 
-const testimonialPreviewCharacters = 50;
+const testimonialPreviewCharacters = 150;
 
 function takeCharacters(value: string, count: number) {
   return Array.from(value).slice(0, count).join("");

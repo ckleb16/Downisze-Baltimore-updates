@@ -3240,3 +3240,40 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
   .bs-buying .bs-topic-grid{grid-template-columns:minmax(0,1fr)}
   .bs-buying .bs-topic-grid article{min-height:0;padding:1.25rem}
 }
+
+/* Meet Mary: linked media, without embedded players or automatic playback. */
+.meet-media{padding:5rem 8vw 6rem;background:#ece5d8;color:#102a43}
+.meet-media__heading,.meet-media__features,.meet-media__videos{width:min(100%,72rem);margin-right:auto;margin-left:auto}
+.meet-media__heading{margin-bottom:2.5rem}
+.meet-media__heading h2{margin:0;font:400 clamp(2.75rem,5vw,4.75rem)/1.05 "Cormorant Garamond",serif;letter-spacing:-.035em}
+.meet-media__heading h2 i{color:#8a5310}
+.meet-media__heading>p:last-child{max-width:40rem;margin:1rem 0 0;color:#4f5b63;font-size:1rem;line-height:1.7}
+.meet-media__features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-bottom:1.5rem}
+.meet-media__feature{display:grid;grid-template-columns:6rem minmax(0,1fr);align-items:center;gap:1.5rem;min-width:0;padding:1.5rem;border:1px solid rgba(16,42,67,.42);background:#fffdf8;color:inherit;text-decoration:none}
+.meet-media__feature img{display:block;width:6rem;height:6rem;object-fit:contain}
+.meet-media__brand-name{font:700 1.5rem/1.2 "DM Sans",sans-serif;text-align:center}
+.meet-media__feature h3{margin:0;font:400 1.875rem/1.1 "Cormorant Garamond",serif}
+.meet-media__feature p{margin:.6rem 0 1rem;color:#4f5b63;font-size:1rem;line-height:1.65}
+.meet-media__videos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.meet-media__video{display:flex;flex-direction:column;min-width:0;min-height:15rem;padding:1.5rem;border:1px solid rgba(16,42,67,.42);border-top:4px solid #b48a4a;background:#fffdf8;color:inherit;text-decoration:none}
+.meet-media__video-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;color:#8a5310}
+.meet-media__video-top span{font-size:.875rem;line-height:1.5}
+.meet-media__video-top svg{flex:0 0 auto}
+.meet-media__video h3{margin:1.25rem 0 1.5rem;font:400 1.875rem/1.15 "Cormorant Garamond",serif;overflow-wrap:anywhere}
+.meet-media__action{display:block;margin-top:auto;color:#8a5310;font:600 .875rem/1.5 "DM Sans",sans-serif;text-decoration:underline;text-underline-offset:3px}
+.meet-media__feature:hover,.meet-media__video:hover{border-color:#8a5310;background:#f9f3e6}
+.meet-media__feature:focus-visible,.meet-media__video:focus-visible{outline:3px solid #102a43;outline-offset:4px}
+@media (max-width:1050px){.meet-media__videos{grid-template-columns:repeat(2,minmax(0,1fr))}.meet-media__features{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:650px){
+  .meet-media{padding:3.5rem 1.5rem 4rem}
+  .meet-media__videos{grid-template-columns:minmax(0,1fr)}
+  .meet-media__feature{grid-template-columns:4.5rem minmax(0,1fr);padding:1.25rem;gap:1rem}
+  .meet-media__feature img{width:4.5rem;height:4.5rem}
+  .meet-media__feature h3{font-size:1.75rem}
+  .meet-media__video{min-height:0;padding:1.25rem}
+  .meet-media__video h3{font-size:1.75rem}
+}
+@media (max-width:400px){
+  .meet-media__feature{grid-template-columns:minmax(0,1fr)}
+  .meet-media__brand-name{text-align:left}
+}
