@@ -2487,9 +2487,7 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
   bottom:0;
   left:0;
   z-index:2;
-  display:flex;
-  align-items:center;
-  gap:.75rem;
+  display:block;
   margin:0;
   padding:.85rem clamp(1.25rem,2vw,1.75rem);
   background:rgba(16,42,67,.9);
@@ -2498,7 +2496,6 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
   letter-spacing:.045em;
 }
 .bs-hero__experience-caption strong{
-  flex:0 0 auto;
   color:#f0d38f;
   font-size:.75rem;
   letter-spacing:.13em;
@@ -3029,6 +3026,7 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
 }
 .mary-media h3{
   margin:0 0 .875rem;
+  color:var(--gold-text);
   font:700 .875rem/1.5 "DM Sans",sans-serif;
   letter-spacing:.1em;
 }
@@ -3050,7 +3048,7 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
   gap:1.5rem;
   text-align:center;
 }
-.ds-plan__label{justify-content:center;padding-top:0}
+.ds-plan__label{width:100%;max-width:72rem;justify-content:flex-start;padding-top:0;text-align:left}
 .ds-plan__body{width:100%;max-width:72rem}
 .ds-plan__copy{max-width:none}
 .ds-plan__copy>p{max-width:44rem;margin:0 auto 1rem}
@@ -3295,4 +3293,15 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
 @media (max-width:400px){
   .meet-media__feature{grid-template-columns:minmax(0,1fr)}
   .meet-media__brand-name{text-align:left}
+}
+
+/* October 6 feedback: place the NAIPC mark at the section's upper-left edge. */
+@media (min-width:901px){
+  .aip-naipc{position:relative}
+  .aip-naipc__mark{position:absolute;top:2.5rem;left:6vw}
+  .aip-naipc>div:last-child{grid-column:2}
+}
+@media (max-width:900px){
+  .aip-naipc{padding-top:2.5rem;gap:2rem}
+  .aip-naipc__mark{margin-bottom:0}
 }

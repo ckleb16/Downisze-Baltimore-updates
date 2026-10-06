@@ -36,7 +36,14 @@ export default function MeetMary() {
           <p>For 30 years, I have helped Baltimore-area families buy and sell homes. I began with first-time buyers, relocation, foreclosures, estates, and the many different ways real estate decisions can shape a family’s life.</p>
           <p>Over time, the work became more focused. I began to see how housing decisions become more layered when family, aging, finances, belongings, health, and the future all arrive at the same table.</p>
           <p>When you are younger, there are often opportunities for a do-over. When someone is making a housing decision at 70, 80, or 90, there may not be as many opportunities to get it wrong. Those decisions deserve more time, education, resources, and planning.</p>
-          <ul className="meet-credentials" role="list"><li><span>30 years in residential real estate</span></li><li><span>Certified Senior Advisor</span></li><li><span>Certified Probate Real Estate Specialist</span></li><li><span>Founder and Chair, National Aging in Place Council, Greater Baltimore Chapter</span></li></ul>
+          <ul className="meet-credentials" role="list">
+            <li><span>30 years in residential real estate</span></li>
+            <li><span>Certified Senior Advisor (CSA®)</span></li>
+            <li><span>Certified Probate Real Estate Specialist</span></li>
+            <li><span>Founder and Chair, National Aging in Place Council, Greater Baltimore Chapter</span></li>
+            <li><span>Senior Home Coach™</span></li>
+            <li><span>Seniors Real Estate Specialist (SRES®)</span></li>
+          </ul>
         </div>
         <figure className="meet-story__personal-photo"><ResponsiveImage src={oriolesPhoto} sizes="(max-width: 900px) 88vw, 520px" alt="Mary with family at Oriole Park at Camden Yards" /></figure>
       </section>

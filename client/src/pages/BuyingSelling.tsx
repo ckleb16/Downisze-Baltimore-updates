@@ -49,7 +49,7 @@ export default function BuyingSelling() {
       <main id="main-content" tabIndex={-1}>
         <section className="bs-hero">
           <div className="bs-hero__copy"><p className="bs-eyebrow">Buying &amp; selling with perspective</p><h1>The Agent You Need for Your First Home Is Very Different From the Agent You Need for Your <i>Last.</i></h1><div className="bs-rule" /><p>Selling a longtime home or buying the place that comes next is very different from buying your first house.</p><p>The stakes can feel higher. The emotions can run deeper. And the decisions often affect much more than real estate.</p><ButtonLink>Let’s Talk About Your Plan</ButtonLink></div>
-          <div className="bs-hero__photo"><ResponsiveImage src={heroImage} sizes="(max-width: 1180px) 100vw, 54vw" priority alt="Mary Lynch working on the phone beside an open laptop" /><p className="bs-hero__experience-caption"><strong>30 YEARS</strong><span>of helping Baltimore-area families make thoughtful real estate decisions.</span></p></div>
+          <div className="bs-hero__photo"><ResponsiveImage src={heroImage} sizes="(max-width: 1180px) 100vw, 54vw" priority alt="Mary Lynch working on the phone beside an open laptop" /><p className="bs-hero__experience-caption"><strong>30 YEARS</strong>{" "}<span>of helping Baltimore-area families make thoughtful real estate decisions.</span></p></div>
         </section>
 
         <section id="choose" className="bs-choice">

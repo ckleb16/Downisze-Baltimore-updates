@@ -234,7 +234,7 @@ export default function Home() {
             <p>Over time, that work became about much more than real estate.</p>
             <p>Downsize Baltimore grew from seeing how overwhelming housing decisions can become when family, aging, finances, belongings, and the future all collide at once.</p>
             <p>My role isn’t to convince you to move. It’s to help you understand your options, connect you with the right resources, and create a clear plan for whatever comes next.</p>
-            <div className="credentials"><p className="credentials__eyebrow" id="mary-credentials-heading">Credentials &amp; specialties</p><ul className="credentials__grid credentials__grid--balanced" role="list" aria-labelledby="mary-credentials-heading"><li>Certified Senior Advisor</li><li>Founder and Chair, National Aging in Place Council, Greater Baltimore Chapter</li><li>Seniors Real Estate Specialist</li><li>Senior Home Coach</li><li>Certified Probate Real Estate Specialist</li></ul></div>
+            <div className="credentials"><p className="credentials__eyebrow" id="mary-credentials-heading">Credentials &amp; specialties</p><ul className="credentials__grid credentials__grid--balanced" role="list" aria-labelledby="mary-credentials-heading"><li>Certified Senior Advisor (CSA®)</li><li>Founder and Chair, National Aging in Place Council, Greater Baltimore Chapter</li><li>Seniors Real Estate Specialist (SRES®)</li><li>Senior Home Coach™</li><li>Certified Probate Real Estate Specialist</li></ul></div>
             <section className="mary-media" aria-labelledby="home-media-heading">
               <h3 id="home-media-heading">AS SEEN AND HEARD ON</h3>
               <ul role="list">
