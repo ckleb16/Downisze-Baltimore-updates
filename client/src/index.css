@@ -358,7 +358,7 @@ h1 { max-width:780px; margin-bottom:24px; font-size:clamp(58px,7.6vw,114px); lin
 .publisher-eyebrow{margin:0 0 .45rem;color:#9b7339;font:700 .64rem/1.2 "DM Sans",sans-serif;letter-spacing:.15em;text-transform:uppercase}
 .publisher-header .publisher-eyebrow{color:#e5c987}
 .publisher-header nav{display:flex;align-items:center;gap:1rem;font-size:.76rem}
-.publisher-header nav>a{display:inline-flex;flex:none;align-items:center;gap:.4rem;padding:.6rem .75rem;border:1px solid rgba(247,242,232,.35);white-space:nowrap}
+.publisher-header nav>button{display:inline-flex;flex:none;align-items:center;gap:.4rem;min-height:44px;padding:.6rem .75rem;border:1px solid rgba(247,242,232,.35);background:transparent;color:inherit;white-space:nowrap;cursor:pointer}.publisher-header nav>button:disabled{opacity:.6;cursor:wait}
 .publisher-main{display:grid;grid-template-columns:minmax(0,1fr) minmax(17rem,23rem);gap:1.5rem;width:min(100%,94rem);margin:auto;padding:2rem}
 .publisher-editor,.publisher-library{min-width:0;border:1px solid rgba(16,42,67,.16);background:#fffdf8;box-shadow:0 10px 25px rgba(16,42,67,.05)}
 .publisher-editor{padding:2rem}
@@ -401,6 +401,12 @@ h1 { max-width:780px; margin-bottom:24px; font-size:clamp(58px,7.6vw,114px); lin
 .publisher-primary-link,.publisher-back-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem}
 .publisher-primary-link{padding:.9rem 1.1rem;background:#b48a4a;color:#fff;font-weight:700}
 .publisher-back-link{color:#e5c987;font-size:.75rem}
+.publisher-login{display:grid;gap:1.25rem;width:min(100%,25rem);margin:1.75rem 0 .5rem;text-align:left}
+.publisher-login .publisher-field>label{color:#f7f2e8;font-size:.9rem}
+.publisher-login input{min-height:48px;color:#102a43;font-size:1rem}
+.publisher-login input:focus-visible,.publisher-login button:focus-visible,.publisher-gate a:focus-visible{outline:3px solid #e5c987;outline-offset:4px}
+.publisher-login__submit{min-height:48px;background:#e5c987;color:#102a43;font-weight:700}.publisher-login__submit:hover{background:#f0d9a5}
+.publisher-login__error{margin:0;padding:.85rem;border:1px solid #e8aaaa;background:#442b35;color:#ffe0e0;font-size:.9rem;line-height:1.5}
 
 .resource-insights__all:focus-visible,.resource-insights__state a:focus-visible,.resource-insights__state button:focus-visible,.resource-insights__list a:focus-visible,.insights-page a:focus-visible,.insights-page button:focus-visible,.publisher-page a:focus-visible,.publisher-page button:focus-visible{outline:3px solid #e5c987;outline-offset:4px}
 

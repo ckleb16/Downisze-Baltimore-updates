@@ -22,7 +22,6 @@ export type PublisherSession = {
   authorized: boolean;
   displayName: string | null;
   email: string | null;
-  signInUrl?: string;
 };
 
 export type ApiErrorPayload = {

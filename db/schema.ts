@@ -26,3 +26,17 @@ export const insightPosts = sqliteTable(
     ),
   ],
 );
+
+export const publisherSessions = sqliteTable("publisher_sessions", {
+  tokenHash: text("token_hash").primaryKey(),
+  username: text("username").notNull(),
+  credentialVersion: text("credential_version").notNull(),
+  createdAt: integer("created_at").notNull(),
+  expiresAt: integer("expires_at").notNull(),
+}, (table) => [index("idx_publisher_sessions_expiry").on(table.expiresAt)]);
+
+export const publisherLoginAttempts = sqliteTable("publisher_login_attempts", {
+  key: text("key").primaryKey(),
+  attempts: integer("attempts").notNull(),
+  expiresAt: integer("expires_at").notNull(),
+}, (table) => [index("idx_publisher_login_attempts_expiry").on(table.expiresAt)]);

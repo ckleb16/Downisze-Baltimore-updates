@@ -73,6 +73,10 @@ export default function InsightsPublisher() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [loadError, setLoadError] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const [signingIn, setSigningIn] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const isDirty = useMemo(() => JSON.stringify(form) !== JSON.stringify(savedForm), [form, savedForm]);
 
@@ -89,11 +93,10 @@ export default function InsightsPublisher() {
     } catch (error) {
       if (error instanceof InsightsApiError && (error.status === 401 || error.status === 403)) {
         setSession({
-          authenticated: error.status === 403,
+          authenticated: false,
           authorized: false,
           displayName: null,
           email: null,
-          signInUrl: "/signin-with-chatgpt?return_to=%2Fpublisher",
         });
       } else {
         setLoadError("The publishing dashboard could not be loaded.");
@@ -116,6 +119,49 @@ export default function InsightsPublisher() {
     window.addEventListener("beforeunload", warn);
     return () => window.removeEventListener("beforeunload", warn);
   }, [isDirty]);
+
+  const signIn = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (signingIn) return;
+    setSigningIn(true);
+    setLoginError("");
+    try {
+      await insightsRequest<PublisherSession>("/api/admin/login", {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: { "X-Downsize-Publisher": "1" },
+      });
+      setPassword("");
+      await loadDashboard();
+    } catch (error) {
+      setLoginError(error instanceof Error ? error.message : "Sign-in failed. Please try again.");
+    } finally {
+      setSigningIn(false);
+    }
+  };
+
+  const signOut = async () => {
+    if (saving || (isDirty && !window.confirm("Discard your unsaved changes and sign out?"))) return;
+    setSaving(true);
+    try {
+      await insightsRequest("/api/admin/logout", { method: "POST", headers: { "X-Downsize-Publisher": "1" } });
+      const next = freshForm();
+      setForm(next);
+      setSavedForm(next);
+      setPosts([]);
+      setErrors({});
+      setNotice("");
+      setSlugEdited(false);
+      setPassword("");
+      setLoginError("");
+      setSession(null);
+    } catch (error) {
+      setNotice(error instanceof Error ? error.message : "Sign-out failed. Please try again.");
+      setNoticeIsError(true);
+    } finally {
+      setSaving(false);
+    }
+  };
 
   const update = (field: keyof EditorForm, value: string) => {
     setNotice("");
@@ -230,6 +276,10 @@ export default function InsightsPublisher() {
       if (error instanceof InsightsApiError) {
         setErrors(error.fields);
         setNotice(error.message);
+        if (error.status === 401) {
+          setSession(null);
+          setLoginError("Your session expired. Sign in again to continue; your unsaved article is still here.");
+        }
       } else {
         setNotice("The post could not be saved. Please try again.");
       }
@@ -259,6 +309,10 @@ export default function InsightsPublisher() {
     } catch (error) {
       setNotice(error instanceof Error ? error.message : "The post could not be deleted.");
       setNoticeIsError(true);
+      if (error instanceof InsightsApiError && error.status === 401) {
+        setSession(null);
+        setLoginError("Your session expired. Sign in again to continue; your unsaved article is still here.");
+      }
     } finally {
       setSaving(false);
     }
@@ -282,17 +336,20 @@ export default function InsightsPublisher() {
     return (
       <main id="main-content" className="publisher-gate" tabIndex={-1}>
         <p className="publisher-eyebrow">Downsize Baltimore</p>
-        <h1>{session?.authenticated ? "Publishing access is required" : "Private publishing dashboard"}</h1>
-        <p>
-          {session?.authenticated
-            ? "This signed-in account is not on the publishing access list. Ask the site owner to add it."
-            : "Sign in with the approved ChatGPT account to write and publish Insights & Advice."}
-        </p>
-        {!session?.authenticated && (
-          <a className="publisher-primary-link" href={session?.signInUrl ?? "/signin-with-chatgpt?return_to=%2Fpublisher"} target="_top">
-            Sign in with ChatGPT <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
-        )}
+        <h1>Admin sign-in</h1>
+        <p>Sign in to write and publish Insights &amp; Advice. No ChatGPT account is needed.</p>
+        <form className="publisher-login" onSubmit={signIn} aria-busy={signingIn}>
+          <div className="publisher-field">
+            <Label htmlFor="publisher-username">Username (email)</Label>
+            <Input id="publisher-username" name="username" type="email" autoComplete="username" autoCapitalize="none" spellCheck={false} required maxLength={254} value={username} onChange={(event) => setUsername(event.target.value)} disabled={signingIn} />
+          </div>
+          <div className="publisher-field">
+            <Label htmlFor="publisher-password">Password</Label>
+            <Input id="publisher-password" name="password" type="password" autoComplete="current-password" required maxLength={256} value={password} onChange={(event) => setPassword(event.target.value)} disabled={signingIn} aria-describedby={loginError ? "publisher-login-error" : undefined} />
+          </div>
+          {loginError && <p id="publisher-login-error" className="publisher-login__error" role="alert">{loginError}</p>}
+          <Button className="publisher-login__submit" type="submit" disabled={signingIn}>{signingIn ? "Signing in…" : "Sign in"}</Button>
+        </form>
         <a className="publisher-back-link" href="/"><ArrowLeft size={15} aria-hidden="true" /> Return to the website</a>
       </main>
     );
@@ -307,7 +364,7 @@ export default function InsightsPublisher() {
         </div>
         <nav aria-label="Publisher account">
           <span>{session.displayName}</span>
-          <a href="/signout-with-chatgpt?return_to=%2F" target="_top">Sign out <LogOut size={15} aria-hidden="true" /></a>
+          <button type="button" onClick={() => void signOut()} disabled={saving}>Sign out <LogOut size={15} aria-hidden="true" /></button>
         </nav>
       </header>
 

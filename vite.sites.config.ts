@@ -66,8 +66,8 @@ export default defineConfig({
           process.env.NODE_ENV === "production"
             ? {}
             : {
-                DEV_BLOG_ADMIN: "true",
-                BLOG_ADMIN_EMAILS: "local.publisher@downsizebaltimore.test",
+                BLOG_LOGIN_USERNAME: process.env.BLOG_LOGIN_USERNAME ?? "",
+                BLOG_LOGIN_PASSWORD_HASH: process.env.BLOG_LOGIN_PASSWORD_HASH ?? "",
               },
         assets: {
           binding: "ASSETS",

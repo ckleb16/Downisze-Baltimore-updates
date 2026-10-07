@@ -6,6 +6,7 @@ import {
   findPageRoute,
 } from "../client/src/lib/siteRoutes";
 import { RESOURCE_GUIDES, guidePdfPath } from "../client/src/lib/resourceGuides";
+import { publisherLogin, publisherLogout, publisherUser, sameOriginMutation, type PublisherAuthEnv } from "./publisherAuth";
 import {
   PostConflictError,
   PostNotFoundError,
@@ -25,28 +26,17 @@ const DEFAULT_SITE_URL = "https://downsizebaltimore.com";
 const SOCIAL_IMAGE_PATH = "/downsize-baltimore-social-share.jpg";
 const SOCIAL_IMAGE_ALT =
   "Downsize Baltimore — clear housing guidance from Mary Lynch";
-const SIGN_IN_URL = "/signin-with-chatgpt?return_to=%2Fpublisher";
 const MAX_JSON_BODY_BYTES = 100_000;
 
 type AssetBinding = {
   fetch(request: Request): Promise<Response>;
 };
 
-type WorkerEnv = {
+type WorkerEnv = PublisherAuthEnv & {
   ASSETS: AssetBinding;
   DB: D1Database;
   SITE_INDEXABLE?: string;
   SITE_URL?: string;
-  BLOG_ADMIN_USER_IDS?: string;
-  BLOG_ADMIN_EMAILS?: string;
-  BLOG_ADDITIONAL_ADMIN_EMAILS?: string;
-  DEV_BLOG_ADMIN?: string;
-};
-
-type AuthenticatedUser = {
-  userId: string;
-  email: string;
-  displayName: string;
 };
 
 type RenderMetadata = {
@@ -190,6 +180,7 @@ function notFoundMetadata(): RenderMetadata {
 }
 
 function cacheControlFor(pathname: string) {
+  if (/^\/(?:@|client\/|src\/|node_modules\/)/.test(pathname)) return "no-store";
   if (
     /\/assets\/[^/]+-[a-z0-9_-]{8,}\.[^/]+$/i.test(pathname) ||
     /[_.-][a-f0-9]{8,}(?:-[a-z0-9_-]+)?\.[^/]+$/i.test(pathname)
@@ -268,65 +259,11 @@ async function renderRoute(
   return new Response(request.method === "HEAD" ? null : html, {
     status,
     headers: {
-      "Cache-Control": "no-cache, must-revalidate",
+      "Cache-Control": metadata.path === "/publisher" ? "private, no-store" : "no-cache, must-revalidate",
+      ...(metadata.path === "/publisher" ? { "X-Frame-Options": "DENY", "Content-Security-Policy": "frame-ancestors 'none'", "Referrer-Policy": "same-origin" } : {}),
       "Content-Type": "text/html; charset=utf-8",
     },
   });
-}
-
-function localPublisherEnabled(request: Request, env: WorkerEnv) {
-  const hostname = new URL(request.url).hostname;
-  return (
-    env.DEV_BLOG_ADMIN === "true" &&
-    (hostname === "localhost" || hostname === "127.0.0.1")
-  );
-}
-
-function decodeFullName(request: Request) {
-  const encoded = request.headers.get("oai-authenticated-user-full-name");
-  if (
-    !encoded ||
-    request.headers.get("oai-authenticated-user-full-name-encoding") !==
-      "percent-encoded-utf-8"
-  ) {
-    return null;
-  }
-  try {
-    return decodeURIComponent(encoded);
-  } catch {
-    return null;
-  }
-}
-
-function authenticatedUser(
-  request: Request,
-  env: WorkerEnv,
-): AuthenticatedUser | null {
-  if (localPublisherEnabled(request, env)) {
-    return {
-      userId: "local-publisher",
-      email: "local.publisher@downsizebaltimore.test",
-      displayName: "Local Publisher",
-    };
-  }
-
-  const userId = request.headers.get("oai-authenticated-user-id");
-  const email = request.headers.get("oai-authenticated-user-email");
-  if (!userId || !email) return null;
-  return {
-    userId,
-    email,
-    displayName: decodeFullName(request) ?? email,
-  };
-}
-
-function allowlist(value: string | undefined) {
-  return new Set(
-    (value ?? "")
-      .split(",")
-      .map((entry) => entry.trim().toLowerCase())
-      .filter(Boolean),
-  );
 }
 
 function decodePathSegment(value: string) {
@@ -335,31 +272,6 @@ function decodePathSegment(value: string) {
   } catch {
     return null;
   }
-}
-
-function isAuthorizedPublisher(
-  request: Request,
-  env: WorkerEnv,
-  user: AuthenticatedUser | null,
-) {
-  if (!user) return false;
-  if (localPublisherEnabled(request, env)) return true;
-  const userIds = allowlist(env.BLOG_ADMIN_USER_IDS);
-  const emails = allowlist(env.BLOG_ADMIN_EMAILS);
-  const additionalEmails = allowlist(env.BLOG_ADDITIONAL_ADMIN_EMAILS);
-  return (
-    userIds.has(user.userId.toLowerCase()) ||
-    emails.has(user.email.toLowerCase()) ||
-    additionalEmails.has(user.email.toLowerCase())
-  );
-}
-
-function sameOriginMutation(request: Request) {
-  if (request.headers.get("x-downsize-publisher") !== "1") return false;
-  const origin = request.headers.get("origin");
-  if (!origin || origin !== new URL(request.url).origin) return false;
-  const fetchSite = request.headers.get("sec-fetch-site");
-  return !fetchSite || fetchSite === "same-origin";
 }
 
 async function readJsonBody(request: Request) {
@@ -395,6 +307,14 @@ async function handleApi(request: Request, env: WorkerEnv) {
   }
 
   try {
+    if (pathname === "/api/admin/login" || pathname === "/api/admin/logout") {
+      if (request.method !== "POST") {
+        return jsonResponse({ error: "Use POST for this request." }, request, 405);
+      }
+      return pathname === "/api/admin/login"
+        ? await publisherLogin(request, env)
+        : await publisherLogout(request, env);
+    }
     if (pathname === "/api/posts" && (request.method === "GET" || request.method === "HEAD")) {
       const requestedLimit = Number(url.searchParams.get("limit") || "20");
       const requestedOffset = Number(url.searchParams.get("offset") || "0");
@@ -436,27 +356,22 @@ async function handleApi(request: Request, env: WorkerEnv) {
     }
 
     if (pathname === "/api/admin/session" && (request.method === "GET" || request.method === "HEAD")) {
-      const user = authenticatedUser(request, env);
-      const authorized = isAuthorizedPublisher(request, env, user);
+      const user = await publisherUser(request, env);
       return jsonResponse(
         {
           authenticated: Boolean(user),
-          authorized,
+          authorized: Boolean(user),
           displayName: user?.displayName ?? null,
           email: user?.email ?? null,
-          ...(!user ? { signInUrl: SIGN_IN_URL } : {}),
         },
         request,
-        user && !authorized ? 403 : user ? 200 : 401,
+        user ? 200 : 401,
       );
     }
 
     if (pathname.startsWith("/api/admin/")) {
-      const user = authenticatedUser(request, env);
+      const user = await publisherUser(request, env);
       if (!user) return jsonResponse({ error: "Sign in to continue." }, request, 401);
-      if (!isAuthorizedPublisher(request, env, user)) {
-        return jsonResponse({ error: "This account does not have publishing access." }, request, 403);
-      }
 
       if (pathname === "/api/admin/posts" && (request.method === "GET" || request.method === "HEAD")) {
         return jsonResponse({ posts: await listAdminPosts(env.DB) }, request);
@@ -575,13 +490,6 @@ export default {
     }
 
     if (pathname === "/sitemap.xml") return sitemapResponse(request, env);
-
-    if (pathname === "/publisher") {
-      const user = authenticatedUser(request, env);
-      if (!user && !localPublisherEnabled(request, env)) {
-        return Response.redirect(new URL(SIGN_IN_URL, request.url), 302);
-      }
-    }
 
     const articleSlug = articleSlugFromPath(pathname);
     if (articleSlug) {
