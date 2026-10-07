@@ -4,6 +4,7 @@ import DeferredBackground from "@/components/DeferredBackground";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { SITE_CONTACT } from "@/lib/siteConfig";
 import {
   ArrowUpRight,
   Baby,
@@ -23,7 +24,7 @@ const maryPortrait = "/manus-storage/Mary_Lynch_3d838598.jpg";
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
 const contourTexture = "/manus-storage/downsize-baltimore-contour-lines_aaa317b7-1920w.webp";
 const washTexture = "/manus-storage/downsize-baltimore-warm-wash_0631c386-1920w.webp";
-const calendlyUrl = "https://calendly.com/mary-movewithmarylynch/30min";
+const calendlyUrl = SITE_CONTACT.calendlyUrl;
 
 const dailyQuestions = [
   "Should Mom stay in her home?",
@@ -35,9 +36,12 @@ type GoogleReview = {
   quote: string;
   name: string;
   sourceUrl: string;
+  sourceLabel?: string;
 };
 
-// Verified against Google Maps' Newest sort on September 2, 2026.
+// Three retained reviews were verified against Google Maps on September 2, 2026.
+// Rose and Sandi's text was supplied by Mary; the user confirmed five stars on October 7.
+// This is a curated set, not an automatically synchronized or re-sorted feed.
 const googleReviews: GoogleReview[] = [
   {
     quote: "Mary is an outstanding agent and advisor who has helped us in all aspects of downsizing in the BelAir/ Harford County market. She is extremely knowledgeable, wonderfully warm and personal, incredibly accommodating, empathetic and enthusiastic. It’s very apparent she loves what she does from the moment you meet her and a real pleasure to work with.\nGloria&Tom Tanton",
@@ -50,9 +54,10 @@ const googleReviews: GoogleReview[] = [
     sourceUrl: "https://maps.app.goo.gl/ewtd9eKATLa1wiuT9",
   },
   {
-    quote: "Mary was such a pleasure to work with! My husband and I were buying our first home and really didn’t know where to begin. We got connected with Mary through a friend’s recommendation and she guided us through the entire process with kindness and patience. She went to so many open houses with us and made sure we ended up with the perfect home. She also has great connections with local businesses and helped us navigate inspections and repairs. Truly a 10 / 10 experience. Will definitely go to her for any future home buying needs!",
-    name: "Danielle Wagner",
-    sourceUrl: "https://maps.app.goo.gl/6jyVMB6qxJT8GqYz5",
+    quote: "We've known Mary for more than 30 years, so when it was time to make a big change, we knew we could trust her to guide us.\n\nAbout 20 years ago, we moved three hours away to what we believed would be our forever home—and we truly loved it there. But as time went by, we found ourselves wanting to be closer to family again. We began casually searching about two years ago, but because we had a very specific type of property in mind, we were willing to wait for the right one.\n\nWhen the perfect condo in Perry Hall finally became available, Mary helped us secure it sight unseen! Her knowledge, responsiveness, and steady guidance made our downsizing journey so much easier. We're thrilled to be closer to family again and couldn't have done it without her. We highly recommend Mary to anyone considering a move or downsizing in the Perry Hall area! You won't be disappointed!",
+    name: "Rose Filbey",
+    sourceUrl: "https://www.google.com/maps/contrib/104944791681420851109/reviews?hl=en",
+    sourceLabel: "Google profile",
   },
   {
     quote: "Mary is an outstanding real estate agent, and I can’t recommend her enough. She is always professional, patient, and incredibly accommodating. In 2019, Mary helped me sell my elderly father’s home, and her steady guidance made what could have been a very stressful process so much easier.\n\nThere were many important decisions to make along the way—listing price, prioritizing necessary repairs, and even choosing paint colors. Mary walked us through every step with care and expertise. Most importantly, she always made sure my 87-year-old father fully understood not just what decisions were being made, but why they were the best choices to help him get the highest possible price for his home.\n\nThanks to Mary’s knowledge and strategy, the house sold for $40,000 over the target price. My father was absolutely ecstatic with the outcome and with Mary’s performance.\n\nI have personally used Mary for all of my real estate needs (selling two homes), and she never disappoints. I would—and do—recommend her to anyone buying or selling a home in Maryland. She’s a rock star!",
@@ -60,9 +65,10 @@ const googleReviews: GoogleReview[] = [
     sourceUrl: "https://maps.app.goo.gl/H3LyiLFN4YC9zTx69",
   },
   {
-    quote: "I’ve known Mary for a while now and she is my go-to person for all things in the greater Baltimore area! She has got all the housing connections I need. And, she’s such a nice person to top it off. 😃 Thanks Mary!",
-    name: "Colleen Feuling",
-    sourceUrl: "https://maps.app.goo.gl/5rnrdWN8w9EZH8fr5",
+    quote: "Mary helped us with our cross country move by contacting and interviewing painting contractors. She helped us with many of the details involved in purchasing a home that would have otherwise been difficult to arrange from out of state. Mary went above and beyond what most realtors would have done!",
+    name: "Sandi Stevanak",
+    sourceUrl: "https://www.google.com/maps/contrib/111567031490243201480/reviews?hl=en",
+    sourceLabel: "Google profile",
   },
 ];
 
@@ -275,7 +281,7 @@ export default function Home() {
                 )}
                 <figcaption>
                   <strong>{currentTestimonial.name}</strong>
-                  <a href={currentTestimonial.sourceUrl} target="_blank" rel="noreferrer">Google review <ArrowUpRight size={14} aria-hidden="true" /></a>
+                  <a href={currentTestimonial.sourceUrl} target="_blank" rel="noopener noreferrer">{currentTestimonial.sourceLabel ?? "Google review"} <ArrowUpRight size={14} aria-hidden="true" /></a>
                 </figcaption>
               </figure>
               <p className="sr-only" aria-live="polite" aria-atomic="true">Review {activeTestimonial + 1} of {googleReviews.length}, by {currentTestimonial.name}</p>

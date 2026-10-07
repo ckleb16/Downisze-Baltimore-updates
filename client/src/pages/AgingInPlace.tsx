@@ -4,6 +4,7 @@ import AnchorLineLabel from "@/components/AnchorLineLabel";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { SITE_CONTACT } from "@/lib/siteConfig";
 import { ArrowUpRight, Check, Anchor } from "lucide-react";
 
 // Harbor House Editorial: warm, advisory, spacious, and human — navy, cream, taupe, antique gold,
@@ -13,7 +14,7 @@ const consultationPhoto = "/manus-storage/aging-in-place-consultation_1b627f71.j
 const personalPhoto = "/manus-storage/mary-and-pop-boat.png";
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
 const contourTexture = "/manus-storage/downsize-baltimore-contour-lines_aaa317b7-1920w.webp";
-const calendlyUrl = "https://calendly.com/mary-movewithmarylynch/30min";
+const calendlyUrl = SITE_CONTACT.calendlyUrl;
 
 const stayItems = ["Home safety improvements", "Bathroom modifications", "Main-level living changes", "Stairlifts or elevators", "Home care", "Smart home technology", "Occupational therapy home assessments", "ADUs or multigenerational additions"];
 const moveItems = ["One-level homes", "Ranchers", "Villas", "Condominiums", "55+ communities", "Retirement communities", "Multigenerational housing", "Closer to family, healthcare, transportation, and community"];

@@ -575,6 +575,15 @@
       }
     ]
   },
+  "/manus-storage/pop-and-mary-1972.png": {
+    "sourceWidth": 1086,
+    "sourceHeight": 1448,
+    "variants": [
+      { "src": "/manus-storage/pop-and-mary-1972-480w.webp", "width": 480, "height": 640, "bytes": 24222 },
+      { "src": "/manus-storage/pop-and-mary-1972-768w.webp", "width": 768, "height": 1024, "bytes": 45090 },
+      { "src": "/manus-storage/pop-and-mary-1972-1086w.webp", "width": 1086, "height": 1448, "bytes": 73104 }
+    ]
+  },
   "/manus-storage/downsize-baltimore-mark_c3769b0a.png": {
     "sourceWidth": 1920,
     "sourceHeight": 1920,

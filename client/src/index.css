@@ -3295,6 +3295,10 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
   .meet-media__brand-name{text-align:left}
 }
 
+/* The supplied October 7 scan already contains its own frame and handwritten caption. */
+.meet-polaroid--scan{padding:0;background:transparent;box-shadow:none;transform:none}
+.meet-polaroid--scan img{height:auto;aspect-ratio:3/4;object-fit:contain;filter:none}
+
 /* October 6 feedback: place the NAIPC mark at the section's upper-left edge. */
 @media (min-width:901px){
   .aip-naipc{position:relative}

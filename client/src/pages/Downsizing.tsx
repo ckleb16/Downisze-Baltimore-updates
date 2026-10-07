@@ -1,5 +1,6 @@
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { SITE_CONTACT } from "@/lib/siteConfig";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import DeferredBackground from "@/components/DeferredBackground";
 import AnchorLineLabel from "@/components/AnchorLineLabel";
@@ -11,7 +12,7 @@ const heroPhoto = "/manus-storage/downsizing-hero_718d6bc8.jpeg";
 const roomPhoto = "/manus-storage/downsizing-room_d33a128b.jpeg";
 const maryPhoto = "/manus-storage/mary-lynch-downsizing_b73a2d4f.jpg";
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
-const calendlyUrl = "https://calendly.com/mary-movewithmarylynch/30min";
+const calendlyUrl = SITE_CONTACT.calendlyUrl;
 
 const steps = [
   ["01", "Start With the Conversation", "We talk about what’s working, what isn’t, your timeline, your concerns, and what you would like life to look like next."],

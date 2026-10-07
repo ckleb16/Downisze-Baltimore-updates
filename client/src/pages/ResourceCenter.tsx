@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { SITE_CONTACT } from "@/lib/siteConfig";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import DeferredBackground from "@/components/DeferredBackground";
 import LatestInsights from "@/components/LatestInsights";
@@ -16,7 +17,7 @@ import { ArrowUpRight, BookOpen, ChevronDown, Anchor, Home, Scale, ShieldCheck, 
 const heroImage = "/manus-storage/mary-lynch-resource-center_4f151291.jpg";
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
 const contourTexture = "/manus-storage/downsize-baltimore-contour-lines_aaa317b7-1920w.webp";
-const calendlyUrl = "https://calendly.com/mary-movewithmarylynch/30min";
+const calendlyUrl = SITE_CONTACT.calendlyUrl;
 const currentPath = "/resource-center";
 
 const pathways = [

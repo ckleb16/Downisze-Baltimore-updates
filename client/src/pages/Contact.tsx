@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { SITE_CONTACT } from "@/lib/siteConfig";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import DeferredBackground from "@/components/DeferredBackground";
 import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
@@ -13,7 +14,7 @@ import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 
 const heroImage = "/manus-storage/mary-lynch-contact-chair_dd829984.jpg";
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
-const calendlyUrl = "https://calendly.com/mary-movewithmarylynch/30min";
+const calendlyUrl = SITE_CONTACT.calendlyUrl;
 const emailAddress = "mary@downsizebaltimore.com";
 
 const currentPath = "/contact";

@@ -1,5 +1,6 @@
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { SITE_CONTACT } from "@/lib/siteConfig";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import DeferredBackground from "@/components/DeferredBackground";
 import MaryMedia from "@/components/MaryMedia";
@@ -11,14 +12,14 @@ import { ArrowUpRight, Anchor } from "lucide-react";
  */
 
 const heroImage = "/manus-storage/mary-lynch-meet-mary-hero_8902efd8.jpg";
-const popImage = "/manus-storage/pop-and-baby-mary-boat_ef16c849.jpg";
-const popVideo = "/manus-storage/pop-driving-the-boat-web_97e26ead.mp4";
-const popVideoPoster = "/manus-storage/pop-driving-the-boat-thumbnail_d6758521-1280w.webp";
+const popImage = "/manus-storage/pop-and-mary-1972.png";
+const popVideo = "/manus-storage/pop-with-music-20261007.mp4";
+const popVideoPoster = "/manus-storage/pop-with-music-20261007-poster.jpg";
 const familyTravelPhoto = "/manus-storage/mary-family-travel_7af40885.jpg";
 const chesapeakePhoto = "/manus-storage/mary-chesapeake-frenchies_ed69a28d.jpg";
 const oriolesPhoto = "/manus-storage/mary-orioles-family_627afe9d.jpg";
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
-const calendlyUrl = "https://calendly.com/mary-movewithmarylynch/30min";
+const calendlyUrl = SITE_CONTACT.calendlyUrl;
 
 const currentPath = "/meet-mary";
 
@@ -50,10 +51,20 @@ export default function MeetMary() {
 
       <section className="meet-pop">
         <div className="meet-pop__story">
-          <div className="meet-polaroid"><ResponsiveImage src={popImage} sizes="(max-width: 900px) 76vw, 480px" alt="Mary as a child with her grandfather Pop on a boat" /><span>Me &amp; Pop. Long before I knew where this would lead.</span></div>
+          <div className="meet-polaroid meet-polaroid--scan"><ResponsiveImage src={popImage} sizes="(max-width: 900px) 86vw, 480px" alt="Pop holding young Mary at a boat's helm, with the handwritten caption ‘Pop and Mary, 1972’" /></div>
           <div className="meet-pop__copy"><p className="meet-eyebrow meet-eyebrow--gold">For me, this is personal</p><h2>My Pop was my grandfather.<br /><i>He was also my anchor.</i></h2><p>He was technically my grandfather, but he functioned as my father figure, my constant, and my anchor. He spent nearly ten years caring for my grandmother as she lived with dementia, deeply committed to keeping her at home.</p><p>After she died, Pop and I had several wonderful years together. Later, he was diagnosed with cancer. I became his caregiver while also raising teenagers. Eventually, Pop moved into my home, where a hospital bed was placed in the living and dining area because the house had never been designed for caregiving or aging.</p><p>I remember thinking, <i>How did I not know this?</i> I had spent my career advising people about homes, and neither his home nor mine was prepared for what our family needed.</p><p className="meet-pop__closing">That experience changed the direction of my work. It taught me that earlier planning and better information can give families more choices, more autonomy, and more peace of mind.</p></div>
         </div>
-        <figure className="meet-pop__video"><video controls muted preload="metadata" poster={popVideoPoster} playsInline aria-label="Pop driving the boat" aria-describedby="pop-video-description" ref={(video) => { if (video) { video.defaultMuted = true; video.muted = true; } }}><source src={popVideo} type="video/mp4" /><track kind="captions" src="/captions/pop-driving-the-boat.en.vtt" srcLang="en" label="English" default /></video><figcaption id="pop-video-description">Our guy, Pop. Still happiest at the helm.</figcaption><details className="meet-pop__transcript"><summary>Video transcript</summary><p><span>0:00–0:10</span> Boat engine and wind.</p><p><span>0:10–0:13</span> A woman speaks, but the words are indistinct.</p><p><span>0:13–0:14</span> A man says, “Hi!”</p><p><span>0:14–0:18</span> A woman speaks indistinctly over the boat engine and wind.</p></details></figure>
+        <figure className="meet-pop__video">
+          <video controls preload="metadata" poster={popVideoPoster} playsInline aria-label="Pop driving the boat, with music" aria-describedby="pop-video-description">
+            <source src={popVideo} type="video/mp4" />
+            <track kind="captions" src="/captions/pop-with-music.en.vtt" srcLang="en" label="English" default />
+          </video>
+          <figcaption id="pop-video-description">Our guy, Pop. Still happiest at the helm.</figcaption>
+          <details className="meet-pop__transcript">
+            <summary>Video transcript</summary>
+            <p><span>0:00–0:36</span> Music plays throughout the clip. There is no spoken dialogue.</p>
+          </details>
+        </figure>
       </section>
 
       <section className="meet-chapter"><div><p className="meet-eyebrow meet-eyebrow--gold">A story I now share</p><h2>“3 A.M. and<br /><i>Unprepared.”</i></h2></div><div><p>My caregiving experience with Pop eventually became part of the chapter <i>3 A.M. and Unprepared: A Caregiver’s Awakening</i>, published through the National Aging in Place Council in <i>Aging in Place Conversations: Caregivers Edition.</i></p><p>The story traveled beyond the page through Baltimore County libraries and became part of the path that connected my work with broader aging education, including the American Library Association’s Aging Together initiative.</p><p>Pop led to caregiving. Caregiving led to writing. Writing led to libraries and education, and to helping more families understand what preparation can make possible.</p><span className="meet-chapter__note"><Anchor size={16} aria-hidden="true" /> Published chapter · Caregivers Edition</span></div></section>

@@ -31,6 +31,7 @@ PHOTO_SOURCES = [
     "mary-orioles-family_627afe9d.jpg",
     "Mary_Lynch_3d838598.jpg",
     "pop-and-baby-mary-boat_ef16c849.jpg",
+    "pop-and-mary-1972.png",
     "pop-driving-the-boat-thumbnail_d6758521.jpg",
 ]
 

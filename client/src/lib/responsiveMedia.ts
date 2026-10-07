@@ -21,6 +21,7 @@ export const RESPONSIVE_MEDIA = {
   "/manus-storage/mary-orioles-family_627afe9d.jpg": { width: 1206, height: 1602, variants: [480, 768, 1200, 1206] },
   "/manus-storage/Mary_Lynch_3d838598.jpg": { width: 1365, height: 2048, variants: [480, 768, 1200, 1365] },
   "/manus-storage/pop-and-baby-mary-boat_ef16c849.jpg": { width: 1152, height: 2048, variants: [480, 768, 1152] },
+  "/manus-storage/pop-and-mary-1972.png": { width: 1086, height: 1448, variants: [480, 768, 1086] },
   "/manus-storage/pop-driving-the-boat-thumbnail_d6758521.jpg": { width: 1280, height: 720, variants: [480, 768, 1200, 1280] },
 } as const satisfies Record<string, ResponsiveMediaMetadata>;
 
