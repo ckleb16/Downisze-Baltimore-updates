@@ -60,10 +60,6 @@ export default function MeetMary() {
             <track kind="captions" src="/captions/pop-with-music.en.vtt" srcLang="en" label="English" default />
           </video>
           <figcaption id="pop-video-description">Our guy, Pop. Still happiest at the helm.</figcaption>
-          <details className="meet-pop__transcript">
-            <summary>Video transcript</summary>
-            <p><span>0:00–0:36</span> Music plays throughout the clip. There is no spoken dialogue.</p>
-          </details>
         </figure>
       </section>
 

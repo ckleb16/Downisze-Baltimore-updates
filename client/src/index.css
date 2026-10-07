@@ -2184,10 +2184,6 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
 .resource-pathways:after{background-image:repeating-linear-gradient(165deg,rgba(16,42,67,.22) 0 1px,transparent 1px 11px)}
 .not-found-page{background-image:url('/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp')}
 
-.meet-pop__transcript{margin-top:.9rem;border-top:1px solid rgba(180,138,74,.55);color:#4f5b63;font-size:.78rem;line-height:1.55}
-.meet-pop__transcript summary{display:inline-flex;min-height:44px;align-items:center;color:var(--gold-text-on-light);font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
-.meet-pop__transcript p{margin:.35rem 0!important;color:#4f5b63!important}
-.meet-pop__transcript span{display:inline-block;min-width:5.4rem;color:var(--gold-text-on-light);font-variant-numeric:tabular-nums}
 
 /* Responsive foreground media replacing fixed-width photographic backgrounds. */
 .ds-hero__image,
@@ -3295,9 +3291,10 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
   .meet-media__brand-name{text-align:left}
 }
 
-/* The supplied October 7 scan already contains its own frame and handwritten caption. */
-.meet-polaroid--scan{padding:0;background:transparent;box-shadow:none;transform:none}
-.meet-polaroid--scan img{height:auto;aspect-ratio:3/4;object-fit:contain;filter:none}
+/* Show the scan's 1038 × 1328 vintage frame, excluding its outer white margin.
+   The original 1086 × 1448 image and handwritten caption remain unchanged. */
+.meet-polaroid--scan{position:relative;aspect-ratio:1038/1328;overflow:hidden;padding:0;background:transparent;box-shadow:none;transform:none}
+.meet-polaroid--scan img{position:absolute;top:calc(-60 / 1328 * 100%);left:calc(-24 / 1038 * 100%);width:calc(1086 / 1038 * 100%);max-width:none;height:auto;aspect-ratio:3/4;object-fit:contain;filter:none}
 
 /* October 6 feedback: place the NAIPC mark at the section's upper-left edge. */
 @media (min-width:901px){
