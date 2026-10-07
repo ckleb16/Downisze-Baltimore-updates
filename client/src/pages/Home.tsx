@@ -256,10 +256,10 @@ export default function Home() {
         {googleReviews.length > 0 && (
           <section className="testimonial-reserve" aria-labelledby="google-reviews-heading">
             <div className="testimonial-reserve__heading">
-              <p className="eyebrow">A quiet place for client perspective</p>
+              <p className="eyebrow">Selected five-star Google reviews</p>
               <h2 id="google-reviews-heading">Kind Words From People I’ve Helped</h2>
             </div>
-            <div className="testimonial-reserve__stage" role="region" aria-roledescription="carousel" aria-label="Google reviews">
+            <div className="testimonial-reserve__stage" role="region" aria-roledescription="carousel" aria-label="Selected five-star Google reviews">
               <figure className="testimonial-reserve__card" aria-label={`Review ${activeTestimonial + 1} of ${googleReviews.length}`}>
                 <div className="testimonial-reserve__stars" role="img" aria-label="5 out of 5 stars">
                   {Array.from({ length: 5 }, (_, index) => <span key={index} aria-hidden="true">★</span>)}

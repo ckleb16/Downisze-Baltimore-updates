@@ -6,7 +6,7 @@ import {
   findPageRoute,
 } from "../client/src/lib/siteRoutes";
 import { RESOURCE_GUIDES, guidePdfPath } from "../client/src/lib/resourceGuides";
-import { publisherLogin, publisherLogout, publisherUser, sameOriginMutation, type PublisherAuthEnv } from "./publisherAuth";
+import { publisherLogin, publisherLogout, publisherChangePassword, publisherUser, sameOriginMutation, type PublisherAuthEnv } from "./publisherAuth";
 import {
   PostConflictError,
   PostNotFoundError,
@@ -17,6 +17,9 @@ import {
   listAdminPosts,
   listPublishedPostSlugs,
   listPublishedPosts,
+  postCursor,
+  restorePost,
+  listPostRevisions,
   updatePost,
   type PostWriteInput,
   type PublicInsightPost,
@@ -26,7 +29,7 @@ const DEFAULT_SITE_URL = "https://downsizebaltimore.com";
 const SOCIAL_IMAGE_PATH = "/downsize-baltimore-social-share.jpg";
 const SOCIAL_IMAGE_ALT =
   "Downsize Baltimore — clear housing guidance from Mary Lynch";
-const MAX_JSON_BODY_BYTES = 100_000;
+const MAX_JSON_BODY_BYTES = 500_000;
 
 type AssetBinding = {
   fetch(request: Request): Promise<Response>;
@@ -35,6 +38,7 @@ type AssetBinding = {
 type WorkerEnv = PublisherAuthEnv & {
   ASSETS: AssetBinding;
   DB: D1Database;
+  MEDIA?: R2Bucket;
   SITE_INDEXABLE?: string;
   SITE_URL?: string;
 };
@@ -288,7 +292,9 @@ async function readJsonBody(request: Request) {
     throw new PostValidationError({ body: "This article is too large." });
   }
   try {
-    return JSON.parse(text) as PostWriteInput;
+    const input = JSON.parse(text);
+    if (!input || typeof input !== "object" || Array.isArray(input)) throw new Error();
+    return input as PostWriteInput;
   } catch {
     throw new PostValidationError({ request: "The post data is not valid JSON." });
   }
@@ -328,6 +334,7 @@ async function handleApi(request: Request, env: WorkerEnv) {
         env.DB,
         limit + 1,
         offset,
+        url.searchParams.get("cursor"),
       );
       const hasMore = page.length > limit;
       return jsonResponse(
@@ -336,6 +343,7 @@ async function handleApi(request: Request, env: WorkerEnv) {
           pagination: {
             hasMore,
             nextOffset: hasMore ? offset + limit : null,
+            nextCursor: hasMore ? postCursor(page[limit - 1]) : null,
           },
         },
         request,
@@ -372,6 +380,35 @@ async function handleApi(request: Request, env: WorkerEnv) {
     if (pathname.startsWith("/api/admin/")) {
       const user = await publisherUser(request, env);
       if (!user) return jsonResponse({ error: "Sign in to continue." }, request, 401);
+
+      if (pathname === "/api/admin/password" && request.method === "POST") return publisherChangePassword(request, env);
+      if (pathname === "/api/admin/images" && request.method === "POST") return uploadInsightImage(request, env);
+
+      const recoveryMatch = pathname.match(/^\/api\/admin\/recovery\/([a-f0-9-]{36})$/);
+      if (recoveryMatch) {
+        const id = recoveryMatch[1];
+        if (request.method === "GET") {
+          const row = await env.DB.prepare("SELECT snapshot FROM publisher_recovery WHERE id = ? AND username = ? AND updated_at > ?").bind(id, user.email, Date.now() - 30 * 86400000).first<{ snapshot: string }>();
+          return jsonResponse({ recovery: row ? JSON.parse(row.snapshot) : null }, request);
+        }
+        if (!sameOriginMutation(request)) return jsonResponse({ error: "This request was blocked." }, request, 403);
+        if (request.method === "PUT") {
+          const input = await readJsonBody(request) as unknown as { snapshot?: unknown; writtenAt?: unknown };
+          if (!input.snapshot || typeof input.snapshot !== "object" || !Number.isSafeInteger(input.writtenAt) || Math.abs(Number(input.writtenAt) - Date.now()) > 300000) throw new PostValidationError({ request: "Invalid recovery draft." });
+          await env.DB.prepare("INSERT INTO publisher_recovery (id, username, snapshot, updated_at) VALUES (?, ?, ?, ?) ON CONFLICT(id) DO UPDATE SET snapshot = excluded.snapshot, updated_at = excluded.updated_at WHERE publisher_recovery.username = excluded.username AND publisher_recovery.updated_at <= excluded.updated_at")
+            .bind(id, user.email, JSON.stringify(input.snapshot), input.writtenAt).run();
+          return jsonResponse({ success: true }, request);
+        }
+      }
+
+      const postActionMatch = pathname.match(/^\/api\/admin\/posts\/([a-z0-9-]{8,64})\/(restore|revisions)$/i);
+      if (postActionMatch) {
+        if (postActionMatch[2] === "revisions" && request.method === "GET") return jsonResponse({ revisions: await listPostRevisions(env.DB, postActionMatch[1]) }, request);
+        if (postActionMatch[2] === "restore" && request.method === "POST") {
+          if (!sameOriginMutation(request)) return jsonResponse({ error: "This request was blocked." }, request, 403);
+          return jsonResponse({ post: await restorePost(env.DB, postActionMatch[1]) }, request);
+        }
+      }
 
       if (pathname === "/api/admin/posts" && (request.method === "GET" || request.method === "HEAD")) {
         return jsonResponse({ posts: await listAdminPosts(env.DB) }, request);
@@ -426,6 +463,86 @@ async function handleApi(request: Request, env: WorkerEnv) {
       500,
     );
   }
+}
+
+async function uploadInsightImage(request: Request, env: WorkerEnv) {
+  if (!sameOriginMutation(request)) return jsonResponse({ error: "This upload was blocked." }, request, 403);
+  if (!env.MEDIA) return jsonResponse({ error: "Image uploads are temporarily unavailable." }, request, 503);
+  const contentType = request.headers.get("content-type") ?? "";
+  if (!contentType.startsWith("multipart/form-data")) return jsonResponse({ error: "Choose an image to upload." }, request, 422);
+  const reader = request.body?.getReader(); const chunks: Uint8Array[] = []; let length = 0;
+  if (!reader) return jsonResponse({ error: "Choose an image to upload." }, request, 422);
+  while (true) { const chunk = await reader.read(); if (chunk.done) break; length += chunk.value.byteLength;
+    if (length > 5 * 1024 * 1024 + 65536) { await reader.cancel(); return jsonResponse({ error: "Choose an image smaller than 5 MB." }, request, 413); } chunks.push(chunk.value); }
+  let data: FormData;
+  try { data = await new Response(new Blob(chunks), { headers: { "Content-Type": contentType } }).formData(); }
+  catch { return jsonResponse({ error: "The upload could not be read." }, request, 422); }
+  const file = data.get("image");
+  if (!(file instanceof File) || !file.size || file.size > 5 * 1024 * 1024) return jsonResponse({ error: "Choose an image smaller than 5 MB." }, request, 422);
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  const png = bytes.length > 8 && [137,80,78,71,13,10,26,10].every((b,i) => bytes[i] === b);
+  const jpeg = bytes.length > 3 && bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255;
+  const webp = bytes.length > 12 && new TextDecoder().decode(bytes.slice(0,4)) === "RIFF" && new TextDecoder().decode(bytes.slice(8,12)) === "WEBP";
+  const type = png ? "image/png" : jpeg ? "image/jpeg" : webp ? "image/webp" : null;
+  if (!type || file.type !== type) return jsonResponse({ error: "Use a PNG, JPEG, or WebP image. SVG and other files are not supported." }, request, 422);
+  const id = crypto.randomUUID();
+  await env.MEDIA.put(`insights/${id}`, bytes, { httpMetadata: { contentType: type } });
+  try { await env.DB.prepare("INSERT INTO insight_images (id, content_type, size, created_at) VALUES (?, ?, ?, ?)").bind(id, type, bytes.length, Date.now()).run(); }
+  catch (error) { await env.MEDIA.delete(`insights/${id}`); throw error; }
+  return jsonResponse({ url: `/media/insights/${id}` }, request, 201);
+}
+
+async function insightImage(request: Request, env: WorkerEnv, id: string) {
+  const metadata = await env.DB.prepare("SELECT content_type, size FROM insight_images WHERE id = ?").bind(id).first<{ content_type: string; size: number }>();
+  if (!metadata || !env.MEDIA) return new Response("Image not found", { status: 404 });
+  const path = `/media/insights/${id}`;
+  const published = await env.DB.prepare("SELECT id FROM insight_posts WHERE status = 'published' AND deleted_at IS NULL AND published_at <= ? AND instr(body, ?) > 0 LIMIT 1").bind(Date.now(), path).first();
+  if (!published && !(await publisherUser(request, env))) return new Response("Image not found", { status: 404 });
+  const object = await env.MEDIA.get(`insights/${id}`);
+  if (!object) return new Response("Image not found", { status: 404 });
+  return new Response(request.method === "HEAD" ? null : object.body, { headers: {
+    "Content-Type": metadata.content_type, "Content-Length": String(metadata.size), "X-Content-Type-Options": "nosniff",
+    "Cache-Control": published ? "public, max-age=60" : "private, no-store", ETag: object.httpEtag,
+  } });
+}
+
+async function familyVideo(request: Request, env: WorkerEnv) {
+  const total = 9001545;
+  const headers = new Headers({ "Content-Type": "video/mp4", "Accept-Ranges": "bytes", "Cache-Control": "public, max-age=86400", "X-Content-Type-Options": "nosniff" });
+  const range = request.headers.get("Range");
+  let start = 0; let end = total - 1;
+  if (range && request.method !== "HEAD") {
+    const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+    if (!match || (!match[1] && !match[2])) { headers.set("Content-Range", `bytes */${total}`); return new Response(null, { status: 416, headers }); }
+    start = match[1] ? Number(match[1]) : Math.max(0, total - Number(match[2]));
+    end = match[1] && match[2] ? Math.min(Number(match[2]), total - 1) : total - 1;
+    if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start > end || start >= total) { headers.set("Content-Range", `bytes */${total}`); return new Response(null, { status: 416, headers }); }
+    headers.set("Content-Range", `bytes ${start}-${end}/${total}`);
+  }
+  headers.set("Content-Length", String(end - start + 1));
+  if (request.method === "HEAD") return new Response(null, { headers });
+  const source = await env.ASSETS.fetch(new Request(new URL("/manus-storage/pop-with-music-20261007.mp4", request.url)));
+  if (!source.ok || !source.body) return new Response("Video unavailable", { status: 503 });
+  if (!range) return new Response(source.body, { headers });
+  const reader = source.body.getReader(); let position = 0;
+  const body = new ReadableStream<Uint8Array>({
+    async pull(controller) {
+      try {
+        while (true) {
+          const chunk = await reader.read();
+          if (chunk.done) { controller.close(); return; }
+          const chunkStart = position; position += chunk.value.byteLength;
+          if (position <= start) continue;
+          const slice = chunk.value.subarray(Math.max(0, start - chunkStart), Math.min(chunk.value.byteLength, end + 1 - chunkStart));
+          if (slice.length) controller.enqueue(slice);
+          if (position > end) { controller.close(); await reader.cancel(); }
+          return;
+        }
+      } catch (error) { controller.error(error); }
+    },
+    cancel(reason) { return reader.cancel(reason); },
+  });
+  return new Response(body, { status: 206, headers });
 }
 
 async function sitemapResponse(request: Request, env: WorkerEnv) {
@@ -490,11 +607,18 @@ export default {
     }
 
     if (pathname === "/sitemap.xml") return sitemapResponse(request, env);
+    if (pathname === "/media/pop-family-video.mp4") return familyVideo(request, env);
+    const imageMatch = pathname.match(/^\/media\/insights\/([a-f0-9-]{36})$/);
+    if (imageMatch) {
+      try { return await insightImage(request, env, imageMatch[1]); }
+      catch (error) { console.error("Image unavailable", error); return new Response("Image unavailable", { status: 503 }); }
+    }
 
     const articleSlug = articleSlugFromPath(pathname);
     if (articleSlug) {
       try {
         const post = await getPublishedPostBySlug(env.DB, articleSlug);
+        if (post && post.slug !== articleSlug) return Response.redirect(new URL(`/insights-advice/${post.slug}${search}`, request.url), 308);
         return post
           ? renderRoute(request, env, articleMetadata(post))
           : renderRoute(request, env, notFoundMetadata(), 404);

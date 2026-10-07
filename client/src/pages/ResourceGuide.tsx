@@ -31,7 +31,7 @@ export default function ResourceGuide({ guide }: { guide: Guide }) {
           </div>
           <figure className="guide-landing__cover">
             <img src={guideCoverPath(guide)} alt={`Cover of ${guide.title}`} width={696} height={900} decoding="async" />
-            <figcaption>The original guide, ready to read, save or print.</figcaption>
+            <figcaption>Ready to read, save or print, with a fillable worksheet.</figcaption>
           </figure>
         </article>
         <aside className="guide-landing__disclaimer" aria-label="Educational disclaimer">

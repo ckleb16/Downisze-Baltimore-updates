@@ -10,9 +10,10 @@ const SESSION_SECONDS = 8 * 60 * 60;
 const ATTEMPT_WINDOW_MS = 15 * 60 * 1000;
 const HASH_PATTERN = /^scrypt\$16384\$8\$5\$([a-f0-9]{32})\$([a-f0-9]{64})$/;
 
-function configuration(env: PublisherAuthEnv) {
+async function configuration(env: PublisherAuthEnv) {
   const username = env.BLOG_LOGIN_USERNAME?.trim().toLowerCase();
-  const encoded = env.BLOG_LOGIN_PASSWORD_HASH;
+  const stored = username ? await env.DB.prepare("SELECT password_hash FROM publisher_credentials WHERE username = ?").bind(username).first<{ password_hash: string }>() : null;
+  const encoded = stored?.password_hash ?? env.BLOG_LOGIN_PASSWORD_HASH;
   const hash = encoded?.match(HASH_PATTERN);
   if (!username || !encoded || !hash) return null;
   return {
@@ -71,7 +72,7 @@ function response(request: Request, payload: unknown, status: number, extraHeade
 
 export async function publisherUser(request: Request, env: PublisherAuthEnv) {
   if (new URL(request.url).protocol !== "https:" && !isLoopback(request)) return null;
-  const config = configuration(env);
+  const config = await configuration(env);
   const token = sessionToken(request);
   if (!config || !token) return null;
   const session = await env.DB.prepare(
@@ -82,7 +83,7 @@ export async function publisherUser(request: Request, env: PublisherAuthEnv) {
     : null;
 }
 
-async function verifyPassword(password: string, salt: Buffer, expected: Buffer) {
+async function derivePassword(password: string, salt: Buffer) {
   const derived = await new Promise<Buffer>((resolve, reject) => {
     // OWASP's 16 MiB scrypt profile fits the Workers 128 MiB isolate limit.
     scrypt(password, salt, 32, { N: 16384, r: 8, p: 5, maxmem: 32 * 1024 * 1024 }, (error, key) => {
@@ -90,10 +91,14 @@ async function verifyPassword(password: string, salt: Buffer, expected: Buffer) 
       else resolve(key);
     });
   });
-  return timingSafeEqual(derived, expected);
+  return derived;
 }
 
-async function consumeLoginAttempt(request: Request, env: PublisherAuthEnv, config: NonNullable<ReturnType<typeof configuration>>) {
+async function verifyPassword(password: string, salt: Buffer, expected: Buffer) {
+  return timingSafeEqual(await derivePassword(password, salt), expected);
+}
+
+async function consumeLoginAttempt(request: Request, env: PublisherAuthEnv, config: NonNullable<Awaited<ReturnType<typeof configuration>>>) {
   const now = Date.now();
   // Cloudflare's visitor IP is used only for throttling, never authentication.
   const ip = request.headers.get("cf-connecting-ip")?.slice(0, 128) || "unknown";
@@ -120,7 +125,7 @@ export async function publisherLogin(request: Request, env: PublisherAuthEnv) {
   if (new URL(request.url).protocol !== "https:" && !isLoopback(request)) {
     return response(request, { error: "Use the secure website to sign in." }, 403);
   }
-  const config = configuration(env);
+  const config = await configuration(env);
   if (!config) return response(request, { error: "Admin sign-in is temporarily unavailable." }, 503);
   if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) {
     return response(request, { error: "Invalid sign-in request." }, 400);
@@ -174,5 +179,33 @@ export async function publisherLogout(request: Request, env: PublisherAuthEnv) {
   if (!sameOriginMutation(request)) return response(request, { error: "This sign-out request was blocked." }, 403);
   const token = sessionToken(request);
   if (token) await env.DB.prepare("DELETE FROM publisher_sessions WHERE token_hash = ?").bind(digest(token)).run();
+  return response(request, { success: true }, 200, { "Set-Cookie": sessionCookie(request, "", 0) });
+}
+
+export async function publisherChangePassword(request: Request, env: PublisherAuthEnv) {
+  if (!sameOriginMutation(request)) return response(request, { error: "This password change was blocked." }, 403);
+  const user = await publisherUser(request, env);
+  const config = await configuration(env);
+  if (!user || !config) return response(request, { error: "Sign in to change the password." }, 401);
+  if (!request.headers.get("content-type")?.startsWith("application/json")) return response(request, { error: "Invalid request." }, 400);
+  const reader = request.body?.getReader();
+  if (!reader) return response(request, { error: "Enter both passwords." }, 400);
+  const chunks: Uint8Array[] = []; let length = 0;
+  while (true) { const chunk = await reader.read(); if (chunk.done) break; length += chunk.value.byteLength; if (length > 4096) { await reader.cancel(); return response(request, { error: "Invalid request." }, 400); } chunks.push(chunk.value); }
+  let input: { currentPassword?: unknown; newPassword?: unknown } | null;
+  try { input = JSON.parse(Buffer.concat(chunks).toString("utf8")); } catch { return response(request, { error: "Invalid request." }, 400); }
+  if (!input || typeof input.currentPassword !== "string" || typeof input.newPassword !== "string" || input.currentPassword.length > 256 || input.newPassword.length < 14 || input.newPassword.length > 256) return response(request, { error: "Use a new password of 14–256 characters." }, 422);
+  const retryAfter = await consumeLoginAttempt(request, env, config);
+  if (retryAfter) return response(request, { error: "Too many attempts. Please try again in 15 minutes." }, 429, { "Retry-After": String(retryAfter) });
+  if (!(await verifyPassword(input.currentPassword, config.salt, config.hash))) return response(request, { error: "The current password is incorrect." }, 403);
+  if (input.currentPassword === input.newPassword) return response(request, { error: "Choose a different password." }, 422);
+  const salt = randomBytes(16); const key = await derivePassword(input.newPassword, salt);
+  const encoded = `scrypt$16384$8$5$${salt.toString("hex")}$${key.toString("hex")}`;
+  const results = await env.DB.batch([
+    env.DB.prepare("INSERT INTO publisher_credentials (username, password_hash, updated_at) VALUES (?, ?, ?) ON CONFLICT(username) DO UPDATE SET password_hash = excluded.password_hash, updated_at = excluded.updated_at WHERE publisher_credentials.password_hash = ?")
+      .bind(config.username, encoded, Date.now(), config.encoded),
+    env.DB.prepare("DELETE FROM publisher_sessions WHERE username = ? AND credential_version = ?").bind(config.username, config.version),
+  ]);
+  if (!results[0].meta.changes) return response(request, { error: "The password changed in another session. Sign in again." }, 409);
   return response(request, { success: true }, 200, { "Set-Cookie": sessionCookie(request, "", 0) });
 }

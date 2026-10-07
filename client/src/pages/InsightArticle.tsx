@@ -1,5 +1,5 @@
 import { ArrowLeft, RotateCcw } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useParams } from "wouter";
 import MarkdownContent from "@/components/MarkdownContent";
 import SiteFooter from "@/components/SiteFooter";
@@ -15,21 +15,28 @@ export default function InsightArticle() {
   const { slug = "" } = useParams<{ slug: string }>();
   const [post, setPost] = useState<InsightPost | null>(null);
   const [state, setState] = useState<"loading" | "ready" | "missing" | "error">("loading");
+  const activeRequest = useRef<AbortController | null>(null);
 
   const load = useCallback(async () => {
+    activeRequest.current?.abort();
+    const controller = new AbortController(); activeRequest.current = controller;
     setState("loading");
+    setPost(null);
     try {
-      const result = await insightsRequest<{ post: InsightPost }>(`/api/posts/${encodeURIComponent(slug)}`);
+      const result = await insightsRequest<{ post: InsightPost }>(`/api/posts/${encodeURIComponent(slug)}`, { signal: controller.signal });
+      if (controller.signal.aborted) return;
       setPost(result.post);
       setState("ready");
     } catch (error) {
+      if (controller.signal.aborted) return;
       setState(error instanceof InsightsApiError && error.status === 404 ? "missing" : "error");
     }
   }, [slug]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
+    if (!window.location.hash) window.scrollTo({ top: 0, behavior: "instant" });
     void load();
+    return () => activeRequest.current?.abort();
   }, [load]);
 
   useEffect(() => {

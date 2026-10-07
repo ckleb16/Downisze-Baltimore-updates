@@ -4,7 +4,7 @@ export const RESOURCE_GUIDES = [
     title: "What Do I Do With All This Stuff?",
     description: "A practical guide to sorting, sharing, selling, donating and letting go, without getting overwhelmed.",
     pages: 5,
-    bytes: 2544843,
+    bytes: 2502460,
     contents: [
       "Start small with one drawer, cabinet or category.",
       "Use six buckets to decide what stays and what goes.",
@@ -17,7 +17,7 @@ export const RESOURCE_GUIDES = [
     title: "Should I Stay or Should I Go?",
     description: "A short guide to sorting out the question, before anyone has to make a decision.",
     pages: 6,
-    bytes: 2631779,
+    bytes: 2561219,
     contents: [
       "Consider three paths: stay as it is, change the house or move.",
       "Identify what is really driving the question.",
@@ -30,7 +30,7 @@ export const RESOURCE_GUIDES = [
     title: "Could An ADU Work For Your Family?",
     description: "Six ways families are using one property to solve two housing problems. Close enough to be connected. Separate enough to be independent.",
     pages: 6,
-    bytes: 2793021,
+    bytes: 2736676,
     contents: [
       "Explore different forms an accessory dwelling unit (ADU) can take.",
       "Consider six family situations and the questions each raises.",

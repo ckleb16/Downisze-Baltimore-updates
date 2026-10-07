@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowUpRight, RotateCcw } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import {
@@ -11,38 +11,53 @@ import {
 export default function InsightsArchive() {
   const [posts, setPosts] = useState<InsightSummary[]>([]);
   const [state, setState] = useState<"loading" | "ready" | "error">("loading");
-  const [nextOffset, setNextOffset] = useState<number | null>(null);
+  const [nextCursor, setNextCursor] = useState<string | null>(null);
+  const [announcement, setAnnouncement] = useState("");
+  const listRef = useRef<HTMLOListElement>(null);
+  const pendingFocus = useRef<string | null>(null);
+  const requestPending = useRef(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [loadMoreError, setLoadMoreError] = useState("");
 
-  const load = useCallback(async (offset = 0) => {
-    const isFirstPage = offset === 0;
+  const load = useCallback(async (cursor: string | null = null) => {
+    if (requestPending.current) return;
+    requestPending.current = true;
+    const isFirstPage = cursor === null;
     if (isFirstPage) setState("loading");
     else setLoadingMore(true);
     setLoadMoreError("");
     try {
       const result = await insightsRequest<{
         posts: InsightSummary[];
-        pagination: { hasMore: boolean; nextOffset: number | null };
-      }>(`/api/posts?limit=20&offset=${offset}`);
+        pagination: { hasMore: boolean; nextCursor: string | null };
+      }>(`/api/posts?limit=20${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ""}`);
+      if (!isFirstPage) pendingFocus.current = result.posts[0]?.id ?? null;
       setPosts((current) => {
         if (isFirstPage) return result.posts;
         const existing = new Set(current.map((post) => post.id));
         return [...current, ...result.posts.filter((post) => !existing.has(post.id))];
       });
-      setNextOffset(result.pagination.hasMore ? result.pagination.nextOffset : null);
+      setNextCursor(result.pagination.hasMore ? result.pagination.nextCursor : null);
+      if (!isFirstPage) setAnnouncement(`${result.posts.length} more articles loaded.${result.pagination.hasMore ? "" : " All articles are now shown."}`);
       setState("ready");
     } catch {
       if (isFirstPage) setState("error");
       else setLoadMoreError("More articles could not be loaded. Please try again.");
     } finally {
       setLoadingMore(false);
+      requestPending.current = false;
     }
   }, []);
 
   useEffect(() => {
-    void load(0);
+    void load();
   }, [load]);
+
+  useEffect(() => {
+    if (!pendingFocus.current) return;
+    const target = listRef.current?.querySelector<HTMLAnchorElement>(`[data-post-id="${pendingFocus.current}"] a`);
+    if (target) { target.focus(); pendingFocus.current = null; }
+  }, [posts]);
 
   return (
     <div className="insights-page">
@@ -67,7 +82,7 @@ export default function InsightsArchive() {
           {state === "error" && (
             <div className="insights-state" role="alert">
               <p>The articles could not be loaded right now.</p>
-              <button type="button" onClick={() => void load(0)}>Try again <RotateCcw size={15} aria-hidden="true" /></button>
+              <button type="button" onClick={() => void load()}>Try again <RotateCcw size={15} aria-hidden="true" /></button>
             </div>
           )}
           {state === "ready" && !posts.length && (
@@ -79,9 +94,9 @@ export default function InsightsArchive() {
           )}
           {state === "ready" && posts.length > 0 && (
             <>
-              <ol className="insights-archive__list">
+              <ol ref={listRef} className="insights-archive__list">
                 {posts.map((post) => (
-                  <li key={post.id}>
+                  <li key={post.id} data-post-id={post.id}>
                     <article>
                       <time dateTime={post.publishedAt ?? undefined}>{formatInsightDate(post.publishedAt)}</time>
                       <h2>{post.title}</h2>
@@ -92,9 +107,10 @@ export default function InsightsArchive() {
                 ))}
               </ol>
               {loadMoreError && <p className="insights-load-more__error" role="alert">{loadMoreError}</p>}
-              {nextOffset !== null && (
+              <p role="status" aria-live="polite" className="insights-load-more__status">{announcement}</p>
+              {nextCursor !== null && (
                 <div className="insights-load-more">
-                  <button type="button" disabled={loadingMore} onClick={() => void load(nextOffset)}>
+                  <button type="button" disabled={loadingMore} onClick={() => void load(nextCursor)}>
                     {loadingMore ? "Loading more…" : "Load more articles"}
                   </button>
                 </div>

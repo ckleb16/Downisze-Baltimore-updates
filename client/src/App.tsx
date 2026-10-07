@@ -65,6 +65,43 @@ function GlobalSkipLink() {
   );
 }
 
+function FragmentNavigation() {
+  const [location] = useLocation();
+  useEffect(() => {
+    let observer: MutationObserver | undefined;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const navigate = () => {
+      observer?.disconnect();
+      clearTimeout(timer);
+      let id: string;
+      try { id = decodeURIComponent(window.location.hash.slice(1)); } catch { return; }
+      if (!id) return;
+      const reveal = () => {
+        const target = document.getElementById(id);
+        if (!target || target.closest('[aria-busy="true"]')) return false;
+        observer?.disconnect();
+        clearTimeout(timer);
+        target.scrollIntoView({ block: "start", behavior: "instant" });
+        if (!target.hasAttribute("tabindex")) {
+          target.setAttribute("tabindex", "-1");
+          target.addEventListener("blur", () => target.removeAttribute("tabindex"), { once: true });
+        }
+        target.focus({ preventScroll: true });
+        return true;
+      };
+      if (reveal()) return;
+      observer = new MutationObserver(reveal);
+      observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["aria-busy"] });
+      timer = setTimeout(() => observer?.disconnect(), 20000);
+    };
+    navigate();
+    window.addEventListener("hashchange", navigate);
+    window.addEventListener("popstate", navigate);
+    return () => { observer?.disconnect(); clearTimeout(timer); window.removeEventListener("hashchange", navigate); window.removeEventListener("popstate", navigate); };
+  }, [location]);
+  return null;
+}
+
 
 function Router() {
   return (
@@ -114,6 +151,7 @@ function App() {
           <Toaster />
           <GlobalSkipLink />
           <RouteMetadata />
+          <FragmentNavigation />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

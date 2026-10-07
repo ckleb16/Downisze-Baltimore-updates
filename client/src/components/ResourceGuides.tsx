@@ -16,7 +16,7 @@ export default function ResourceGuides() {
       <header className="resource-guides__heading">
         <p className="resource-eyebrow">Chart your course</p>
         <h2 id="resource-guides-heading">Downloadable <i>Guides.</i></h2>
-        <p>Practical guides from Mary to read, save or print. Start with the question closest to yours.</p>
+        <p>Practical guides from Mary to read, save or print, with worksheets you can fill in using a PDF reader. Start with the question closest to yours.</p>
       </header>
       <div className="resource-guides__grid">
         {RESOURCE_GUIDES.map((guide) => (

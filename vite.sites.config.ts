@@ -62,6 +62,7 @@ export default defineConfig({
               },
             ]
           : [],
+        r2_buckets: hostingConfig.r2 ? [{ binding: hostingConfig.r2, bucket_name: "downsize-baltimore-media" }] : [],
         vars:
           process.env.NODE_ENV === "production"
             ? {}

@@ -9,12 +9,6 @@ const youtubeAppearances = [
     thumbnail: "/media-thumbnails/jpiIDQua0-c.jpg",
   },
   {
-    outlet: "Cummings Cast · Episode 29",
-    title: "Mary Interviews Dave Cummings",
-    href: "https://www.youtube.com/watch?v=m41j6VmL_mg&t=4s",
-    thumbnail: "/media-thumbnails/m41j6VmL_mg.jpg",
-  },
-  {
     outlet: "Always Ageless",
     title: "From Caregiver to Community Leader",
     href: "https://www.youtube.com/watch?v=qR3lqYb2ccQ",
@@ -83,8 +77,8 @@ export default function MaryMedia() {
           <VideoBackground thumbnail="/media-thumbnails/m41j6VmL_mg.jpg" />
           <img src="/manus-storage/cummings-and-co-realtors-circle.png" width="300" height="300" loading="lazy" decoding="async" alt="Cummings & Co. Realtors" />
           <div>
-            <h3>Cummings Cast</h3>
-            <p>Mary and Dave Cummings talk real estate.</p>
+            <h3>Cummings Cast · Episode 29</h3>
+            <p>Mary interviews Dave Cummings about real estate.</p>
             <span className="meet-media__action">Watch on YouTube<span className="sr-only"> (opens in a new tab)</span></span>
           </div>
         </a>

@@ -13,7 +13,7 @@ import { ArrowUpRight, Anchor } from "lucide-react";
 
 const heroImage = "/manus-storage/mary-lynch-meet-mary-hero_8902efd8.jpg";
 const popImage = "/manus-storage/pop-and-mary-1972.png";
-const popVideo = "/manus-storage/pop-with-music-20261007.mp4";
+const popVideo = "/media/pop-family-video.mp4";
 const popVideoPoster = "/manus-storage/pop-with-music-20261007-poster.jpg";
 const familyTravelPhoto = "/manus-storage/mary-family-travel_7af40885.jpg";
 const chesapeakePhoto = "/manus-storage/mary-chesapeake-frenchies_ed69a28d.jpg";

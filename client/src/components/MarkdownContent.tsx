@@ -16,7 +16,8 @@ export default function MarkdownContent({ children, className }: MarkdownContent
         skipHtml
         components={{
           h1: ({ children: heading }) => <h2>{heading}</h2>,
-          img: () => null,
+          img: ({ src, alt }) => src && (src.startsWith("https://") || /^\/media\/insights\/[a-f0-9-]{36}$/.test(src))
+            ? <img src={src} alt={alt || ""} loading="lazy" decoding="async" referrerPolicy="no-referrer" /> : null,
           a: ({ href, children: linkText }) => (
             <a href={href} rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}>
               {linkText}
