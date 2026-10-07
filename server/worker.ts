@@ -39,6 +39,7 @@ type WorkerEnv = {
   SITE_URL?: string;
   BLOG_ADMIN_USER_IDS?: string;
   BLOG_ADMIN_EMAILS?: string;
+  BLOG_ADDITIONAL_ADMIN_EMAILS?: string;
   DEV_BLOG_ADMIN?: string;
 };
 
@@ -345,9 +346,11 @@ function isAuthorizedPublisher(
   if (localPublisherEnabled(request, env)) return true;
   const userIds = allowlist(env.BLOG_ADMIN_USER_IDS);
   const emails = allowlist(env.BLOG_ADMIN_EMAILS);
+  const additionalEmails = allowlist(env.BLOG_ADDITIONAL_ADMIN_EMAILS);
   return (
     userIds.has(user.userId.toLowerCase()) ||
-    emails.has(user.email.toLowerCase())
+    emails.has(user.email.toLowerCase()) ||
+    additionalEmails.has(user.email.toLowerCase())
   );
 }
 
