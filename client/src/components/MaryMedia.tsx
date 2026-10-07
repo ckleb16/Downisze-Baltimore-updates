@@ -71,6 +71,7 @@ export default function MaryMedia() {
 
       <div className="meet-media__features">
         <a className="meet-media__feature" href="https://www.pbs.org/video/empowering-seniors-episode-603-mj4kan/" target="_blank" rel="noopener noreferrer">
+          <VideoBackground thumbnail="/media-thumbnails/pbs-empowering-seniors.jpg" />
           <span className="meet-media__brand-name">PBS</span>
           <div>
             <h3>Empowering Seniors</h3>
@@ -79,6 +80,7 @@ export default function MaryMedia() {
           </div>
         </a>
         <a className="meet-media__feature" href="https://www.youtube.com/watch?v=m41j6VmL_mg&t=4s" target="_blank" rel="noopener noreferrer">
+          <VideoBackground thumbnail="/media-thumbnails/m41j6VmL_mg.jpg" />
           <img src="/manus-storage/cummings-and-co-realtors-circle.png" width="300" height="300" loading="lazy" decoding="async" alt="Cummings & Co. Realtors" />
           <div>
             <h3>Cummings Cast</h3>
@@ -87,6 +89,7 @@ export default function MaryMedia() {
           </div>
         </a>
         <a className="meet-media__feature" href="https://www.wmar2news.com/middaymaryland/vital-sign-home-care-joins-the-national-aging-in-place-council-of-greater-baltimore" target="_blank" rel="noopener noreferrer">
+          <VideoBackground thumbnail="/media-thumbnails/wmar-midday-maryland.jpg" />
           <span className="meet-media__brand-name meet-media__brand-name--wmar">WMAR<br />2 News</span>
           <div>
             <h3>Midday Maryland</h3>
