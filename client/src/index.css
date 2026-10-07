@@ -2089,6 +2089,8 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
 }
 .site-footer-v2__bottom a:hover,
 .site-footer-v2__bottom a.is-active{color:#f0d38f}
+.site-footer-v2__bottom .site-footer-v2__admin{font-size:.875rem;text-decoration:underline;text-underline-offset:3px}
+.site-footer-v2__admin:focus-visible{outline:2px solid #f0d38f;outline-offset:4px}
 
 @media (max-width:900px){
   .site-header-v2{padding:0 5vw}

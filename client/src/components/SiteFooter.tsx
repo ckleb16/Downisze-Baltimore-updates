@@ -73,6 +73,7 @@ export default function SiteFooter({ currentPath }: SiteFooterProps) {
         </nav>
         <span>© 2026 Downsize Baltimore. All rights reserved.</span>
         <span>Real estate services provided in affiliation with a licensed brokerage.</span>
+        <a className="site-footer-v2__admin" href="/publisher">Admin access</a>
       </div>
     </footer>
   );
