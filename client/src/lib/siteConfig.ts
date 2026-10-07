@@ -1,5 +1,5 @@
 export const SITE_CONTACT = {
-  calendlyUrl: "https://calendly.com/mary-movewithmarylynch/chat-with-mary",
+  calendlyUrl: "https://calendly.com/mary-movewithmarylynch/30min",
   phoneDisplay: "(410) 375-1400",
   phoneHref: "tel:+14103751400",
   email: "mary@downsizebaltimore.com",
