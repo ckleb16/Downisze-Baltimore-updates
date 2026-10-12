@@ -11,6 +11,22 @@ import {
   canonicalizeRecognizedPath,
   findPageRoute,
 } from "../client/src/lib/siteRoutes";
+import {
+  getPublishedPostBySlug,
+  listPublishedPostSlugs,
+  type PublicInsightPost,
+} from "./posts";
+import {
+  expressRequestToWebRequest,
+  handleGodaddyApi,
+  sendWebResponse,
+  serveInsightImage,
+  type ApiEnvironment,
+} from "./godaddyApi";
+import {
+  openApplicationDatabase,
+  resolveAppDataDirectory,
+} from "./sqliteD1";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -54,16 +70,36 @@ function isIndexableRequest(req: Request) {
   }
 }
 
-function metadataMarkup(req: Request, routePath: string | null) {
+function resolvedMetadata(
+  routePath: string | null,
+  article?: PublicInsightPost | null,
+) {
   const route = routePath ? findPageRoute(routePath) : undefined;
   const isArticle = Boolean(routePath && articleSlugFromPath(routePath));
-  const metadata = route ??
+  return route ??
+    (article
+      ? {
+          title: `${article.title} | Downsize Baltimore`,
+          description: article.excerpt,
+          publishedAt: article.publishedAt,
+        }
+      : null) ??
     (isArticle
       ? {
           title: "Insights & Advice | Downsize Baltimore",
           description: "Practical guidance from Mary Lynch and Downsize Baltimore.",
         }
       : NOT_FOUND_METADATA);
+}
+
+function metadataMarkup(
+  req: Request,
+  routePath: string | null,
+  article?: PublicInsightPost | null,
+) {
+  const route = routePath ? findPageRoute(routePath) : undefined;
+  const isArticle = Boolean(routePath && articleSlugFromPath(routePath));
+  const metadata = resolvedMetadata(routePath, article);
   const indexable = Boolean((route && route.indexable !== false) || isArticle) && isIndexableRequest(req);
   const origin = indexable ? configuredSiteOrigin() : requestOrigin(req);
   const canonicalUrl = routePath ? new URL(routePath, `${origin}/`).href : null;
@@ -82,6 +118,9 @@ function metadataMarkup(req: Request, routePath: string | null) {
     canonicalUrl
       ? `<meta property="og:url" content="${escapeHtml(canonicalUrl)}" />`
       : "",
+    isArticle && "publishedAt" in metadata && metadata.publishedAt
+      ? `<meta property="article:published_time" content="${escapeHtml(metadata.publishedAt)}" />`
+      : "",
     `<meta property="og:image" content="${escapeHtml(socialImageUrl)}" />`,
     '<meta property="og:image:width" content="1200" />',
     '<meta property="og:image:height" content="630" />',
@@ -96,15 +135,13 @@ function metadataMarkup(req: Request, routePath: string | null) {
     .join("\n    ");
 }
 
-function renderDocument(template: string, req: Request, routePath: string | null) {
-  const route = routePath ? findPageRoute(routePath) : undefined;
-  const metadata = route ??
-    (routePath && articleSlugFromPath(routePath)
-      ? {
-          title: "Insights & Advice | Downsize Baltimore",
-          description: "Practical guidance from Mary Lynch and Downsize Baltimore.",
-        }
-      : NOT_FOUND_METADATA);
+function renderDocument(
+  template: string,
+  req: Request,
+  routePath: string | null,
+  article?: PublicInsightPost | null,
+) {
+  const metadata = resolvedMetadata(routePath, article);
   return template
     .replace(
       /<title>[\s\S]*?<\/title>/i,
@@ -116,7 +153,7 @@ function renderDocument(template: string, req: Request, routePath: string | null
     )
     .replace(
       /<!--__ROUTE_META_START__-->[\s\S]*?<!--__ROUTE_META_END__-->/,
-      metadataMarkup(req, routePath),
+      metadataMarkup(req, routePath, article),
     );
 }
 
@@ -140,6 +177,24 @@ async function startServer() {
       ? path.resolve(__dirname, "public")
       : path.resolve(__dirname, "..", "dist", "public");
   const indexTemplate = await readFile(path.join(staticPath, "index.html"), "utf8");
+  const dataDirectory = resolveAppDataDirectory();
+  const database = openApplicationDatabase(dataDirectory);
+  const apiEnvironment: ApiEnvironment = {
+    DB: database,
+    BLOG_LOGIN_USERNAME: process.env.BLOG_LOGIN_USERNAME,
+    BLOG_LOGIN_PASSWORD_HASH: process.env.BLOG_LOGIN_PASSWORD_HASH,
+    mediaDirectory: path.join(dataDirectory, "media"),
+  };
+
+  console.log(`Persistent application data: ${dataDirectory}`);
+  if (
+    !apiEnvironment.BLOG_LOGIN_USERNAME ||
+    !apiEnvironment.BLOG_LOGIN_PASSWORD_HASH
+  ) {
+    console.warn(
+      "Publisher login is disabled until BLOG_LOGIN_USERNAME and BLOG_LOGIN_PASSWORD_HASH are configured.",
+    );
+  }
 
   app.use((req, res, next) => {
     if (req.method !== "GET" && req.method !== "HEAD") return next();
@@ -170,16 +225,68 @@ async function startServer() {
     );
   });
 
-  app.get("/sitemap.xml", (_req, res) => {
+  app.all("/api/*", async (req, res) => {
+    try {
+      await sendWebResponse(
+        res,
+        await handleGodaddyApi(
+          expressRequestToWebRequest(req),
+          apiEnvironment,
+        ),
+      );
+    } catch (error) {
+      console.error("Unable to process API request", error);
+      if (!res.headersSent) {
+        res.status(500).json({ error: "The service encountered a problem." });
+      }
+    }
+  });
+
+  app.all("/media/insights/:id", async (req, res) => {
+    try {
+      await serveInsightImage(req, res, apiEnvironment, req.params.id);
+    } catch (error) {
+      console.error("Unable to serve insight image", error);
+      if (!res.headersSent) res.sendStatus(500);
+    }
+  });
+
+  app.get(["/media/pop-family-video.mp4"], (_req, res) => {
+    res.sendFile(
+      path.join(
+        staticPath,
+        "manus-storage",
+        "pop-with-music-20261007.mp4",
+      ),
+      {
+        headers: {
+          "Cache-Control": "public, max-age=86400",
+          "X-Content-Type-Options": "nosniff",
+        },
+      },
+    );
+  });
+
+  app.get("/sitemap.xml", async (_req, res) => {
     res.set("Cache-Control", "public, max-age=3600");
     res.type("application/xml");
     const origin = configuredSiteOrigin();
-    const urls = PAGE_ROUTES.filter(
+    const staticUrls = PAGE_ROUTES.filter(
       (route) => !("indexable" in route) || route.indexable !== false,
     ).map(
       (route) =>
         `  <url><loc>${escapeHtml(new URL(route.path, `${origin}/`).href)}</loc></url>`,
-    ).join("\n");
+    );
+    let articleUrls: string[] = [];
+    try {
+      articleUrls = (await listPublishedPostSlugs(database)).map(
+        ({ slug, updatedAt }) =>
+          `  <url><loc>${escapeHtml(new URL(`/insights-advice/${slug}`, `${origin}/`).href)}</loc><lastmod>${escapeHtml(updatedAt)}</lastmod></url>`,
+      );
+    } catch (error) {
+      console.error("Unable to include insights in sitemap", error);
+    }
+    const urls = [...staticUrls, ...articleUrls].join("\n");
     return res.send(
       `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
     );
@@ -203,13 +310,27 @@ async function startServer() {
     }),
   );
 
-  app.get("*", (req, res) => {
+  app.get("*", async (req, res) => {
     const route = findPageRoute(req.path);
-    const articlePath = articleSlugFromPath(req.path) ? req.path : null;
-    const recognizedPath = route?.path ?? articlePath;
-    res.set("Cache-Control", "no-cache, must-revalidate");
+    const articleSlug = articleSlugFromPath(req.path);
+    let article: PublicInsightPost | null = null;
+    if (articleSlug) {
+      try {
+        article = await getPublishedPostBySlug(database, articleSlug);
+        if (article && article.slug !== articleSlug) {
+          const query = new URL(req.originalUrl, "http://localhost").search;
+          return res.redirect(308, `/insights-advice/${article.slug}${query}`);
+        }
+      } catch (error) {
+        console.error("Unable to load article metadata", error);
+      }
+    }
+    const recognizedPath = route?.path ?? (article ? req.path : null);
+    res.set("Cache-Control", route?.path === "/publisher" ? "private, no-store" : "no-cache, must-revalidate");
     if (!recognizedPath) res.status(404);
-    res.type("html").send(renderDocument(indexTemplate, req, recognizedPath));
+    res
+      .type("html")
+      .send(renderDocument(indexTemplate, req, recognizedPath, article));
   });
 
   const port = Number(process.env.PORT || 3000);
