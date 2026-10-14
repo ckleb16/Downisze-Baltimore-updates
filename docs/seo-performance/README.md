@@ -2,7 +2,7 @@
 
 Date: October 12, 2026
 
-Status: **Proposed scope only. No website implementation or deployment authorized by these documents.**
+Status: **Planning package. Technical implementation requested October 13, 2026; see the [sequential implementation tracker](implementation/README.md). Design/writing approval gates remain in force. No deployment is authorized by these documents.**
 
 Repository: [ckleb16/Downisze-Baltimore-updates](https://github.com/ckleb16/Downisze-Baltimore-updates)
 
@@ -28,7 +28,7 @@ The user's instruction is: **Do not change anything appearance-wise or writing-w
 - A technical optimization may propose a different implementation of the same approved output. It must pass visual, text, and behavior parity checks before release. A score improvement does not justify an unapproved difference.
 - Intentional differences require an item-specific written approval that identifies the affected route(s), current versus proposed text or screenshots, and reason. Silence, a broad instruction to optimize SEO, or approval of this planning PR is not approval of those differences.
 - Hosting/DNS changes, account configuration, tracking installation, new data collection, business-profile edits, and deployments require the appropriate owner authorization. Do not infer it from this scope document.
-- This PR changes documentation only. It does not alter application files, credentials, DNS, production, or public profiles. Do not merge application changes into the deployment branch as part of accepting the PRDs.
+- The original planning commit (`4524e14`) changed documentation only. Subsequent technical implementation is tracked separately and does not grant permission to merge/deploy, change DNS, or edit public profiles. Do not merge application changes into the deployment branch merely by accepting the PRDs.
 
 ## Read in this order
 

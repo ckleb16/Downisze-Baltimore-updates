@@ -27,6 +27,7 @@ import {
   openApplicationDatabase,
   resolveAppDataDirectory,
 } from "./sqliteD1";
+import { canonicalRedirect } from "./canonicalRedirect";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -198,17 +199,25 @@ async function startServer() {
 
   app.use((req, res, next) => {
     if (req.method !== "GET" && req.method !== "HEAD") return next();
-    const queryIndex = req.originalUrl.indexOf("?");
-    const query = queryIndex >= 0 ? req.originalUrl.slice(queryIndex) : "";
-
-    if (req.path.toLowerCase() === "/index.html") {
-      return res.redirect(308, `/${query}`);
-    }
-
-    const canonical = canonicalizeRecognizedPath(req.path);
-    if (canonical && canonical !== req.path) {
-      return res.redirect(308, `${canonical}${query}`);
-    }
+    // Resolve dynamic article aliases first in the HTML handler so a host,
+    // case/slash and saved-slug change all share the same final destination.
+    if (articleSlugFromPath(req.path)) return next();
+    const canonicalPath = req.path.toLowerCase() === "/index.html"
+      ? "/"
+      : ["/robots.txt", "/sitemap.xml"].includes(req.path)
+        ? req.path
+        : canonicalizeRecognizedPath(req.path);
+    const redirect = canonicalRedirect({
+      method: req.method,
+      host: req.get("host"),
+      protocol: req.protocol,
+      originalUrl: req.originalUrl,
+      canonicalPath,
+      siteOrigin: configuredSiteOrigin(),
+      enabled: process.env.NODE_ENV === "production" &&
+        process.env.SITE_INDEXABLE?.trim().toLowerCase() !== "false",
+    });
+    if (redirect) return res.redirect(308, redirect);
 
     next();
   });
@@ -317,9 +326,18 @@ async function startServer() {
     if (articleSlug) {
       try {
         article = await getPublishedPostBySlug(database, articleSlug);
-        if (article && article.slug !== articleSlug) {
-          const query = new URL(req.originalUrl, "http://localhost").search;
-          return res.redirect(308, `/insights-advice/${article.slug}${query}`);
+        if (article) {
+          const redirect = canonicalRedirect({
+            method: req.method,
+            host: req.get("host"),
+            protocol: req.protocol,
+            originalUrl: req.originalUrl,
+            canonicalPath: `/insights-advice/${article.slug}`,
+            siteOrigin: configuredSiteOrigin(),
+            enabled: process.env.NODE_ENV === "production" &&
+              process.env.SITE_INDEXABLE?.trim().toLowerCase() !== "false",
+          });
+          if (redirect) return res.redirect(308, redirect);
         }
       } catch (error) {
         console.error("Unable to load article metadata", error);

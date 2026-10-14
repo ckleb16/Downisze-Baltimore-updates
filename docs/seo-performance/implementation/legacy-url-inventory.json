@@ -1,0 +1,96 @@
+{
+  "auditedAt": "2026-10-13",
+  "legacyOrigin": "https://movewithmarylynch.com",
+  "canonicalOrigin": "https://downsizebaltimore.com",
+  "retirementDecision": "Owner confirmed October 13, 2026: old website retired; domain remains for redirects. Individual non-equivalent deep-link mappings are not yet approved.",
+  "coverage": "21-URL public discovery sample; not a complete CMS, sitemap, traffic or backlink inventory",
+  "evidence": "Read-only public GET requests and search snapshots of the original first-party URLs. Snapshots establish historical intent, not current content availability.",
+  "trafficAndBacklinks": "Unknown; Search Console/CMS/account exports are not available",
+  "deployment": "No legacy mapping is active in the application or old hosting. This inventory is not a redirect configuration.",
+  "entries": [
+    {
+      "path": "/",
+      "observedGet": 301,
+      "observedHead": 405,
+      "observedLocation": "http://downsizebaltimore.com",
+      "intent": "General real-estate homepage",
+      "proposedTarget": "https://downsizebaltimore.com/",
+      "disposition": "Direct HTTPS destination identified; old-host configuration and retirement decision pending",
+      "approval": "Technical HTTPS correction covered by PRD 01 implementation request; no external configuration applied"
+    },
+    {
+      "path": "/buying-selling/",
+      "observedGet": 404,
+      "intent": "General buying/selling, rightsizing, biography and probate support",
+      "proposedTarget": "/buying-selling",
+      "disposition": "Relevant consolidation candidate, not a verified exact equivalent",
+      "approval": "Owner mapping decision required"
+    },
+    {
+      "path": "/sellers/decide-to-sell/",
+      "observedGet": 404,
+      "intent": "Reasons to sell, timing, market and financial planning",
+      "proposedTarget": "/buying-selling#selling",
+      "disposition": "Less-detailed consolidation candidate; verify fragment and approve relevance before use",
+      "approval": "Owner mapping decision required"
+    },
+    {
+      "path": "/rightsizing/",
+      "observedGet": 404,
+      "intent": "Older-adult moves, accessibility and selling options",
+      "proposedTarget": "/downsizing-services",
+      "disposition": "Relevant candidate; owner to decide service intent",
+      "approval": "Owner mapping decision required"
+    },
+    {
+      "path": "/probate/",
+      "observedGet": 404,
+      "intent": "Dedicated probate/estate services and attorney collaboration",
+      "proposedTarget": null,
+      "disposition": "No confirmed equivalent; existing Resource Center disclaimer is not an equivalent service page",
+      "approval": "Owner disposition or content recovery decision required"
+    },
+    {
+      "path": "/attorneys/",
+      "observedGet": 404,
+      "intent": "Probate expertise and inherited-property decisions for attorneys",
+      "proposedTarget": null,
+      "disposition": "No confirmed equivalent",
+      "approval": "Owner disposition or content recovery decision required"
+    },
+    {
+      "path": "/bel-air/",
+      "observedGet": 404,
+      "intent": "IDX property search results, not a narrative locality page",
+      "proposedTarget": null,
+      "disposition": "No listing-search equivalent; do not redirect to Home or a generic service page",
+      "approval": "Owner decision required"
+    },
+    { "path": "/homes-for-sale-details/2205-ERIN-WAY-BEL-AIR-MD-21015/MDHR2056698/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/1200-TUSCANY-LN-BEL-AIR-MD-21014/MDHR2060022/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/702-GLEN-CT-BEL-AIR-MD-21015/MDHR2057498/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/1315-S-DAHLIA-RD-BEL-AIR-MD-21015/MDHR2059974/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/2213-AUTUMN-GLOW-CT-BEL-AIR-MD-21015/MDHR2058080/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/314-PLANTATION-LN-BEL-AIR-MD-21014/MDHR2059028/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/1609-SHADY-TREE-CT-BEL-AIR-MD-21015/MDHR2058282/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/217-ROLLING-KNOLL-DR-BEL-AIR-MD-21014/MDHR2059418/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/1300-LONDON-CT-BEL-AIR-MD-21014/MDHR2059660/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/2251-GREENCEDAR-DR-BEL-AIR-MD-21015/MDHR2059686/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/1420-MOONSHADOW-RD-BEL-AIR-MD-21015/MDHR2057382/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/213-GLENWOOD-RD-BEL-AIR-MD-21014/MDHR2059434/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/302-SIR-PAULS-PL-BEL-AIR-MD-21014/MDHR2058822/530/", "observedGet": 404 },
+    { "path": "/homes-for-sale-details/1813-CHAROLAIS-CT-BEL-AIR-MD-21015/MDHR2058226/530/", "observedGet": 404 }
+  ],
+  "listingDefaults": {
+    "appliesTo": "/homes-for-sale-details/",
+    "intent": "Individual historical IDX property listing; current availability unverified",
+    "proposedTarget": null,
+    "disposition": "Find an owner-confirmed equivalent or decide intentional retirement; no blanket redirect and no recreation of licensed IDX content",
+    "approval": "Owner decision required"
+  },
+  "unresolvedSources": [
+    "Old apex and www robots.txt, sitemap.xml, sitemap_index.xml and wp-sitemap.xml returned 404; no full sitemap recovered",
+    "Cached navigation labels without exact URLs were not converted into guessed paths",
+    "Search Console, old CMS export, traffic/backlink reports and hosting configuration are still needed"
+  ]
+}

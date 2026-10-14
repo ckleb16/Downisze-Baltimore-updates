@@ -1,7 +1,7 @@
 name: GoDaddy production check
 on:
   push:
-    branches: [main, codex/godaddy-conversion]
+    branches: [main, codex/godaddy-conversion, codex/prd-01-domain-migration]
   pull_request:
 permissions:
   contents: read
@@ -15,4 +15,6 @@ jobs:
           node-version: '22'
       - run: npm ci --omit=dev
       - run: npm run build
+      - run: node --experimental-strip-types scripts/test-canonical-redirects.mjs
+      - run: node scripts/test-domain-redirects.mjs
       - run: node scripts/test-godaddy.mjs
