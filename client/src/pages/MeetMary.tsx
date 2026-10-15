@@ -2,6 +2,7 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { SITE_CONTACT } from "@/lib/siteConfig";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import { ROUTE_HERO_MEDIA } from "@/lib/routeMedia";
 import DeferredBackground from "@/components/DeferredBackground";
 import MaryMedia from "@/components/MaryMedia";
 import { ArrowUpRight, Anchor } from "lucide-react";
@@ -11,7 +12,7 @@ import { ArrowUpRight, Anchor } from "lucide-react";
  * Personal, spacious, and story-led. Original photographs are preserved as supplied.
  */
 
-const heroImage = "/manus-storage/mary-lynch-meet-mary-hero_8902efd8.jpg";
+const heroMedia = ROUTE_HERO_MEDIA["/meet-mary"];
 const popImage = "/manus-storage/pop-and-mary-1972.png";
 const popVideo = "/media/pop-family-video.mp4";
 const popVideoPoster = "/manus-storage/pop-with-music-20261007-poster.jpg";
@@ -28,7 +29,7 @@ export default function MeetMary() {
   return <div className="meet-page">
     <SiteHeader currentPath={currentPath} />
     <main id="main-content" tabIndex={-1}>
-      <section className="meet-hero"><div className="meet-hero__copy"><p className="meet-eyebrow">Realtor®, Advocate, Care Partner</p><h1>Real estate is what I know.<br /><i>Helping families through change is why I do it.</i></h1><div className="meet-rule" /><p>Thirty years in residential real estate have taught me how much a home can hold. The plans, the people, the memories, and the next chapter are all part of the conversation.</p><ButtonLink>Let’s Talk About What Comes Next</ButtonLink></div><div className="meet-hero__photo"><ResponsiveImage src={heroImage} sizes="(max-width: 1180px) 100vw, 50vw" priority alt="Mary Lynch seated on a cream sofa holding a Mary Lynch folder" /><span className="meet-hero__caption">Meet Mary Lynch</span></div></section>
+      <section className="meet-hero"><div className="meet-hero__copy"><p className="meet-eyebrow">Realtor®, Advocate, Care Partner</p><h1>Real estate is what I know.<br /><i>Helping families through change is why I do it.</i></h1><div className="meet-rule" /><p>Thirty years in residential real estate have taught me how much a home can hold. The plans, the people, the memories, and the next chapter are all part of the conversation.</p><ButtonLink>Let’s Talk About What Comes Next</ButtonLink></div><div className="meet-hero__photo"><ResponsiveImage src={heroMedia.src} sizes={heroMedia.sizes} priority alt="Mary Lynch seated on a cream sofa holding a Mary Lynch folder" /><span className="meet-hero__caption">Meet Mary Lynch</span></div></section>
 
       <section className="meet-story">
         <div className="meet-story__copy">

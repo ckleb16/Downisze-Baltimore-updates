@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import DeferredBackground from "@/components/DeferredBackground";
 import AnchorLineLabel from "@/components/AnchorLineLabel";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import { ROUTE_HERO_MEDIA } from "@/lib/routeMedia";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { SITE_CONTACT } from "@/lib/siteConfig";
@@ -9,7 +10,7 @@ import { ArrowUpRight, Check, Anchor } from "lucide-react";
 
 // Harbor House Editorial: warm, advisory, spacious, and human — navy, cream, taupe, antique gold,
 // Cormorant-led headlines, quiet rules, symbolic compass details, and no sales-first framing.
-const heroPhoto = "/manus-storage/aging-in-place-hero_627154ed.jpg";
+const heroMedia = ROUTE_HERO_MEDIA["/aging-in-place"];
 const consultationPhoto = "/manus-storage/aging-in-place-consultation_1b627f71.jpg";
 const personalPhoto = "/manus-storage/mary-and-pop-boat.png";
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
@@ -80,7 +81,7 @@ export default function AgingInPlace() {
   return <div className="aip-page"><SiteHeader currentPath="/aging-in-place" /><main id="main-content" tabIndex={-1}>
     <section className="aip-hero aip-hero--split">
       <div className="aip-hero__panel"><div className="aip-hero__content"><p className="aip-eyebrow"><span /> Aging in Place</p><h1>Age in Place by Design,<br /><i>Not by Default.</i></h1><p>Wanting to stay in your home and being set up to stay in your home are two very different things.</p><p>Aging in place successfully means looking beyond where you live today and thinking about how your home, health, mobility, finances, support system, and community may need to work for you in the years ahead.</p><ButtonLink>Schedule a Conversation</ButtonLink></div></div>
-      <div className="aip-hero__photo"><ResponsiveImage src={heroPhoto} sizes="(max-width: 900px) 100vw, 46vw" priority alt="Mary Lynch seated at a table in a bright home" /><span className="aip-hero__photo-caption">Plan early. Understand the whole picture.</span></div>
+      <div className="aip-hero__photo"><ResponsiveImage src={heroMedia.src} sizes={heroMedia.sizes} priority alt="Mary Lynch seated at a table in a bright home" /><span className="aip-hero__photo-caption">Plan early. Understand the whole picture.</span></div>
     </section>
 
     <DeferredBackground className="aip-stats" backgroundImage={`url(${paperTexture})`}><h2 className="sr-only">The gap between wanting to stay and being ready to stay</h2><AnchorLineLabel className="aip-section-label" decorative>The gap between wanting to stay and being ready to stay</AnchorLineLabel><div className="aip-stats__grid"><article aria-label="75 percent of adults age 50 and older want to remain in their current homes as they age"><strong>75%</strong><p>of adults age 50+ say they want to remain in their current homes as they age.</p></article><article aria-label="Less than 4 percent of U.S. homes have a no-step entrance, single-floor living, and wheelchair-width doors and hallways"><strong>Less than 4%</strong><p>of U.S. homes have a no-step entrance, single-floor living, and doors and hallways wide enough for a wheelchair.</p></article></div><p className="aip-source">National sources: <a href="https://www.aarp.org/pri/topics/livable-communities/housing/2024-home-community-preferences/">AARP’s 2024 Home and Community Preferences Survey</a>; <a href="https://www.jchs.harvard.edu/blog/housing-americas-older-adults-four-problems-we-must-address">Harvard Joint Center for Housing Studies analysis of national housing data</a>. Baltimore’s older, multi-level homes and rowhomes may present additional challenges for aging in place.</p></DeferredBackground>

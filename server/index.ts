@@ -28,6 +28,7 @@ import {
   resolveAppDataDirectory,
 } from "./sqliteD1";
 import { canonicalRedirect } from "./canonicalRedirect";
+import { renderRouteHeroPreload } from "./resourceHints";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -144,6 +145,7 @@ function renderDocument(
 ) {
   const metadata = resolvedMetadata(routePath, article);
   return template
+    .replace("<!--__ROUTE_RESOURCE_HINTS__-->", renderRouteHeroPreload(routePath))
     .replace(
       /<title>[\s\S]*?<\/title>/i,
       `<title>${escapeHtml(metadata.title)}</title>`,

@@ -30,3 +30,15 @@ export type ResponsiveMediaSource = keyof typeof RESPONSIVE_MEDIA;
 export function responsiveVariant(source: ResponsiveMediaSource, width: number) {
   return source.replace(/\.(?:png|jpe?g)$/i, `-${width}w.webp`);
 }
+
+// Keep the HTML preload and rendered image on exactly the same URL candidates.
+export function responsiveImageAttributes(source: ResponsiveMediaSource, sizes: string) {
+  const metadata = RESPONSIVE_MEDIA[source];
+  return {
+    src: responsiveVariant(source, metadata.variants[metadata.variants.length - 1]),
+    srcSet: metadata.variants.map((width) => `${responsiveVariant(source, width)} ${width}w`).join(", "),
+    sizes,
+    width: metadata.width,
+    height: metadata.height,
+  };
+}

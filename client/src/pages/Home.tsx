@@ -2,6 +2,7 @@
 import { useState } from "react";
 import DeferredBackground from "@/components/DeferredBackground";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import { ROUTE_HERO_MEDIA } from "@/lib/routeMedia";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { SITE_CONTACT } from "@/lib/siteConfig";
@@ -19,7 +20,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const heroImage = "/manus-storage/AugustwebsiteHOMEphoto_6750abaf.png";
+const heroMedia = ROUTE_HERO_MEDIA["/"];
 const maryPortrait = "/manus-storage/Mary_Lynch_3d838598.jpg";
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
 const contourTexture = "/manus-storage/downsize-baltimore-contour-lines_aaa317b7-1920w.webp";
@@ -143,7 +144,7 @@ export default function Home() {
 
       <main id="main-content" tabIndex={-1}>
         <section className="hero">
-          <ResponsiveImage src={heroImage} sizes="100vw" priority alt="A welcoming navy blue home at golden hour in a Baltimore neighborhood" className="hero__image" />
+          <ResponsiveImage src={heroMedia.src} sizes={heroMedia.sizes} priority alt="A welcoming navy blue home at golden hour in a Baltimore neighborhood" className="hero__image" />
           <div className="hero__veil" />
           <div className="hero__content">
             <p className="eyebrow eyebrow--light"><span /> Baltimore-area real estate guidance</p>

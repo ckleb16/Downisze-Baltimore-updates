@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { SITE_CONTACT } from "@/lib/siteConfig";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import { ROUTE_HERO_MEDIA } from "@/lib/routeMedia";
 import DeferredBackground from "@/components/DeferredBackground";
 import LatestInsights from "@/components/LatestInsights";
 import ResourceGuides from "@/components/ResourceGuides";
@@ -14,7 +15,7 @@ import { ArrowUpRight, BookOpen, ChevronDown, Anchor, Home, Scale, ShieldCheck, 
  * calm navigation, and clear development states instead of a downloads warehouse.
  */
 
-const heroImage = "/manus-storage/mary-lynch-resource-center_4f151291.jpg";
+const heroMedia = ROUTE_HERO_MEDIA["/resource-center"];
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
 const contourTexture = "/manus-storage/downsize-baltimore-contour-lines_aaa317b7-1920w.webp";
 const calendlyUrl = SITE_CONTACT.calendlyUrl;
@@ -44,7 +45,7 @@ export default function ResourceCenter() {
   return <div className="resource-page">
     <SiteHeader currentPath={currentPath} />
     <main id="main-content" tabIndex={-1}>
-      <section className="resource-hero"><div className="resource-hero__copy"><p className="resource-eyebrow">A library of answers</p><h1>Resources for<br /><i>Whatever Comes Next.</i></h1><div className="resource-rule" /><p>You don’t have to figure everything out at once.</p><p>Start with the question that’s on your mind, then explore the practical guidance available now to help you understand your options and decide what comes next.</p><ButtonLink href="#questions">Start With Your Question</ButtonLink></div><div className="resource-hero__photo"><ResponsiveImage src={heroImage} sizes="(max-width: 1180px) 100vw, 50vw" priority alt="Mary Lynch seated at a table with an open laptop" /><span className="resource-hero__caption">Start with the question.</span></div></section>
+      <section className="resource-hero"><div className="resource-hero__copy"><p className="resource-eyebrow">A library of answers</p><h1>Resources for<br /><i>Whatever Comes Next.</i></h1><div className="resource-rule" /><p>You don’t have to figure everything out at once.</p><p>Start with the question that’s on your mind, then explore the practical guidance available now to help you understand your options and decide what comes next.</p><ButtonLink href="#questions">Start With Your Question</ButtonLink></div><div className="resource-hero__photo"><ResponsiveImage src={heroMedia.src} sizes={heroMedia.sizes} priority alt="Mary Lynch seated at a table with an open laptop" /><span className="resource-hero__caption">Start with the question.</span></div></section>
 
       <section id="questions" className="resource-pathways"><div className="resource-section-heading"><p className="resource-eyebrow">Start with your question</p><h2>What Can I Help You <i>Figure Out?</i></h2><p>Some questions lead to guides you can read now. Others start with a conversation with Mary. Choose the question closest to what is on your mind.</p></div><div className="resource-pathway-grid">{pathways.map(({ icon: Icon, question, body, topics, action, href }, index) => {
         return <article key={question}><div className="resource-pathway__top"><span>0{index + 1}</span><Icon size={25} strokeWidth={1.15} aria-hidden="true" /></div><h3>{question}</h3><p>{body}</p><small>{topics}</small><a className="resource-pathway__action" href={href}>{action}<ArrowUpRight size={16} aria-hidden="true" /></a></article>;

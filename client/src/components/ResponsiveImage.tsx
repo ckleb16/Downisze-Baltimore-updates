@@ -1,7 +1,6 @@
 import type { ImgHTMLAttributes } from "react";
 import {
-  RESPONSIVE_MEDIA,
-  responsiveVariant,
+  responsiveImageAttributes,
   type ResponsiveMediaSource,
 } from "@/lib/responsiveMedia";
 
@@ -21,19 +20,10 @@ export default function ResponsiveImage({
   decoding = "async",
   ...props
 }: ResponsiveImageProps) {
-  const metadata = RESPONSIVE_MEDIA[src];
-  const largestWidth = metadata.variants[metadata.variants.length - 1];
-
   return (
     <img
       {...props}
-      src={responsiveVariant(src, largestWidth)}
-      srcSet={metadata.variants
-        .map((width) => `${responsiveVariant(src, width)} ${width}w`)
-        .join(", ")}
-      sizes={sizes}
-      width={metadata.width}
-      height={metadata.height}
+      {...responsiveImageAttributes(src, sizes)}
       loading={priority ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : undefined}
       decoding={decoding}

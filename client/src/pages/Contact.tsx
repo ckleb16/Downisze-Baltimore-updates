@@ -3,6 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { SITE_CONTACT } from "@/lib/siteConfig";
 import ResponsiveImage from "@/components/ResponsiveImage";
+import { ROUTE_HERO_MEDIA } from "@/lib/routeMedia";
 import DeferredBackground from "@/components/DeferredBackground";
 import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 
@@ -12,7 +13,7 @@ import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
  * gold rules, and a clear Calendly-first path instead of lead-generation pressure.
  */
 
-const heroImage = "/manus-storage/mary-lynch-contact-chair_dd829984.jpg";
+const heroMedia = ROUTE_HERO_MEDIA["/contact"];
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
 const calendlyUrl = SITE_CONTACT.calendlyUrl;
 const emailAddress = "mary@downsizebaltimore.com";
@@ -67,7 +68,7 @@ export default function Contact() {
 
     <main id="main-content" tabIndex={-1}>
       {joiningClub && <section className="contact-club-note" aria-labelledby="contact-club-title"><h2 id="contact-club-title">Join the Downsizers Club for Free</h2><p>The note below is ready with your club request. Add your contact details, then open the email draft and send it to Mary. Membership is arranged with Mary; this page does not enroll you automatically.</p><a href="#contact-club-form">Send your request</a></section>}
-      <section className="contact-hero"><div className="contact-hero__copy"><p className="contact-eyebrow">A place to begin</p><h1>Let’s Talk About<br /><i>What Comes Next.</i></h1><div className="contact-rule" /><p>You don’t need to have all the answers before you reach out.</p><p>Whether you’re considering a move, helping someone you love, wondering if your current home still works for you, or simply trying to understand your options, let’s start with a conversation.</p><ButtonLink>Schedule a Conversation</ButtonLink><small>No pressure. No obligation. Just a place to start.</small></div><div className="contact-hero__photo"><ResponsiveImage src={heroImage} sizes="(max-width: 1180px) 100vw, 50vw" priority alt="Mary Lynch seated in a cane chair in a bright home" /><span className="contact-hero__caption">A conversation can be the beginning.</span></div></section>
+      <section className="contact-hero"><div className="contact-hero__copy"><p className="contact-eyebrow">A place to begin</p><h1>Let’s Talk About<br /><i>What Comes Next.</i></h1><div className="contact-rule" /><p>You don’t need to have all the answers before you reach out.</p><p>Whether you’re considering a move, helping someone you love, wondering if your current home still works for you, or simply trying to understand your options, let’s start with a conversation.</p><ButtonLink>Schedule a Conversation</ButtonLink><small>No pressure. No obligation. Just a place to start.</small></div><div className="contact-hero__photo"><ResponsiveImage src={heroMedia.src} sizes={heroMedia.sizes} priority alt="Mary Lynch seated in a cane chair in a bright home" /><span className="contact-hero__caption">A conversation can be the beginning.</span></div></section>
 
       <section className="contact-topics"><div className="contact-section-heading"><p className="contact-eyebrow">Bring what’s on your mind</p><h2>What Can We<br /><i>Talk About?</i></h2><p>You do not have to arrive with the right words. These are simply a few of the conversations Mary often helps families begin.</p></div><ol className="contact-topic-list" role="list">{conversationTopics.map((topic, index) => <li key={topic}><span aria-hidden="true">0{index + 1}</span><p>{topic}</p></li>)}</ol></section>
 
