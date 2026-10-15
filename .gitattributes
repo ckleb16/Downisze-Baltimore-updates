@@ -1,0 +1,3 @@
+# Fingerprinted third-party assets must preserve their exact downloaded bytes,
+# including license/CSS line endings, on both Windows and Linux checkouts.
+client/public/fonts/** -text
