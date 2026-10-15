@@ -1,6 +1,8 @@
 /* Harbor House Editorial: Baltimore navy, paper cream, antique gold, editorial type, asymmetric rhythm. */
 @import "tailwindcss";
 @import "tw-animate-css";
+/* Font licenses/provenance are assets, not sources of utility class names. */
+@source not "../public/fonts";
 
 @custom-variant dark (&:is(.dark *));
 
