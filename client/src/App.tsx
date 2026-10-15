@@ -1,6 +1,4 @@
-import { Toaster } from "@/components/ui/sonner";
 import { RESOURCE_GUIDES, guidePath } from "@/lib/resourceGuides";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import {
   NOT_FOUND_METADATA,
   canonicalizeRecognizedPath,
@@ -147,13 +145,10 @@ function App() {
         defaultTheme="light"
         // switchable
       >
-        <TooltipProvider>
-          <Toaster />
-          <GlobalSkipLink />
-          <RouteMetadata />
-          <FragmentNavigation />
-          <Router />
-        </TooltipProvider>
+        <GlobalSkipLink />
+        <RouteMetadata />
+        <FragmentNavigation />
+        <Router />
       </ThemeProvider>
     </ErrorBoundary>
   );
