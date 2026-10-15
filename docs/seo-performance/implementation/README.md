@@ -1,11 +1,11 @@
 # Sequential implementation tracker
 
-Updated October 13, 2026. User request: implement the PRDs one by one. Each batch remains independently reviewable; appearance/writing changes still require explicit approval. No production deployment or external account change has been made.
+Updated October 14, 2026. User request: implement the PRDs one by one. Each batch remains independently reviewable; appearance/writing changes still require explicit approval. No production deployment or external account change has been made.
 
 | PRD | State | Next requirement |
 | --- | --- | --- |
-| 01 — Migration | Repository redirect policy and tests implemented; external work incomplete | [Detailed status](PRD-01-status.md); old-host access, retirement/mapping decisions and authorized deployment |
-| 02 — Performance | Queued | Preserve design/text baseline and measure each change |
+| 01 — Migration | Repository redirect policy and tests implemented; old site retirement confirmed | [Detailed status](PRD-01-status.md); old-host access, individual URL mapping and authorized deployment |
+| 02 — Performance | First technical batch implemented; release checks incomplete | [Detailed status](PRD-02-status.md); controlled measurements, image/CSS follow-up and full parity gates |
 | 03 — Technical SEO | Queued | Existing-content parity; business-fact and optional rendering decisions |
 | 04 — Accessibility/runtime | Queued | Include discovered type-check and dependency findings below |
 | 05 — Measurement/local | Queued; account/privacy decisions needed | Authorized accounts and measurement preferences; no unapproved tracking |
