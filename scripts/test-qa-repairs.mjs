@@ -1,8 +1,18 @@
 import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
 import { scryptSync, randomBytes } from 'node:crypto';
-import { readFileSync, readdirSync } from 'node:fs';
-import worker from '../server/worker.ts';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { registerHooks } from 'node:module';
+import { fileURLToPath } from 'node:url';
+
+registerHooks({ resolve(specifier, context, nextResolve) {
+  if (specifier.startsWith('.') && context.parentURL) {
+    const candidate = new URL(`${specifier}.ts`, context.parentURL);
+    if (existsSync(fileURLToPath(candidate))) return nextResolve(candidate.href, context);
+  }
+  return nextResolve(specifier, context);
+} });
+const { default: worker } = await import('../server/worker.ts');
 
 // All writing is isolated in memory. Never touches live articles, credentials, or uploads.
 const sqlite = new DatabaseSync(':memory:');

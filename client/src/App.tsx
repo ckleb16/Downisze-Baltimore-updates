@@ -1,9 +1,5 @@
 import { RESOURCE_GUIDES, guidePath } from "@/lib/resourceGuides";
-import {
-  NOT_FOUND_METADATA,
-  canonicalizeRecognizedPath,
-  findPageRoute,
-} from "@/lib/siteRoutes";
+import MetadataProvider from "@/components/MetadataProvider";
 import { lazy, Suspense, useEffect } from "react";
 import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -21,39 +17,6 @@ const InsightsArchive = lazy(() => import("./pages/InsightsArchive"));
 const InsightArticle = lazy(() => import("./pages/InsightArticle"));
 const InsightsPublisher = lazy(() => import("./pages/InsightsPublisher"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-
-function RouteMetadata() {
-  const [location] = useLocation();
-
-  useEffect(() => {
-    const pathname = location.split(/[?#]/)[0] || "/";
-    const canonicalPath = canonicalizeRecognizedPath(pathname);
-    const metadata = findPageRoute(pathname) ??
-      (pathname.startsWith("/insights-advice/")
-        ? {
-            title: "Insights & Advice | Downsize Baltimore",
-            description: "Practical guidance from Mary Lynch and Downsize Baltimore.",
-          }
-        : NOT_FOUND_METADATA);
-
-    if (canonicalPath && canonicalPath !== pathname && typeof window !== "undefined") {
-      const suffix = `${window.location.search}${window.location.hash}`;
-      window.history.replaceState(window.history.state, "", `${canonicalPath}${suffix}`);
-    }
-
-    document.title = metadata.title;
-
-    let description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    if (!description) {
-      description = document.createElement("meta");
-      description.name = "description";
-      document.head.appendChild(description);
-    }
-    description.content = metadata.description;
-  }, [location]);
-
-  return null;
-}
 
 function GlobalSkipLink() {
   return (
@@ -146,9 +109,10 @@ function App() {
         // switchable
       >
         <GlobalSkipLink />
-        <RouteMetadata />
         <FragmentNavigation />
-        <Router />
+        <MetadataProvider>
+          <Router />
+        </MetadataProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

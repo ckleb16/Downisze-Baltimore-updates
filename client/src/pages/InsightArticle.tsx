@@ -4,6 +4,7 @@ import { useParams } from "wouter";
 import MarkdownContent from "@/components/MarkdownContent";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { useArticleMetadata } from "@/components/MetadataProvider";
 import {
   formatInsightDate,
   InsightsApiError,
@@ -15,7 +16,9 @@ export default function InsightArticle() {
   const { slug = "" } = useParams<{ slug: string }>();
   const [post, setPost] = useState<InsightPost | null>(null);
   const [state, setState] = useState<"loading" | "ready" | "missing" | "error">("loading");
+  const [resolvedSlug, setResolvedSlug] = useState<string | null>(null);
   const activeRequest = useRef<AbortController | null>(null);
+  useArticleMetadata(`/insights-advice/${slug}`, resolvedSlug === slug ? state : "loading", post);
 
   const load = useCallback(async () => {
     activeRequest.current?.abort();
@@ -25,10 +28,12 @@ export default function InsightArticle() {
     try {
       const result = await insightsRequest<{ post: InsightPost }>(`/api/posts/${encodeURIComponent(slug)}`, { signal: controller.signal });
       if (controller.signal.aborted) return;
+      setResolvedSlug(slug);
       setPost(result.post);
       setState("ready");
     } catch (error) {
       if (controller.signal.aborted) return;
+      setResolvedSlug(slug);
       setState(error instanceof InsightsApiError && error.status === 404 ? "missing" : "error");
     }
   }, [slug]);
@@ -38,13 +43,6 @@ export default function InsightArticle() {
     void load();
     return () => activeRequest.current?.abort();
   }, [load]);
-
-  useEffect(() => {
-    if (!post) return;
-    document.title = `${post.title} | Downsize Baltimore`;
-    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    if (description) description.content = post.excerpt;
-  }, [post]);
 
   return (
     <div className="insights-page">

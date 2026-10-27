@@ -37,12 +37,19 @@ class SqliteD1Statement {
     return new SqliteD1Statement(this.database, this.query, values);
   }
 
+  private databaseSize() {
+    const pageCount = this.database.prepare("PRAGMA page_count").get() as { page_count: number };
+    const pageSize = this.database.prepare("PRAGMA page_size").get() as { page_size: number };
+    return pageCount.page_count * pageSize.page_size;
+  }
+
   async all<T>() {
     const results = this.database.prepare(this.query).all(...this.values) as T[];
     return {
       success: true,
       results,
-      meta: { changes: 0, duration: 0, rows_read: results.length, rows_written: 0 },
+      meta: { changes: 0, duration: 0, size_after: this.databaseSize(),
+        changed_db: false, last_row_id: 0, rows_read: results.length, rows_written: 0 },
     } as D1Result<T>;
   }
 
@@ -71,6 +78,8 @@ class SqliteD1Statement {
         meta: {
           changes: Number(changes.changes),
           duration: 0,
+          size_after: this.databaseSize(),
+          changed_db: Number(changes.changes) > 0,
           last_row_id: 0,
           rows_read: results.length,
           rows_written: Number(changes.changes),
@@ -85,6 +94,8 @@ class SqliteD1Statement {
       meta: {
         changes: Number(result.changes),
         duration: 0,
+        size_after: this.databaseSize(),
+        changed_db: Number(result.changes) > 0,
         last_row_id: Number(result.lastInsertRowid),
         rows_read: 0,
         rows_written: Number(result.changes),

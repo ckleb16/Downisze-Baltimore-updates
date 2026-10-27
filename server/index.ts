@@ -5,7 +5,6 @@ import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
 import {
-  NOT_FOUND_METADATA,
   PAGE_ROUTES,
   articleSlugFromPath,
   canonicalizeRecognizedPath,
@@ -29,22 +28,12 @@ import {
 } from "./sqliteD1";
 import { canonicalRedirect } from "./canonicalRedirect";
 import { renderRouteHeroPreload } from "./resourceHints";
+import { publicRobots, type MetadataContext } from "../client/src/lib/siteMetadata";
+import { escapeHtml, renderPageMetadata } from "./pageMetadata";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DEFAULT_SITE_URL = "https://downsizebaltimore.com";
-const SOCIAL_IMAGE_PATH = "/downsize-baltimore-social-share.jpg";
-const SOCIAL_IMAGE_ALT =
-  "Downsize Baltimore — clear housing guidance from Mary Lynch";
-
-function escapeHtml(value: string) {
-  return value
-    .replaceAll("&", "&amp;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
-}
 
 function configuredSiteOrigin() {
   const url = new URL(process.env.SITE_URL || DEFAULT_SITE_URL);
@@ -53,7 +42,8 @@ function configuredSiteOrigin() {
 
 function requestOrigin(req: Request) {
   const forwardedProto = req.get("x-forwarded-proto")?.split(",")[0]?.trim();
-  const protocol = forwardedProto || req.protocol || "https";
+  const protocol = forwardedProto === "http" || forwardedProto === "https"
+    ? forwardedProto : req.protocol === "http" ? "http" : "https";
   const host = req.get("host");
   if (!host || !/^[a-z0-9.:[\]-]+$/i.test(host)) return configuredSiteOrigin();
   return `${protocol}://${host}`;
@@ -72,92 +62,27 @@ function isIndexableRequest(req: Request) {
   }
 }
 
-function resolvedMetadata(
-  routePath: string | null,
-  article?: PublicInsightPost | null,
-) {
-  const route = routePath ? findPageRoute(routePath) : undefined;
-  const isArticle = Boolean(routePath && articleSlugFromPath(routePath));
-  return route ??
-    (article
-      ? {
-          title: `${article.title} | Downsize Baltimore`,
-          description: article.excerpt,
-          publishedAt: article.publishedAt,
-        }
-      : null) ??
-    (isArticle
-      ? {
-          title: "Insights & Advice | Downsize Baltimore",
-          description: "Practical guidance from Mary Lynch and Downsize Baltimore.",
-        }
-      : NOT_FOUND_METADATA);
-}
-
-function metadataMarkup(
-  req: Request,
-  routePath: string | null,
-  article?: PublicInsightPost | null,
-) {
-  const route = routePath ? findPageRoute(routePath) : undefined;
-  const isArticle = Boolean(routePath && articleSlugFromPath(routePath));
-  const metadata = resolvedMetadata(routePath, article);
-  const indexable = Boolean((route && route.indexable !== false) || isArticle) && isIndexableRequest(req);
-  const origin = indexable ? configuredSiteOrigin() : requestOrigin(req);
-  const canonicalUrl = routePath ? new URL(routePath, `${origin}/`).href : null;
-  const socialImageUrl = new URL(SOCIAL_IMAGE_PATH, `${origin}/`).href;
-  const robots = indexable ? "index,follow" : "noindex,nofollow";
-
-  return [
-    `<meta name="robots" content="${robots}" />`,
-    canonicalUrl
-      ? `<link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`
-      : "",
-    `<meta property="og:type" content="${isArticle ? "article" : "website"}" />`,
-    '<meta property="og:site_name" content="Downsize Baltimore" />',
-    `<meta property="og:title" content="${escapeHtml(metadata.title)}" />`,
-    `<meta property="og:description" content="${escapeHtml(metadata.description)}" />`,
-    canonicalUrl
-      ? `<meta property="og:url" content="${escapeHtml(canonicalUrl)}" />`
-      : "",
-    isArticle && "publishedAt" in metadata && metadata.publishedAt
-      ? `<meta property="article:published_time" content="${escapeHtml(metadata.publishedAt)}" />`
-      : "",
-    `<meta property="og:image" content="${escapeHtml(socialImageUrl)}" />`,
-    '<meta property="og:image:width" content="1200" />',
-    '<meta property="og:image:height" content="630" />',
-    `<meta property="og:image:alt" content="${escapeHtml(SOCIAL_IMAGE_ALT)}" />`,
-    '<meta name="twitter:card" content="summary_large_image" />',
-    `<meta name="twitter:title" content="${escapeHtml(metadata.title)}" />`,
-    `<meta name="twitter:description" content="${escapeHtml(metadata.description)}" />`,
-    `<meta name="twitter:image" content="${escapeHtml(socialImageUrl)}" />`,
-    `<meta name="twitter:image:alt" content="${escapeHtml(SOCIAL_IMAGE_ALT)}" />`,
-  ]
-    .filter(Boolean)
-    .join("\n    ");
-}
-
 function renderDocument(
   template: string,
   req: Request,
   routePath: string | null,
   article?: PublicInsightPost | null,
 ) {
-  const metadata = resolvedMetadata(routePath, article);
-  return template
-    .replace("<!--__ROUTE_RESOURCE_HINTS__-->", renderRouteHeroPreload(routePath))
-    .replace(
-      /<title>[\s\S]*?<\/title>/i,
-      `<title>${escapeHtml(metadata.title)}</title>`,
-    )
-    .replace(
-      /<meta\s+name="description"\s+content="[^"]*"\s*\/>/i,
-      `<meta name="description" content="${escapeHtml(metadata.description)}" />`,
-    )
-    .replace(
-      /<!--__ROUTE_META_START__-->[\s\S]*?<!--__ROUTE_META_END__-->/,
-      metadataMarkup(req, routePath, article),
-    );
+  const context: MetadataContext = {
+    siteOrigin: configuredSiteOrigin(),
+    requestOrigin: requestOrigin(req),
+    indexable: isIndexableRequest(req),
+    initialPath: req.path,
+    initialResolvedPath: routePath,
+    initialArticle: article ? {
+      slug: article.slug,
+      title: article.title,
+      excerpt: article.excerpt,
+      publishedAt: article.publishedAt,
+    } : null,
+  };
+  return renderPageMetadata(template, context)
+    .replace("<!--__ROUTE_RESOURCE_HINTS__-->", renderRouteHeroPreload(routePath));
 }
 
 function isFingerprintAsset(filePath: string) {
@@ -227,16 +152,11 @@ async function startServer() {
   app.get("/robots.txt", (req, res) => {
     res.set("Cache-Control", "public, max-age=3600");
     res.type("text/plain");
-    if (!isIndexableRequest(req)) {
-      return res.send("User-agent: *\nDisallow: /\n");
-    }
-
-    return res.send(
-      `User-agent: *\nAllow: /\nDisallow: /publisher\nDisallow: /api/\nSitemap: ${configuredSiteOrigin()}/sitemap.xml\n`,
-    );
+    return res.send(publicRobots(isIndexableRequest(req), configuredSiteOrigin()));
   });
 
   app.all("/api/*", async (req, res) => {
+    res.set("X-Robots-Tag", "noindex");
     try {
       await sendWebResponse(
         res,

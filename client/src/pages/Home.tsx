@@ -177,7 +177,7 @@ export default function Home() {
             <div id="daily-question-slides" className="questions-carousel__viewport">
               <div className="questions-carousel__track" style={{ transform: `translate3d(-${activeQuestion * 100}%, 0, 0)` }}>
                 {dailyQuestions.map((question, index) => (
-                  <article
+                  <div
                     className="questions-carousel__slide"
                     key={question}
                     role="group"
@@ -187,7 +187,7 @@ export default function Home() {
                   >
                     <span>{String(index + 1).padStart(2, "0")}</span>
                     <p>{question}</p>
-                  </article>
+                  </div>
                 ))}
               </div>
             </div>
