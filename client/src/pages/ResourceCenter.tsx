@@ -7,6 +7,7 @@ import { ROUTE_HERO_MEDIA } from "@/lib/routeMedia";
 import DeferredBackground from "@/components/DeferredBackground";
 import LatestInsights from "@/components/LatestInsights";
 import ResourceGuides from "@/components/ResourceGuides";
+import ClubSignup from "@/components/ClubSignup";
 import { ArrowUpRight, BookOpen, ChevronDown, Anchor, Home, Scale, ShieldCheck, Users } from "lucide-react";
 
 /**
@@ -55,7 +56,14 @@ export default function ResourceCenter() {
 
       <DeferredBackground id="resource-library" className="resource-featured resource-insights" aria-labelledby="resource-library-heading" backgroundImage={`url(${contourTexture})`}><div className="resource-featured__head"><div><p className="resource-eyebrow resource-eyebrow--gold">Insights &amp; Advice</p><h2 id="resource-library-heading">A Little Clarity<br /><i>for the Road Ahead.</i></h2></div><div><p>Read Mary’s latest thoughts on downsizing, aging in place, family conversations, and the choices that shape what comes next.</p><a className="resource-insights__all" href="/insights-advice">Read More Insights &amp; Advice <ArrowUpRight size={16} aria-hidden="true" /></a></div></div><LatestInsights /></DeferredBackground>
 
-      <DeferredBackground id="club" className="resource-club" backgroundImage={`linear-gradient(rgba(16,42,67,.96),rgba(16,42,67,.96)),url(${contourTexture})`}><div className="resource-club__mark"><Anchor size={26} strokeWidth={1.1} aria-hidden="true" /></div><div className="resource-club__content"><p className="resource-eyebrow resource-eyebrow--gold">Learn about the club</p><h2>Not Ready to Move?<br /><i>You Can Still Start Getting Ready.</i></h2><p>The Downsizers Club of Baltimore is designed for people who are thinking about a move in the next few years and want to prepare a little at a time.</p><p>Participants receive practical education, local resources, and manageable action steps covering the things that tend to make downsizing feel overwhelming.</p><ul className="resource-club__topics" role="list"><li><span>Decluttering &amp; belongings</span></li><li><span>Important paperwork</span></li><li><span>Home preparation</span></li><li><span>Housing options</span></li><li><span>Move planning</span></li><li><span>What to do now versus later</span></li></ul><ButtonLink variant="light" href="/contact?topic=downsizers-club#contact-club-form">Join for Free</ButtonLink></div></DeferredBackground>
+      <section id="club" className="resource-club-signup" aria-labelledby="club-heading">
+        <div className="resource-club-signup__banner"><Anchor size={27} strokeWidth={1.1} aria-hidden="true" /><h2 id="club-heading">Downsizers Club</h2></div>
+        <div className="resource-club-signup__welcome">
+          <div><p>Downsizers Club is coming in 2027! Dates and locations will be announced soon. Want to be the first to know? Add your name and we'll send you the schedule as soon as it's ready.</p></div>
+          <ResponsiveImage src={heroMedia.src} sizes="(max-width: 700px) 40vw, 160px" alt="Mary Lynch seated at a table in a bright room" />
+        </div>
+        <ClubSignup />
+      </section>
 
       <section id="faq" className="resource-faq"><div className="resource-section-heading"><p className="resource-eyebrow">Questions people really ask</p><h2>Chances Are,<br /><i>Someone Else Asked It Too.</i></h2><p>Start with the question closest to yours. Each answer offers a practical place to begin.</p></div><div className="resource-faq-list">{faqs.map(([question, answer], index) => {
         const buttonId = `resource-faq-button-${index}`;

@@ -195,6 +195,15 @@ export async function handleGodaddyApi(
   const pathname = url.pathname;
 
   try {
+    if (pathname === "/api/signups") {
+      if (request.method !== "POST") {
+        return jsonResponse({ error: "Use POST for this request." }, request, 405);
+      }
+      // The email platform and list identifiers have not been supplied yet.
+      // A request must never appear successful before the provider accepts it.
+      return jsonResponse({ error: "Sign-up is temporarily unavailable." }, request, 503);
+    }
+
     if (pathname === "/api/admin/login" || pathname === "/api/admin/logout") {
       if (request.method !== "POST") {
         return jsonResponse({ error: "Use POST for this request." }, request, 405);

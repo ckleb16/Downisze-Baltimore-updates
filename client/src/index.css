@@ -3369,3 +3369,59 @@ main[tabindex="-1"]:focus{outline:none;box-shadow:none}
   .insight-article>header h1{font-size:clamp(2rem,10vw,2.5rem)}
   .publisher-preview h2{font-size:clamp(1.75rem,8vw,2.25rem)}
 }
+
+/* Optional guide newsletter invitation and schedule interest forms. */
+.guide-signup{background:#fffdf8;color:#102a43;border:1px solid #d4c4a6;max-width:34rem;padding:2rem}
+.guide-signup [data-slot="dialog-title"]{font:400 2.5rem/1.05 "Cormorant Garamond",serif;color:#102a43}
+.guide-signup [data-slot="dialog-description"]{font:400 1.05rem/1.6 "DM Sans",sans-serif;color:#40505d}
+.guide-signup__dismiss{justify-self:start;min-height:44px;padding:.5rem 0;border:0;background:transparent;color:#102a43;font-size:1rem;text-decoration:underline;text-underline-offset:.25em;cursor:pointer}
+.guide-signup__dismiss:focus-visible,.signup-form button:focus-visible,.club-form button:focus-visible,.site-footer-v2__club a:focus-visible{outline:3px solid #c79a4a;outline-offset:4px}
+.signup-form__fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;align-items:end}
+.signup-form label,.club-form label{display:block;font-weight:700;font-size:1rem;line-height:1.4}
+.signup-form input,.club-form input:not([type="checkbox"]){display:block;width:100%;min-width:0;min-height:48px;margin-top:.45rem;padding:.7rem .8rem;border:1px solid #687785;border-radius:0;background:#fff;color:#102a43;font:400 1rem/1.4 "DM Sans",sans-serif}
+.signup-form input:focus-visible,.club-form input:focus-visible{outline:3px solid #c79a4a;outline-offset:2px}
+.signup-form button,.club-form button{min-height:48px;padding:.7rem 1.25rem;border:1px solid #102a43;background:#102a43;color:#fff;font:700 1rem/1.3 "DM Sans",sans-serif;cursor:pointer}
+.signup-form button:disabled,.club-form button:disabled{opacity:.65;cursor:wait}
+.signup-form__status{margin:.75rem 0 0;line-height:1.5}
+.guide-signup .signup-form button{grid-column:1/-1;justify-self:start}
+.resource-club-signup{max-width:80rem;margin:4rem auto;background:#fff;color:#102a43;scroll-margin-top:2rem;box-shadow:0 9px 30px rgba(16,42,67,.12)}
+.resource-club-signup__banner{display:flex;align-items:center;gap:1rem;padding:2rem 5vw;background:#102a43;color:#fff}
+.resource-club-signup__banner h2{margin:0;color:#fff;font:400 clamp(2.8rem,5vw,4.5rem)/1 "Cormorant Garamond",serif}
+.resource-club-signup__welcome{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:2rem 5vw 0}
+.resource-club-signup__welcome p{max-width:48rem;margin:0;font-size:1.125rem;line-height:1.65}
+.resource-club-signup__welcome img{width:9rem;height:9rem;flex:0 0 9rem;object-fit:cover;object-position:center 30%;border-radius:50%}
+.club-form-panel{padding:2rem 5vw 3rem}
+.club-form{display:grid;gap:1.5rem;max-width:56rem}
+.club-form__row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+.club-form label span,.club-form legend span{font-weight:400;color:#52616a}
+.club-form__checks{display:grid;gap:.75rem;margin:0;padding:0;border:0}
+.club-form__checks legend{margin-bottom:.75rem;font-weight:700;font-size:1.05rem}
+.club-form__checks label,.club-form__newsletter{display:flex!important;align-items:flex-start;gap:.75rem;font-weight:400!important}
+.club-form input[type="checkbox"]{width:1.35rem;height:1.35rem;flex:0 0 1.35rem;margin:.1rem 0 0;accent-color:#102a43}
+.club-form button{justify-self:start;min-width:12rem}
+.club-form__error,.club-form__success{margin:0;font-size:1.125rem;line-height:1.6}
+.club-form__error{color:#872d25}
+.site-footer-v2__signups{display:grid;grid-template-columns:1fr 2fr;gap:2rem;max-width:1280px;margin:2rem auto;padding-bottom:2rem;border-bottom:1px solid rgba(245,241,233,.18)}
+.site-footer-v2__signups p{margin:0 0 .8rem;font-weight:700;font-size:1rem;color:#f7f3ea}
+.site-footer-v2__club a{display:inline-flex;align-items:center;gap:.75rem;min-height:48px;padding:.7rem 1rem;border:1px solid #e5c987;color:#102a43;background:#e5c987;font-weight:700;text-decoration:none}
+.site-footer-v2__club a:hover{background:#f0d38f}
+.site-footer-v2__newsletter .signup-form{max-width:37rem}
+.site-footer-v2__newsletter .signup-form label{color:#f7f3ea}
+.site-footer-v2__newsletter .signup-form__status{color:#f7f3ea}
+.site-footer-v2__newsletter .signup-form button{background:#f7f3ea;color:#102a43;border-color:#f7f3ea}
+@media(max-width:700px){
+  .signup-form__fields,.club-form__row,.site-footer-v2__signups{grid-template-columns:1fr}
+  .resource-club-signup__welcome{align-items:flex-start}
+  .resource-club-signup__welcome img{width:6rem;height:6rem;flex-basis:6rem}
+}
+@media(max-width:500px){.resource-club-signup__welcome{flex-direction:column}.resource-club-signup__welcome img{order:-1}}
+.ds-club-next{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center;padding:4rem 10vw;background:#f5efe5;color:#102a43}
+.ds-club-next h2{margin:.3rem 0 1rem;font:400 clamp(2.5rem,4vw,4rem)/1 "Cormorant Garamond",serif}
+.ds-club-next>div>p:not(.ds-eyebrow){font-size:1.125rem;line-height:1.6}
+.topic-guide-links h3{margin:0 0 1rem;font:400 2rem/1.1 "Cormorant Garamond",serif}
+.topic-guide-links ul{margin:0;padding-left:1.2rem;line-height:1.7}
+.topic-guide-links li+li{margin-top:.6rem}
+.topic-guide-links a{color:#102a43;font-weight:700;text-decoration:underline;text-underline-offset:.25em}
+.topic-guide-links a:focus-visible{outline:3px solid #b48a4a;outline-offset:4px}
+.aip-guide-links{padding:3rem 7vw;background:#f7f2e8;color:#102a43}
+@media(max-width:700px){.ds-club-next{grid-template-columns:1fr;gap:2rem}}

@@ -1,6 +1,7 @@
 import { ArrowUpRight, Phone } from "lucide-react";
 import { SITE_ASSETS, SITE_CONTACT } from "@/lib/siteConfig";
 import { SITE_ROUTES, canonicalizeRecognizedPath } from "@/lib/siteRoutes";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 type SiteFooterProps = {
   currentPath: string;
@@ -56,6 +57,16 @@ export default function SiteFooter({ currentPath }: SiteFooterProps) {
           <a className="site-footer-v2__cta" href={SITE_CONTACT.calendlyUrl}>
             Schedule a Conversation <ArrowUpRight size={16} aria-hidden="true" />
           </a>
+        </div>
+      </div>
+      <div className="site-footer-v2__signups">
+        <div className="site-footer-v2__club">
+          <p>Downsizers Club</p>
+          <a href="/resource-center#club">Downsizers Club <ArrowUpRight size={17} aria-hidden="true" /></a>
+        </div>
+        <div className="site-footer-v2__newsletter">
+          <p>The Anchored Home</p>
+          <NewsletterSignup source={canonicalPath === "/meet-mary" ? "meet-mary" : "footer"} />
         </div>
       </div>
       <div className="site-footer-v2__bottom">

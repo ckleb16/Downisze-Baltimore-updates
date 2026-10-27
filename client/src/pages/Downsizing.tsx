@@ -5,6 +5,7 @@ import ResponsiveImage from "@/components/ResponsiveImage";
 import { ROUTE_HERO_MEDIA } from "@/lib/routeMedia";
 import DeferredBackground from "@/components/DeferredBackground";
 import AnchorLineLabel from "@/components/AnchorLineLabel";
+import GuideLinks from "@/components/GuideLinks";
 import { ArrowUpRight, Check, Anchor } from "lucide-react";
 
 // Harbor House Editorial: reuse the approved Home page system — navy, cream, taupe, antique gold,
@@ -48,6 +49,11 @@ export default function Downsizing() {
     <section className="ds-help"><div className="ds-help__placeholder"><div className="ds-portrait-frame"><ResponsiveImage src={maryPhoto} sizes="(max-width: 900px) 76vw, 400px" alt="Mary Lynch smiling in a warm, light-filled room" /></div></div><div className="ds-help__copy"><p className="ds-eyebrow">A coordinated network of support</p><h2>The Right Help,<br /><i>at the Right Time.</i></h2><p>Downsizing often involves more than one professional.</p><p>Depending on your situation, your plan may include:</p><ul className="ds-help__grid" role="list">{["Move managers", "Professional organizers", "Estate sale professionals", "Donation and clean-out services", "Movers", "Contractors and repair professionals", "Occupational therapists", "Home modification specialists", "55+ and senior living resources", "Elder law and estate professionals", "Financial professionals", "Home care and community resources"].map(item => <li key={item}><span><Check size={13} aria-hidden="true" />{item}</span></li>)}</ul><blockquote>My job isn’t to hand you a giant vendor list. It is to help identify which help you need, and when you need it.</blockquote></div></section>
 
     <section className="ds-not-sure"><div className="ds-not-sure__head"><p className="ds-eyebrow ds-eyebrow--gold">You can start before you decide</p><h2>Not Sure If It’s <i>Time Yet?</i></h2><p>You may be wondering whether moving would actually make life better. That is exactly the right time to start exploring your options.</p></div><ol className="ds-question-grid" role="list">{questions.map((q, i) => <li key={q}><span aria-hidden="true">0{i + 1}</span><p>{q}</p></li>)}</ol><p className="ds-not-sure__close">You do not need to decide today. You just need enough information to make a good decision when the time is right.</p><div className="ds-button-row"><ButtonLink>Schedule a Conversation</ButtonLink><ButtonLink variant="outline" href="/aging-in-place">Explore Aging in Place</ButtonLink></div></section>
+
+    <section className="ds-club-next" aria-labelledby="ds-club-next-heading">
+      <div><p className="ds-eyebrow">Coming in 2027</p><h2 id="ds-club-next-heading">Downsizers Club</h2><p>Get the schedule when dates and locations are announced.</p><ButtonLink href="/resource-center#club">Downsizers Club</ButtonLink></div>
+      <GuideLinks slugs={["what-do-i-do-with-all-this-stuff", "should-i-stay-or-should-i-go"]} />
+    </section>
 
     <DeferredBackground className="ds-final site-closing-strip" backgroundImage={`url(${paperTexture})`}>
       <div className="site-closing-strip__content">

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import DeferredBackground from "@/components/DeferredBackground";
 import AnchorLineLabel from "@/components/AnchorLineLabel";
+import GuideLinks from "@/components/GuideLinks";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { ROUTE_HERO_MEDIA } from "@/lib/routeMedia";
 import SiteFooter from "@/components/SiteFooter";
@@ -97,6 +98,7 @@ export default function AgingInPlace() {
     <section className="aip-naipc"><div className="aip-naipc__mark"><Anchor size={31} aria-hidden="true" /><span>NAIPC<br /><small>GREATER BALTIMORE</small></span></div><div><p className="aip-eyebrow">A trusted local network</p><h2>Being Connected to the Right People <i>Matters.</i></h2><p>Mary serves as <strong>Founder and Chair, National Aging in Place Council, Greater Baltimore Chapter</strong>. Through NAIPC, she works alongside professionals across the many areas that affect successful aging.</p><p>She helps families understand the bigger picture and connect with the appropriate professionals — without trying to be the lawyer, contractor, healthcare professional, financial advisor, or occupational therapist herself.</p><a className="aip-text-link" href="/contact">Ask Mary for a trusted local connection <ArrowUpRight size={16} aria-hidden="true" /></a></div></section>
 
     <DeferredBackground className="aip-adu" backgroundImage={`linear-gradient(90deg,rgba(16,42,67,.95),rgba(16,42,67,.82)),url(${paperTexture})`}><div><p className="aip-eyebrow aip-eyebrow--gold">A connected possibility</p><h2>Sometimes the Best Solution Is <i>Right in the Backyard.</i></h2></div><div><p>Accessory Dwelling Units and multigenerational living can create private but connected arrangements for a parent, adult child, caregiver, or family member.</p><p>Mary teaches continuing education on Maryland ADUs and helps families understand how these options may fit into a longer-term housing plan.</p><a className="aip-light-link" href="/contact">Ask Mary about ADU options <ArrowUpRight size={16} aria-hidden="true" /></a></div></DeferredBackground>
+    <section className="aip-guide-links" aria-label="Free aging in place guides"><GuideLinks slugs={["could-an-adu-work-for-your-family", "should-i-stay-or-should-i-go"]} /></section>
 
     <DeferredBackground className="aip-final site-closing-strip" backgroundImage={`url(${paperTexture})`}><div className="site-closing-strip__content"><div className="site-closing-strip__heading"><p className="aip-eyebrow">A clearer decision starts early</p><h2>The Goal Is Not to Stay at All Costs.<br /><i>And It Is Not to Move Before You’re Ready.</i></h2></div><div className="site-closing-strip__copy"><p>The goal is to understand your options early enough that the decision is still yours.</p><p>Whether that means making your current home safer, creating a multigenerational solution, finding a home that better fits the years ahead, or simply beginning the conversation, having a plan can make all the difference.</p></div></div></DeferredBackground>
   </main><SiteFooter currentPath="/aging-in-place" /></div>;

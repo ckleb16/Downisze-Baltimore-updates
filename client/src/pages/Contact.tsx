@@ -1,7 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
-import { SITE_CONTACT } from "@/lib/siteConfig";
 import ResponsiveImage from "@/components/ResponsiveImage";
 import { ROUTE_HERO_MEDIA } from "@/lib/routeMedia";
 import DeferredBackground from "@/components/DeferredBackground";
@@ -15,27 +14,17 @@ import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 
 const heroMedia = ROUTE_HERO_MEDIA["/contact"];
 const paperTexture = "/manus-storage/downsize-baltimore-paper-texture_268a29f4-1920w.webp";
-const calendlyUrl = SITE_CONTACT.calendlyUrl;
 const emailAddress = "mary@downsizebaltimore.com";
 
 const currentPath = "/contact";
 const conversationTopics = ["Downsizing & Moving", "Buying & Selling", "Aging in Place", "Helping a Parent or Loved One", "Exploring Housing Options", "Speaking & Education"];
-const clubTopic = "I'd like to join the Downsizers Club for free";
-const formTopics = [clubTopic, "I'm considering downsizing or moving", "I'm buying or selling a home", "I'm exploring aging in place", "I'm helping a parent or loved one", "I'm exploring housing options", "I'm looking for a trusted resource", "I'm interested in speaking or educational programs", "I'm interested in the National Aging in Place Council or community collaboration", "Something else"];
-
-function ButtonLink({ children, href = calendlyUrl, variant = "gold" }: { children: React.ReactNode; href?: string; variant?: "gold" | "outline" | "light" }) {
-  return <a className={`contact-button contact-button--${variant}`} href={href}>{children}<ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>;
-}
+const formTopics = ["I'm considering downsizing or moving", "I'm buying or selling a home", "I'm exploring aging in place", "I'm helping a parent or loved one", "I'm exploring housing options", "I'm looking for a trusted resource", "I'm interested in speaking or educational programs", "I'm interested in the National Aging in Place Council or community collaboration", "Something else"];
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
   const joiningClub = new URLSearchParams(window.location.search).get("topic") === "downsizers-club";
   useEffect(() => {
-    if (!joiningClub) return;
-    const topic = document.querySelector('.contact-form select[name="topic"]') as unknown as HTMLSelectElement | null;
-    const message = document.querySelector<HTMLTextAreaElement>('.contact-form textarea[name="message"]');
-    if (topic) topic.value = clubTopic;
-    if (message && !message.value) message.value = "I'd like to join the Downsizers Club of Baltimore for free. Please send me the next steps.";
+    if (joiningClub) window.location.replace("/resource-center#club");
   }, [joiningClub]);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -67,8 +56,7 @@ export default function Contact() {
     <SiteHeader currentPath={currentPath} />
 
     <main id="main-content" tabIndex={-1}>
-      {joiningClub && <section className="contact-club-note" aria-labelledby="contact-club-title"><h2 id="contact-club-title">Join the Downsizers Club for Free</h2><p>The note below is ready with your club request. Add your contact details, then open the email draft and send it to Mary. Membership is arranged with Mary; this page does not enroll you automatically.</p><a href="#contact-club-form">Send your request</a></section>}
-      <section className="contact-hero"><div className="contact-hero__copy"><p className="contact-eyebrow">A place to begin</p><h1>Let’s Talk About<br /><i>What Comes Next.</i></h1><div className="contact-rule" /><p>You don’t need to have all the answers before you reach out.</p><p>Whether you’re considering a move, helping someone you love, wondering if your current home still works for you, or simply trying to understand your options, let’s start with a conversation.</p><ButtonLink>Schedule a Conversation</ButtonLink><small>No pressure. No obligation. Just a place to start.</small></div><div className="contact-hero__photo"><ResponsiveImage src={heroMedia.src} sizes={heroMedia.sizes} priority alt="Mary Lynch seated in a cane chair in a bright home" /><span className="contact-hero__caption">A conversation can be the beginning.</span></div></section>
+      <section className="contact-hero"><div className="contact-hero__copy"><p className="contact-eyebrow">A place to begin</p><h1>Let’s Talk About<br /><i>What Comes Next.</i></h1><div className="contact-rule" /><p>You don’t need to have all the answers before you reach out.</p><p>Whether you’re considering a move, helping someone you love, wondering if your current home still works for you, or simply trying to understand your options, let’s start with a conversation.</p></div><div className="contact-hero__photo"><ResponsiveImage src={heroMedia.src} sizes={heroMedia.sizes} priority alt="Mary Lynch seated in a cane chair in a bright home" /><span className="contact-hero__caption">A conversation can be the beginning.</span></div></section>
 
       <section className="contact-topics"><div className="contact-section-heading"><p className="contact-eyebrow">Bring what’s on your mind</p><h2>What Can We<br /><i>Talk About?</i></h2><p>You do not have to arrive with the right words. These are simply a few of the conversations Mary often helps families begin.</p></div><ol className="contact-topic-list" role="list">{conversationTopics.map((topic, index) => <li key={topic}><span aria-hidden="true">0{index + 1}</span><p>{topic}</p></li>)}</ol></section>
 
