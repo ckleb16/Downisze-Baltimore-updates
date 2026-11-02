@@ -13,10 +13,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm ci --omit=dev
+      - run: npm ci
       - run: npm run build
+      - run: npm run check
       - run: node --experimental-strip-types scripts/test-canonical-redirects.mjs
       - run: node scripts/test-domain-redirects.mjs
       - run: node --experimental-strip-types scripts/test-performance-resources.mjs
       - run: node scripts/test-local-fonts.mjs
+      - run: node scripts/test-page-metadata.mjs
+      - run: node --experimental-strip-types scripts/test-technical-seo.mjs
+      - run: node --experimental-strip-types scripts/test-qa-repairs.mjs
+      - run: node scripts/test-audit-fixes.mjs
       - run: node scripts/test-godaddy.mjs
