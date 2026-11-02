@@ -16,6 +16,7 @@ type NativeStatement = {
 type NativeDatabase = {
   prepare(query: string): NativeStatement;
   exec(query: string): void;
+  close(): void;
 };
 
 class SqliteD1Statement {
@@ -140,6 +141,10 @@ class SqliteD1Database {
   async dump() {
     throw new Error("Database dumps are not available through the runtime adapter.");
   }
+
+  close() {
+    this.database.close();
+  }
 }
 
 const MIGRATIONS = [
@@ -147,7 +152,7 @@ const MIGRATIONS = [
   "0001_seed_sample_insight.sql",
   "0002_superb_boom_boom.sql",
   "0003_sweet_the_initiative.sql",
-  "0004_constant_contact_auth.sql",
+  "0004_signup_lists.sql",
 ] as const;
 
 function migrationSql(filename: string) {

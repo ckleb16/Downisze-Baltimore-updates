@@ -62,7 +62,7 @@ export default function ClubSignup() {
         <form className="club-form" onSubmit={handleSubmit} aria-busy={busy}>
           <div className="club-form__row">
             <label>Name <span>(required)</span><input name="name" type="text" autoComplete="name" required maxLength={100} onInput={(event) => event.currentTarget.setCustomValidity("")} /></label>
-            <label>Email address <span>(required)</span><input name="email" type="email" autoComplete="email" required maxLength={50} /></label>
+            <label>Email address <span>(required)</span><input name="email" type="email" autoComplete="email" required maxLength={254} /></label>
           </div>
           <div className="club-form__row">
             <label>Mailing address <span>(optional)</span><input name="mailingAddress" type="text" autoComplete="street-address" maxLength={300} /></label>

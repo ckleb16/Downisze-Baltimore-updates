@@ -3,7 +3,7 @@ import { createReadStream } from "node:fs";
 import { mkdir, stat, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { Readable } from "node:stream";
-import { handleConstantContact } from "./constantContact";
+import { exportSignups, saveSignup, signupSummary } from "./signupLists";
 import {
   PostConflictError,
   PostNotFoundError,
@@ -196,8 +196,8 @@ export async function handleGodaddyApi(
   const pathname = url.pathname;
 
   try {
-    if (pathname === "/api/signups" || pathname.startsWith("/api/admin/constant-contact/")) {
-      return handleConstantContact(request, env);
+    if (pathname === "/api/signups") {
+      return saveSignup(request, env.DB);
     }
 
     if (pathname === "/api/admin/login" || pathname === "/api/admin/logout") {
@@ -278,6 +278,14 @@ export async function handleGodaddyApi(
       const user = await publisherUser(request, env);
       if (!user) {
         return jsonResponse({ error: "Sign in to continue." }, request, 401);
+      }
+
+      if (pathname === "/api/admin/signups" && request.method === "GET") {
+        return signupSummary(env.DB);
+      }
+      const signupExport = pathname.match(/^\/api\/admin\/signups\/(newsletter|club)\.csv$/);
+      if (signupExport && request.method === "GET") {
+        return exportSignups(env.DB, signupExport[1] as "newsletter" | "club");
       }
 
       if (pathname === "/api/admin/password" && request.method === "POST") {

@@ -1,6 +1,6 @@
 # Client sign-ups: implementation sections
 
-Status: review branch only. Constant Contact is the chosen email service, but the account destinations and authorization are not ready. Do not merge or publish yet.
+Status: review branch. Sign-ups are stored in the website's persistent database and exported as CSV files from the private publisher dashboard. There is no Constant Contact API connection or webhook.
 
 ## 1. Free guides and optional Anchored Home invitation
 
@@ -24,28 +24,19 @@ Status: review branch only. Constant Contact is the chosen email service, but th
 - Keep the header's `Talk to Mary` action.
 - Downsizing links to the Club section and the two specified guides. Aging in Place links to the ADU and Stay/Go guides. Resource Center already lists all three guides. Buying & Selling keeps its booking path. Meet Mary gets the shared footer subscription form. Contact retains its main inquiry form without the old Club prefill or a competing hero booking button.
 
-## 4. Constant Contact connection
+## 4. Private lists and CSV exports
 
-The server now has a Constant Contact V3 integration. It rejects requests until all destination IDs and an authorized account connection are configured. It reports success only after Constant Contact accepts the contact and (for Club interest) the tagging activity request. The UI branch is **not ready for production**.
+Submitting a form saves it in the app's persistent database. The `/publisher` dashboard shows an Anchored Home list and a Downsizers Club list, with counts, recent names, and separate CSV download buttons. Only a signed-in publisher can access the lists or exports. No email is sent automatically.
 
-The owner has said an existing, informal newsletter list exists but cannot provide its exact name yet; there is no Club list. Before launch:
+- Newsletter submissions go to the Anchored Home list.
+- Club submissions go to the Club list with all optional answers. If the separate newsletter checkbox is checked, the same address also enters the Anchored Home list. If unchecked, Club submission does not add a newsletter entry.
+- Repeated submissions update the existing row for that email rather than create duplicate CSV rows. The original sign-up date remains available.
+- CSV exports include all rows, with UTF-8 encoding and spreadsheet formula injection protection. The Club export includes the newsletter choice. CSVs are generated on demand, not written to a public file.
+- The guide PDFs still open immediately and require no sign-up.
 
-1. Confirm which existing Constant Contact list is **The Anchored Home** destination. Do not guess from the account's other lists.
-2. Create a separate `Downsizers Club` list and tag. Create six contact custom fields for signup source, mailing address, timing, planning for, part of town, and time of day. Use text fields that can store the site's answers. Record their IDs.
-3. Create a Constant Contact V3 OAuth app with `contact_data` and `offline_access` scope. Register the exact HTTPS redirect URI shown in `.env.example`. Add the credentials and list/tag/field IDs to GoDaddy's private environment settings; do not commit values or paste secrets into chat.
-4. Sign in to the site's publisher account and visit `/api/admin/constant-contact/connect` on the live domain. Authorize Mary's Constant Contact account. Access and refresh tokens are kept in the app's persistent private database; refresh-token rotation is saved there.
-5. Approve the form consent/privacy presentation and confirm Constant Contact's Confirmed Opt-In setting before enabling public signups. The sign-up endpoint can give explicit permission to an address that was previously unsubscribed, so the account setting and real consent must be reviewed.
-6. Complete a supervised end-to-end test with owner-controlled addresses only. Check newsletter, Club only, Club plus newsletter, repeat submission, and a failed provider response. Confirm the Club tag activity completes and every optional answer appears in Constant Contact.
+Mary can manually import the Anchored Home CSV into the correct Constant Contact list after she identifies it. The Club CSV can be kept as a schedule-interest list or imported separately when a Club list is created. Importing a CSV is a manual action; the site does not synchronize contacts, handle unsubscribes, or send the schedule.
 
-The server does not send a schedule automatically. It puts Club contacts on the dedicated list and requests the tag so Mary can send the 2027 schedule when it is ready. The guide PDFs remain free and open immediately regardless of signup.
-
-Expected delivery behavior:
-
-1. Newsletter sign-ups from the guide box and footer reach The Anchored Home list once, with source attribution.
-2. Club sign-ups reach the `Downsizers Club` segment with optional answers intact.
-3. Club sign-ups reach The Anchored Home only when its separate checkbox is checked.
-4. Duplicate addresses, provider errors, retries, and unsubscribed addresses follow that platform's rules. No API key is exposed to browser code or committed to Git.
-5. No real person's address is used in test submissions. Production launch waits for an owner-supervised end-to-end test.
+The GoDaddy `APP_DATA_DIR` must remain persistent across publishes. The existing publisher sign-in remains required for CSV downloads. For a launch check, use owner-controlled email addresses only and verify the list counts, CSV contents, duplicate behavior, and the separate newsletter choice before importing anything into Constant Contact.
 
 ## Review gates
 

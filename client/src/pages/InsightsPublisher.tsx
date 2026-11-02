@@ -61,6 +61,48 @@ function formFromPost(post: InsightPost): EditorForm {
   };
 }
 
+type SignupListSummary = {
+  count: number;
+  recent: { name: string; email: string; createdAt: number }[];
+};
+
+function SignupExports() {
+  const [lists, setLists] = useState<{ newsletter: SignupListSummary; club: SignupListSummary } | null>(null);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let active = true;
+    void insightsRequest<{ newsletter: SignupListSummary; club: SignupListSummary }>("/api/admin/signups")
+      .then((result) => { if (active) setLists(result); })
+      .catch(() => { if (active) setError("The sign-up lists could not be loaded. Please refresh this page."); });
+    return () => { active = false; };
+  }, []);
+
+  return (
+    <section className="publisher-signups" aria-labelledby="publisher-signups-heading">
+      <div className="publisher-signups__heading">
+        <div><p className="publisher-eyebrow">Private lists</p><h2 id="publisher-signups-heading">Sign-ups</h2></div>
+        <p>Download a CSV to work with these contacts. No emails are sent automatically.</p>
+      </div>
+      {error && <p role="alert">{error}</p>}
+      {!lists && !error && <p role="status">Loading sign-ups…</p>}
+      {lists && <div className="publisher-signups__grid">
+        {(["newsletter", "club"] as const).map((list) => (
+          <div className="publisher-signups__list" key={list}>
+            <div className="publisher-signups__list-heading">
+              <div><h3>{list === "newsletter" ? "The Anchored Home" : "Downsizers Club"}</h3><p>{lists[list].count} {lists[list].count === 1 ? "person" : "people"}</p></div>
+              <a href={`/api/admin/signups/${list}.csv`} download>Download CSV</a>
+            </div>
+            {lists[list].recent.length > 0 ? <ul>
+              {lists[list].recent.map((entry) => <li key={entry.email}><span>{entry.name}<small>{entry.email}</small></span><time dateTime={new Date(entry.createdAt).toISOString()}>{new Date(entry.createdAt).toLocaleDateString()}</time></li>)}
+            </ul> : <p className="publisher-signups__empty">No sign-ups yet.</p>}
+          </div>
+        ))}
+      </div>}
+    </section>
+  );
+}
+
 export default function InsightsPublisher() {
   const [session, setSession] = useState<PublisherSession | null>(null);
   const [posts, setPosts] = useState<InsightPost[]>([]);
@@ -478,6 +520,7 @@ export default function InsightsPublisher() {
       </header>
 
       <main id="main-content" className="publisher-main" tabIndex={-1}>
+        <SignupExports />
         <section className="publisher-editor" aria-labelledby="publisher-heading">
           <div className="publisher-editor__heading">
             <div>
