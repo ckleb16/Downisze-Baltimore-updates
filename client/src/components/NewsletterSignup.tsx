@@ -45,7 +45,7 @@ export default function NewsletterSignup({ source, onSuccess }: Props) {
       {!signedUp && (
         <div className="signup-form__fields">
           <label>Name<input name="name" type="text" autoComplete="name" required maxLength={100} onInput={(event) => event.currentTarget.setCustomValidity("")} /></label>
-          <label>Email<input name="email" type="email" autoComplete="email" required maxLength={254} /></label>
+          <label>Email<input name="email" type="email" autoComplete="email" required maxLength={50} /></label>
           <button type="submit" disabled={busy}>Sign me up</button>
         </div>
       )}

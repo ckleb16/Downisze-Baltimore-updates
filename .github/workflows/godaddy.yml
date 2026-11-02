@@ -16,6 +16,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run check
+      - run: npx tsx scripts/test-constant-contact.ts
       - run: node --experimental-strip-types scripts/test-canonical-redirects.mjs
       - run: node scripts/test-domain-redirects.mjs
       - run: node --experimental-strip-types scripts/test-performance-resources.mjs

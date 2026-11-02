@@ -1,6 +1,6 @@
 # Client sign-ups: implementation sections
 
-Status: review branch only. Do not merge or publish while the email service is unknown.
+Status: review branch only. Constant Contact is the chosen email service, but the account destinations and authorization are not ready. Do not merge or publish yet.
 
 ## 1. Free guides and optional Anchored Home invitation
 
@@ -24,11 +24,22 @@ Status: review branch only. Do not merge or publish while the email service is u
 - Keep the header's `Talk to Mary` action.
 - Downsizing links to the Club section and the two specified guides. Aging in Place links to the ADU and Stay/Go guides. Resource Center already lists all three guides. Buying & Selling keeps its booking path. Meet Mary gets the shared footer subscription form. Contact retains its main inquiry form without the old Club prefill or a competing hero booking button.
 
-## 4. Email service connection: blocked by missing provider choice
+## 4. Constant Contact connection
 
-The website has no existing newsletter integration. `/api/signups` currently returns HTTP 503 and stores nothing. This is intentional: no visitor may see a false success message. The UI branch is **not ready for production**.
+The server now has a Constant Contact V3 integration. It rejects requests until all destination IDs and an authorized account connection are configured. It reports success only after Constant Contact accepts the contact and (for Club interest) the tagging activity request. The UI branch is **not ready for production**.
 
-Before launch, Mary or the site owner must identify the email platform and its client-owned lists/segments, grant a secure integration method, and approve the exact consent/privacy presentation. Then implement server-side delivery with the provider's API and test:
+The owner has said an existing, informal newsletter list exists but cannot provide its exact name yet; there is no Club list. Before launch:
+
+1. Confirm which existing Constant Contact list is **The Anchored Home** destination. Do not guess from the account's other lists.
+2. Create a separate `Downsizers Club` list and tag. Create six contact custom fields for signup source, mailing address, timing, planning for, part of town, and time of day. Use text fields that can store the site's answers. Record their IDs.
+3. Create a Constant Contact V3 OAuth app with `contact_data` and `offline_access` scope. Register the exact HTTPS redirect URI shown in `.env.example`. Add the credentials and list/tag/field IDs to GoDaddy's private environment settings; do not commit values or paste secrets into chat.
+4. Sign in to the site's publisher account and visit `/api/admin/constant-contact/connect` on the live domain. Authorize Mary's Constant Contact account. Access and refresh tokens are kept in the app's persistent private database; refresh-token rotation is saved there.
+5. Approve the form consent/privacy presentation and confirm Constant Contact's Confirmed Opt-In setting before enabling public signups. The sign-up endpoint can give explicit permission to an address that was previously unsubscribed, so the account setting and real consent must be reviewed.
+6. Complete a supervised end-to-end test with owner-controlled addresses only. Check newsletter, Club only, Club plus newsletter, repeat submission, and a failed provider response. Confirm the Club tag activity completes and every optional answer appears in Constant Contact.
+
+The server does not send a schedule automatically. It puts Club contacts on the dedicated list and requests the tag so Mary can send the 2027 schedule when it is ready. The guide PDFs remain free and open immediately regardless of signup.
+
+Expected delivery behavior:
 
 1. Newsletter sign-ups from the guide box and footer reach The Anchored Home list once, with source attribution.
 2. Club sign-ups reach the `Downsizers Club` segment with optional answers intact.

@@ -147,6 +147,7 @@ const MIGRATIONS = [
   "0001_seed_sample_insight.sql",
   "0002_superb_boom_boom.sql",
   "0003_sweet_the_initiative.sql",
+  "0004_constant_contact_auth.sql",
 ] as const;
 
 function migrationSql(filename: string) {

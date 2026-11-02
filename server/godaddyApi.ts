@@ -3,6 +3,7 @@ import { createReadStream } from "node:fs";
 import { mkdir, stat, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { Readable } from "node:stream";
+import { handleConstantContact } from "./constantContact";
 import {
   PostConflictError,
   PostNotFoundError,
@@ -195,13 +196,8 @@ export async function handleGodaddyApi(
   const pathname = url.pathname;
 
   try {
-    if (pathname === "/api/signups") {
-      if (request.method !== "POST") {
-        return jsonResponse({ error: "Use POST for this request." }, request, 405);
-      }
-      // The email platform and list identifiers have not been supplied yet.
-      // A request must never appear successful before the provider accepts it.
-      return jsonResponse({ error: "Sign-up is temporarily unavailable." }, request, 503);
+    if (pathname === "/api/signups" || pathname.startsWith("/api/admin/constant-contact/")) {
+      return handleConstantContact(request, env);
     }
 
     if (pathname === "/api/admin/login" || pathname === "/api/admin/logout") {
