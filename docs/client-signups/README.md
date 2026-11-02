@@ -2,12 +2,12 @@
 
 Status: review branch. Sign-ups are stored in the website's persistent database and exported as CSV files from the private publisher dashboard. There is no Constant Contact API connection or webhook.
 
-## 1. Free guides and optional Anchored Home invitation
+## 1. Free guides
 
 - Keep all three PDFs publicly accessible without an email field or sign-up gate.
-- The primary guide action opens the PDF in a new tab immediately; the guide page then offers the exact optional newsletter invitation supplied by Mary.
-- The invitation has Name, Email, `Sign me up`, and `No thanks, just the guide`. Closing it does not affect access to the PDF.
-- A failed sign-up must show an error, never success.
+- The primary guide action opens the PDF in a new tab immediately, without a sign-up pop-up.
+- The footer subscription form remains available for readers who want The Anchored Home.
+- A failed footer sign-up must show an error, never success.
 
 ## 2. Downsizers Club schedule interest
 
@@ -41,7 +41,7 @@ The GoDaddy `APP_DATA_DIR` must remain persistent across publishes. The existing
 ## Review gates
 
 - Confirm responsive layout, contrast, keyboard focus, and form labels at desktop and mobile sizes.
-- Confirm guide PDFs open without submitting, `No thanks` closes, and direct PDF URLs remain accessible.
+- Confirm guide PDFs open without a pop-up or form submission, and direct PDF URLs remain accessible.
 - Confirm the footer Club link lands at the form from each public page, and the old Club contact URL reaches it.
 - Run the production build and relevant existing tests. Record any baseline failures separately.
 - Recheck the current SEO implementation branch before merging so the two changes do not overwrite one another.

@@ -61,11 +61,11 @@ export default function SiteFooter({ currentPath }: SiteFooterProps) {
       </div>
       <div className="site-footer-v2__signups">
         <div className="site-footer-v2__club">
-          <p>Downsizers Club</p>
+          <p>Join Downsizers Club</p>
           <a href="/resource-center#club">Downsizers Club <ArrowUpRight size={17} aria-hidden="true" /></a>
         </div>
         <div className="site-footer-v2__newsletter">
-          <p>The Anchored Home</p>
+          <p>Subscribe to the Anchored Home</p>
           <NewsletterSignup source={canonicalPath === "/meet-mary" ? "meet-mary" : "footer"} />
         </div>
       </div>
